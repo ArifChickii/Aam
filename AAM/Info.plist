@@ -2,6 +2,38 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.1007650402025-696b37a41q55go8blncqrped8t4q1ege</string>
+			</array>
+		</dict>
+	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Jost ExtraLight Italic 250.ttf</string>
+		<string>Jost Light Italic 300.ttf</string>
+		<string>Jost Bold Italic 700.ttf</string>
+		<string>Jost ExtraBold Italic 800.ttf</string>
+		<string>Jost Light 300.ttf</string>
+		<string>Jost Black 900.ttf</string>
+		<string>Jost Italic 400.ttf</string>
+		<string>Jost ExtraBold 800.ttf</string>
+		<string>Jost SemiBold Italic 600.ttf</string>
+		<string>Jost Black Italic 900.ttf</string>
+		<string>Jost Thin Italic 250.ttf</string>
+		<string>Jost_Regular.ttf</string>
+		<string>Jost SemiBold 600.ttf</string>
+		<string>Jost ExtraLight 250.ttf</string>
+		<string>Jost Medium Italic 500.ttf</string>
+		<string>Jost Thin 250.ttf</string>
+		<string>Jost Medium 500.ttf</string>
+		<string>Jost Bold 700.ttf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -16,7 +48,7 @@
 					<key>UISceneDelegateClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
 					<key>UISceneStoryboardFile</key>
-					<string>Main</string>
+					<string>Onboarding</string>
 				</dict>
 			</array>
 		</dict>

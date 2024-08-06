@@ -7,25 +7,117 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8021AF9A2C5BBD1C00A66611 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8021AF972C5BBD1C00A66611 /* Storyboard.swift */; };
+		8021AF9E2C5BBD8E00A66611 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8021AF9D2C5BBD8E00A66611 /* Router.swift */; };
+		8021AFA32C5BBDBA00A66611 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8021AFA02C5BBDBA00A66611 /* UIView.swift */; };
+		8021AFA42C5BBDBA00A66611 /* UINav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8021AFA12C5BBDBA00A66611 /* UINav.swift */; };
+		8021AFA52C5BBDBA00A66611 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8021AFA22C5BBDBA00A66611 /* UIImageView.swift */; };
+		8021AFA92C5BBF3D00A66611 /* onBoardingPage1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8021AFA82C5BBF3D00A66611 /* onBoardingPage1.swift */; };
+		8021AFAB2C5BBF6000A66611 /* onBoardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8021AFAA2C5BBF6000A66611 /* onBoardingVC.swift */; };
+		8021AFAD2C5BBF6D00A66611 /* onBoardingPage2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8021AFAC2C5BBF6D00A66611 /* onBoardingPage2.swift */; };
+		8021AFAF2C5BBFA400A66611 /* onBoardingPage3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8021AFAE2C5BBFA400A66611 /* onBoardingPage3.swift */; };
+		8021AFB12C5BC04500A66611 /* onBoardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8021AFB02C5BC04500A66611 /* onBoardingViewModel.swift */; };
+		8021AFB32C5BDD7400A66611 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8021AFB22C5BDD7400A66611 /* UIColor.swift */; };
+		8021AFB72C5BDDAF00A66611 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8021AFB62C5BDDAF00A66611 /* Constants.swift */; };
+		8021AFB92C5BDE3B00A66611 /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8021AFB82C5BDE3B00A66611 /* ColorConstants.swift */; };
+		8021AFBF2C5C23DB00A66611 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8021AFBE2C5C23DB00A66611 /* Authentication.storyboard */; };
+		8021AFC12C5C2A7400A66611 /* AuthenticationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8021AFC02C5C2A7400A66611 /* AuthenticationVC.swift */; };
+		80B320472C61099400359714 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 80B320462C61099400359714 /* GoogleService-Info.plist */; };
+		80B320492C61234A00359714 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B320482C61234A00359714 /* AuthenticationViewModel.swift */; };
+		80B3204B2C61252A00359714 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B3204A2C61252A00359714 /* Helper.swift */; };
+		80B3204D2C6128F000359714 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B3204C2C6128F000359714 /* Reachability.swift */; };
+		80B320752C6157AB00359714 /* Pods_AAM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80B320742C6157AB00359714 /* Pods_AAM.framework */; };
 		80E8C3B12C5AC3BD0087F009 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E8C3B02C5AC3BD0087F009 /* AppDelegate.swift */; };
 		80E8C3B32C5AC3BD0087F009 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E8C3B22C5AC3BD0087F009 /* SceneDelegate.swift */; };
 		80E8C3B52C5AC3BD0087F009 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E8C3B42C5AC3BD0087F009 /* ViewController.swift */; };
-		80E8C3B82C5AC3BD0087F009 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3B62C5AC3BD0087F009 /* Main.storyboard */; };
 		80E8C3BB2C5AC3BD0087F009 /* AAM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 80E8C3B92C5AC3BD0087F009 /* AAM.xcdatamodeld */; };
 		80E8C3BD2C5AC3BD0087F009 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3BC2C5AC3BD0087F009 /* Assets.xcassets */; };
 		80E8C3C02C5AC3BD0087F009 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3BE2C5AC3BD0087F009 /* LaunchScreen.storyboard */; };
+		80E8C3EA2C5AC5810087F009 /* Almarai-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3D12C5AC5810087F009 /* Almarai-Bold.ttf */; };
+		80E8C3EB2C5AC5810087F009 /* Almarai-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3D22C5AC5810087F009 /* Almarai-ExtraBold.ttf */; };
+		80E8C3EC2C5AC5810087F009 /* Almarai-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3D32C5AC5810087F009 /* Almarai-Regular.ttf */; };
+		80E8C3ED2C5AC5810087F009 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3D42C5AC5810087F009 /* OFL.txt */; };
+		80E8C3EE2C5AC5810087F009 /* Almarai-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3D52C5AC5810087F009 /* Almarai-Light.ttf */; };
+		80E8C3EF2C5AC5810087F009 /* Jost ExtraLight Italic 250.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3D72C5AC5810087F009 /* Jost ExtraLight Italic 250.ttf */; };
+		80E8C3F02C5AC5810087F009 /* Jost Light Italic 300.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3D82C5AC5810087F009 /* Jost Light Italic 300.ttf */; };
+		80E8C3F12C5AC5810087F009 /* Jost Bold Italic 700.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3D92C5AC5810087F009 /* Jost Bold Italic 700.ttf */; };
+		80E8C3F22C5AC5810087F009 /* Jost ExtraBold Italic 800.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3DA2C5AC5810087F009 /* Jost ExtraBold Italic 800.ttf */; };
+		80E8C3F32C5AC5810087F009 /* Jost Light 300.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3DB2C5AC5810087F009 /* Jost Light 300.ttf */; };
+		80E8C3F42C5AC5810087F009 /* Jost Black 900.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3DC2C5AC5810087F009 /* Jost Black 900.ttf */; };
+		80E8C3F52C5AC5810087F009 /* Jost Italic 400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3DD2C5AC5810087F009 /* Jost Italic 400.ttf */; };
+		80E8C3F62C5AC5810087F009 /* Jost ExtraBold 800.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3DE2C5AC5810087F009 /* Jost ExtraBold 800.ttf */; };
+		80E8C3F72C5AC5810087F009 /* Jost SemiBold Italic 600.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3DF2C5AC5810087F009 /* Jost SemiBold Italic 600.ttf */; };
+		80E8C3F82C5AC5810087F009 /* Jost Black Italic 900.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3E02C5AC5810087F009 /* Jost Black Italic 900.ttf */; };
+		80E8C3F92C5AC5810087F009 /* Jost Thin Italic 250.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3E12C5AC5810087F009 /* Jost Thin Italic 250.ttf */; };
+		80E8C3FA2C5AC5810087F009 /* Jost_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3E22C5AC5810087F009 /* Jost_Regular.ttf */; };
+		80E8C3FB2C5AC5810087F009 /* Jost SemiBold 600.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3E32C5AC5810087F009 /* Jost SemiBold 600.ttf */; };
+		80E8C3FC2C5AC5810087F009 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3E42C5AC5810087F009 /* README.txt */; };
+		80E8C3FD2C5AC5810087F009 /* Jost ExtraLight 250.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3E52C5AC5810087F009 /* Jost ExtraLight 250.ttf */; };
+		80E8C3FE2C5AC5810087F009 /* Jost Medium Italic 500.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3E62C5AC5810087F009 /* Jost Medium Italic 500.ttf */; };
+		80E8C3FF2C5AC5810087F009 /* Jost Thin 250.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3E72C5AC5810087F009 /* Jost Thin 250.ttf */; };
+		80E8C4002C5AC5810087F009 /* Jost Medium 500.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3E82C5AC5810087F009 /* Jost Medium 500.ttf */; };
+		80E8C4012C5AC5810087F009 /* Jost Bold 700.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3E92C5AC5810087F009 /* Jost Bold 700.ttf */; };
+		80E8C4032C5AC8470087F009 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C4022C5AC8470087F009 /* Onboarding.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3275732595CC7EB88AE2F3A1 /* Pods_AAM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AAM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		800E87476DE32EF5686AD813 /* Pods-AAM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AAM.debug.xcconfig"; path = "Target Support Files/Pods-AAM/Pods-AAM.debug.xcconfig"; sourceTree = "<group>"; };
+		8021AF972C5BBD1C00A66611 /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
+		8021AF9D2C5BBD8E00A66611 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		8021AFA02C5BBDBA00A66611 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		8021AFA12C5BBDBA00A66611 /* UINav.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINav.swift; sourceTree = "<group>"; };
+		8021AFA22C5BBDBA00A66611 /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		8021AFA82C5BBF3D00A66611 /* onBoardingPage1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onBoardingPage1.swift; sourceTree = "<group>"; };
+		8021AFAA2C5BBF6000A66611 /* onBoardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onBoardingVC.swift; sourceTree = "<group>"; };
+		8021AFAC2C5BBF6D00A66611 /* onBoardingPage2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onBoardingPage2.swift; sourceTree = "<group>"; };
+		8021AFAE2C5BBFA400A66611 /* onBoardingPage3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onBoardingPage3.swift; sourceTree = "<group>"; };
+		8021AFB02C5BC04500A66611 /* onBoardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onBoardingViewModel.swift; sourceTree = "<group>"; };
+		8021AFB22C5BDD7400A66611 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		8021AFB62C5BDDAF00A66611 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8021AFB82C5BDE3B00A66611 /* ColorConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
+		8021AFBE2C5C23DB00A66611 /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
+		8021AFC02C5C2A7400A66611 /* AuthenticationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationVC.swift; sourceTree = "<group>"; };
+		80B320462C61099400359714 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		80B320482C61234A00359714 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		80B3204A2C61252A00359714 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		80B3204C2C6128F000359714 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		80B3204E2C61338200359714 /* CoreAudioTypes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudioTypes.framework; path = System/Library/Frameworks/CoreAudioTypes.framework; sourceTree = SDKROOT; };
+		80B320742C6157AB00359714 /* Pods_AAM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_AAM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80E8C3AD2C5AC3BD0087F009 /* AAM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AAM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80E8C3B02C5AC3BD0087F009 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80E8C3B22C5AC3BD0087F009 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		80E8C3B42C5AC3BD0087F009 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		80E8C3B72C5AC3BD0087F009 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		80E8C3BA2C5AC3BD0087F009 /* AAM.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AAM.xcdatamodel; sourceTree = "<group>"; };
 		80E8C3BC2C5AC3BD0087F009 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		80E8C3BF2C5AC3BD0087F009 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		80E8C3C12C5AC3BD0087F009 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		80E8C3D12C5AC5810087F009 /* Almarai-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Bold.ttf"; sourceTree = "<group>"; };
+		80E8C3D22C5AC5810087F009 /* Almarai-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-ExtraBold.ttf"; sourceTree = "<group>"; };
+		80E8C3D32C5AC5810087F009 /* Almarai-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Regular.ttf"; sourceTree = "<group>"; };
+		80E8C3D42C5AC5810087F009 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		80E8C3D52C5AC5810087F009 /* Almarai-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Light.ttf"; sourceTree = "<group>"; };
+		80E8C3D72C5AC5810087F009 /* Jost ExtraLight Italic 250.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost ExtraLight Italic 250.ttf"; sourceTree = "<group>"; };
+		80E8C3D82C5AC5810087F009 /* Jost Light Italic 300.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost Light Italic 300.ttf"; sourceTree = "<group>"; };
+		80E8C3D92C5AC5810087F009 /* Jost Bold Italic 700.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost Bold Italic 700.ttf"; sourceTree = "<group>"; };
+		80E8C3DA2C5AC5810087F009 /* Jost ExtraBold Italic 800.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost ExtraBold Italic 800.ttf"; sourceTree = "<group>"; };
+		80E8C3DB2C5AC5810087F009 /* Jost Light 300.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost Light 300.ttf"; sourceTree = "<group>"; };
+		80E8C3DC2C5AC5810087F009 /* Jost Black 900.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost Black 900.ttf"; sourceTree = "<group>"; };
+		80E8C3DD2C5AC5810087F009 /* Jost Italic 400.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost Italic 400.ttf"; sourceTree = "<group>"; };
+		80E8C3DE2C5AC5810087F009 /* Jost ExtraBold 800.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost ExtraBold 800.ttf"; sourceTree = "<group>"; };
+		80E8C3DF2C5AC5810087F009 /* Jost SemiBold Italic 600.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost SemiBold Italic 600.ttf"; sourceTree = "<group>"; };
+		80E8C3E02C5AC5810087F009 /* Jost Black Italic 900.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost Black Italic 900.ttf"; sourceTree = "<group>"; };
+		80E8C3E12C5AC5810087F009 /* Jost Thin Italic 250.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost Thin Italic 250.ttf"; sourceTree = "<group>"; };
+		80E8C3E22C5AC5810087F009 /* Jost_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Jost_Regular.ttf; sourceTree = "<group>"; };
+		80E8C3E32C5AC5810087F009 /* Jost SemiBold 600.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost SemiBold 600.ttf"; sourceTree = "<group>"; };
+		80E8C3E42C5AC5810087F009 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		80E8C3E52C5AC5810087F009 /* Jost ExtraLight 250.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost ExtraLight 250.ttf"; sourceTree = "<group>"; };
+		80E8C3E62C5AC5810087F009 /* Jost Medium Italic 500.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost Medium Italic 500.ttf"; sourceTree = "<group>"; };
+		80E8C3E72C5AC5810087F009 /* Jost Thin 250.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost Thin 250.ttf"; sourceTree = "<group>"; };
+		80E8C3E82C5AC5810087F009 /* Jost Medium 500.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost Medium 500.ttf"; sourceTree = "<group>"; };
+		80E8C3E92C5AC5810087F009 /* Jost Bold 700.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost Bold 700.ttf"; sourceTree = "<group>"; };
+		80E8C4022C5AC8470087F009 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		8C0A0CC8D366810BAF79CE09 /* Pods-AAM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AAM.release.xcconfig"; path = "Target Support Files/Pods-AAM/Pods-AAM.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +125,112 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80B320752C6157AB00359714 /* Pods_AAM.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		217418C74A29D5606B14237B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				80B320742C6157AB00359714 /* Pods_AAM.framework */,
+				80B3204E2C61338200359714 /* CoreAudioTypes.framework */,
+				3275732595CC7EB88AE2F3A1 /* Pods_AAM.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7414B5D44634DC8E7B77E7E2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				800E87476DE32EF5686AD813 /* Pods-AAM.debug.xcconfig */,
+				8C0A0CC8D366810BAF79CE09 /* Pods-AAM.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8021AF942C5BBCD900A66611 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				80E8C3BE2C5AC3BD0087F009 /* LaunchScreen.storyboard */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		8021AF952C5BBCFB00A66611 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				80B3204C2C6128F000359714 /* Reachability.swift */,
+				8021AF972C5BBD1C00A66611 /* Storyboard.swift */,
+				8021AFB62C5BDDAF00A66611 /* Constants.swift */,
+				8021AFB82C5BDE3B00A66611 /* ColorConstants.swift */,
+				80B3204A2C61252A00359714 /* Helper.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		8021AF9C2C5BBD7900A66611 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				8021AF9D2C5BBD8E00A66611 /* Router.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		8021AF9F2C5BBDBA00A66611 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8021AFA02C5BBDBA00A66611 /* UIView.swift */,
+				8021AFA12C5BBDBA00A66611 /* UINav.swift */,
+				8021AFA22C5BBDBA00A66611 /* UIImageView.swift */,
+				8021AFB22C5BDD7400A66611 /* UIColor.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8021AFBA2C5C231100A66611 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				8021AFBD2C5C23CC00A66611 /* View */,
+				8021AFBC2C5C23C400A66611 /* Model */,
+				8021AFBB2C5C23BC00A66611 /* ViewModel */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		8021AFBB2C5C23BC00A66611 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				80B320482C61234A00359714 /* AuthenticationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8021AFBC2C5C23C400A66611 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8021AFBD2C5C23CC00A66611 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8021AFBE2C5C23DB00A66611 /* Authentication.storyboard */,
+				8021AFC02C5C2A7400A66611 /* AuthenticationVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		80E8C3A42C5AC3BC0087F009 = {
 			isa = PBXGroup;
 			children = (
 				80E8C3AF2C5AC3BD0087F009 /* AAM */,
 				80E8C3AE2C5AC3BD0087F009 /* Products */,
+				7414B5D44634DC8E7B77E7E2 /* Pods */,
+				217418C74A29D5606B14237B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,16 +245,139 @@
 		80E8C3AF2C5AC3BD0087F009 /* AAM */ = {
 			isa = PBXGroup;
 			children = (
-				80E8C3B02C5AC3BD0087F009 /* AppDelegate.swift */,
-				80E8C3B22C5AC3BD0087F009 /* SceneDelegate.swift */,
+				80E8C3C72C5AC5000087F009 /* Modules */,
+				8021AF9F2C5BBDBA00A66611 /* Extensions */,
+				8021AF9C2C5BBD7900A66611 /* Router */,
+				8021AF952C5BBCFB00A66611 /* Utility */,
+				8021AF942C5BBCD900A66611 /* LaunchScreen */,
+				80E8C3CE2C5AC55B0087F009 /* Fonts */,
+				80E8C3C82C5AC50E0087F009 /* Delegates */,
+				80E8C3CF2C5AC5810087F009 /* Fonts */,
 				80E8C3B42C5AC3BD0087F009 /* ViewController.swift */,
-				80E8C3B62C5AC3BD0087F009 /* Main.storyboard */,
 				80E8C3BC2C5AC3BD0087F009 /* Assets.xcassets */,
-				80E8C3BE2C5AC3BD0087F009 /* LaunchScreen.storyboard */,
+				80B320462C61099400359714 /* GoogleService-Info.plist */,
 				80E8C3C12C5AC3BD0087F009 /* Info.plist */,
 				80E8C3B92C5AC3BD0087F009 /* AAM.xcdatamodeld */,
 			);
 			path = AAM;
+			sourceTree = "<group>";
+		};
+		80E8C3C72C5AC5000087F009 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				8021AFBA2C5C231100A66611 /* Authentication */,
+				80E8C3C92C5AC5190087F009 /* Onboarding */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		80E8C3C82C5AC50E0087F009 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				80E8C3B02C5AC3BD0087F009 /* AppDelegate.swift */,
+				80E8C3B22C5AC3BD0087F009 /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		80E8C3C92C5AC5190087F009 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				80E8C3CC2C5AC53A0087F009 /* ViewModel */,
+				80E8C3CB2C5AC5340087F009 /* Model */,
+				80E8C3CA2C5AC52E0087F009 /* View */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		80E8C3CA2C5AC52E0087F009 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				80E8C3CD2C5AC5450087F009 /* Controller */,
+				80E8C4022C5AC8470087F009 /* Onboarding.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		80E8C3CB2C5AC5340087F009 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		80E8C3CC2C5AC53A0087F009 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8021AFB02C5BC04500A66611 /* onBoardingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		80E8C3CD2C5AC5450087F009 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8021AFA82C5BBF3D00A66611 /* onBoardingPage1.swift */,
+				8021AFAA2C5BBF6000A66611 /* onBoardingVC.swift */,
+				8021AFAC2C5BBF6D00A66611 /* onBoardingPage2.swift */,
+				8021AFAE2C5BBFA400A66611 /* onBoardingPage3.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		80E8C3CE2C5AC55B0087F009 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		80E8C3CF2C5AC5810087F009 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				80E8C3D02C5AC5810087F009 /* Almarai */,
+				80E8C3D62C5AC5810087F009 /* Jost_Font_Family_(Fontmirror) */,
+			);
+			name = Fonts;
+			path = ../../backups/kbs/kharchabookPRODUCTIONLATEST/kharchabook/Fonts;
+			sourceTree = "<group>";
+		};
+		80E8C3D02C5AC5810087F009 /* Almarai */ = {
+			isa = PBXGroup;
+			children = (
+				80E8C3D12C5AC5810087F009 /* Almarai-Bold.ttf */,
+				80E8C3D22C5AC5810087F009 /* Almarai-ExtraBold.ttf */,
+				80E8C3D32C5AC5810087F009 /* Almarai-Regular.ttf */,
+				80E8C3D42C5AC5810087F009 /* OFL.txt */,
+				80E8C3D52C5AC5810087F009 /* Almarai-Light.ttf */,
+			);
+			path = Almarai;
+			sourceTree = "<group>";
+		};
+		80E8C3D62C5AC5810087F009 /* Jost_Font_Family_(Fontmirror) */ = {
+			isa = PBXGroup;
+			children = (
+				80E8C3D72C5AC5810087F009 /* Jost ExtraLight Italic 250.ttf */,
+				80E8C3D82C5AC5810087F009 /* Jost Light Italic 300.ttf */,
+				80E8C3D92C5AC5810087F009 /* Jost Bold Italic 700.ttf */,
+				80E8C3DA2C5AC5810087F009 /* Jost ExtraBold Italic 800.ttf */,
+				80E8C3DB2C5AC5810087F009 /* Jost Light 300.ttf */,
+				80E8C3DC2C5AC5810087F009 /* Jost Black 900.ttf */,
+				80E8C3DD2C5AC5810087F009 /* Jost Italic 400.ttf */,
+				80E8C3DE2C5AC5810087F009 /* Jost ExtraBold 800.ttf */,
+				80E8C3DF2C5AC5810087F009 /* Jost SemiBold Italic 600.ttf */,
+				80E8C3E02C5AC5810087F009 /* Jost Black Italic 900.ttf */,
+				80E8C3E12C5AC5810087F009 /* Jost Thin Italic 250.ttf */,
+				80E8C3E22C5AC5810087F009 /* Jost_Regular.ttf */,
+				80E8C3E32C5AC5810087F009 /* Jost SemiBold 600.ttf */,
+				80E8C3E42C5AC5810087F009 /* README.txt */,
+				80E8C3E52C5AC5810087F009 /* Jost ExtraLight 250.ttf */,
+				80E8C3E62C5AC5810087F009 /* Jost Medium Italic 500.ttf */,
+				80E8C3E72C5AC5810087F009 /* Jost Thin 250.ttf */,
+				80E8C3E82C5AC5810087F009 /* Jost Medium 500.ttf */,
+				80E8C3E92C5AC5810087F009 /* Jost Bold 700.ttf */,
+			);
+			path = "Jost_Font_Family_(Fontmirror)";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +387,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 80E8C3C42C5AC3BD0087F009 /* Build configuration list for PBXNativeTarget "AAM" */;
 			buildPhases = (
+				C3F50B2F2C19C3392D403F69 /* [CP] Check Pods Manifest.lock */,
 				80E8C3A92C5AC3BD0087F009 /* Sources */,
 				80E8C3AA2C5AC3BD0087F009 /* Frameworks */,
 				80E8C3AB2C5AC3BD0087F009 /* Resources */,
+				F664B98D7BDBAB96D18E6798 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -128,13 +440,81 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80E8C3F02C5AC5810087F009 /* Jost Light Italic 300.ttf in Resources */,
+				80E8C3ED2C5AC5810087F009 /* OFL.txt in Resources */,
+				80E8C3FE2C5AC5810087F009 /* Jost Medium Italic 500.ttf in Resources */,
+				80E8C3FC2C5AC5810087F009 /* README.txt in Resources */,
+				80E8C3EE2C5AC5810087F009 /* Almarai-Light.ttf in Resources */,
 				80E8C3C02C5AC3BD0087F009 /* LaunchScreen.storyboard in Resources */,
+				80E8C3EA2C5AC5810087F009 /* Almarai-Bold.ttf in Resources */,
+				80E8C3FF2C5AC5810087F009 /* Jost Thin 250.ttf in Resources */,
+				8021AFBF2C5C23DB00A66611 /* Authentication.storyboard in Resources */,
+				80E8C3FA2C5AC5810087F009 /* Jost_Regular.ttf in Resources */,
+				80E8C3F12C5AC5810087F009 /* Jost Bold Italic 700.ttf in Resources */,
+				80E8C3EF2C5AC5810087F009 /* Jost ExtraLight Italic 250.ttf in Resources */,
+				80E8C4032C5AC8470087F009 /* Onboarding.storyboard in Resources */,
+				80E8C3F52C5AC5810087F009 /* Jost Italic 400.ttf in Resources */,
+				80E8C3F72C5AC5810087F009 /* Jost SemiBold Italic 600.ttf in Resources */,
 				80E8C3BD2C5AC3BD0087F009 /* Assets.xcassets in Resources */,
-				80E8C3B82C5AC3BD0087F009 /* Main.storyboard in Resources */,
+				80E8C3F32C5AC5810087F009 /* Jost Light 300.ttf in Resources */,
+				80E8C3F22C5AC5810087F009 /* Jost ExtraBold Italic 800.ttf in Resources */,
+				80E8C4012C5AC5810087F009 /* Jost Bold 700.ttf in Resources */,
+				80E8C3F92C5AC5810087F009 /* Jost Thin Italic 250.ttf in Resources */,
+				80E8C3F42C5AC5810087F009 /* Jost Black 900.ttf in Resources */,
+				80E8C3F82C5AC5810087F009 /* Jost Black Italic 900.ttf in Resources */,
+				80E8C3EB2C5AC5810087F009 /* Almarai-ExtraBold.ttf in Resources */,
+				80E8C3FD2C5AC5810087F009 /* Jost ExtraLight 250.ttf in Resources */,
+				80B320472C61099400359714 /* GoogleService-Info.plist in Resources */,
+				80E8C3EC2C5AC5810087F009 /* Almarai-Regular.ttf in Resources */,
+				80E8C4002C5AC5810087F009 /* Jost Medium 500.ttf in Resources */,
+				80E8C3F62C5AC5810087F009 /* Jost ExtraBold 800.ttf in Resources */,
+				80E8C3FB2C5AC5810087F009 /* Jost SemiBold 600.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C3F50B2F2C19C3392D403F69 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AAM-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F664B98D7BDBAB96D18E6798 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AAM/Pods-AAM-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AAM/Pods-AAM-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AAM/Pods-AAM-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		80E8C3A92C5AC3BD0087F009 /* Sources */ = {
@@ -142,23 +522,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				80E8C3B52C5AC3BD0087F009 /* ViewController.swift in Sources */,
+				8021AFB72C5BDDAF00A66611 /* Constants.swift in Sources */,
+				80B320492C61234A00359714 /* AuthenticationViewModel.swift in Sources */,
+				8021AFC12C5C2A7400A66611 /* AuthenticationVC.swift in Sources */,
+				8021AFB92C5BDE3B00A66611 /* ColorConstants.swift in Sources */,
+				8021AFA52C5BBDBA00A66611 /* UIImageView.swift in Sources */,
+				8021AFA42C5BBDBA00A66611 /* UINav.swift in Sources */,
+				80B3204B2C61252A00359714 /* Helper.swift in Sources */,
+				8021AFAF2C5BBFA400A66611 /* onBoardingPage3.swift in Sources */,
+				8021AFB32C5BDD7400A66611 /* UIColor.swift in Sources */,
 				80E8C3B12C5AC3BD0087F009 /* AppDelegate.swift in Sources */,
+				8021AFA92C5BBF3D00A66611 /* onBoardingPage1.swift in Sources */,
 				80E8C3B32C5AC3BD0087F009 /* SceneDelegate.swift in Sources */,
+				8021AFAD2C5BBF6D00A66611 /* onBoardingPage2.swift in Sources */,
+				80B3204D2C6128F000359714 /* Reachability.swift in Sources */,
+				8021AFA32C5BBDBA00A66611 /* UIView.swift in Sources */,
+				8021AFB12C5BC04500A66611 /* onBoardingViewModel.swift in Sources */,
+				8021AF9A2C5BBD1C00A66611 /* Storyboard.swift in Sources */,
+				8021AF9E2C5BBD8E00A66611 /* Router.swift in Sources */,
 				80E8C3BB2C5AC3BD0087F009 /* AAM.xcdatamodeld in Sources */,
+				8021AFAB2C5BBF6000A66611 /* onBoardingVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		80E8C3B62C5AC3BD0087F009 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				80E8C3B72C5AC3BD0087F009 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		80E8C3BE2C5AC3BD0087F009 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -291,57 +680,80 @@
 		};
 		80E8C3C52C5AC3BD0087F009 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 800E87476DE32EF5686AD813 /* Pods-AAM.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = DGGL8DFRFY;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks/",
+					"$(PROJECT_DIR)/Pods/",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AAM/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Onboarding;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = SolTech.AAM;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chickii1.aam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		80E8C3C62C5AC3BD0087F009 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C0A0CC8D366810BAF79CE09 /* Pods-AAM.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = DGGL8DFRFY;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/",
+					"$(PROJECT_DIR)/Frameworks/",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AAM/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Onboarding;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = SolTech.AAM;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chickii1.aam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

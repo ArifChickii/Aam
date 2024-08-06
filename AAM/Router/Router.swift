@@ -10,22 +10,14 @@ import UIKit
 
 class Router {
     
-    static func showDashboard(from currentVC: UIViewController) {
-        let vc = DashboardVC.instantiate(storyBoardName: "Dashboard")
+   
+    
+    static func showAuthenticationVC(from currentVC: UIViewController) {
+        let vc = AuthenticationVC.instantiate(storyBoardName: "Authentication")
         currentVC.navigationController?.pushViewController(vc, animated: true)
     }
     
-    static func showCourseDetail(from currentVC: UIViewController, courseObj: CourseModel) {
-        let vc = CourseDetailVC.instantiate(storyBoardName: "CourseDetail")
-        vc.courseObj = courseObj
-        currentVC.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    static func showSampleVC(from currentVC: UIViewController) {
-        let vc = SampleVC.instantiate(storyBoardName: "Sample")
-        currentVC.navigationController?.pushViewController(vc, animated: true)
-    }
-    
+
     static func pop(from currentVC: UIViewController) {
         currentVC.navigationController?.popViewController(animated: true)
     }
