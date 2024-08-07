@@ -100,6 +100,9 @@
                                                         <real key="value" value="12"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="appleSignUpAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="cI6-oT-muN"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -117,6 +120,14 @@
                                     <constraint firstItem="wvb-uP-PKd" firstAttribute="centerX" secondItem="POK-4d-JJ5" secondAttribute="centerX" id="zhy-j1-u5q"/>
                                 </constraints>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9s0-aC-Obg" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                <rect key="frame" x="171.66666666666666" y="401" width="50" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="a7h-wr-x2F"/>
+                                    <constraint firstAttribute="height" constant="50" id="fu8-DW-RRg"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -128,10 +139,13 @@
                             <constraint firstItem="POK-4d-JJ5" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="N7u-GA-Eks"/>
                             <constraint firstAttribute="trailing" secondItem="Vhw-md-fB5" secondAttribute="trailing" id="Pis-ba-eHS"/>
                             <constraint firstAttribute="trailing" secondItem="POK-4d-JJ5" secondAttribute="trailing" id="QWf-LF-vWe"/>
+                            <constraint firstItem="9s0-aC-Obg" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="R2N-3U-VXl"/>
+                            <constraint firstItem="9s0-aC-Obg" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="sDF-8S-e9n"/>
                             <constraint firstAttribute="bottom" secondItem="Vhw-md-fB5" secondAttribute="bottom" id="tIX-Uf-9Ri"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="9s0-aC-Obg" id="rsg-GY-ygH"/>
                         <outlet property="btnApple" destination="hZ5-AN-TO1" id="exs-lh-969"/>
                         <outlet property="btnGoogle" destination="Tl7-eo-eiG" id="amS-Su-hbS"/>
                     </connections>

@@ -92,7 +92,7 @@ extension AuthenticationVC{
         
         // Start the sign in flow!
         GIDSignIn.sharedInstance.signIn(withPresenting: self) { [unowned self] result, error in
-            if let error = error {
+            if error != nil {
               // ...
                 self.activityIndicator.stopAnimating()
               return
@@ -127,8 +127,8 @@ extension AuthenticationVC{
                     if (providers?.contains(GoogleAuthProviderID))!{
                         
 
-                        if viewModel.cases.elementsEqual("google") {
-                            self.linkTwoAccounts(pendCred: viewModel.pendingCredential, newCredential: credential)
+                        if self.viewModel.cases.elementsEqual("google") {
+                            self.linkTwoAccounts(pendCred: self.viewModel.pendingCredential, newCredential: credential)
 
                         }else{
                             self.authenticateGoogleWithFirebase(credential: credential, user: user)
@@ -217,15 +217,14 @@ extension AuthenticationVC{
                             
                             
 //                            self.moveToHome()
+                            self.activityIndicator.stopAnimating()
                             Helper.shared.showToast(message: "move to home", vc: self)
-//
-//                            self.handleUserForServerToLoginOrRegister(name: user?.displayName ?? "", email: user?.email ?? "", phone: user?.phoneNumber ?? "", uid: useruid ?? "", provider: "google.com", meta_data: meta_data, userImg: "")
-                            
+
                             
                             
                         }else{
                             self.activityIndicator.stopAnimating()
-                            print("error in linking user \(error?.localizedDescription)")
+                            print("error in linking user \(error?.localizedDescription ?? "")")
                         }
                     })
                 }
@@ -259,6 +258,7 @@ extension AuthenticationVC{
                         let user = result?.user
                         
                         let useruid = Auth.auth().currentUser?.uid
+                        self.activityIndicator.stopAnimating()
                         Helper.shared.showToast(message: "move to home", vc: self)
 //                        self.moveToHome()
                         
@@ -366,6 +366,7 @@ extension AuthenticationVC{
                 viewModel.userName = name
                 print(uuid!)
 //                self.moveToHome()
+                self.activityIndicator.stopAnimating()
                 Helper.shared.showToast(message: "move to home", vc: self)
                
             }
@@ -375,262 +376,263 @@ extension AuthenticationVC{
 
 
 ////apple part
-//extension authenticationVC{
-//
-//    func handleAppleCase(){
-//        if #available(iOS 13.0, *) {
-//
-////            self.imgSocialAccountPrev.image = UIImage.init(named: "apple")
-////            self.lblDetailPrevSocialAccount.text = "You have already created your account using email '\(self.emailSocial)'. Please enter password for the same email and continue to link your social media account."
-//            self.openAppleFlow()
-//        } else {
-//            // Fallback on earlier versions
-//            print("older version not supported in apple case")
-//        }
-//
-//    }
-//    @available(iOS 13.0, *)
-//    func openAppleFlow(){
-//        let request = self.createAppleIdRequest()
-//        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
-//        authorizationController.delegate = self
-//        authorizationController.presentationContextProvider = self
-//        authorizationController.performRequests()
-//    }
-//
-//    @available(iOS 13.0, *)
-//    @IBAction func appleSignUpAction(_ sender: UIButton){
-//
-//        //        send event log
-//
-//        self.activityIndicator.startAnimating()
-//        Events.init().signUpVia(medium: "Apple")
-//        if Reachability.isConnectedToNetwork(){
-//            print("Internet Connection Available!")
-//            self.logoutUser()
-//            if let user = Auth.auth().currentUser{
-//                print("user exist")
-//            }else{
-//                print("userLogedOut")
-//            }
-//
-//            let request = self.createAppleIdRequest()
-//            let authorizationController = ASAuthorizationController(authorizationRequests: [request])
-//            authorizationController.delegate = self
-//            authorizationController.presentationContextProvider = self
-//            authorizationController.performRequests()
-//
-//        }else{
-//            self.activityIndicator.stopAnimating()
-//            self.showToast(message: "Please connect to the internet and try again")
-//            print("Internet Connection not Available!")
-////            constant.shared.showNoInternetAlert(vc: self)
-//        }
-//
-//
-//
-//    }
-//
-//    @available(iOS 13.0, *)
-//    func createAppleIdRequest() -> ASAuthorizationAppleIDRequest{
-//        let appleIdProvider = ASAuthorizationAppleIDProvider()
-//        let request = appleIdProvider.createRequest()
-//        request.requestedScopes = [.fullName, .email]
-//
-//        let nonce = self.randomNonceString()
-//        request.nonce = sha256(nonce)
-//        self.currentNonce = nonce
-//        return request
-//    }
-//
-//
-//
-//    // Adapted from https://auth0.com/docs/api-auth/tutorials/nonce#generate-a-cryptographically-random-nonce
-//    private func randomNonceString(length: Int = 32) -> String {
-//      precondition(length > 0)
-//      let charset: Array<Character> =
-//          Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
-//      var result = ""
-//      var remainingLength = length
-//
-//      while remainingLength > 0 {
-//        let randoms: [UInt8] = (0 ..< 16).map { _ in
-//          var random: UInt8 = 0
-//          let errorCode = SecRandomCopyBytes(kSecRandomDefault, 1, &random)
-//          if errorCode != errSecSuccess {
-//            fatalError("Unable to generate nonce. SecRandomCopyBytes failed with OSStatus \(errorCode)")
-//          }
-//          return random
-//        }
-//
-//        randoms.forEach { random in
-//          if remainingLength == 0 {
-//            return
-//          }
-//
-//          if random < charset.count {
-//            result.append(charset[Int(random)])
-//            remainingLength -= 1
-//          }
-//        }
-//      }
-//
-//      return result
-//    }
-//
-//
-//    @available(iOS 13, *)
-//    private func sha256(_ input: String) -> String {
-//      let inputData = Data(input.utf8)
-//      let hashedData = SHA256.hash(data: inputData)
-//      let hashString = hashedData.compactMap {
-//        return String(format: "%02x", $0)
-//      }.joined()
-//
-//      return hashString
-//    }
-//}
-//extension authenticationVC: ASAuthorizationControllerDelegate{
-//
-//
-//    @available(iOS 13.0, *)
-//      func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-//
-//        var  appleUserName = ""
-//        var apple_email = ""
-//        if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
-//
-//            let userIdentifier = appleIDCredential.user
-//            let fullName = appleIDCredential.fullName?.givenName ?? ""
-//            let email = appleIDCredential.email
-//            print("User id is \(userIdentifier) \n Full Name is \(String(describing: fullName)) \n Email id is \(String(describing: email))")
-//            appleUserName =  "\(String(describing: fullName))"
-//            apple_email = String(describing: email)
-//            
-//            self.userName = appleIDCredential.fullName?.givenName ?? ""
-//            self.userEmail = appleIDCredential.email ?? ""
-//            
-//          guard let nonce = currentNonce else {
-//
-//              self.activityIndicator.stopAnimating()
-//            fatalError("Invalid state: A login callback was received, but no login request was sent.")
-//          }
-//          guard let appleIDToken = appleIDCredential.identityToken else {
-//              self.activityIndicator.stopAnimating()
-//            print("Unable to fetch identity token")
-//            return
-//          }
-//          guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
-//              self.activityIndicator.stopAnimating()
-//            print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
-//            return
-//          }
-//          // Initialize a Firebase credential.
-//          let credential = OAuthProvider.credential(withProviderID: "apple.com",
-//                                                    idToken: idTokenString,
-//                                                    rawNonce: nonce)
-//
-//
-//
-//
-//            self.emailSocial = "dummy"
-////            fetch providers
-////            if email exist, after i will be available for saving email to userdefaults then use it again
-//            Auth.auth().fetchSignInMethods(forEmail: email ?? "static") { (providers, err) in
-//                if err == nil{
-//
-//                    if providers != nil{
-//
-//
-//
-//                    if (providers?.contains(credential.provider))!{
-//                        if self.cases.elementsEqual("apple"){
-//                            self.linkTwoAccounts(pendCred: self.pendingCredential, newCredential: credential)
-//                        }else{
-//                            self.authenticateAppleToFirebase(credential: credential)
-//                        }
-//                    }else{
-//
-//                          
-//                            if (providers?.contains(GoogleAuthProviderID))!{
-//
-//                                self.cases = "google"
-//                                self.pendingCredential = credential
-//                                self.startPreviousLoginProcess()
-//                                
-//                             
-//
-//
-//                            }else if (providers?.contains(FacebookAuthProviderID))!{
-//                                print("link faceBook")
-//                                self.cases = "facebook"
-//                                self.pendingCredential = credential
-//                                self.startPreviousLoginProcess()
-//
-//
-//                            }
-//                        
-//                    }
-//
-//                }else{
-//                    
-//                    if self.cases.elementsEqual("apple"){
-//                        self.linkTwoAccounts(pendCred: self.pendingCredential, newCredential: credential)
-//                    }else{
-//                        self.authenticateAppleToFirebase(credential: credential)
-//                    }
-//                    
-//                }
-//
-//                }else{
-//                    print(err?.localizedDescription)
-//
-//                    if self.cases.elementsEqual("apple"){
-//                        self.linkTwoAccounts(pendCred: self.pendingCredential, newCredential: credential)
-//                    }else{
-//                        self.authenticateAppleToFirebase(credential: credential)
-//                    }
-//
-//
-//
-//                }
-//            }
-//
-//        }
-//      }
-//
-//
-//    func authenticateAppleToFirebase(credential: AuthCredential){
-//        // Sign in with Firebase.
-//        Auth.auth().signIn(with: credential) { (authResult, error) in
-//          if (error != nil) {
-//            // Error. If error.code == .MissingOrInvalidNonce, make sure
-//            // you're sending the SHA256-hashed nonce as a hex string with
-//            // your request to Apple.
-//
-//              self.activityIndicator.stopAnimating()
-//              print(error!.localizedDescription)
-//            return
-//          }
-//          if let user = authResult?.user{
-//              print("you are now signed in with userID \(user.uid) , email: \(user.email ?? "unknown")")
-//
-//          // User is signed in to Firebase with Apple.
-//          // ...
-//
-//          print("you are signed in to firebase using apple")
-//            
-//            self.uid = Auth.auth().currentUser!.uid
-//
-//              print("apple login successfully")
+extension AuthenticationVC{
+
+    func handleAppleCase(){
+        if #available(iOS 13.0, *) {
+
+//            self.imgSocialAccountPrev.image = UIImage.init(named: "apple")
+//            self.lblDetailPrevSocialAccount.text = "You have already created your account using email '\(self.emailSocial)'. Please enter password for the same email and continue to link your social media account."
+            self.openAppleFlow()
+        } else {
+            // Fallback on earlier versions
+            print("older version not supported in apple case")
+        }
+
+    }
+    @available(iOS 13.0, *)
+    func openAppleFlow(){
+        let request = self.createAppleIdRequest()
+        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+        authorizationController.delegate = self
+        authorizationController.presentationContextProvider = self
+        authorizationController.performRequests()
+    }
+
+    @available(iOS 13.0, *)
+    @IBAction func appleSignUpAction(_ sender: UIButton){
+
+        //        send event log
+
+        self.activityIndicator.startAnimating()
+        
+        if Reachability.isConnectedToNetwork(){
+            print("Internet Connection Available!")
+            viewModel.logoutUser()
+            if let user = Auth.auth().currentUser{
+                print("user exist")
+            }else{
+                print("userLogedOut")
+            }
+
+            let request = self.createAppleIdRequest()
+            let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+            authorizationController.delegate = self
+            authorizationController.presentationContextProvider = self
+            authorizationController.performRequests()
+
+        }else{
+            self.activityIndicator.stopAnimating()
+            Helper.shared.showToast(message: "Please connect to the internet and try again", vc: self)
+            print("Internet Connection not Available!")
+//            constant.shared.showNoInternetAlert(vc: self)
+        }
+
+
+
+    }
+
+    @available(iOS 13.0, *)
+    func createAppleIdRequest() -> ASAuthorizationAppleIDRequest{
+        let appleIdProvider = ASAuthorizationAppleIDProvider()
+        let request = appleIdProvider.createRequest()
+        request.requestedScopes = [.fullName, .email]
+
+        let nonce = self.randomNonceString()
+        request.nonce = sha256(nonce)
+        viewModel.currentNonce = nonce
+        return request
+    }
+
+
+
+    // Adapted from https://auth0.com/docs/api-auth/tutorials/nonce#generate-a-cryptographically-random-nonce
+    private func randomNonceString(length: Int = 32) -> String {
+      precondition(length > 0)
+      let charset: Array<Character> =
+          Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
+      var result = ""
+      var remainingLength = length
+
+      while remainingLength > 0 {
+        let randoms: [UInt8] = (0 ..< 16).map { _ in
+          var random: UInt8 = 0
+          let errorCode = SecRandomCopyBytes(kSecRandomDefault, 1, &random)
+          if errorCode != errSecSuccess {
+            fatalError("Unable to generate nonce. SecRandomCopyBytes failed with OSStatus \(errorCode)")
+          }
+          return random
+        }
+
+        randoms.forEach { random in
+          if remainingLength == 0 {
+            return
+          }
+
+          if random < charset.count {
+            result.append(charset[Int(random)])
+            remainingLength -= 1
+          }
+        }
+      }
+
+      return result
+    }
+
+
+    @available(iOS 13, *)
+    private func sha256(_ input: String) -> String {
+      let inputData = Data(input.utf8)
+      let hashedData = SHA256.hash(data: inputData)
+      let hashString = hashedData.compactMap {
+        return String(format: "%02x", $0)
+      }.joined()
+
+      return hashString
+    }
+}
+extension AuthenticationVC: ASAuthorizationControllerDelegate{
+
+
+    @available(iOS 13.0, *)
+      func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+
+        var  appleUserName = ""
+        var apple_email = ""
+        if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
+
+            let userIdentifier = appleIDCredential.user
+            let fullName = appleIDCredential.fullName?.givenName ?? ""
+            let email = appleIDCredential.email
+            print("User id is \(userIdentifier) \n Full Name is \(String(describing: fullName)) \n Email id is \(String(describing: email))")
+            appleUserName =  "\(String(describing: fullName))"
+            apple_email = String(describing: email)
+            
+            viewModel.userName = appleIDCredential.fullName?.givenName ?? ""
+            viewModel.userEmail = appleIDCredential.email ?? ""
+            
+            guard let nonce = viewModel.currentNonce else {
+
+              self.activityIndicator.stopAnimating()
+            fatalError("Invalid state: A login callback was received, but no login request was sent.")
+          }
+          guard let appleIDToken = appleIDCredential.identityToken else {
+              self.activityIndicator.stopAnimating()
+            print("Unable to fetch identity token")
+            return
+          }
+          guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
+              self.activityIndicator.stopAnimating()
+            print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
+            return
+          }
+          // Initialize a Firebase credential.
+          let credential = OAuthProvider.credential(withProviderID: "apple.com",
+                                                    idToken: idTokenString,
+                                                    rawNonce: nonce)
+
+
+
+
+            viewModel.emailSocial = "dummy"
+//            fetch providers
+//            if email exist, after i will be available for saving email to userdefaults then use it again
+            Auth.auth().fetchSignInMethods(forEmail: email ?? "static") { (providers, err) in
+                if err == nil{
+
+                    if providers != nil{
+
+
+
+                    if (providers?.contains(credential.provider))!{
+                        if self.viewModel.cases.elementsEqual("apple"){
+                            self.linkTwoAccounts(pendCred: self.viewModel.pendingCredential, newCredential: credential)
+                        }else{
+                            self.authenticateAppleToFirebase(credential: credential)
+                        }
+                    }else{
+
+                          
+                            if (providers?.contains(GoogleAuthProviderID))!{
+
+                                self.viewModel.cases = "google"
+                                self.viewModel.pendingCredential = credential
+                                self.startPreviousLoginProcess()
+                                
+                             
+
+
+                            }else if (providers?.contains(FacebookAuthProviderID))!{
+                                print("link faceBook")
+                                self.viewModel.cases = "facebook"
+                                self.viewModel.pendingCredential = credential
+                                self.startPreviousLoginProcess()
+
+
+                            }
+                        
+                    }
+
+                }else{
+                    
+                    if self.viewModel.cases.elementsEqual("apple"){
+                        self.linkTwoAccounts(pendCred: self.viewModel.pendingCredential, newCredential: credential)
+                    }else{
+                        self.authenticateAppleToFirebase(credential: credential)
+                    }
+                    
+                }
+
+                }else{
+                    print(err?.localizedDescription)
+
+                    if self.viewModel.cases.elementsEqual("apple"){
+                        self.linkTwoAccounts(pendCred: self.viewModel.pendingCredential, newCredential: credential)
+                    }else{
+                        self.authenticateAppleToFirebase(credential: credential)
+                    }
+
+
+
+                }
+            }
+
+        }
+      }
+
+
+    func authenticateAppleToFirebase(credential: AuthCredential){
+        // Sign in with Firebase.
+        Auth.auth().signIn(with: credential) { (authResult, error) in
+          if (error != nil) {
+            // Error. If error.code == .MissingOrInvalidNonce, make sure
+            // you're sending the SHA256-hashed nonce as a hex string with
+            // your request to Apple.
+
+              self.activityIndicator.stopAnimating()
+              print(error!.localizedDescription)
+            return
+          }
+          if let user = authResult?.user{
+              print("you are now signed in with userID \(user.uid) , email: \(user.email ?? "unknown")")
+
+          // User is signed in to Firebase with Apple.
+          // ...
+
+          print("you are signed in to firebase using apple")
+            
+              self.viewModel.uid = Auth.auth().currentUser!.uid
+
+              print("apple login successfully")
+              self.activityIndicator.stopAnimating()
 //              self.moveToHome()
-////            self.handleUserForServerToLoginOrRegister(name: user.displayName ?? "", email:  user.email ?? "", phone: user.phoneNumber ?? "", uid:  self.uid, provider: "apple.com", meta_data: meta_data, userImg: "")
-//
-//
-//          }
-//
-//        }
-//    }
+//            self.handleUserForServerToLoginOrRegister(name: user.displayName ?? "", email:  user.email ?? "", phone: user.phoneNumber ?? "", uid:  self.uid, provider: "apple.com", meta_data: meta_data, userImg: "")
+
+
+          }
+
+        }
+    }
 //    func moveToHome(){
 //        
 //            Network.init().getUserProfileFromDatabase {
@@ -677,8 +679,8 @@ extension AuthenticationVC{
 //        
 //        
 //    }
-//    
-//
+    
+
 //    func goNextFromNotificationPermissionsScreen(_ notification: Notification){
 //        let idKb = DataManager.getSelectdBookId()
 //        guard var controllers = self.navigationController?.viewControllers else {
@@ -696,22 +698,22 @@ extension AuthenticationVC{
 //        }
 //        
 //    }
-//    
+    
+
+    @available(iOS 13.0, *)
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        // Handle error.
+        self.activityIndicator.stopAnimating()
+        print("error in sign in with apple: \(error.localizedDescription)")
+    }
+}
 //
-//    @available(iOS 13.0, *)
-//    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-//        // Handle error.
-//        self.activityIndicator.stopAnimating()
-//        print("error in sign in with apple: \(error.localizedDescription)")
-//    }
-//}
-//
-//extension authenticationVC: ASAuthorizationControllerPresentationContextProviding{
-//    @available(iOS 13.0, *)
-//    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
-//        return self.view.window!
-//    }
-//    
-//    
-//    
-//}
+extension AuthenticationVC: ASAuthorizationControllerPresentationContextProviding{
+    @available(iOS 13.0, *)
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        return self.view.window!
+    }
+    
+    
+    
+}

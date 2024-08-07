@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>1007650402025-696b37a41q55go8blncqrped8t4q1ege.apps.googleusercontent.com</string>
+	<string>1007650402025-5g0c2oji5klp19fbkh9q9m0rddlh605h.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1007650402025-696b37a41q55go8blncqrped8t4q1ege</string>
+	<string>com.googleusercontent.apps.1007650402025-5g0c2oji5klp19fbkh9q9m0rddlh605h</string>
 	<key>ANDROID_CLIENT_ID</key>
 	<string>1007650402025-0ojgc35a9acrjviec8qvmonlp55q1mle.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
@@ -15,7 +15,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.chickii1.aam</string>
+	<string>com.chickii-ventures.aam</string>
 	<key>PROJECT_ID</key>
 	<string>aam-project-854fb</string>
 	<key>STORAGE_BUCKET</key>
@@ -31,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1007650402025:ios:acd9e140977816561e8a78</string>
+	<string>1:1007650402025:ios:8746d9d7969cdf7c1e8a78</string>
 </dict>
 </plist>

@@ -24,7 +24,7 @@ class AuthenticationViewModel{
     var emailSocial = ""
     var cases = ""
     var pendingCredential : AuthCredential!
-    fileprivate var currentNonce: String?
+    var currentNonce: String?
     var uid = ""
     var userName = ""
     var userEmail = ""

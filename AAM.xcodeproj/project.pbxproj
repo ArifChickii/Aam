@@ -22,7 +22,6 @@
 		8021AFB92C5BDE3B00A66611 /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8021AFB82C5BDE3B00A66611 /* ColorConstants.swift */; };
 		8021AFBF2C5C23DB00A66611 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8021AFBE2C5C23DB00A66611 /* Authentication.storyboard */; };
 		8021AFC12C5C2A7400A66611 /* AuthenticationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8021AFC02C5C2A7400A66611 /* AuthenticationVC.swift */; };
-		80B320472C61099400359714 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 80B320462C61099400359714 /* GoogleService-Info.plist */; };
 		80B320492C61234A00359714 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B320482C61234A00359714 /* AuthenticationViewModel.swift */; };
 		80B3204B2C61252A00359714 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B3204A2C61252A00359714 /* Helper.swift */; };
 		80B3204D2C6128F000359714 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B3204C2C6128F000359714 /* Reachability.swift */; };
@@ -58,6 +57,7 @@
 		80E8C4002C5AC5810087F009 /* Jost Medium 500.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3E82C5AC5810087F009 /* Jost Medium 500.ttf */; };
 		80E8C4012C5AC5810087F009 /* Jost Bold 700.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3E92C5AC5810087F009 /* Jost Bold 700.ttf */; };
 		80E8C4032C5AC8470087F009 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C4022C5AC8470087F009 /* Onboarding.storyboard */; };
+		80FFAA802C6339C9007E55EE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 80FFAA7F2C6339C9007E55EE /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,7 +78,6 @@
 		8021AFB82C5BDE3B00A66611 /* ColorConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
 		8021AFBE2C5C23DB00A66611 /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
 		8021AFC02C5C2A7400A66611 /* AuthenticationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationVC.swift; sourceTree = "<group>"; };
-		80B320462C61099400359714 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		80B320482C61234A00359714 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		80B3204A2C61252A00359714 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		80B3204C2C6128F000359714 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
@@ -117,6 +116,8 @@
 		80E8C3E82C5AC5810087F009 /* Jost Medium 500.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost Medium 500.ttf"; sourceTree = "<group>"; };
 		80E8C3E92C5AC5810087F009 /* Jost Bold 700.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost Bold 700.ttf"; sourceTree = "<group>"; };
 		80E8C4022C5AC8470087F009 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		80FFAA7F2C6339C9007E55EE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		80FFAA812C6339F8007E55EE /* AAM.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AAM.entitlements; sourceTree = "<group>"; };
 		8C0A0CC8D366810BAF79CE09 /* Pods-AAM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AAM.release.xcconfig"; path = "Target Support Files/Pods-AAM/Pods-AAM.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -227,6 +228,7 @@
 		80E8C3A42C5AC3BC0087F009 = {
 			isa = PBXGroup;
 			children = (
+				80FFAA7F2C6339C9007E55EE /* GoogleService-Info.plist */,
 				80E8C3AF2C5AC3BD0087F009 /* AAM */,
 				80E8C3AE2C5AC3BD0087F009 /* Products */,
 				7414B5D44634DC8E7B77E7E2 /* Pods */,
@@ -245,6 +247,7 @@
 		80E8C3AF2C5AC3BD0087F009 /* AAM */ = {
 			isa = PBXGroup;
 			children = (
+				80FFAA812C6339F8007E55EE /* AAM.entitlements */,
 				80E8C3C72C5AC5000087F009 /* Modules */,
 				8021AF9F2C5BBDBA00A66611 /* Extensions */,
 				8021AF9C2C5BBD7900A66611 /* Router */,
@@ -255,7 +258,6 @@
 				80E8C3CF2C5AC5810087F009 /* Fonts */,
 				80E8C3B42C5AC3BD0087F009 /* ViewController.swift */,
 				80E8C3BC2C5AC3BD0087F009 /* Assets.xcassets */,
-				80B320462C61099400359714 /* GoogleService-Info.plist */,
 				80E8C3C12C5AC3BD0087F009 /* Info.plist */,
 				80E8C3B92C5AC3BD0087F009 /* AAM.xcdatamodeld */,
 			);
@@ -443,6 +445,7 @@
 				80E8C3F02C5AC5810087F009 /* Jost Light Italic 300.ttf in Resources */,
 				80E8C3ED2C5AC5810087F009 /* OFL.txt in Resources */,
 				80E8C3FE2C5AC5810087F009 /* Jost Medium Italic 500.ttf in Resources */,
+				80FFAA802C6339C9007E55EE /* GoogleService-Info.plist in Resources */,
 				80E8C3FC2C5AC5810087F009 /* README.txt in Resources */,
 				80E8C3EE2C5AC5810087F009 /* Almarai-Light.ttf in Resources */,
 				80E8C3C02C5AC3BD0087F009 /* LaunchScreen.storyboard in Resources */,
@@ -464,7 +467,6 @@
 				80E8C3F82C5AC5810087F009 /* Jost Black Italic 900.ttf in Resources */,
 				80E8C3EB2C5AC5810087F009 /* Almarai-ExtraBold.ttf in Resources */,
 				80E8C3FD2C5AC5810087F009 /* Jost ExtraLight 250.ttf in Resources */,
-				80B320472C61099400359714 /* GoogleService-Info.plist in Resources */,
 				80E8C3EC2C5AC5810087F009 /* Almarai-Regular.ttf in Resources */,
 				80E8C4002C5AC5810087F009 /* Jost Medium 500.ttf in Resources */,
 				80E8C3F62C5AC5810087F009 /* Jost ExtraBold 800.ttf in Resources */,
@@ -684,9 +686,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AAM/AAM.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = DGGL8DFRFY;
+				DEVELOPMENT_TEAM = MV7MZN6F3M;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -706,8 +710,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.chickii1.aam;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.chickii-ventures.aam";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -723,9 +728,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AAM/AAM.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = DGGL8DFRFY;
+				DEVELOPMENT_TEAM = MV7MZN6F3M;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -746,8 +753,9 @@
 				);
 				MARKETING_VERSION = 1.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.chickii1.aam;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.chickii-ventures.aam";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
