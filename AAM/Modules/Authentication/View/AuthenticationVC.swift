@@ -219,6 +219,7 @@ extension AuthenticationVC{
 //                            self.moveToHome()
                             self.activityIndicator.stopAnimating()
                             Helper.shared.showToast(message: "move to home", vc: self)
+                            Router.MoveToHome(from: self)
 
                             
                             
@@ -260,6 +261,7 @@ extension AuthenticationVC{
                         let useruid = Auth.auth().currentUser?.uid
                         self.activityIndicator.stopAnimating()
                         Helper.shared.showToast(message: "move to home", vc: self)
+                        Router.MoveToHome(from: self)
 //                        self.moveToHome()
                         
                         
@@ -368,6 +370,7 @@ extension AuthenticationVC{
 //                self.moveToHome()
                 self.activityIndicator.stopAnimating()
                 Helper.shared.showToast(message: "move to home", vc: self)
+                Router.MoveToHome(from: self)
                
             }
         }
@@ -625,6 +628,7 @@ extension AuthenticationVC: ASAuthorizationControllerDelegate{
 
               print("apple login successfully")
               self.activityIndicator.stopAnimating()
+              Router.MoveToHome(from: self)
 //              self.moveToHome()
 //            self.handleUserForServerToLoginOrRegister(name: user.displayName ?? "", email:  user.email ?? "", phone: user.phoneNumber ?? "", uid:  self.uid, provider: "apple.com", meta_data: meta_data, userImg: "")
 
