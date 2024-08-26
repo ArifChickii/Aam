@@ -15,6 +15,8 @@ target 'AAM' do
         pod 'Firebase/Messaging'
         pod 'IQKeyboardManagerSwift'
         pod 'NVActivityIndicatorView'
+        pod 'FSPagerView'
+        pod 'Firebase/Firestore'
 
 
 end

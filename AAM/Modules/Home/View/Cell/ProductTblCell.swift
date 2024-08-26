@@ -9,7 +9,8 @@ import UIKit
 
 class ProductTblCell: UITableViewCell {
     static let identifier = "ProductTblCell"
-    
+
+    @IBOutlet weak var lblTitle: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,6 +21,10 @@ class ProductTblCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func configure(obj: Product){
+        self.lblTitle.text = obj.title
     }
     
 }

@@ -11,6 +11,7 @@ class HomeVC: UIViewController, Storyboarded {
     
     @IBOutlet weak var productTblView: UITableView!
     private let viewModel = HomeViewModel()
+    private let productViewModel = ProductsViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +19,13 @@ class HomeVC: UIViewController, Storyboarded {
         // Do any additional setup after loading the view.
         setDelegatesAndDataSources()
         registerCells()
+        productViewModel.fetchProducts {
+                    // Additional actions after fetching products
+                    DispatchQueue.main.async {
+                        self.productTblView.reloadData()
+                    }
+                }
+        
     }
     
     
@@ -43,14 +51,13 @@ class HomeVC: UIViewController, Storyboarded {
 extension HomeVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return self.viewModel.courseList.count
-        return 10
+
+        return productViewModel.numberOfProducts()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ProductTblCell.identifier, for: indexPath) as! ProductTblCell
-//        cell.configure(obj: self.viewModel.courseList[indexPath.row])
-        
+        cell.configure(obj: self.productViewModel.product(at: indexPath.row))
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

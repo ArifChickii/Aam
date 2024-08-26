@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -26,14 +27,16 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8AG-Dj-s9J">
                         <rect key="frame" x="0.0" y="8" width="443" height="331"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dummy" translatesAutoresizingMaskIntoConstraints="NO" id="qIc-Q0-42A">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="BrJ-zY-Mni">
                                 <rect key="frame" x="12" y="12.000000000000014" width="419" height="248.33333333333337"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </imageView>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WJE-fT-kYd">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                            </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="FWT-wy-WEI">
                                 <rect key="frame" x="12" y="268.33333333333331" width="101.33333333333333" height="20.333333333333314"/>
                                 <subviews>
@@ -86,18 +89,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="qIc-Q0-42A" firstAttribute="top" secondItem="8AG-Dj-s9J" secondAttribute="top" constant="12" id="4Fj-Gs-izl"/>
                             <constraint firstItem="ZC3-yo-a7I" firstAttribute="centerY" secondItem="R6g-pK-HmX" secondAttribute="centerY" id="Akb-zp-Ocm"/>
-                            <constraint firstItem="gEs-N8-Ib0" firstAttribute="top" secondItem="qIc-Q0-42A" secondAttribute="top" id="G7d-Pl-BfS"/>
                             <constraint firstItem="FWT-wy-WEI" firstAttribute="leading" secondItem="8AG-Dj-s9J" secondAttribute="leading" constant="12" id="HXK-j7-idZ"/>
+                            <constraint firstItem="FWT-wy-WEI" firstAttribute="top" secondItem="BrJ-zY-Mni" secondAttribute="bottom" constant="8" id="ORS-C4-CpR"/>
                             <constraint firstItem="LaO-aA-QD2" firstAttribute="top" secondItem="FWT-wy-WEI" secondAttribute="bottom" constant="2" id="PGM-g8-FWE"/>
-                            <constraint firstItem="FWT-wy-WEI" firstAttribute="top" secondItem="qIc-Q0-42A" secondAttribute="bottom" constant="8" id="bcd-V5-k4g"/>
+                            <constraint firstItem="BrJ-zY-Mni" firstAttribute="top" secondItem="8AG-Dj-s9J" secondAttribute="top" constant="12" id="TUd-af-6uB"/>
+                            <constraint firstItem="gEs-N8-Ib0" firstAttribute="trailing" secondItem="BrJ-zY-Mni" secondAttribute="trailing" id="chB-x9-cZK"/>
                             <constraint firstItem="ZC3-yo-a7I" firstAttribute="centerX" secondItem="R6g-pK-HmX" secondAttribute="centerX" id="clX-Gc-1BS"/>
                             <constraint firstItem="ZC3-yo-a7I" firstAttribute="width" secondItem="R6g-pK-HmX" secondAttribute="width" multiplier="0.7" id="hOv-hh-FUU"/>
-                            <constraint firstItem="gEs-N8-Ib0" firstAttribute="trailing" secondItem="qIc-Q0-42A" secondAttribute="trailing" id="kee-d8-8t3"/>
-                            <constraint firstItem="qIc-Q0-42A" firstAttribute="leading" secondItem="8AG-Dj-s9J" secondAttribute="leading" constant="12" id="mSR-aL-Ae1"/>
-                            <constraint firstItem="qIc-Q0-42A" firstAttribute="height" secondItem="8AG-Dj-s9J" secondAttribute="height" multiplier="0.75" id="oRV-O6-WdQ"/>
-                            <constraint firstAttribute="trailing" secondItem="qIc-Q0-42A" secondAttribute="trailing" constant="12" id="tWl-LA-NRO"/>
+                            <constraint firstItem="BrJ-zY-Mni" firstAttribute="height" secondItem="8AG-Dj-s9J" secondAttribute="height" multiplier="0.75" id="hzM-c8-KzS"/>
+                            <constraint firstItem="BrJ-zY-Mni" firstAttribute="leading" secondItem="8AG-Dj-s9J" secondAttribute="leading" constant="12" id="q59-bk-bq3"/>
+                            <constraint firstAttribute="trailing" secondItem="BrJ-zY-Mni" secondAttribute="trailing" constant="12" id="ta6-Hj-bQP"/>
+                            <constraint firstItem="gEs-N8-Ib0" firstAttribute="top" secondItem="BrJ-zY-Mni" secondAttribute="top" id="taW-9z-DvC"/>
                             <constraint firstItem="LaO-aA-QD2" firstAttribute="leading" secondItem="FWT-wy-WEI" secondAttribute="leading" id="xeY-9p-m4Z"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -116,14 +119,19 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="lblTitle" destination="LaO-aA-QD2" id="8dp-23-byk"/>
+            </connections>
             <point key="canvasLocation" x="130.53435114503816" y="123.59154929577466"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="dummy" width="600" height="400"/>
         <image name="ic_like" width="20" height="20"/>
         <namedColor name="greyLabel_color">
             <color red="0.45500001311302185" green="0.45500001311302185" blue="0.45500001311302185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
