@@ -8,7 +8,7 @@
 import Foundation
 struct Product {
     let id: String
-    let image: String
+    let images: [String]
     let title: String
     let description: String
     let size: String
@@ -16,4 +16,5 @@ struct Product {
     let price: Double
     let color: String
     let rating: String
+    let cutPrice: Double
 }

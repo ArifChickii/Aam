@@ -23,14 +23,15 @@ class FirebaseService {
                     let data = document.data()
                     let product = Product(
                         id: document.documentID,
-                        image: data["image"] as? String ?? "",
+                        images: data["image"] as? [String] ?? [],
                         title: data["title"] as? String ?? "",
                         description: data["description"] as? String ?? "",
                         size: data["size"] as? String ?? "",
                         category: data["category"] as? String ?? "",
                         price: data["price"] as? Double ?? 0.0,
                         color: data["color"] as? String ?? "",
-                        rating: data["rating"] as? String ?? "0.0"
+                        rating: data["rating"] as? String ?? "0.0",
+                        cutPrice: data["cutPrice"] as? Double ?? 0.0
                     )
                     products.append(product)
                 }
