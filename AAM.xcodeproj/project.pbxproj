@@ -31,8 +31,10 @@
 		040A26ED2C7C419E00C32F01 /* Almarai-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 040A26D52C7C419E00C32F01 /* Almarai-Regular.ttf */; };
 		040A26EE2C7C419E00C32F01 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 040A26D62C7C419E00C32F01 /* OFL.txt */; };
 		040A26EF2C7C419E00C32F01 /* Almarai-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 040A26D72C7C419E00C32F01 /* Almarai-Light.ttf */; };
-		0414E9FD2C7C6D14000201E0 /* ProductImageCollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414E9FB2C7C6D14000201E0 /* ProductImageCollCell.swift */; };
-		0414E9FE2C7C6D14000201E0 /* ProductImageCollVell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0414E9FC2C7C6D14000201E0 /* ProductImageCollVell.xib */; };
+		0414EA012C7C88BB000201E0 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0414EA002C7C88BB000201E0 /* SDWebImage */; };
+		0414EA032C7C88BB000201E0 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0414EA022C7C88BB000201E0 /* SDWebImageMapKit */; };
+		0414EA062C7C8D1E000201E0 /* ProductImageCellColl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414EA042C7C8D1E000201E0 /* ProductImageCellColl.swift */; };
+		0414EA072C7C8D1F000201E0 /* ProductImageCellColl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0414EA052C7C8D1E000201E0 /* ProductImageCellColl.xib */; };
 		8013C75D2C74B26A003AA5A3 /* ProductTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8013C75B2C74B26A003AA5A3 /* ProductTblCell.swift */; };
 		8013C75E2C74B26A003AA5A3 /* ProductTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8013C75C2C74B26A003AA5A3 /* ProductTblCell.xib */; };
 		8013C7602C750235003AA5A3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8013C75F2C750235003AA5A3 /* HomeViewModel.swift */; };
@@ -112,8 +114,8 @@
 		040A26D52C7C419E00C32F01 /* Almarai-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Regular.ttf"; sourceTree = "<group>"; };
 		040A26D62C7C419E00C32F01 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		040A26D72C7C419E00C32F01 /* Almarai-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Light.ttf"; sourceTree = "<group>"; };
-		0414E9FB2C7C6D14000201E0 /* ProductImageCollCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImageCollCell.swift; sourceTree = "<group>"; };
-		0414E9FC2C7C6D14000201E0 /* ProductImageCollVell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductImageCollVell.xib; sourceTree = "<group>"; };
+		0414EA042C7C8D1E000201E0 /* ProductImageCellColl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImageCellColl.swift; sourceTree = "<group>"; };
+		0414EA052C7C8D1E000201E0 /* ProductImageCellColl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductImageCellColl.xib; sourceTree = "<group>"; };
 		3275732595CC7EB88AE2F3A1 /* Pods_AAM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AAM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		800E87476DE32EF5686AD813 /* Pods-AAM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AAM.debug.xcconfig"; path = "Target Support Files/Pods-AAM/Pods-AAM.debug.xcconfig"; sourceTree = "<group>"; };
 		8013C75B2C74B26A003AA5A3 /* ProductTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTblCell.swift; sourceTree = "<group>"; };
@@ -180,6 +182,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0414EA012C7C88BB000201E0 /* SDWebImage in Frameworks */,
+				0414EA032C7C88BB000201E0 /* SDWebImageMapKit in Frameworks */,
 				80B320752C6157AB00359714 /* Pods_AAM.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,8 +241,8 @@
 		0414E9FA2C7C6CF0000201E0 /* CollCell */ = {
 			isa = PBXGroup;
 			children = (
-				0414E9FB2C7C6D14000201E0 /* ProductImageCollCell.swift */,
-				0414E9FC2C7C6D14000201E0 /* ProductImageCollVell.xib */,
+				0414EA042C7C8D1E000201E0 /* ProductImageCellColl.swift */,
+				0414EA052C7C8D1E000201E0 /* ProductImageCellColl.xib */,
 			);
 			path = CollCell;
 			sourceTree = "<group>";
@@ -536,6 +540,10 @@
 			dependencies = (
 			);
 			name = AAM;
+			packageProductDependencies = (
+				0414EA002C7C88BB000201E0 /* SDWebImage */,
+				0414EA022C7C88BB000201E0 /* SDWebImageMapKit */,
+			);
 			productName = AAM;
 			productReference = 80E8C3AD2C5AC3BD0087F009 /* AAM.app */;
 			productType = "com.apple.product-type.application";
@@ -564,6 +572,9 @@
 				Base,
 			);
 			mainGroup = 80E8C3A42C5AC3BC0087F009;
+			packageReferences = (
+				0414E9FF2C7C88BB000201E0 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = 80E8C3AE2C5AC3BD0087F009 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -581,6 +592,7 @@
 				040A26DA2C7C419E00C32F01 /* Jost Bold Italic 700.ttf in Resources */,
 				80FFAA802C6339C9007E55EE /* GoogleService-Info.plist in Resources */,
 				040A26E22C7C419E00C32F01 /* Jost Thin Italic 250.ttf in Resources */,
+				0414EA072C7C8D1F000201E0 /* ProductImageCellColl.xib in Resources */,
 				8013C7682C7514FD003AA5A3 /* ProductPriceAndTitleTblCell.xib in Resources */,
 				040A26E12C7C419E00C32F01 /* Jost Black Italic 900.ttf in Resources */,
 				040A26DB2C7C419E00C32F01 /* Jost ExtraBold Italic 800.ttf in Resources */,
@@ -596,7 +608,6 @@
 				8013C76C2C75151B003AA5A3 /* ProductDescriptionTblCell.xib in Resources */,
 				040A26DE2C7C419E00C32F01 /* Jost Italic 400.ttf in Resources */,
 				040A26DC2C7C419E00C32F01 /* Jost Light 300.ttf in Resources */,
-				0414E9FE2C7C6D14000201E0 /* ProductImageCollVell.xib in Resources */,
 				040A26E62C7C419E00C32F01 /* Jost ExtraLight 250.ttf in Resources */,
 				040A26E02C7C419E00C32F01 /* Jost SemiBold Italic 600.ttf in Resources */,
 				8013C7782C751576003AA5A3 /* ProductCategoryTblCell.xib in Resources */,
@@ -671,7 +682,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				80E8C3B52C5AC3BD0087F009 /* ViewController.swift in Sources */,
-				0414E9FD2C7C6D14000201E0 /* ProductImageCollCell.swift in Sources */,
+				0414EA062C7C8D1E000201E0 /* ProductImageCellColl.swift in Sources */,
 				8013C76F2C751539003AA5A3 /* ProductSizeTblCell.swift in Sources */,
 				8013C77B2C75158C003AA5A3 /* ProductRatingTblCell.swift in Sources */,
 				8021AFB72C5BDDAF00A66611 /* Constants.swift in Sources */,
@@ -950,6 +961,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0414E9FF2C7C88BB000201E0 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.19.7;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0414EA002C7C88BB000201E0 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0414E9FF2C7C88BB000201E0 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		0414EA022C7C88BB000201E0 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0414E9FF2C7C88BB000201E0 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		80E8C3B92C5AC3BD0087F009 /* AAM.xcdatamodeld */ = {
