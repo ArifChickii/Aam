@@ -7,6 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040A26D82C7C419E00C32F01 /* Jost ExtraLight Italic 250.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 040A26BF2C7C419D00C32F01 /* Jost ExtraLight Italic 250.ttf */; };
+		040A26D92C7C419E00C32F01 /* Jost Light Italic 300.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 040A26C02C7C419D00C32F01 /* Jost Light Italic 300.ttf */; };
+		040A26DA2C7C419E00C32F01 /* Jost Bold Italic 700.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 040A26C12C7C419D00C32F01 /* Jost Bold Italic 700.ttf */; };
+		040A26DB2C7C419E00C32F01 /* Jost ExtraBold Italic 800.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 040A26C22C7C419D00C32F01 /* Jost ExtraBold Italic 800.ttf */; };
+		040A26DC2C7C419E00C32F01 /* Jost Light 300.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 040A26C32C7C419D00C32F01 /* Jost Light 300.ttf */; };
+		040A26DD2C7C419E00C32F01 /* Jost Black 900.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 040A26C42C7C419D00C32F01 /* Jost Black 900.ttf */; };
+		040A26DE2C7C419E00C32F01 /* Jost Italic 400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 040A26C52C7C419D00C32F01 /* Jost Italic 400.ttf */; };
+		040A26DF2C7C419E00C32F01 /* Jost ExtraBold 800.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 040A26C62C7C419D00C32F01 /* Jost ExtraBold 800.ttf */; };
+		040A26E02C7C419E00C32F01 /* Jost SemiBold Italic 600.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 040A26C72C7C419D00C32F01 /* Jost SemiBold Italic 600.ttf */; };
+		040A26E12C7C419E00C32F01 /* Jost Black Italic 900.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 040A26C82C7C419D00C32F01 /* Jost Black Italic 900.ttf */; };
+		040A26E22C7C419E00C32F01 /* Jost Thin Italic 250.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 040A26C92C7C419D00C32F01 /* Jost Thin Italic 250.ttf */; };
+		040A26E32C7C419E00C32F01 /* Jost_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 040A26CA2C7C419D00C32F01 /* Jost_Regular.ttf */; };
+		040A26E42C7C419E00C32F01 /* Jost SemiBold 600.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 040A26CB2C7C419D00C32F01 /* Jost SemiBold 600.ttf */; };
+		040A26E52C7C419E00C32F01 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 040A26CC2C7C419D00C32F01 /* README.txt */; };
+		040A26E62C7C419E00C32F01 /* Jost ExtraLight 250.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 040A26CD2C7C419D00C32F01 /* Jost ExtraLight 250.ttf */; };
+		040A26E72C7C419E00C32F01 /* Jost Medium Italic 500.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 040A26CE2C7C419D00C32F01 /* Jost Medium Italic 500.ttf */; };
+		040A26E82C7C419E00C32F01 /* Jost Thin 250.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 040A26CF2C7C419D00C32F01 /* Jost Thin 250.ttf */; };
+		040A26E92C7C419E00C32F01 /* Jost Medium 500.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 040A26D02C7C419D00C32F01 /* Jost Medium 500.ttf */; };
+		040A26EA2C7C419E00C32F01 /* Jost Bold 700.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 040A26D12C7C419D00C32F01 /* Jost Bold 700.ttf */; };
+		040A26EB2C7C419E00C32F01 /* Almarai-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 040A26D32C7C419E00C32F01 /* Almarai-Bold.ttf */; };
+		040A26EC2C7C419E00C32F01 /* Almarai-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 040A26D42C7C419E00C32F01 /* Almarai-ExtraBold.ttf */; };
+		040A26ED2C7C419E00C32F01 /* Almarai-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 040A26D52C7C419E00C32F01 /* Almarai-Regular.ttf */; };
+		040A26EE2C7C419E00C32F01 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 040A26D62C7C419E00C32F01 /* OFL.txt */; };
+		040A26EF2C7C419E00C32F01 /* Almarai-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 040A26D72C7C419E00C32F01 /* Almarai-Light.ttf */; };
 		8013C75D2C74B26A003AA5A3 /* ProductTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8013C75B2C74B26A003AA5A3 /* ProductTblCell.swift */; };
 		8013C75E2C74B26A003AA5A3 /* ProductTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8013C75C2C74B26A003AA5A3 /* ProductTblCell.xib */; };
 		8013C7602C750235003AA5A3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8013C75F2C750235003AA5A3 /* HomeViewModel.swift */; };
@@ -55,30 +79,6 @@
 		80E8C3BB2C5AC3BD0087F009 /* AAM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 80E8C3B92C5AC3BD0087F009 /* AAM.xcdatamodeld */; };
 		80E8C3BD2C5AC3BD0087F009 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3BC2C5AC3BD0087F009 /* Assets.xcassets */; };
 		80E8C3C02C5AC3BD0087F009 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3BE2C5AC3BD0087F009 /* LaunchScreen.storyboard */; };
-		80E8C3EA2C5AC5810087F009 /* Almarai-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3D12C5AC5810087F009 /* Almarai-Bold.ttf */; };
-		80E8C3EB2C5AC5810087F009 /* Almarai-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3D22C5AC5810087F009 /* Almarai-ExtraBold.ttf */; };
-		80E8C3EC2C5AC5810087F009 /* Almarai-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3D32C5AC5810087F009 /* Almarai-Regular.ttf */; };
-		80E8C3ED2C5AC5810087F009 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3D42C5AC5810087F009 /* OFL.txt */; };
-		80E8C3EE2C5AC5810087F009 /* Almarai-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3D52C5AC5810087F009 /* Almarai-Light.ttf */; };
-		80E8C3EF2C5AC5810087F009 /* Jost ExtraLight Italic 250.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3D72C5AC5810087F009 /* Jost ExtraLight Italic 250.ttf */; };
-		80E8C3F02C5AC5810087F009 /* Jost Light Italic 300.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3D82C5AC5810087F009 /* Jost Light Italic 300.ttf */; };
-		80E8C3F12C5AC5810087F009 /* Jost Bold Italic 700.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3D92C5AC5810087F009 /* Jost Bold Italic 700.ttf */; };
-		80E8C3F22C5AC5810087F009 /* Jost ExtraBold Italic 800.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3DA2C5AC5810087F009 /* Jost ExtraBold Italic 800.ttf */; };
-		80E8C3F32C5AC5810087F009 /* Jost Light 300.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3DB2C5AC5810087F009 /* Jost Light 300.ttf */; };
-		80E8C3F42C5AC5810087F009 /* Jost Black 900.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3DC2C5AC5810087F009 /* Jost Black 900.ttf */; };
-		80E8C3F52C5AC5810087F009 /* Jost Italic 400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3DD2C5AC5810087F009 /* Jost Italic 400.ttf */; };
-		80E8C3F62C5AC5810087F009 /* Jost ExtraBold 800.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3DE2C5AC5810087F009 /* Jost ExtraBold 800.ttf */; };
-		80E8C3F72C5AC5810087F009 /* Jost SemiBold Italic 600.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3DF2C5AC5810087F009 /* Jost SemiBold Italic 600.ttf */; };
-		80E8C3F82C5AC5810087F009 /* Jost Black Italic 900.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3E02C5AC5810087F009 /* Jost Black Italic 900.ttf */; };
-		80E8C3F92C5AC5810087F009 /* Jost Thin Italic 250.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3E12C5AC5810087F009 /* Jost Thin Italic 250.ttf */; };
-		80E8C3FA2C5AC5810087F009 /* Jost_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3E22C5AC5810087F009 /* Jost_Regular.ttf */; };
-		80E8C3FB2C5AC5810087F009 /* Jost SemiBold 600.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3E32C5AC5810087F009 /* Jost SemiBold 600.ttf */; };
-		80E8C3FC2C5AC5810087F009 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3E42C5AC5810087F009 /* README.txt */; };
-		80E8C3FD2C5AC5810087F009 /* Jost ExtraLight 250.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3E52C5AC5810087F009 /* Jost ExtraLight 250.ttf */; };
-		80E8C3FE2C5AC5810087F009 /* Jost Medium Italic 500.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3E62C5AC5810087F009 /* Jost Medium Italic 500.ttf */; };
-		80E8C3FF2C5AC5810087F009 /* Jost Thin 250.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3E72C5AC5810087F009 /* Jost Thin 250.ttf */; };
-		80E8C4002C5AC5810087F009 /* Jost Medium 500.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3E82C5AC5810087F009 /* Jost Medium 500.ttf */; };
-		80E8C4012C5AC5810087F009 /* Jost Bold 700.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3E92C5AC5810087F009 /* Jost Bold 700.ttf */; };
 		80E8C4032C5AC8470087F009 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C4022C5AC8470087F009 /* Onboarding.storyboard */; };
 		80FFAA802C6339C9007E55EE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 80FFAA7F2C6339C9007E55EE /* GoogleService-Info.plist */; };
 		80FFAA872C64ADCB007E55EE /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80FFAA862C64ADCB007E55EE /* Home.storyboard */; };
@@ -86,6 +86,30 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		040A26BF2C7C419D00C32F01 /* Jost ExtraLight Italic 250.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost ExtraLight Italic 250.ttf"; sourceTree = "<group>"; };
+		040A26C02C7C419D00C32F01 /* Jost Light Italic 300.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost Light Italic 300.ttf"; sourceTree = "<group>"; };
+		040A26C12C7C419D00C32F01 /* Jost Bold Italic 700.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost Bold Italic 700.ttf"; sourceTree = "<group>"; };
+		040A26C22C7C419D00C32F01 /* Jost ExtraBold Italic 800.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost ExtraBold Italic 800.ttf"; sourceTree = "<group>"; };
+		040A26C32C7C419D00C32F01 /* Jost Light 300.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost Light 300.ttf"; sourceTree = "<group>"; };
+		040A26C42C7C419D00C32F01 /* Jost Black 900.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost Black 900.ttf"; sourceTree = "<group>"; };
+		040A26C52C7C419D00C32F01 /* Jost Italic 400.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost Italic 400.ttf"; sourceTree = "<group>"; };
+		040A26C62C7C419D00C32F01 /* Jost ExtraBold 800.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost ExtraBold 800.ttf"; sourceTree = "<group>"; };
+		040A26C72C7C419D00C32F01 /* Jost SemiBold Italic 600.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost SemiBold Italic 600.ttf"; sourceTree = "<group>"; };
+		040A26C82C7C419D00C32F01 /* Jost Black Italic 900.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost Black Italic 900.ttf"; sourceTree = "<group>"; };
+		040A26C92C7C419D00C32F01 /* Jost Thin Italic 250.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost Thin Italic 250.ttf"; sourceTree = "<group>"; };
+		040A26CA2C7C419D00C32F01 /* Jost_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Jost_Regular.ttf; sourceTree = "<group>"; };
+		040A26CB2C7C419D00C32F01 /* Jost SemiBold 600.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost SemiBold 600.ttf"; sourceTree = "<group>"; };
+		040A26CC2C7C419D00C32F01 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		040A26CD2C7C419D00C32F01 /* Jost ExtraLight 250.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost ExtraLight 250.ttf"; sourceTree = "<group>"; };
+		040A26CE2C7C419D00C32F01 /* Jost Medium Italic 500.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost Medium Italic 500.ttf"; sourceTree = "<group>"; };
+		040A26CF2C7C419D00C32F01 /* Jost Thin 250.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost Thin 250.ttf"; sourceTree = "<group>"; };
+		040A26D02C7C419D00C32F01 /* Jost Medium 500.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost Medium 500.ttf"; sourceTree = "<group>"; };
+		040A26D12C7C419D00C32F01 /* Jost Bold 700.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost Bold 700.ttf"; sourceTree = "<group>"; };
+		040A26D32C7C419E00C32F01 /* Almarai-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Bold.ttf"; sourceTree = "<group>"; };
+		040A26D42C7C419E00C32F01 /* Almarai-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-ExtraBold.ttf"; sourceTree = "<group>"; };
+		040A26D52C7C419E00C32F01 /* Almarai-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Regular.ttf"; sourceTree = "<group>"; };
+		040A26D62C7C419E00C32F01 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		040A26D72C7C419E00C32F01 /* Almarai-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Light.ttf"; sourceTree = "<group>"; };
 		3275732595CC7EB88AE2F3A1 /* Pods_AAM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AAM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		800E87476DE32EF5686AD813 /* Pods-AAM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AAM.debug.xcconfig"; path = "Target Support Files/Pods-AAM/Pods-AAM.debug.xcconfig"; sourceTree = "<group>"; };
 		8013C75B2C74B26A003AA5A3 /* ProductTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTblCell.swift; sourceTree = "<group>"; };
@@ -139,30 +163,6 @@
 		80E8C3BC2C5AC3BD0087F009 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		80E8C3BF2C5AC3BD0087F009 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		80E8C3C12C5AC3BD0087F009 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		80E8C3D12C5AC5810087F009 /* Almarai-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Bold.ttf"; sourceTree = "<group>"; };
-		80E8C3D22C5AC5810087F009 /* Almarai-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-ExtraBold.ttf"; sourceTree = "<group>"; };
-		80E8C3D32C5AC5810087F009 /* Almarai-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Regular.ttf"; sourceTree = "<group>"; };
-		80E8C3D42C5AC5810087F009 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
-		80E8C3D52C5AC5810087F009 /* Almarai-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Light.ttf"; sourceTree = "<group>"; };
-		80E8C3D72C5AC5810087F009 /* Jost ExtraLight Italic 250.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost ExtraLight Italic 250.ttf"; sourceTree = "<group>"; };
-		80E8C3D82C5AC5810087F009 /* Jost Light Italic 300.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost Light Italic 300.ttf"; sourceTree = "<group>"; };
-		80E8C3D92C5AC5810087F009 /* Jost Bold Italic 700.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost Bold Italic 700.ttf"; sourceTree = "<group>"; };
-		80E8C3DA2C5AC5810087F009 /* Jost ExtraBold Italic 800.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost ExtraBold Italic 800.ttf"; sourceTree = "<group>"; };
-		80E8C3DB2C5AC5810087F009 /* Jost Light 300.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost Light 300.ttf"; sourceTree = "<group>"; };
-		80E8C3DC2C5AC5810087F009 /* Jost Black 900.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost Black 900.ttf"; sourceTree = "<group>"; };
-		80E8C3DD2C5AC5810087F009 /* Jost Italic 400.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost Italic 400.ttf"; sourceTree = "<group>"; };
-		80E8C3DE2C5AC5810087F009 /* Jost ExtraBold 800.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost ExtraBold 800.ttf"; sourceTree = "<group>"; };
-		80E8C3DF2C5AC5810087F009 /* Jost SemiBold Italic 600.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost SemiBold Italic 600.ttf"; sourceTree = "<group>"; };
-		80E8C3E02C5AC5810087F009 /* Jost Black Italic 900.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost Black Italic 900.ttf"; sourceTree = "<group>"; };
-		80E8C3E12C5AC5810087F009 /* Jost Thin Italic 250.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost Thin Italic 250.ttf"; sourceTree = "<group>"; };
-		80E8C3E22C5AC5810087F009 /* Jost_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Jost_Regular.ttf; sourceTree = "<group>"; };
-		80E8C3E32C5AC5810087F009 /* Jost SemiBold 600.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost SemiBold 600.ttf"; sourceTree = "<group>"; };
-		80E8C3E42C5AC5810087F009 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
-		80E8C3E52C5AC5810087F009 /* Jost ExtraLight 250.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost ExtraLight 250.ttf"; sourceTree = "<group>"; };
-		80E8C3E62C5AC5810087F009 /* Jost Medium Italic 500.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost Medium Italic 500.ttf"; sourceTree = "<group>"; };
-		80E8C3E72C5AC5810087F009 /* Jost Thin 250.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost Thin 250.ttf"; sourceTree = "<group>"; };
-		80E8C3E82C5AC5810087F009 /* Jost Medium 500.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost Medium 500.ttf"; sourceTree = "<group>"; };
-		80E8C3E92C5AC5810087F009 /* Jost Bold 700.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost Bold 700.ttf"; sourceTree = "<group>"; };
 		80E8C4022C5AC8470087F009 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		80FFAA7F2C6339C9007E55EE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		80FFAA812C6339F8007E55EE /* AAM.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AAM.entitlements; sourceTree = "<group>"; };
@@ -183,6 +183,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		040A26BD2C7C418C00C32F01 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				040A26D22C7C419E00C32F01 /* Almarai */,
+				040A26BE2C7C419D00C32F01 /* Jost_Font_Family_(Fontmirror) */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		040A26BE2C7C419D00C32F01 /* Jost_Font_Family_(Fontmirror) */ = {
+			isa = PBXGroup;
+			children = (
+				040A26BF2C7C419D00C32F01 /* Jost ExtraLight Italic 250.ttf */,
+				040A26C02C7C419D00C32F01 /* Jost Light Italic 300.ttf */,
+				040A26C12C7C419D00C32F01 /* Jost Bold Italic 700.ttf */,
+				040A26C22C7C419D00C32F01 /* Jost ExtraBold Italic 800.ttf */,
+				040A26C32C7C419D00C32F01 /* Jost Light 300.ttf */,
+				040A26C42C7C419D00C32F01 /* Jost Black 900.ttf */,
+				040A26C52C7C419D00C32F01 /* Jost Italic 400.ttf */,
+				040A26C62C7C419D00C32F01 /* Jost ExtraBold 800.ttf */,
+				040A26C72C7C419D00C32F01 /* Jost SemiBold Italic 600.ttf */,
+				040A26C82C7C419D00C32F01 /* Jost Black Italic 900.ttf */,
+				040A26C92C7C419D00C32F01 /* Jost Thin Italic 250.ttf */,
+				040A26CA2C7C419D00C32F01 /* Jost_Regular.ttf */,
+				040A26CB2C7C419D00C32F01 /* Jost SemiBold 600.ttf */,
+				040A26CC2C7C419D00C32F01 /* README.txt */,
+				040A26CD2C7C419D00C32F01 /* Jost ExtraLight 250.ttf */,
+				040A26CE2C7C419D00C32F01 /* Jost Medium Italic 500.ttf */,
+				040A26CF2C7C419D00C32F01 /* Jost Thin 250.ttf */,
+				040A26D02C7C419D00C32F01 /* Jost Medium 500.ttf */,
+				040A26D12C7C419D00C32F01 /* Jost Bold 700.ttf */,
+			);
+			path = "Jost_Font_Family_(Fontmirror)";
+			sourceTree = "<group>";
+		};
+		040A26D22C7C419E00C32F01 /* Almarai */ = {
+			isa = PBXGroup;
+			children = (
+				040A26D32C7C419E00C32F01 /* Almarai-Bold.ttf */,
+				040A26D42C7C419E00C32F01 /* Almarai-ExtraBold.ttf */,
+				040A26D52C7C419E00C32F01 /* Almarai-Regular.ttf */,
+				040A26D62C7C419E00C32F01 /* OFL.txt */,
+				040A26D72C7C419E00C32F01 /* Almarai-Light.ttf */,
+			);
+			path = Almarai;
+			sourceTree = "<group>";
+		};
 		217418C74A29D5606B14237B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -338,6 +385,7 @@
 		80E8C3AF2C5AC3BD0087F009 /* AAM */ = {
 			isa = PBXGroup;
 			children = (
+				040A26BD2C7C418C00C32F01 /* Fonts */,
 				807D8A892C7B268600E9AE04 /* Services */,
 				80FFAA812C6339F8007E55EE /* AAM.entitlements */,
 				80E8C3C72C5AC5000087F009 /* Modules */,
@@ -345,9 +393,7 @@
 				8021AF9C2C5BBD7900A66611 /* Router */,
 				8021AF952C5BBCFB00A66611 /* Utility */,
 				8021AF942C5BBCD900A66611 /* LaunchScreen */,
-				80E8C3CE2C5AC55B0087F009 /* Fonts */,
 				80E8C3C82C5AC50E0087F009 /* Delegates */,
-				80E8C3CF2C5AC5810087F009 /* Fonts */,
 				80E8C3B42C5AC3BD0087F009 /* ViewController.swift */,
 				80E8C3BC2C5AC3BD0087F009 /* Assets.xcassets */,
 				80E8C3C12C5AC3BD0087F009 /* Info.plist */,
@@ -418,61 +464,6 @@
 				8021AFAE2C5BBFA400A66611 /* onBoardingPage3.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		80E8C3CE2C5AC55B0087F009 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Fonts;
-			sourceTree = "<group>";
-		};
-		80E8C3CF2C5AC5810087F009 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				80E8C3D02C5AC5810087F009 /* Almarai */,
-				80E8C3D62C5AC5810087F009 /* Jost_Font_Family_(Fontmirror) */,
-			);
-			name = Fonts;
-			path = ../../backups/kbs/kharchabookPRODUCTIONLATEST/kharchabook/Fonts;
-			sourceTree = "<group>";
-		};
-		80E8C3D02C5AC5810087F009 /* Almarai */ = {
-			isa = PBXGroup;
-			children = (
-				80E8C3D12C5AC5810087F009 /* Almarai-Bold.ttf */,
-				80E8C3D22C5AC5810087F009 /* Almarai-ExtraBold.ttf */,
-				80E8C3D32C5AC5810087F009 /* Almarai-Regular.ttf */,
-				80E8C3D42C5AC5810087F009 /* OFL.txt */,
-				80E8C3D52C5AC5810087F009 /* Almarai-Light.ttf */,
-			);
-			path = Almarai;
-			sourceTree = "<group>";
-		};
-		80E8C3D62C5AC5810087F009 /* Jost_Font_Family_(Fontmirror) */ = {
-			isa = PBXGroup;
-			children = (
-				80E8C3D72C5AC5810087F009 /* Jost ExtraLight Italic 250.ttf */,
-				80E8C3D82C5AC5810087F009 /* Jost Light Italic 300.ttf */,
-				80E8C3D92C5AC5810087F009 /* Jost Bold Italic 700.ttf */,
-				80E8C3DA2C5AC5810087F009 /* Jost ExtraBold Italic 800.ttf */,
-				80E8C3DB2C5AC5810087F009 /* Jost Light 300.ttf */,
-				80E8C3DC2C5AC5810087F009 /* Jost Black 900.ttf */,
-				80E8C3DD2C5AC5810087F009 /* Jost Italic 400.ttf */,
-				80E8C3DE2C5AC5810087F009 /* Jost ExtraBold 800.ttf */,
-				80E8C3DF2C5AC5810087F009 /* Jost SemiBold Italic 600.ttf */,
-				80E8C3E02C5AC5810087F009 /* Jost Black Italic 900.ttf */,
-				80E8C3E12C5AC5810087F009 /* Jost Thin Italic 250.ttf */,
-				80E8C3E22C5AC5810087F009 /* Jost_Regular.ttf */,
-				80E8C3E32C5AC5810087F009 /* Jost SemiBold 600.ttf */,
-				80E8C3E42C5AC5810087F009 /* README.txt */,
-				80E8C3E52C5AC5810087F009 /* Jost ExtraLight 250.ttf */,
-				80E8C3E62C5AC5810087F009 /* Jost Medium Italic 500.ttf */,
-				80E8C3E72C5AC5810087F009 /* Jost Thin 250.ttf */,
-				80E8C3E82C5AC5810087F009 /* Jost Medium 500.ttf */,
-				80E8C3E92C5AC5810087F009 /* Jost Bold 700.ttf */,
-			);
-			path = "Jost_Font_Family_(Fontmirror)";
 			sourceTree = "<group>";
 		};
 		80FFAA822C64ADA0007E55EE /* Home */ = {
@@ -573,45 +564,45 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80E8C3F02C5AC5810087F009 /* Jost Light Italic 300.ttf in Resources */,
-				80E8C3ED2C5AC5810087F009 /* OFL.txt in Resources */,
-				80E8C3FE2C5AC5810087F009 /* Jost Medium Italic 500.ttf in Resources */,
+				040A26DA2C7C419E00C32F01 /* Jost Bold Italic 700.ttf in Resources */,
 				80FFAA802C6339C9007E55EE /* GoogleService-Info.plist in Resources */,
-				80E8C3FC2C5AC5810087F009 /* README.txt in Resources */,
+				040A26E22C7C419E00C32F01 /* Jost Thin Italic 250.ttf in Resources */,
 				8013C7682C7514FD003AA5A3 /* ProductPriceAndTitleTblCell.xib in Resources */,
-				80E8C3EE2C5AC5810087F009 /* Almarai-Light.ttf in Resources */,
+				040A26E12C7C419E00C32F01 /* Jost Black Italic 900.ttf in Resources */,
+				040A26DB2C7C419E00C32F01 /* Jost ExtraBold Italic 800.ttf in Resources */,
+				040A26E42C7C419E00C32F01 /* Jost SemiBold 600.ttf in Resources */,
+				040A26EA2C7C419E00C32F01 /* Jost Bold 700.ttf in Resources */,
 				80E8C3C02C5AC3BD0087F009 /* LaunchScreen.storyboard in Resources */,
-				80E8C3EA2C5AC5810087F009 /* Almarai-Bold.ttf in Resources */,
+				040A26D82C7C419E00C32F01 /* Jost ExtraLight Italic 250.ttf in Resources */,
+				040A26E32C7C419E00C32F01 /* Jost_Regular.ttf in Resources */,
 				8013C75E2C74B26A003AA5A3 /* ProductTblCell.xib in Resources */,
-				80E8C3FF2C5AC5810087F009 /* Jost Thin 250.ttf in Resources */,
 				8021AFBF2C5C23DB00A66611 /* Authentication.storyboard in Resources */,
-				80E8C3FA2C5AC5810087F009 /* Jost_Regular.ttf in Resources */,
+				040A26E52C7C419E00C32F01 /* README.txt in Resources */,
+				040A26E72C7C419E00C32F01 /* Jost Medium Italic 500.ttf in Resources */,
 				8013C76C2C75151B003AA5A3 /* ProductDescriptionTblCell.xib in Resources */,
-				80E8C3F12C5AC5810087F009 /* Jost Bold Italic 700.ttf in Resources */,
-				80E8C3EF2C5AC5810087F009 /* Jost ExtraLight Italic 250.ttf in Resources */,
+				040A26DE2C7C419E00C32F01 /* Jost Italic 400.ttf in Resources */,
+				040A26DC2C7C419E00C32F01 /* Jost Light 300.ttf in Resources */,
+				040A26E62C7C419E00C32F01 /* Jost ExtraLight 250.ttf in Resources */,
+				040A26E02C7C419E00C32F01 /* Jost SemiBold Italic 600.ttf in Resources */,
 				8013C7782C751576003AA5A3 /* ProductCategoryTblCell.xib in Resources */,
 				8013C7702C751539003AA5A3 /* ProductSizeTblCell.xib in Resources */,
 				8013C7642C7514D0003AA5A3 /* ProductImageTblCell.xib in Resources */,
+				040A26DF2C7C419E00C32F01 /* Jost ExtraBold 800.ttf in Resources */,
+				040A26E82C7C419E00C32F01 /* Jost Thin 250.ttf in Resources */,
 				80E8C4032C5AC8470087F009 /* Onboarding.storyboard in Resources */,
-				80E8C3F52C5AC5810087F009 /* Jost Italic 400.ttf in Resources */,
-				80E8C3F72C5AC5810087F009 /* Jost SemiBold Italic 600.ttf in Resources */,
+				040A26EC2C7C419E00C32F01 /* Almarai-ExtraBold.ttf in Resources */,
+				040A26D92C7C419E00C32F01 /* Jost Light Italic 300.ttf in Resources */,
+				040A26EE2C7C419E00C32F01 /* OFL.txt in Resources */,
 				80E8C3BD2C5AC3BD0087F009 /* Assets.xcassets in Resources */,
-				80E8C3F32C5AC5810087F009 /* Jost Light 300.ttf in Resources */,
-				80E8C3F22C5AC5810087F009 /* Jost ExtraBold Italic 800.ttf in Resources */,
+				040A26E92C7C419E00C32F01 /* Jost Medium 500.ttf in Resources */,
+				040A26EF2C7C419E00C32F01 /* Almarai-Light.ttf in Resources */,
 				8013C7742C75155B003AA5A3 /* ProductAddToBagTblCell.xib in Resources */,
-				80E8C4012C5AC5810087F009 /* Jost Bold 700.ttf in Resources */,
+				040A26ED2C7C419E00C32F01 /* Almarai-Regular.ttf in Resources */,
+				040A26DD2C7C419E00C32F01 /* Jost Black 900.ttf in Resources */,
 				8013C77C2C75158C003AA5A3 /* ProductRatingTblCell.xib in Resources */,
-				80E8C3F92C5AC5810087F009 /* Jost Thin Italic 250.ttf in Resources */,
 				80FFAA872C64ADCB007E55EE /* Home.storyboard in Resources */,
-				80E8C3F42C5AC5810087F009 /* Jost Black 900.ttf in Resources */,
-				80E8C3F82C5AC5810087F009 /* Jost Black Italic 900.ttf in Resources */,
-				80E8C3EB2C5AC5810087F009 /* Almarai-ExtraBold.ttf in Resources */,
-				80E8C3FD2C5AC5810087F009 /* Jost ExtraLight 250.ttf in Resources */,
-				80E8C3EC2C5AC5810087F009 /* Almarai-Regular.ttf in Resources */,
 				8013C7812C751AB2003AA5A3 /* ProductCategoryTitleCollCell.xib in Resources */,
-				80E8C4002C5AC5810087F009 /* Jost Medium 500.ttf in Resources */,
-				80E8C3F62C5AC5810087F009 /* Jost ExtraBold 800.ttf in Resources */,
-				80E8C3FB2C5AC5810087F009 /* Jost SemiBold 600.ttf in Resources */,
+				040A26EB2C7C419E00C32F01 /* Almarai-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
