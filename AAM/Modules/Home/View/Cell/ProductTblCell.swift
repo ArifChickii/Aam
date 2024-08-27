@@ -24,7 +24,7 @@ class ProductTblCell: UITableViewCell {
         setupDelegates()
         registerNib()
 
-        pageController.numberOfPages = imagesList.count
+        
         pageController.addTarget(self, action: #selector(pageControlDidChange(_:)), for: .valueChanged)
     }
     @objc private func pageControlDidChange(_ sender: UIPageControl) {
@@ -53,12 +53,13 @@ class ProductTblCell: UITableViewCell {
         self.lblPrice.text = "\(obj.price )"
         self.lblCutPrice.text = "\(obj.cutPrice)"
         self.imagesList = obj.images
+        pageController.numberOfPages = imagesList.count
         self.collImages.reloadData()
         
     }
     
 }
-extension ProductTblCell: UICollectionViewDelegate, UICollectionViewDataSource{
+extension ProductTblCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imagesList.count
 //        return 4
@@ -73,7 +74,7 @@ extension ProductTblCell: UICollectionViewDelegate, UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 300, height: 300)
+        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let pageIndex = round(scrollView.contentOffset.x / scrollView.frame.size.width)
