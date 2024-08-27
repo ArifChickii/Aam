@@ -60,6 +60,10 @@ class ProductTblCell: UITableViewCell {
     
 }
 extension ProductTblCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+    
+    
+    
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imagesList.count
 //        return 4
@@ -80,4 +84,5 @@ extension ProductTblCell: UICollectionViewDelegate, UICollectionViewDataSource, 
         let pageIndex = round(scrollView.contentOffset.x / scrollView.frame.size.width)
         pageController.currentPage = Int(pageIndex)
     }
+    
 }

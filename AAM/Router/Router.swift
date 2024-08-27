@@ -21,8 +21,9 @@ class Router {
         let vc = HomeVC.instantiate(storyBoardName: "Home")
         currentVC.navigationController?.pushViewController(vc, animated: true)
     }
-    static func MoveToProductDetail(from currentVC: UIViewController) {
+    static func MoveToProductDetail(from currentVC: UIViewController, product: Product) {
         let vc = ProductDetailVC.instantiate(storyBoardName: "Home")
+        vc.productDetailObj = product
         currentVC.navigationController?.pushViewController(vc, animated: true)
     }
 

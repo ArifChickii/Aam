@@ -35,6 +35,7 @@
 		0414EA032C7C88BB000201E0 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0414EA022C7C88BB000201E0 /* SDWebImageMapKit */; };
 		0414EA062C7C8D1E000201E0 /* ProductImageCellColl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414EA042C7C8D1E000201E0 /* ProductImageCellColl.swift */; };
 		0414EA072C7C8D1F000201E0 /* ProductImageCellColl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0414EA052C7C8D1E000201E0 /* ProductImageCellColl.xib */; };
+		0414EA0E2C7DAE37000201E0 /* ProductDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414EA0D2C7DAE37000201E0 /* ProductDetailViewModel.swift */; };
 		8013C75D2C74B26A003AA5A3 /* ProductTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8013C75B2C74B26A003AA5A3 /* ProductTblCell.swift */; };
 		8013C75E2C74B26A003AA5A3 /* ProductTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8013C75C2C74B26A003AA5A3 /* ProductTblCell.xib */; };
 		8013C7602C750235003AA5A3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8013C75F2C750235003AA5A3 /* HomeViewModel.swift */; };
@@ -116,6 +117,7 @@
 		040A26D72C7C419E00C32F01 /* Almarai-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Almarai-Light.ttf"; sourceTree = "<group>"; };
 		0414EA042C7C8D1E000201E0 /* ProductImageCellColl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImageCellColl.swift; sourceTree = "<group>"; };
 		0414EA052C7C8D1E000201E0 /* ProductImageCellColl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductImageCellColl.xib; sourceTree = "<group>"; };
+		0414EA0D2C7DAE37000201E0 /* ProductDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewModel.swift; sourceTree = "<group>"; };
 		3275732595CC7EB88AE2F3A1 /* Pods_AAM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AAM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		800E87476DE32EF5686AD813 /* Pods-AAM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AAM.debug.xcconfig"; path = "Target Support Files/Pods-AAM/Pods-AAM.debug.xcconfig"; sourceTree = "<group>"; };
 		8013C75B2C74B26A003AA5A3 /* ProductTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTblCell.swift; sourceTree = "<group>"; };
@@ -510,6 +512,7 @@
 			children = (
 				8013C75F2C750235003AA5A3 /* HomeViewModel.swift */,
 				807D8A8D2C7B2E5000E9AE04 /* ProductViewModel.swift */,
+				0414EA0D2C7DAE37000201E0 /* ProductDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -692,6 +695,7 @@
 				8013C7632C7514D0003AA5A3 /* ProductImageTblCell.swift in Sources */,
 				8021AFB92C5BDE3B00A66611 /* ColorConstants.swift in Sources */,
 				8013C7802C751AB2003AA5A3 /* ProductCategoryTitleCollCell.swift in Sources */,
+				0414EA0E2C7DAE37000201E0 /* ProductDetailViewModel.swift in Sources */,
 				8021AFA52C5BBDBA00A66611 /* UIImageView.swift in Sources */,
 				807D8A8C2C7B26A200E9AE04 /* FirebaseService.swift in Sources */,
 				8013C7772C751576003AA5A3 /* ProductCategoryTblCell.swift in Sources */,

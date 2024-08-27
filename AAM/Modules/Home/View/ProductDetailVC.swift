@@ -8,7 +8,8 @@
 import UIKit
 
 class ProductDetailVC: UIViewController, Storyboarded {
-    
+    var viewModel : ProductDetailViewModel!
+    var productDetailObj : Product!
     @IBOutlet weak var productTblView: UITableView!
     
     override func viewDidLoad() {
@@ -18,6 +19,14 @@ class ProductDetailVC: UIViewController, Storyboarded {
         setDelegatesAndDataSources()
         registerCells()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        if let product = productDetailObj{
+            viewModel = ProductDetailViewModel(product: product)
+            self.productTblView.reloadData()
+        }
+        
+    }
+    
     
     func setDelegatesAndDataSources(){
         
@@ -64,6 +73,7 @@ extension ProductDetailVC: UITableViewDelegate, UITableViewDataSource{
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: ProductImageTblCell.identifier, for: indexPath) as! ProductImageTblCell
+            cell.configure(obj: viewModel.product)
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: ProductPriceAndTitleTblCell.identifier, for: indexPath) as! ProductPriceAndTitleTblCell
