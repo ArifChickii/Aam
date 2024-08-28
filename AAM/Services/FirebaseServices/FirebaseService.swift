@@ -27,7 +27,7 @@ class FirebaseService {
                         title: data["title"] as? String ?? "",
                         description: data["description"] as? String ?? "",
                         size: data["size"] as? String ?? "",
-                        category: data["category"] as? String ?? "",
+                        category: data["category"] as? [String] ?? [],
                         price: data["price"] as? Double ?? 0.0,
                         color: data["color"] as? String ?? "",
                         rating: data["rating"] as? String ?? "0.0",

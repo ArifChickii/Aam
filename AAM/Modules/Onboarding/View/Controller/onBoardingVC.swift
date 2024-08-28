@@ -26,7 +26,9 @@ class onBoardingVC: UIViewController, OnBoardingViewModelDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        Router.MoveToHome(from: self)
+        if LocalStorage.isUserLogin(){
+            Router.setHomeAsRootVC()
+        }
     }
     
     

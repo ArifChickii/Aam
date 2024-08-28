@@ -17,6 +17,7 @@ class ProductImageTblCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.selectionStyle = .none
         setupDelegates()
         registerNib()
         pageController.addTarget(self, action: #selector(pageControlDidChange(_:)), for: .valueChanged)
@@ -37,7 +38,7 @@ class ProductImageTblCell: UITableViewCell {
     }
     func configure(obj: Product){
         
-        self.imagesList = obj.images
+        self.imagesList = obj.images ?? []
         pageController.numberOfPages = imagesList.count
         self.collImages.reloadData()
         

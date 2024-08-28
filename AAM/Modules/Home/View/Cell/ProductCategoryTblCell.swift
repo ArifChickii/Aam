@@ -10,9 +10,11 @@ import UIKit
 class ProductCategoryTblCell: UITableViewCell {
     static let identifier = "ProductCategoryTblCell"
     @IBOutlet weak var categoryCollView: UICollectionView!
+    var categoriesList = [String]()
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.selectionStyle = .none
         categoryCollView.delegate = self
         categoryCollView.dataSource = self
         registerCells()
@@ -26,6 +28,11 @@ class ProductCategoryTblCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    func configure(obj: Product){
+        self.categoriesList = obj.category ?? []
+        
+        self.categoryCollView.reloadData()
+    }
     
 }
 
@@ -37,7 +44,7 @@ extension ProductCategoryTblCell: UICollectionViewDelegate, UICollectionViewData
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return categoriesList.count
     }
     
     
@@ -45,7 +52,7 @@ extension ProductCategoryTblCell: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if  let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCategoryTitleCollCell.identifier, for: indexPath) as? ProductCategoryTitleCollCell{
-//            cell.configure(obj: viewModel.categories[indexPath.item])
+            cell.configure(title: categoriesList[indexPath.item])
             return cell
         }else{
             return UICollectionViewCell()

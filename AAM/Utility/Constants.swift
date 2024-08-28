@@ -14,4 +14,8 @@ class Constants{
     var appleLinkingDesc = "There is already an Apple account with this email address. Continue to login with Apple."
 }
 
+struct UserDefaultsKeys{
+    static let isUserLogin = "isUserLogin"
+}
+
 

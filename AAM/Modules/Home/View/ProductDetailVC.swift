@@ -77,21 +77,26 @@ extension ProductDetailVC: UITableViewDelegate, UITableViewDataSource{
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: ProductPriceAndTitleTblCell.identifier, for: indexPath) as! ProductPriceAndTitleTblCell
+            cell.configure(obj: viewModel.product)
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: ProductDescriptionTblCell.identifier, for: indexPath) as! ProductDescriptionTblCell
+            cell.configure(obj: viewModel.product)
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: ProductSizeTblCell.identifier, for: indexPath) as! ProductSizeTblCell
+            cell.configure(obj: viewModel.product)
             return cell
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: ProductAddToBagTblCell.identifier, for: indexPath) as! ProductAddToBagTblCell
             return cell
         case 5:
             let cell = tableView.dequeueReusableCell(withIdentifier: ProductCategoryTblCell.identifier, for: indexPath) as! ProductCategoryTblCell
+            cell.configure(obj: viewModel.product)
             return cell
         case 6:
             let cell = tableView.dequeueReusableCell(withIdentifier: ProductRatingTblCell.identifier, for: indexPath) as! ProductRatingTblCell
+            cell.configure(obj: viewModel.product)
             return cell
         default:
             return UITableViewCell()

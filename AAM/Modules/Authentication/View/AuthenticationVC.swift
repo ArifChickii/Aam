@@ -216,10 +216,11 @@ extension AuthenticationVC{
                             let useruid = Auth.auth().currentUser?.uid
                             
                             
-//                            self.moveToHome()
+
                             self.activityIndicator.stopAnimating()
                             Helper.shared.showToast(message: "move to home", vc: self)
-                            Router.MoveToHome(from: self)
+                            LocalStorage.setUserisLogin()
+                            Router.setHomeAsRootVC()
 
                             
                             
@@ -261,8 +262,9 @@ extension AuthenticationVC{
                         let useruid = Auth.auth().currentUser?.uid
                         self.activityIndicator.stopAnimating()
                         Helper.shared.showToast(message: "move to home", vc: self)
-                        Router.MoveToHome(from: self)
-//                        self.moveToHome()
+                        LocalStorage.setUserisLogin()
+                        Router.setHomeAsRootVC()
+
                         
                         
                         
@@ -367,10 +369,11 @@ extension AuthenticationVC{
                 viewModel.userEmail = email
                 viewModel.userName = name
                 print(uuid!)
-//                self.moveToHome()
+
                 self.activityIndicator.stopAnimating()
                 Helper.shared.showToast(message: "move to home", vc: self)
-                Router.MoveToHome(from: self)
+                LocalStorage.setUserisLogin()
+                Router.setHomeAsRootVC()
                
             }
         }
@@ -628,8 +631,8 @@ extension AuthenticationVC: ASAuthorizationControllerDelegate{
 
               print("apple login successfully")
               self.activityIndicator.stopAnimating()
-              Router.MoveToHome(from: self)
-//              self.moveToHome()
+              LocalStorage.setUserisLogin()
+              Router.setHomeAsRootVC()
 //            self.handleUserForServerToLoginOrRegister(name: user.displayName ?? "", email:  user.email ?? "", phone: user.phoneNumber ?? "", uid:  self.uid, provider: "apple.com", meta_data: meta_data, userImg: "")
 
 
@@ -637,52 +640,7 @@ extension AuthenticationVC: ASAuthorizationControllerDelegate{
 
         }
     }
-//    func moveToHome(){
-//        
-//            Network.init().getUserProfileFromDatabase {
-//                DispatchQueue.main.async {
-//                    let User = DataManager.getUserProfile()
-//                    if let user = User{
-//                        DispatchQueue.main.async {
-//                            Network.init().getDefaultKharchBook { idArray in
-//                                guard var controllers = self.navigationController?.viewControllers else {
-//                                    self.activityIndicator.stopAnimating()
-//                                   return
-//                                }
-//                                DispatchQueue.main.async {
-//                                    if idArray.count > 0 {
-//                                        self.activityIndicator.stopAnimating()
-//                                        let vc = homeVC.instantiateFromStoryboard("Home")
-//                                        self.navigationController?.pushViewController(vc, animated: true)
-//                                    }else{
-//                                        self.activityIndicator.stopAnimating()
-//                                        let vc1 = homeVC.instantiateFromStoryboard("Home")
-//                                        let vc = CreateKBVC.instantiateFromStoryboard("Home")
-//                                        controllers.append(vc1)
-//                                        controllers.append(vc)
-//                                        self.navigationController?.setViewControllers(controllers, animated: true)
-//                                    }
-//                                }
-//                               
-//                            }
-//                        }
-//                    }else{
-//                        self.activityIndicator.stopAnimating()
-//                        let vc = NameCurrencySelectionVC.instantiateFromStoryboard("UserProfile")
-//                        vc.userName = self.userName
-//                        vc.userEmail = self.userEmail
-//                        self.navigationController?.pushViewController(vc, animated: true)
-//                    }
-//                }
-//            }
-//        
-//        
-//        
-//        
-//        
-//        
-//        
-//    }
+
     
 
 //    func goNextFromNotificationPermissionsScreen(_ notification: Notification){
