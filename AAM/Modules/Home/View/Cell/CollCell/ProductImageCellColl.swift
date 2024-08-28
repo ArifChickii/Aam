@@ -15,7 +15,7 @@ class ProductImageCellColl: UICollectionViewCell {
     override func awakeFromNib() {
            super.awakeFromNib()
            // Disable interaction on the collection view cell
-           self.isUserInteractionEnabled = false
+          
        }
 
     func configure(imageUrl: String){

@@ -7,7 +7,12 @@
 
 import UIKit
 
+protocol CollectionViewCellDidSelectDelegate: AnyObject {
+    func collectionViewCellDidSelectItem(at indexPath: IndexPath, in tableViewCell: UITableViewCell)
+}
+
 class ProductTblCell: UITableViewCell {
+    weak var delegate: CollectionViewCellDidSelectDelegate?
     static let identifier = "ProductTblCell"
     @IBOutlet weak var collImages: UICollectionView!
     @IBOutlet weak var pageController: UIPageControl!
@@ -72,7 +77,7 @@ extension ProductTblCell: UICollectionViewDelegate, UICollectionViewDataSource, 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductImageCellColl.identifier, for: indexPath) as! ProductImageCellColl
-                
+        
         cell.configure(imageUrl: imagesList[indexPath.item])
         return cell
     }
@@ -83,6 +88,9 @@ extension ProductTblCell: UICollectionViewDelegate, UICollectionViewDataSource, 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let pageIndex = round(scrollView.contentOffset.x / scrollView.frame.size.width)
         pageController.currentPage = Int(pageIndex)
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.collectionViewCellDidSelectItem(at: indexPath, in: self)
     }
     
 }

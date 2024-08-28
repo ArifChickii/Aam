@@ -48,7 +48,16 @@ class HomeVC: UIViewController, Storyboarded {
 }
 
 // MARK: UITableView
-extension HomeVC: UITableViewDelegate, UITableViewDataSource{
+extension HomeVC: UITableViewDelegate, UITableViewDataSource, CollectionViewCellDidSelectDelegate{
+    func collectionViewCellDidSelectItem(at indexPath: IndexPath, in tableViewCell: UITableViewCell) {
+        if let tableViewIndexPath = productTblView.indexPath(for: tableViewCell) {
+                    print("Selected item at collectionView indexPath: \(indexPath) inside tableView cell at indexPath: \(tableViewIndexPath)")
+                    // Perform your action here
+            Router.MoveToProductDetail(from: self, product: self.productViewModel.product(at: tableViewIndexPath.row))
+                }
+        
+    }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
@@ -57,6 +66,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ProductTblCell.identifier, for: indexPath) as! ProductTblCell
+        cell.delegate = self
         cell.configure(obj: self.productViewModel.product(at: indexPath.row))
         return cell
     }

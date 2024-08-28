@@ -26,8 +26,8 @@ class ProductPriceAndTitleTblCell: UITableViewCell {
     }
     func configure(obj: Product){
         self.lblTitle.text = obj.title
-        self.lblPrice.text = "\(obj.price )"
-        self.lblCutPrice.text = "\(obj.cutPrice)"
+        self.lblPrice.text = "\(obj.price ?? 0.0 )"
+        self.lblCutPrice.text = "\(obj.cutPrice ?? 0.0)"
         
     }
 }
