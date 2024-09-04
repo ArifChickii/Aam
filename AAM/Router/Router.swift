@@ -41,6 +41,10 @@ class Router {
         vc.productDetailObj = product
         currentVC.navigationController?.pushViewController(vc, animated: true)
     }
+    static func MoveToAddProduct(from currentVC: UIViewController) {
+        let vc = AddProductVC.instantiate(storyBoardName: "AddProduct")
+        currentVC.navigationController?.pushViewController(vc, animated: true)
+    }
 
     static func pop(from currentVC: UIViewController) {
         currentVC.navigationController?.popViewController(animated: true)

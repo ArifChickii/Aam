@@ -12,6 +12,16 @@ class Constants{
     var linkingAlertTitle = "Email Already in Use"
     var googleLinkingDesc = "There is already a Google account with this email address. Continue to login with Google."
     var appleLinkingDesc = "There is already an Apple account with this email address. Continue to login with Apple."
+    
+    
+    enum CategoryType: String {
+        case category = "Category"
+        case size = "Size"
+        case color = "Color"
+        case price = "Price"
+        
+    }
+    
 }
 
 struct UserDefaultsKeys{

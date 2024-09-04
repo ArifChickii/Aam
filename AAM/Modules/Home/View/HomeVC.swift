@@ -75,7 +75,12 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource, CollectionViewCell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        Router.MoveToProductDetail(from: self, product: self.productViewModel.product(at: indexPath.row))
+        if indexPath.row == 0{
+            Router.MoveToAddProduct(from: self)
+        }else{
+            Router.MoveToProductDetail(from: self, product: self.productViewModel.product(at: indexPath.row))
+        }
+        
     }
     
 }
