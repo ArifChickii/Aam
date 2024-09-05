@@ -76,6 +76,7 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: ProductNameAndDescTblCell.identifier, for: indexPath) as! ProductNameAndDescTblCell
+           
 //            cell.configure(obj: viewModel.product)
             return cell
         case 3:
@@ -131,9 +132,9 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
         case 7:
             return UITableView.automaticDimension
         case 8:
-            return 50
+            return 70
         case 9:
-            return 50
+            return 70
         default:
             return 0
         }
@@ -144,3 +145,4 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
     }
     
 }
+

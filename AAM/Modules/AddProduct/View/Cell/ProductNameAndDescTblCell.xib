@@ -13,6 +13,9 @@
         <array key="Jost Medium 500.ttf">
             <string>Jost-Medium</string>
         </array>
+        <array key="Jost_Regular.ttf">
+            <string>Jost-Regular</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -44,7 +47,7 @@
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Write product Name here..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lVk-aM-Cmc">
                                                 <rect key="frame" x="20" y="4" width="240" height="42"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="Jost-Regular" family="Jost" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
@@ -79,11 +82,11 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L82-Nd-bj5">
                                         <rect key="frame" x="0.0" y="25" width="280" height="100"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="g7C-bh-iyb">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="g7C-bh-iyb" customClass="PlaceholderTextView" customModule="AAM" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="12" width="240" height="76"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" systemColor="labelColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="Jost-Regular" family="Jost" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                         </subviews>
@@ -114,6 +117,9 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="txtViewDesc" destination="g7C-bh-iyb" id="U4j-Vk-xUL"/>
+            </connections>
             <point key="canvasLocation" x="7.6335877862595414" y="98.591549295774655"/>
         </tableViewCell>
     </objects>
