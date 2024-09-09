@@ -10,6 +10,7 @@ import UIKit
 class AddPhotoTblCelll: UITableViewCell {
     static let identifier = "AddPhotoTblCelll"
     @IBOutlet weak var collImages: UICollectionView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,11 +23,16 @@ class AddPhotoTblCelll: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    
     func setupDelegates(){
         
         collImages.dataSource = self
         collImages.delegate = self
+        
     }
+    
+    
     func registerNib(){
         let nib = UINib(nibName: PickPhotoCollCell.identifier, bundle: nil)
         collImages.register(nib, forCellWithReuseIdentifier: PickPhotoCollCell.identifier)
@@ -41,7 +47,7 @@ extension AddPhotoTblCelll: UICollectionViewDelegate, UICollectionViewDataSource
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return 1
 //        return 4
     }
     
