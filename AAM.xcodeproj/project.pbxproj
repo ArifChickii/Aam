@@ -44,6 +44,10 @@
 		0426D3E92C882395008AF976 /* AddProduct.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0426D3E82C882395008AF976 /* AddProduct.storyboard */; };
 		0426D3EB2C882424008AF976 /* AddProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0426D3EA2C882424008AF976 /* AddProductVC.swift */; };
 		04C1835F2C91762600FDB170 /* AddProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C1835E2C91762600FDB170 /* AddProductViewModel.swift */; };
+		04C183612C91824B00FDB170 /* BottomSheetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C183602C91824B00FDB170 /* BottomSheetVC.swift */; };
+		04C183652C91845600FDB170 /* BottomSheetTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C183632C91845600FDB170 /* BottomSheetTblCell.swift */; };
+		04C183662C91845600FDB170 /* BottomSheetTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04C183642C91845600FDB170 /* BottomSheetTblCell.xib */; };
+		04C183682C91AD3800FDB170 /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C183672C91AD3800FDB170 /* DropDown.swift */; };
 		04ED9D322C85E3AB00C2D961 /* AddPhotoTblCelll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED9D302C85E3AB00C2D961 /* AddPhotoTblCelll.swift */; };
 		04ED9D332C85E3AB00C2D961 /* AddPhotoTblCelll.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04ED9D312C85E3AB00C2D961 /* AddPhotoTblCelll.xib */; };
 		04ED9D512C87284B00C2D961 /* PickPhotoCollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED9D4F2C87284B00C2D961 /* PickPhotoCollCell.swift */; };
@@ -146,6 +150,10 @@
 		0426D3E82C882395008AF976 /* AddProduct.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddProduct.storyboard; sourceTree = "<group>"; };
 		0426D3EA2C882424008AF976 /* AddProductVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductVC.swift; sourceTree = "<group>"; };
 		04C1835E2C91762600FDB170 /* AddProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewModel.swift; sourceTree = "<group>"; };
+		04C183602C91824B00FDB170 /* BottomSheetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetVC.swift; sourceTree = "<group>"; };
+		04C183632C91845600FDB170 /* BottomSheetTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetTblCell.swift; sourceTree = "<group>"; };
+		04C183642C91845600FDB170 /* BottomSheetTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomSheetTblCell.xib; sourceTree = "<group>"; };
+		04C183672C91AD3800FDB170 /* DropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDown.swift; sourceTree = "<group>"; };
 		04ED9D302C85E3AB00C2D961 /* AddPhotoTblCelll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoTblCelll.swift; sourceTree = "<group>"; };
 		04ED9D312C85E3AB00C2D961 /* AddPhotoTblCelll.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPhotoTblCelll.xib; sourceTree = "<group>"; };
 		04ED9D4F2C87284B00C2D961 /* PickPhotoCollCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickPhotoCollCell.swift; sourceTree = "<group>"; };
@@ -300,8 +308,18 @@
 		0426D3ED2C882431008AF976 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				04C183672C91AD3800FDB170 /* DropDown.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		04C183622C91843700FDB170 /* BottomSheetCells */ = {
+			isa = PBXGroup;
+			children = (
+				04C183632C91845600FDB170 /* BottomSheetTblCell.swift */,
+				04C183642C91845600FDB170 /* BottomSheetTblCell.xib */,
+			);
+			path = BottomSheetCells;
 			sourceTree = "<group>";
 		};
 		04ED9D2D2C85E34A00C2D961 /* AddProduct */ = {
@@ -320,6 +338,7 @@
 				04ED9D2F2C85E35F00C2D961 /* Cell */,
 				0426D3E82C882395008AF976 /* AddProduct.storyboard */,
 				0426D3EA2C882424008AF976 /* AddProductVC.swift */,
+				04C183602C91824B00FDB170 /* BottomSheetVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -327,6 +346,7 @@
 		04ED9D2F2C85E35F00C2D961 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				04C183622C91843700FDB170 /* BottomSheetCells */,
 				04ED9D302C85E3AB00C2D961 /* AddPhotoTblCelll.swift */,
 				04ED9D312C85E3AB00C2D961 /* AddPhotoTblCelll.xib */,
 				04ED9D4F2C87284B00C2D961 /* PickPhotoCollCell.swift */,
@@ -699,6 +719,7 @@
 				8013C7682C7514FD003AA5A3 /* ProductPriceAndTitleTblCell.xib in Resources */,
 				040A26E12C7C419E00C32F01 /* Jost Black Italic 900.ttf in Resources */,
 				040A26DB2C7C419E00C32F01 /* Jost ExtraBold Italic 800.ttf in Resources */,
+				04C183662C91845600FDB170 /* BottomSheetTblCell.xib in Resources */,
 				04ED9D522C87284B00C2D961 /* PickPhotoCollCell.xib in Resources */,
 				040A26E42C7C419E00C32F01 /* Jost SemiBold 600.ttf in Resources */,
 				040A26EA2C7C419E00C32F01 /* Jost Bold 700.ttf in Resources */,
@@ -819,9 +840,11 @@
 				80FFAA892C64AE35007E55EE /* HomeVC.swift in Sources */,
 				8021AFB32C5BDD7400A66611 /* UIColor.swift in Sources */,
 				80E8C3B12C5AC3BD0087F009 /* AppDelegate.swift in Sources */,
+				04C183652C91845600FDB170 /* BottomSheetTblCell.swift in Sources */,
 				8021AFA92C5BBF3D00A66611 /* onBoardingPage1.swift in Sources */,
 				80E8C3B32C5AC3BD0087F009 /* SceneDelegate.swift in Sources */,
 				0426D3E22C882265008AF976 /* SaveToDraftTblCell.swift in Sources */,
+				04C183612C91824B00FDB170 /* BottomSheetVC.swift in Sources */,
 				8021AFAD2C5BBF6D00A66611 /* onBoardingPage2.swift in Sources */,
 				80B3204D2C6128F000359714 /* Reachability.swift in Sources */,
 				807D8A862C75FC7B00E9AE04 /* ProductDetailVC.swift in Sources */,
@@ -837,6 +860,7 @@
 				8021AF9E2C5BBD8E00A66611 /* Router.swift in Sources */,
 				80E8C3BB2C5AC3BD0087F009 /* AAM.xcdatamodeld in Sources */,
 				04ED9D612C872C0300C2D961 /* RenewalOptionsTblCell.swift in Sources */,
+				04C183682C91AD3800FDB170 /* DropDown.swift in Sources */,
 				0414EA162C7F36EC000201E0 /* LocalStorage.swift in Sources */,
 				8021AFAB2C5BBF6000A66611 /* onBoardingVC.swift in Sources */,
 				04C1835F2C91762600FDB170 /* AddProductViewModel.swift in Sources */,

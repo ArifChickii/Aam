@@ -17,6 +17,7 @@ target 'AAM' do
         pod 'NVActivityIndicatorView'
         pod 'FSPagerView'
         pod 'Firebase/Firestore'
+        pod 'FittedSheets'
 
 
 end

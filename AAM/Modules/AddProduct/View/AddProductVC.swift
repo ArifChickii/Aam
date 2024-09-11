@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FittedSheets
 
 class AddProductVC: UIViewController, Storyboarded {
     
@@ -151,7 +152,31 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
     
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        Router.showCourseDetail(from: self, courseObj: self.viewModel.courseList[indexPath.row])
+        switch indexPath.row {
+        case 0:
+           print("do nothing")
+        case 1:
+            print("do nothing")
+        case 2:
+            print("do nothing")
+        case 3:
+            print("Category")
+            Router.OpenBottomSheet(from: self)
+        case 4:
+            print("Size")
+        case 5:
+            print("Color")
+        case 6:
+            print("price")
+        case 7:
+            print("do nothing")
+        case 8:
+            print("do nothing")
+        case 9:
+            print("do nothing")
+        default:
+            print("do nothing")
+        }
     }
     
 }
