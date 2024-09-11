@@ -7,9 +7,11 @@
 
 import UIKit
 
-class AddPhotoTblCelll: UITableViewCell {
+class AddPhotoTblCelll: UITableViewCell, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     static let identifier = "AddPhotoTblCelll"
     @IBOutlet weak var collImages: UICollectionView!
+    var images: [UIImage] = []
+        var onAddImageTapped: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,6 +39,10 @@ class AddPhotoTblCelll: UITableViewCell {
         let nib = UINib(nibName: PickPhotoCollCell.identifier, bundle: nil)
         collImages.register(nib, forCellWithReuseIdentifier: PickPhotoCollCell.identifier)
     }
+    func configure(images: [UIImage]){
+        self.images = images
+        self.collImages.reloadData()
+    }
     
 }
 
@@ -47,7 +53,7 @@ extension AddPhotoTblCelll: UICollectionViewDelegate, UICollectionViewDataSource
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return images.count + 1
 //        return 4
     }
     
@@ -56,6 +62,18 @@ extension AddPhotoTblCelll: UICollectionViewDelegate, UICollectionViewDataSource
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PickPhotoCollCell.identifier, for: indexPath) as! PickPhotoCollCell
         
 //        cell.configure(imageUrl: imagesList[indexPath.item])
+        if indexPath.item == images.count {
+                    // Add Image cell
+                    cell.imgAdded.isHidden = true
+                    cell.imgAdd.isHidden = false
+                   
+                } else {
+                    // Display selected image
+                    cell.imgAdded.image = images[indexPath.item]
+                    cell.imgAdded.isHidden = false
+                    cell.imgAdd.isHidden = true
+                    
+                }
         return cell
     }
     
@@ -65,6 +83,7 @@ extension AddPhotoTblCelll: UICollectionViewDelegate, UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        open pick view 
+        onAddImageTapped?()
     }
     
 }

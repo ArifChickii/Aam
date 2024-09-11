@@ -43,6 +43,7 @@
 		0426D3E72C8822F2008AF976 /* UploadButtonTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0426D3E52C8822F2008AF976 /* UploadButtonTblCell.xib */; };
 		0426D3E92C882395008AF976 /* AddProduct.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0426D3E82C882395008AF976 /* AddProduct.storyboard */; };
 		0426D3EB2C882424008AF976 /* AddProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0426D3EA2C882424008AF976 /* AddProductVC.swift */; };
+		04C1835F2C91762600FDB170 /* AddProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C1835E2C91762600FDB170 /* AddProductViewModel.swift */; };
 		04ED9D322C85E3AB00C2D961 /* AddPhotoTblCelll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED9D302C85E3AB00C2D961 /* AddPhotoTblCelll.swift */; };
 		04ED9D332C85E3AB00C2D961 /* AddPhotoTblCelll.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04ED9D312C85E3AB00C2D961 /* AddPhotoTblCelll.xib */; };
 		04ED9D512C87284B00C2D961 /* PickPhotoCollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED9D4F2C87284B00C2D961 /* PickPhotoCollCell.swift */; };
@@ -144,6 +145,7 @@
 		0426D3E52C8822F2008AF976 /* UploadButtonTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UploadButtonTblCell.xib; sourceTree = "<group>"; };
 		0426D3E82C882395008AF976 /* AddProduct.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddProduct.storyboard; sourceTree = "<group>"; };
 		0426D3EA2C882424008AF976 /* AddProductVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductVC.swift; sourceTree = "<group>"; };
+		04C1835E2C91762600FDB170 /* AddProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewModel.swift; sourceTree = "<group>"; };
 		04ED9D302C85E3AB00C2D961 /* AddPhotoTblCelll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoTblCelll.swift; sourceTree = "<group>"; };
 		04ED9D312C85E3AB00C2D961 /* AddPhotoTblCelll.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPhotoTblCelll.xib; sourceTree = "<group>"; };
 		04ED9D4F2C87284B00C2D961 /* PickPhotoCollCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickPhotoCollCell.swift; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 		0426D3EC2C88242B008AF976 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				04C1835E2C91762600FDB170 /* AddProductViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -836,6 +839,7 @@
 				04ED9D612C872C0300C2D961 /* RenewalOptionsTblCell.swift in Sources */,
 				0414EA162C7F36EC000201E0 /* LocalStorage.swift in Sources */,
 				8021AFAB2C5BBF6000A66611 /* onBoardingVC.swift in Sources */,
+				04C1835F2C91762600FDB170 /* AddProductViewModel.swift in Sources */,
 				04ED9D592C87294100C2D961 /* ProductNameAndDescTblCell.swift in Sources */,
 				8013C7732C75155B003AA5A3 /* ProductAddToBagTblCell.swift in Sources */,
 			);

@@ -10,6 +10,7 @@ import UIKit
 class AddProductVC: UIViewController, Storyboarded {
     
     @IBOutlet weak var tblAddProduct: UITableView!
+    var viewModel = AddProductViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +19,7 @@ class AddProductVC: UIViewController, Storyboarded {
         setDelegatesAndDataSources()
         registerCells()
     }
+    
     
 
     
@@ -68,7 +70,15 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: AddPhotoTblCelll.identifier, for: indexPath) as! AddPhotoTblCelll
-//            cell.configure(obj: viewModel.product)
+
+            cell.configure(images: viewModel.imageLists)
+            cell.onAddImageTapped = { [weak self] in
+                if self?.viewModel.imageLists.count ?? 0 < 4{
+                    self?.openImagePicker(for: indexPath.row)
+                }
+                
+            }
+            
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: AddListingTitleTblCell.identifier, for: indexPath) as! AddListingTitleTblCell
@@ -145,4 +155,25 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
     }
     
 }
+// MARK: - Image Picker
+extension AddProductVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    func openImagePicker(for rowIndex: Int) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = .photoLibrary
+        imagePickerController.view.tag = rowIndex // Tag to know which row is being updated
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    // MARK: - UIImagePickerControllerDelegate
+       func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+           if let selectedImage = info[.originalImage] as? UIImage {
+               viewModel.imageLists.append(selectedImage)
+               tblAddProduct.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+           }
+           picker.dismiss(animated: true, completion: nil)
+       }
 
+       func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+           picker.dismiss(animated: true, completion: nil)
+       }
+}

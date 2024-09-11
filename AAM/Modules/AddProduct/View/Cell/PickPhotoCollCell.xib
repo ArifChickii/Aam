@@ -27,12 +27,19 @@
                                     <constraint firstAttribute="width" secondItem="5fE-7K-PPt" secondAttribute="height" multiplier="10:8" id="MlI-Fn-bgu"/>
                                 </constraints>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="czk-eN-Osl">
+                                <rect key="frame" x="0.0" y="0.0" width="155" height="154"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" name="textfield_bg_color"/>
                         <constraints>
                             <constraint firstItem="5fE-7K-PPt" firstAttribute="centerY" secondItem="scR-tY-3tg" secondAttribute="centerY" id="4Od-tr-CQT"/>
+                            <constraint firstItem="czk-eN-Osl" firstAttribute="top" secondItem="scR-tY-3tg" secondAttribute="top" id="JBJ-zM-4oK"/>
                             <constraint firstItem="5fE-7K-PPt" firstAttribute="centerX" secondItem="scR-tY-3tg" secondAttribute="centerX" id="L3y-oR-ybH"/>
                             <constraint firstItem="5fE-7K-PPt" firstAttribute="width" secondItem="scR-tY-3tg" secondAttribute="width" multiplier="0.25" id="SlR-BR-Uwn"/>
+                            <constraint firstAttribute="trailing" secondItem="czk-eN-Osl" secondAttribute="trailing" id="UUB-wf-oqg"/>
+                            <constraint firstAttribute="bottom" secondItem="czk-eN-Osl" secondAttribute="bottom" id="brb-tK-7dw"/>
+                            <constraint firstItem="czk-eN-Osl" firstAttribute="leading" secondItem="scR-tY-3tg" secondAttribute="leading" id="oT0-Nq-lmm"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -50,6 +57,10 @@
                 <constraint firstAttribute="trailing" secondItem="scR-tY-3tg" secondAttribute="trailing" constant="8" id="XlN-p0-FZU"/>
             </constraints>
             <size key="customSize" width="163" height="170"/>
+            <connections>
+                <outlet property="imgAdd" destination="5fE-7K-PPt" id="zG8-DX-6rA"/>
+                <outlet property="imgAdded" destination="czk-eN-Osl" id="HgP-k0-QiU"/>
+            </connections>
             <point key="canvasLocation" x="93.89312977099236" y="61.971830985915496"/>
         </collectionViewCell>
     </objects>
