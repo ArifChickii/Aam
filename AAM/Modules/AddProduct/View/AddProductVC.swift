@@ -174,6 +174,12 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
             print("do nothing")
         case 9:
             print("do nothing")
+           
+            viewModel.addProductToFirebase()
+                   
+                
+            
+
         default:
             print("do nothing")
         }

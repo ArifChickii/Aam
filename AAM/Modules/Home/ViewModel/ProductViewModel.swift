@@ -17,6 +17,18 @@ class ProductsViewModel {
             completion?() // Call the completion closure if provided
         }
     }
+    
+//    func deleteProduct(){
+//        productService.deleteProduct(withId: productIdToDelete) { result in
+//            switch result {
+//            case .success:
+//                print("Product deleted successfully")
+//            case .failure(let error):
+//                print("Failed to delete product: \(error.localizedDescription)")
+//            }
+//        }
+//    }
+    
 
     func numberOfProducts() -> Int {
         return products.count
@@ -26,4 +38,5 @@ class ProductsViewModel {
         return products[index]
     }
 }
+
 

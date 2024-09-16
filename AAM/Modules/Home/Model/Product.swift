@@ -6,8 +6,8 @@
 //
 
 import Foundation
-struct Product {
-    let id: String?
+struct Product: Codable {
+    var id: String?
     let images: [String]?
     let title: String?
     let description: String?

@@ -1177,6 +1177,9 @@ PODS:
   - Firebase/Messaging (11.0.0):
     - Firebase/CoreOnly
     - FirebaseMessaging (~> 11.0.0)
+  - Firebase/Storage (11.0.0):
+    - Firebase/CoreOnly
+    - FirebaseStorage (~> 11.0.0)
   - FirebaseAppCheckInterop (11.0.0)
   - FirebaseAuth (11.0.0):
     - FirebaseAppCheckInterop (~> 11.0)
@@ -1258,6 +1261,13 @@ PODS:
     - nanopb (~> 3.30910.0)
     - PromisesSwift (~> 2.1)
   - FirebaseSharedSwift (11.0.0)
+  - FirebaseStorage (11.0.0):
+    - FirebaseAppCheckInterop (~> 11.0)
+    - FirebaseAuthInterop (~> 11.0)
+    - FirebaseCore (~> 11.0)
+    - FirebaseCoreExtension (~> 11.0)
+    - GoogleUtilities/Environment (~> 8.0)
+    - GTMSessionFetcher/Core (~> 3.4)
   - FittedSheets (2.6.1)
   - FSPagerView (0.8.3)
   - GoogleDataTransport (10.1.0):
@@ -1407,6 +1417,7 @@ DEPENDENCIES:
   - Firebase/DynamicLinks
   - Firebase/Firestore
   - Firebase/Messaging
+  - Firebase/Storage
   - FittedSheets
   - FSPagerView
   - GoogleSignIn
@@ -1435,6 +1446,7 @@ SPEC REPOS:
     - FirebaseRemoteConfigInterop
     - FirebaseSessions
     - FirebaseSharedSwift
+    - FirebaseStorage
     - FittedSheets
     - FSPagerView
     - GoogleDataTransport
@@ -1473,6 +1485,7 @@ SPEC CHECKSUMS:
   FirebaseRemoteConfigInterop: 1ee07f85eafa4e44ba70acb921f77154282ef584
   FirebaseSessions: a98d41828920e2f11cd617ee36bf2b089e6bbe8f
   FirebaseSharedSwift: 9d0e7130af2f0cf162ecd136971f9661f2a3f769
+  FirebaseStorage: f9e2bf027d549db18b6195a37b31c85f56e40200
   FittedSheets: 37e35f105c531f3845075f1788dd8517a35315c4
   FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
   GoogleDataTransport: aae35b7ea0c09004c3797d53c8c41f66f219d6a7
@@ -1490,6 +1503,6 @@ SPEC CHECKSUMS:
   PromisesSwift: 9d77319bbe72ebf6d872900551f7eeba9bce2851
   RecaptchaInterop: 7d1a4a01a6b2cb1610a47ef3f85f0c411434cb21
 
-PODFILE CHECKSUM: 3c539b9812b8d04ec40a0387a7ac83a7bb91611c
+PODFILE CHECKSUM: 1170b2c9f50f48a6a0c9c26f52aedd9b3b488d18
 
 COCOAPODS: 1.15.2
