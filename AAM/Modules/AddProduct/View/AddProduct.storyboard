@@ -23,10 +23,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vzs-Rn-ClS">
-                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="74"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5sW-Iw-JB3">
-                                        <rect key="frame" x="183" y="10.333333333333327" width="27" height="23.333333333333329"/>
+                                        <rect key="frame" x="183" y="38.666666666666671" width="27" height="23.333333333333329"/>
                                         <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="16"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -46,11 +46,11 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="5sW-Iw-JB3" secondAttribute="bottom" constant="12" id="BKX-h7-ecq"/>
                                     <constraint firstItem="pZ9-n1-h5A" firstAttribute="centerY" secondItem="vzs-Rn-ClS" secondAttribute="centerY" id="Hfl-uK-WIi"/>
                                     <constraint firstItem="5sW-Iw-JB3" firstAttribute="centerX" secondItem="vzs-Rn-ClS" secondAttribute="centerX" id="I52-Gv-GpM"/>
-                                    <constraint firstItem="5sW-Iw-JB3" firstAttribute="centerY" secondItem="vzs-Rn-ClS" secondAttribute="centerY" id="Ysm-aO-3uo"/>
                                     <constraint firstItem="pZ9-n1-h5A" firstAttribute="leading" secondItem="vzs-Rn-ClS" secondAttribute="leading" constant="20" id="tSL-M3-FZw"/>
-                                    <constraint firstAttribute="height" constant="44" id="y0Q-vP-Weu"/>
+                                    <constraint firstAttribute="height" constant="74" id="y0Q-vP-Weu"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="subviews">
@@ -58,8 +58,8 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="BkI-pg-b4z">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="BkI-pg-b4z" customClass="CustomTableView" customModule="AAM" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="133" width="393" height="685"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="2l5-WY-oIa" id="rms-E7-ZOj"/>
@@ -85,7 +85,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="npQ-3b-ny4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1895" y="-365"/>
+            <point key="canvasLocation" x="-1566" y="-365"/>
         </scene>
         <!--Add ProductVC-->
         <scene sceneID="s0d-6b-0kx">
@@ -153,7 +153,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7" y="4"/>
+            <point key="canvasLocation" x="-680" y="-359"/>
         </scene>
     </scenes>
     <resources>

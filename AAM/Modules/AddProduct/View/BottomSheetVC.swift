@@ -16,8 +16,33 @@ class BottomSheetVC: UIViewController, Storyboarded {
         // Do any additional setup after loading the view.
         setDelegatesAndDataSources()
         registerCells()
-        self.sheetViewController?.handleScrollView(self.tbl)
+        
     }
+    
+    
+    override func viewWillLayoutSubviews() {
+           super.viewWillLayoutSubviews()
+           
+           // Ensure the layout is updated
+           self.view.layoutIfNeeded()
+           
+           // Calculate the dynamic size based on the main view of the view controller
+           let targetSize = self.view.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+           
+           // Set the preferred content size for the bottom sheet
+           self.preferredContentSize = CGSize(width: self.view.frame.width, height: targetSize.height)
+       }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tbl.translatesAutoresizingMaskIntoConstraints = false
+        if let navigationController = self.navigationController{
+            navigationController.navigationBar.isHidden = true
+        }
+        
+        
+    }
+    
+    
     func setDelegatesAndDataSources(){
         
         tbl.delegate = self
@@ -38,7 +63,7 @@ extension BottomSheetVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return self.viewModel.courseList.count
-        return 10
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

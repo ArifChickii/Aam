@@ -6,12 +6,19 @@
 //
 
 import Foundation
+import BottomSheet
+import UIKit
 class Constants{
     static let shared = Constants()
     
     var linkingAlertTitle = "Email Already in Use"
     var googleLinkingDesc = "There is already a Google account with this email address. Continue to login with Google."
     var appleLinkingDesc = "There is already an Apple account with this email address. Continue to login with Apple."
+    static let bottomSheetConfiguration = BottomSheetConfiguration(
+        cornerRadius: 20,
+        pullBarConfiguration: .visible(.init(height: 20)),
+        shadowConfiguration: .init(backgroundColor: UIColor.black.withAlphaComponent(0.6))
+    )
     
     
     enum CategoryType: String {

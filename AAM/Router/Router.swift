@@ -7,7 +7,8 @@
 
 import Foundation
 import UIKit
-import FittedSheets
+//import FittedSheets
+import BottomSheet
 
 class Router {
     
@@ -46,27 +47,42 @@ class Router {
         let vc = AddProductVC.instantiate(storyBoardName: "AddProduct")
         currentVC.navigationController?.pushViewController(vc, animated: true)
     }
-    static func OpenBottomSheet(from currentVC: UIViewController) {
-        let vc = BottomSheetVC.instantiate(storyBoardName: "AddProduct")
-        var options = SheetOptions(
-            shrinkPresentingViewController: false, useInlineMode: false
-        )
-        options.presentingViewCornerRadius = 15
-        let sheetController = SheetViewController(controller: vc, sizes: [.fixed(currentVC.view.frame.height * 0.6),.fullscreen], options: options)
-        
-//        sheetController.overlayColor = UIColor.Color99D81C.withAlphaComponent(0.35)
-        currentVC.present(sheetController, animated: true, completion: nil)
-        
-        
-        
-    }
+//    static func OpenBottomSheet(from currentVC: UIViewController) {
+//        let vc = BottomSheetVC.instantiate(storyBoardName: "AddProduct")
+//        var options = SheetOptions(
+//            shrinkPresentingViewController: false, useInlineMode: false
+//        )
+//        options.presentingViewCornerRadius = 15
+//        let sheetController = SheetViewController(controller: vc, sizes: [.fixed(currentVC.view.frame.height * 0.6),.fullscreen], options: options)
+//        
+////        sheetController.overlayColor = UIColor.Color99D81C.withAlphaComponent(0.35)
+//        currentVC.present(sheetController, animated: true, completion: nil)
+//        
+//        
+//        
+//    }
 
     static func pop(from currentVC: UIViewController) {
         currentVC.navigationController?.popViewController(animated: true)
     }
     
 
-    
+    static func showBottomSheet(from currentVC: UIViewController){
+        let bottomSheetVC = BottomSheetVC.instantiate(storyBoardName: "AddProduct")
+        currentVC.presentBottomSheet(
+            viewController: bottomSheetVC,
+            configuration: Constants.bottomSheetConfiguration,
+            canBeDismissed: {
+                // return `true` or `false` based on your business logic
+                true
+            },
+            dismissCompletion: {
+                // handle bottom sheet dismissal completion
+            }
+        )
+        
+        
+    }
 
     
 

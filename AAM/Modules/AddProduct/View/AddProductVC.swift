@@ -161,11 +161,13 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
             print("do nothing")
         case 3:
             print("Category")
-            Router.OpenBottomSheet(from: self)
+            Router.showBottomSheet(from: self)
         case 4:
             print("Size")
+            Router.showBottomSheet(from: self)
         case 5:
             print("Color")
+            Router.showBottomSheet(from: self)
         case 6:
             print("price")
         case 7:
