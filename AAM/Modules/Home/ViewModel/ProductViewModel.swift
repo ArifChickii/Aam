@@ -18,6 +18,49 @@ class ProductsViewModel {
         }
     }
     
+    func fetchCategories(completion: (() -> Void)? = nil) {
+        productService.fetchCategories { categories in
+            print(categories)
+//            save them in constant class
+            completion?()
+        }
+        
+        
+        
+    }
+    
+    func fetchAllColors(completion: (() -> Void)? = nil) {
+        productService.fetchAllAvailableColors { colors in
+            for color in colors {
+                print("Color: \(color)")
+            }
+        }
+        
+        
+    }
+    func fetchAllSizes(completion: (() -> Void)? = nil) {
+        productService.fetchAllAvailableSizes { sizes in
+            for size in sizes {
+                print("Color: \(size)")
+            }
+        }
+        
+        
+    }
+    func fetchAllFabrics(completion: (() -> Void)? = nil) {
+        productService.fetchAllAvailableFabrics { fabrics in
+            for fab in fabrics {
+                print("Color: \(fab)")
+            }
+        }
+        
+        
+    }
+    
+    
+
+    
+    
 //    func deleteProduct(){
 //        productService.deleteProduct(withId: productIdToDelete) { result in
 //            switch result {

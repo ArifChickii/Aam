@@ -129,8 +129,112 @@ class FirebaseService {
         }
     
 
+    func fetchCategories(completion: @escaping ([ProductCategory]) -> Void) {
+        // Reference to the categories collection
+        let categoriesRef = db.collection("cats")
+        
+        // Fetch all documents in the categories collection
+        categoriesRef.getDocuments { (snapshot, error) in
+            var categoriesData: [ProductCategory] = []
+            
+            if let error = error {
+                print("Error fetching categories: \(error.localizedDescription)")
+                return
+            }
+            
+            if let snapshot = snapshot {
+                for document in snapshot.documents {
+                    let categoryName = document.data()["name"] as? String ?? ""
+                    let subcategories = document.data()["subcats"] as? [String] ?? []
+                    let category = ProductCategory(title: categoryName, subCategories: subcategories)
+                    
+                    categoriesData.append(category)
+                }
+            }
+            
+            completion(categoriesData) // Return the categories and subcategories
+        }
+    }
     
     
+    func fetchAllAvailableColors(completion: @escaping ([String]) -> Void) {
+        // Reference to the colors collection
+        let colorsRef = db.collection("Product_colors")
+        
+        // Fetch all documents in the colors collection
+        colorsRef.getDocuments { (snapshot, error) in
+            var colorsData: [String] = []  // To store color names
+            
+            if let error = error {
+                print("Error fetching colors: \(error.localizedDescription)")
+                completion([]) // Return an empty array on error
+                return
+            }
+            
+            if let snapshot = snapshot {
+                for document in snapshot.documents {
+                    // Assuming the colors are stored as a list of strings in a field named "colorList"
+                    let colorList = document.data()["colors"] as? [String] ?? []
+                    colorsData.append(contentsOf: colorList)
+                }
+            }
+            
+            completion(colorsData) // Return the array of colors
+        }
+    }
+    
+    
+    func fetchAllAvailableSizes(completion: @escaping ([String]) -> Void) {
+        // Reference to the colors collection
+        let colorsRef = db.collection("ProductSizes")
+        
+        // Fetch all documents in the colors collection
+        colorsRef.getDocuments { (snapshot, error) in
+            var colorsData: [String] = []  // To store color names
+            
+            if let error = error {
+                print("Error fetching colors: \(error.localizedDescription)")
+                completion([]) // Return an empty array on error
+                return
+            }
+            
+            if let snapshot = snapshot {
+                for document in snapshot.documents {
+                    // Assuming the colors are stored as a list of strings in a field named "colorList"
+                    let colorList = document.data()["allSize"] as? [String] ?? []
+                    colorsData.append(contentsOf: colorList)
+                }
+            }
+            
+            completion(colorsData) // Return the array of colors
+        }
+    }
+    
+    func fetchAllAvailableFabrics(completion: @escaping ([String]) -> Void) {
+        // Reference to the colors collection
+        let colorsRef = db.collection("Product_fabrics")
+        
+        // Fetch all documents in the colors collection
+        colorsRef.getDocuments { (snapshot, error) in
+            var colorsData: [String] = []  // To store color names
+            
+            if let error = error {
+                print("Error fetching colors: \(error.localizedDescription)")
+                completion([]) // Return an empty array on error
+                return
+            }
+            
+            if let snapshot = snapshot {
+                for document in snapshot.documents {
+                    // Assuming the colors are stored as a list of strings in a field named "colorList"
+                    let colorList = document.data()["fabrics"] as? [String] ?? []
+                    colorsData.append(contentsOf: colorList)
+                }
+            }
+            
+            completion(colorsData) // Return the array of colors
+        }
+    }
     
 }
 
