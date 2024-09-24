@@ -27,20 +27,20 @@ class HomeVC: UIViewController, Storyboarded {
                 }
         
 
-        fetchAllCategoriesAndLists()
+//        fetchAllCategoriesAndLists()
         
         
     }
     
-    func fetchAllCategoriesAndLists(){
-        productViewModel.fetchCategories {
-            print("do nothing")
-        }
-        productViewModel.fetchAllSizes()
-        productViewModel.fetchAllColors()
-        productViewModel.fetchAllFabrics()
-        
-    }
+//    func fetchAllCategoriesAndLists(){
+//        productViewModel.fetchCategories {
+//            print("do nothing")
+//        }
+//        productViewModel.fetchAllSizes()
+//        productViewModel.fetchAllColors()
+//        productViewModel.fetchAllFabrics()
+//        
+//    }
     
     
     

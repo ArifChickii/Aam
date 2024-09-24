@@ -63,7 +63,7 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return self.viewModel.courseList.count
-        return 10
+        return 11
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -92,29 +92,34 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableTblCell.identifier, for: indexPath) as! ExpandableTblCell
-            cell.configure(title: Constants.CategoryType.category.rawValue)
+            cell.configure(title: Constants.CategoryType.category.rawValue, subtitle: "Please select category")
             return cell
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableTblCell.identifier, for: indexPath) as! ExpandableTblCell
-            cell.configure(title: Constants.CategoryType.size.rawValue)
+            cell.configure(title: Constants.CategoryType.size.rawValue, subtitle: "Please select size")
             return cell
         case 5:
             let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableTblCell.identifier, for: indexPath) as! ExpandableTblCell
-            cell.configure(title: Constants.CategoryType.color.rawValue)
+            cell.configure(title: Constants.CategoryType.fabric.rawValue, subtitle: "Please select fabric")
             return cell
         case 6:
             let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableTblCell.identifier, for: indexPath) as! ExpandableTblCell
-            cell.configure(title: Constants.CategoryType.price.rawValue)
+            cell.configure(title: Constants.CategoryType.color.rawValue, subtitle: "Please select color")
             return cell
+       
         case 7:
+            let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableTblCell.identifier, for: indexPath) as! ExpandableTblCell
+            cell.configure(title: Constants.CategoryType.price.rawValue, subtitle: "Please select price")
+            return cell
+        case 8:
             let cell = tableView.dequeueReusableCell(withIdentifier: RenewalOptionsTblCell.identifier, for: indexPath) as! RenewalOptionsTblCell
 //            cell.configure(obj: viewModel.product)
             return cell
-        case 8:
+        case 9:
             let cell = tableView.dequeueReusableCell(withIdentifier: SaveToDraftTblCell.identifier, for: indexPath) as! SaveToDraftTblCell
 //            cell.configure(obj: viewModel.product)
             return cell
-        case 9:
+        case 10:
             let cell = tableView.dequeueReusableCell(withIdentifier: UploadButtonTblCell.identifier, for: indexPath) as! UploadButtonTblCell
 //            cell.configure(obj: viewModel.product)
             return cell
@@ -143,9 +148,12 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
         case 7:
             return UITableView.automaticDimension
         case 8:
-            return 70
+            return UITableView.automaticDimension
         case 9:
             return 70
+        case 10:
+            return 70
+        
         default:
             return 0
         }
@@ -161,20 +169,25 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
             print("do nothing")
         case 3:
             print("Category")
-            Router.showBottomSheet(from: self)
+            Router.showBottomSheet(from: self, bottomeSheetType: Constants.CategoryType.category)
         case 4:
             print("Size")
-            Router.showBottomSheet(from: self)
+            Router.showBottomSheet(from: self,bottomeSheetType: Constants.CategoryType.size)
         case 5:
-            print("Color")
-            Router.showBottomSheet(from: self)
+            print("fabric")
+            Router.showBottomSheet(from: self, bottomeSheetType: Constants.CategoryType.fabric)
         case 6:
-            print("price")
+            print("Color")
+            Router.showBottomSheet(from: self, bottomeSheetType: Constants.CategoryType.color)
         case 7:
-            print("do nothing")
+            print("price")
         case 8:
             print("do nothing")
         case 9:
+            print("do nothing")
+           
+            
+        case 10:
             print("do nothing")
            
             viewModel.addProductToFirebase()

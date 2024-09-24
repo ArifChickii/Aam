@@ -8,6 +8,10 @@ class ProductsViewModel {
 
     init(productService: FirebaseService = FirebaseService()) {
         self.productService = productService
+        self.fetchCategories()
+        self.fetchAllColors()
+        self.fetchAllSizes()
+        self.fetchAllFabrics()
     }
 
     func fetchProducts(completion: (() -> Void)? = nil) {
@@ -22,6 +26,7 @@ class ProductsViewModel {
         productService.fetchCategories { categories in
             print(categories)
 //            save them in constant class
+            Constants.shared.categoriesList = categories
             completion?()
         }
         
@@ -31,26 +36,37 @@ class ProductsViewModel {
     
     func fetchAllColors(completion: (() -> Void)? = nil) {
         productService.fetchAllAvailableColors { colors in
+            Constants.shared.colorsList.removeAll()
             for color in colors {
-                print("Color: \(color)")
+                let dropDownbj = DropDown(title: color, isChecked: false)
+                Constants.shared.colorsList.append(dropDownbj)
             }
         }
         
         
     }
+    
+    
+    
+    
     func fetchAllSizes(completion: (() -> Void)? = nil) {
         productService.fetchAllAvailableSizes { sizes in
+            Constants.shared.sizesList.removeAll()
             for size in sizes {
-                print("Color: \(size)")
+                let dropDownbj = DropDown(title: size, isChecked: false)
+                Constants.shared.sizesList.append(dropDownbj)
             }
         }
         
         
     }
     func fetchAllFabrics(completion: (() -> Void)? = nil) {
+        
         productService.fetchAllAvailableFabrics { fabrics in
-            for fab in fabrics {
-                print("Color: \(fab)")
+            Constants.shared.fabricList.removeAll()
+            for fabric in fabrics {
+                let dropDownbj = DropDown(title: fabric, isChecked: false)
+                Constants.shared.fabricList.append(dropDownbj)
             }
         }
         

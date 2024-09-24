@@ -10,6 +10,7 @@ import UIKit
 class ExpandableTblCell: UITableViewCell {
     static let identifier = "ExpandableTblCell"
     @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var lblSubtitle: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,8 +22,9 @@ class ExpandableTblCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configure(title: String){
+    func configure(title: String, subtitle: String){
         self.lblTitle.text = title
+        self.lblSubtitle.text = subtitle
     }
     
 }

@@ -14,6 +14,10 @@ class Constants{
     var linkingAlertTitle = "Email Already in Use"
     var googleLinkingDesc = "There is already a Google account with this email address. Continue to login with Google."
     var appleLinkingDesc = "There is already an Apple account with this email address. Continue to login with Apple."
+    var colorsList = [DropDown]()
+    var fabricList = [DropDown]()
+    var sizesList = [DropDown]()
+    var categoriesList = [ProductCategory]()
     static let bottomSheetConfiguration = BottomSheetConfiguration(
         cornerRadius: 20,
         pullBarConfiguration: .visible(.init(height: 20)),
@@ -26,6 +30,7 @@ class Constants{
         case size = "Size"
         case color = "Color"
         case price = "Price"
+        case fabric = "fabric"
         
     }
     

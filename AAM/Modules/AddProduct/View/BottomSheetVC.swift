@@ -8,11 +8,14 @@ import UIKit
 
 class BottomSheetVC: UIViewController, Storyboarded {
     @IBOutlet weak var tbl: UITableView!
-    @IBOutlet weak var lblTitle: UITableView!
-
+    @IBOutlet weak var lblTitle: UILabel!
+    var bottomSheetType : Constants.CategoryType?
+    var bottomSheetList = [DropDown]()
+    var categoriesList = [ProductCategory]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         setDelegatesAndDataSources()
         registerCells()
@@ -21,17 +24,17 @@ class BottomSheetVC: UIViewController, Storyboarded {
     
     
     override func viewWillLayoutSubviews() {
-           super.viewWillLayoutSubviews()
-           
-           // Ensure the layout is updated
-           self.view.layoutIfNeeded()
-           
-           // Calculate the dynamic size based on the main view of the view controller
-           let targetSize = self.view.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
-           
-           // Set the preferred content size for the bottom sheet
-           self.preferredContentSize = CGSize(width: self.view.frame.width, height: targetSize.height)
-       }
+        super.viewWillLayoutSubviews()
+        
+        // Ensure the layout is updated
+        self.view.layoutIfNeeded()
+        
+        // Calculate the dynamic size based on the main view of the view controller
+        let targetSize = self.view.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+        
+        // Set the preferred content size for the bottom sheet
+        self.preferredContentSize = CGSize(width: self.view.frame.width, height: targetSize.height)
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tbl.translatesAutoresizingMaskIntoConstraints = false
@@ -40,7 +43,32 @@ class BottomSheetVC: UIViewController, Storyboarded {
         }
         
         
+        self.setupData()
     }
+    
+    
+    func setupData(){
+        if let categoryType = self.bottomSheetType{
+            switch categoryType {
+            case Constants.CategoryType.category:
+                self.categoriesList = Constants.shared.categoriesList
+                self.lblTitle.text = "Select category"
+            case Constants.CategoryType.size:
+                self.bottomSheetList =  Constants.shared.sizesList
+                self.lblTitle.text = "Select size"
+            case Constants.CategoryType.color:
+                self.bottomSheetList =  Constants.shared.colorsList
+                self.lblTitle.text = "Select color"
+            case Constants.CategoryType.fabric:
+                self.bottomSheetList =  Constants.shared.fabricList
+                self.lblTitle.text = "Select fabric"
+            default:
+                self.bottomSheetList =  Constants.shared.colorsList
+                self.lblTitle.text = "Select color"
+            }
+        }
+    }
+    
     
     
     func setDelegatesAndDataSources(){
@@ -52,7 +80,7 @@ class BottomSheetVC: UIViewController, Storyboarded {
     private func registerCells() {
         
         tbl.register(UINib(nibName: BottomSheetTblCell.identifier, bundle: nil), forCellReuseIdentifier: BottomSheetTblCell.identifier)
-        tbl.estimatedRowHeight = 60
+        tbl.estimatedRowHeight = 50
         tbl.rowHeight = UITableView.automaticDimension
     }
 
@@ -62,14 +90,25 @@ class BottomSheetVC: UIViewController, Storyboarded {
 extension BottomSheetVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return self.viewModel.courseList.count
-        return 4
+
+        if self.bottomSheetType != Constants.CategoryType.category{
+            return self.bottomSheetList.count
+        }
+        return self.categoriesList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: BottomSheetTblCell.identifier, for: indexPath) as! BottomSheetTblCell
-//            cell.configure(obj: viewModel.product)
+        if self.bottomSheetType == Constants.CategoryType.category{
+            let item = self.categoriesList[indexPath.row]
+            cell.configure(objCategory: item)
+        }else{
+            let item = self.bottomSheetList[indexPath.row]
+            cell.configure(obj: item)
+        }
+        
+        
         return cell
         
         

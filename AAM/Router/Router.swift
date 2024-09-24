@@ -67,8 +67,9 @@ class Router {
     }
     
 
-    static func showBottomSheet(from currentVC: UIViewController){
+    static func showBottomSheet(from currentVC: UIViewController, bottomeSheetType: Constants.CategoryType){
         let bottomSheetVC = BottomSheetVC.instantiate(storyBoardName: "AddProduct")
+        bottomSheetVC.bottomSheetType = bottomeSheetType
         currentVC.presentBottomSheet(
             viewController: bottomSheetVC,
             configuration: Constants.bottomSheetConfiguration,
