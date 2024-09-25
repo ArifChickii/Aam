@@ -10,6 +10,10 @@ import UIKit
 class AddProductViewModel{
     private let productService: FirebaseService
     var imageLists: [UIImage] = []
+    var selectedSize = "Please select size"
+    var selectedFabric = "Please select fabric"
+    var selectedColor = "Please select color"
+    var selectedCategory = "Please select category"
     
     init(productService: FirebaseService = FirebaseService()) {
         self.productService = productService

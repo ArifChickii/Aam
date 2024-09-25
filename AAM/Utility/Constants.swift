@@ -42,3 +42,6 @@ struct UserDefaultsKeys{
 }
 
 
+extension Notification.Name {
+    static let didDismissBottomSheet = Notification.Name("didDismissBottomSheet")
+}

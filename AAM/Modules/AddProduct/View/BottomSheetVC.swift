@@ -13,8 +13,7 @@ class BottomSheetVC: UIViewController, Storyboarded {
     var bottomSheetList = [DropDown]()
     var categoriesList = [ProductCategory]()
     var selectedCategory : ProductCategory?
-    
-    
+    var onDataPass: ((String) -> Void)?
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -124,16 +123,21 @@ extension BottomSheetVC: UITableViewDelegate, UITableViewDataSource{
     
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
         if let categoryType = self.bottomSheetType{
             switch categoryType {
             case Constants.CategoryType.category:
+                
                 Router.MoveToBottomSheetAsNavigation(from: self, bottomeSheetType: Constants.CategoryType.subCategory, selectedCategor: self.categoriesList[indexPath.row])
             case Constants.CategoryType.subCategory:
 //                move to previous screen
                 
-                
+                NotificationCenter.default.post(name: .didDismissBottomSheet, object: nil, userInfo: ["data": "arif is passing data from kvos"])
                 self.dismiss(animated: true)
             case Constants.CategoryType.size:
+                
+                onDataPass?("medium")
                 self.dismiss(animated: true)
                 
             case Constants.CategoryType.color:

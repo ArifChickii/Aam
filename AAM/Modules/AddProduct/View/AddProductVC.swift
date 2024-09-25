@@ -10,7 +10,12 @@ import FittedSheets
 
 class AddProductVC: UIViewController, Storyboarded {
     
+    
+    
     @IBOutlet weak var tblAddProduct: UITableView!
+
+    
+    
     var viewModel = AddProductViewModel()
 
     override func viewDidLoad() {
@@ -19,9 +24,21 @@ class AddProductVC: UIViewController, Storyboarded {
         // Do any additional setup after loading the view.
         setDelegatesAndDataSources()
         registerCells()
+        NotificationCenter.default.addObserver(self, selector: #selector(handleBottomSheetDismissedForCategory(_:)), name: .didDismissBottomSheet, object: nil)
     }
     
     
+    @objc func handleBottomSheetDismissedForCategory(_ notification: Notification) {
+         if let data = notification.userInfo?["data"] as? String {
+             print("Received data: \(data)")
+             // Handle the data received from the BottomSheetVC
+         }
+     }
+    
+    deinit {
+            // Remove observer when the controller is deallocated
+            NotificationCenter.default.removeObserver(self, name: .didDismissBottomSheet, object: nil)
+        }
 
     
     
@@ -96,7 +113,7 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
             return cell
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableTblCell.identifier, for: indexPath) as! ExpandableTblCell
-            cell.configure(title: Constants.CategoryType.size.rawValue, subtitle: "Please select size")
+            cell.configure(title: Constants.CategoryType.size.rawValue, subtitle: viewModel.selectedSize)
             return cell
         case 5:
             let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableTblCell.identifier, for: indexPath) as! ExpandableTblCell
@@ -169,20 +186,34 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
             print("do nothing")
         case 3:
             print("Category")
-            Router.showBottomSheet(from: self, bottomeSheetType: Constants.CategoryType.category, dismissCompletion: {
-                print("dismiss screen handled from category in add product vc")
-            })
+//            Router.showBottomSheet(from: self, bottomeSheetType: Constants.CategoryType.category, dismissCompletion: {_ in 
+//                print("dismiss screen handled from category in add product vc")
+//            })
+            Router.showBottomSheet(from: self, bottomeSheetType: Constants.CategoryType.category) { [weak self] data in
+                print("Received data: \(data) and fklsdfjak;dfjs na kr arif")
+            }
+            
+            
+            
         case 4:
             print("Size")
-            Router.showBottomSheet(from: self,bottomeSheetType: Constants.CategoryType.size, dismissCompletion: {
-                
+            Router.showBottomSheet(from: self,bottomeSheetType: Constants.CategoryType.size, onDataPass: {data in
+                print("selected size is \(data)")
+                self.viewModel.selectedSize = data
+                self.tblAddProduct.reloadData()
             })
         case 5:
             print("fabric")
-            Router.showBottomSheet(from: self, bottomeSheetType: Constants.CategoryType.fabric, dismissCompletion: {})
+            Router.showBottomSheet(from: self,bottomeSheetType: Constants.CategoryType.size, onDataPass: {data in
+                print("selected fabric is \(data)")
+                
+            })
         case 6:
             print("Color")
-            Router.showBottomSheet(from: self, bottomeSheetType: Constants.CategoryType.color, dismissCompletion: {})
+            Router.showBottomSheet(from: self,bottomeSheetType: Constants.CategoryType.size, onDataPass: {data in
+                print("selected colors are \(data)")
+                
+            })
         case 7:
             print("price")
         case 8:

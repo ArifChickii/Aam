@@ -67,9 +67,12 @@ class Router {
     }
     
 
-    static func showBottomSheet(from currentVC: UIViewController, bottomeSheetType: Constants.CategoryType, dismissCompletion: @escaping (() -> Void)){
+    static func showBottomSheet(from currentVC: UIViewController, bottomeSheetType: Constants.CategoryType, onDataPass: @escaping (String) -> Void){
         let bottomSheetVC = BottomSheetVC.instantiate(storyBoardName: "AddProduct")
         bottomSheetVC.bottomSheetType = bottomeSheetType
+        
+        bottomSheetVC.onDataPass = onDataPass
+        
         currentVC.presentBottomSheetInsideNavigationController(
             viewController: bottomSheetVC,
             configuration: Constants.bottomSheetConfiguration,
@@ -83,9 +86,7 @@ class Router {
                 
             }
         )
-        
-        
-        
+                
         
     }
 
@@ -93,7 +94,7 @@ class Router {
         let vc = BottomSheetVC.instantiate(storyBoardName: "AddProduct")
         vc.selectedCategory = selectedCategor
         vc.bottomSheetType = bottomeSheetType
-        currentVC.navigationController?.pushViewController(vc, animated: true)
+        currentVC.navigationController?.pushViewController(vc, animated: false)
     }
 
  
