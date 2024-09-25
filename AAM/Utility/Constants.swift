@@ -27,6 +27,7 @@ class Constants{
     
     enum CategoryType: String {
         case category = "Category"
+        case subCategory = "Subcategory"
         case size = "Size"
         case color = "Color"
         case price = "Price"

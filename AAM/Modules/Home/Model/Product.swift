@@ -38,7 +38,7 @@ struct ProductInfo {
 
 struct ProductCategory {
     let title: String?
-    let subCategories: [String]?
+    let subCategories: [DropDown]?
 }
 
 

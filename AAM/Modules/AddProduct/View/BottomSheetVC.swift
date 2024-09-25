@@ -12,6 +12,8 @@ class BottomSheetVC: UIViewController, Storyboarded {
     var bottomSheetType : Constants.CategoryType?
     var bottomSheetList = [DropDown]()
     var categoriesList = [ProductCategory]()
+    var selectedCategory : ProductCategory?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +55,10 @@ class BottomSheetVC: UIViewController, Storyboarded {
             case Constants.CategoryType.category:
                 self.categoriesList = Constants.shared.categoriesList
                 self.lblTitle.text = "Select category"
+            case Constants.CategoryType.subCategory:
+                self.categoriesList = Constants.shared.categoriesList
+                self.bottomSheetList = self.selectedCategory?.subCategories ?? []
+                self.lblTitle.text = "\(self.selectedCategory?.title ?? "Select subcategory")"
             case Constants.CategoryType.size:
                 self.bottomSheetList =  Constants.shared.sizesList
                 self.lblTitle.text = "Select size"
@@ -80,7 +86,7 @@ class BottomSheetVC: UIViewController, Storyboarded {
     private func registerCells() {
         
         tbl.register(UINib(nibName: BottomSheetTblCell.identifier, bundle: nil), forCellReuseIdentifier: BottomSheetTblCell.identifier)
-        tbl.estimatedRowHeight = 50
+        tbl.estimatedRowHeight = 40
         tbl.rowHeight = UITableView.automaticDimension
     }
 
@@ -118,7 +124,26 @@ extension BottomSheetVC: UITableViewDelegate, UITableViewDataSource{
     
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("do nothing")
+        if let categoryType = self.bottomSheetType{
+            switch categoryType {
+            case Constants.CategoryType.category:
+                Router.MoveToBottomSheetAsNavigation(from: self, bottomeSheetType: Constants.CategoryType.subCategory, selectedCategor: self.categoriesList[indexPath.row])
+            case Constants.CategoryType.subCategory:
+//                move to previous screen
+                
+                
+                self.dismiss(animated: true)
+            case Constants.CategoryType.size:
+                self.dismiss(animated: true)
+                
+            case Constants.CategoryType.color:
+                self.dismiss(animated: true)
+            case Constants.CategoryType.fabric:
+                self.dismiss(animated: true)
+            default:
+                self.dismiss(animated: true)
+            }
+        }
     }
     
 }

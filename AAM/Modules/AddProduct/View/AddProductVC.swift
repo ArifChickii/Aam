@@ -169,16 +169,20 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
             print("do nothing")
         case 3:
             print("Category")
-            Router.showBottomSheet(from: self, bottomeSheetType: Constants.CategoryType.category)
+            Router.showBottomSheet(from: self, bottomeSheetType: Constants.CategoryType.category, dismissCompletion: {
+                print("dismiss screen handled from category in add product vc")
+            })
         case 4:
             print("Size")
-            Router.showBottomSheet(from: self,bottomeSheetType: Constants.CategoryType.size)
+            Router.showBottomSheet(from: self,bottomeSheetType: Constants.CategoryType.size, dismissCompletion: {
+                
+            })
         case 5:
             print("fabric")
-            Router.showBottomSheet(from: self, bottomeSheetType: Constants.CategoryType.fabric)
+            Router.showBottomSheet(from: self, bottomeSheetType: Constants.CategoryType.fabric, dismissCompletion: {})
         case 6:
             print("Color")
-            Router.showBottomSheet(from: self, bottomeSheetType: Constants.CategoryType.color)
+            Router.showBottomSheet(from: self, bottomeSheetType: Constants.CategoryType.color, dismissCompletion: {})
         case 7:
             print("price")
         case 8:

@@ -67,10 +67,10 @@ class Router {
     }
     
 
-    static func showBottomSheet(from currentVC: UIViewController, bottomeSheetType: Constants.CategoryType){
+    static func showBottomSheet(from currentVC: UIViewController, bottomeSheetType: Constants.CategoryType, dismissCompletion: @escaping (() -> Void)){
         let bottomSheetVC = BottomSheetVC.instantiate(storyBoardName: "AddProduct")
         bottomSheetVC.bottomSheetType = bottomeSheetType
-        currentVC.presentBottomSheet(
+        currentVC.presentBottomSheetInsideNavigationController(
             viewController: bottomSheetVC,
             configuration: Constants.bottomSheetConfiguration,
             canBeDismissed: {
@@ -79,13 +79,22 @@ class Router {
             },
             dismissCompletion: {
                 // handle bottom sheet dismissal completion
+                print("bottom sheet dismisses by arif")
+                
             }
         )
         
         
+        
+        
     }
 
-    
+    static func MoveToBottomSheetAsNavigation(from currentVC: UIViewController, bottomeSheetType: Constants.CategoryType, selectedCategor: ProductCategory) {
+        let vc = BottomSheetVC.instantiate(storyBoardName: "AddProduct")
+        vc.selectedCategory = selectedCategor
+        vc.bottomSheetType = bottomeSheetType
+        currentVC.navigationController?.pushViewController(vc, animated: true)
+    }
 
  
 }

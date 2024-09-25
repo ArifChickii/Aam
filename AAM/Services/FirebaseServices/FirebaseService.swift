@@ -146,7 +146,14 @@ class FirebaseService {
                 for document in snapshot.documents {
                     let categoryName = document.data()["name"] as? String ?? ""
                     let subcategories = document.data()["subcats"] as? [String] ?? []
-                    let category = ProductCategory(title: categoryName, subCategories: subcategories)
+                    var subcategoriesDropDownList = [DropDown]()
+                    for subcategory in subcategories {
+                        let dropDownObj = DropDown(title: subcategory, isChecked: false)
+                        subcategoriesDropDownList.append(dropDownObj)
+                        
+                    }
+                    
+                    let category = ProductCategory(title: categoryName, subCategories: subcategoriesDropDownList)
                     
                     categoriesData.append(category)
                 }
