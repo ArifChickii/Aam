@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -31,8 +32,22 @@
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kTq-u0-jA1">
+                                        <rect key="frame" x="313" y="32.333333333333329" width="70" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="m0e-Qb-2Cv"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Save">
+                                            <fontDescription key="titleFontDescription" name="Jost-Medium" family="Jost" pointSize="14"/>
+                                            <color key="baseForegroundColor" name="mainThemeColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="saveAction" destination="2l5-WY-oIa" eventType="touchUpInside" id="xf7-fc-ZQm"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pZ9-n1-h5A">
-                                        <rect key="frame" x="20" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="20" y="15" width="44" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="IHR-qV-x7k"/>
                                             <constraint firstAttribute="height" constant="44" id="m6J-nD-VP8"/>
@@ -46,9 +61,11 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="kTq-u0-jA1" firstAttribute="centerY" secondItem="5sW-Iw-JB3" secondAttribute="centerY" id="5rY-dm-3KF"/>
                                     <constraint firstAttribute="bottom" secondItem="5sW-Iw-JB3" secondAttribute="bottom" constant="12" id="BKX-h7-ecq"/>
                                     <constraint firstItem="pZ9-n1-h5A" firstAttribute="centerY" secondItem="vzs-Rn-ClS" secondAttribute="centerY" id="Hfl-uK-WIi"/>
                                     <constraint firstItem="5sW-Iw-JB3" firstAttribute="centerX" secondItem="vzs-Rn-ClS" secondAttribute="centerX" id="I52-Gv-GpM"/>
+                                    <constraint firstAttribute="trailing" secondItem="kTq-u0-jA1" secondAttribute="trailing" constant="10" id="Zv9-TQ-sVU"/>
                                     <constraint firstItem="pZ9-n1-h5A" firstAttribute="leading" secondItem="vzs-Rn-ClS" secondAttribute="leading" constant="20" id="tSL-M3-FZw"/>
                                     <constraint firstAttribute="height" constant="74" id="y0Q-vP-Weu"/>
                                 </constraints>
@@ -80,6 +97,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnSave" destination="kTq-u0-jA1" id="Xex-6C-QBh"/>
                         <outlet property="lblTitle" destination="5sW-Iw-JB3" id="NeO-Sr-Mbt"/>
                         <outlet property="tbl" destination="BkI-pg-b4z" id="5XK-AW-vfc"/>
                     </connections>
@@ -159,6 +177,9 @@
     </scenes>
     <resources>
         <image name="ic_back" width="24" height="24.666666030883789"/>
+        <namedColor name="mainThemeColor">
+            <color red="0.0" green="0.60799998044967651" blue="0.46700000762939453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

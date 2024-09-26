@@ -67,7 +67,7 @@ class Router {
     }
     
 
-    static func showBottomSheet(from currentVC: UIViewController, bottomeSheetType: Constants.CategoryType, onDataPass: @escaping (String) -> Void){
+    static func showBottomSheet(from currentVC: UIViewController, bottomeSheetType: Constants.CategoryType, onDataPass: @escaping ([DropDown]) -> Void){
         let bottomSheetVC = BottomSheetVC.instantiate(storyBoardName: "AddProduct")
         bottomSheetVC.bottomSheetType = bottomeSheetType
         

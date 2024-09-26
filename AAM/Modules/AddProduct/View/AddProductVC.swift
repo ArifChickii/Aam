@@ -30,11 +30,11 @@ class AddProductVC: UIViewController, Storyboarded {
     
     @objc func handleBottomSheetDismissedForCategory(_ notification: Notification) {
         if let userInfo = notification.userInfo,
-         let category = userInfo["category"] as? ProductCategory, let  subcategory = userInfo["subcategory"] as? String {
+         let category = userInfo["category"] as? ProductCategory, let  subcategory = userInfo["subcategory"] as? DropDown {
              print("Received data: \(category) and subcategory \(subcategory)")
              
              // Handle the data received from the BottomSheetVC
-             self.viewModel.selectedCategory = "\(category.title ?? "") -> \(subcategory)"
+            self.viewModel.selectedCategory = "\(category.title ?? "") -> \(subcategory.title ?? "")"
              self.tblAddProduct.reloadRows(at: [IndexPath(row: 3, section: 0)], with: .automatic)
          }
      }
@@ -113,24 +113,25 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableTblCell.identifier, for: indexPath) as! ExpandableTblCell
-            cell.configure(title: Constants.CategoryType.category.rawValue, subtitle: self.viewModel.selectedCategory)
+            cell.configure(title: Constants.CategoryType.category.rawValue, subtitles: nil,subcategory: self.viewModel.selectedCategory, categoryType: .category)
+            
             return cell
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableTblCell.identifier, for: indexPath) as! ExpandableTblCell
-            cell.configure(title: Constants.CategoryType.size.rawValue, subtitle: viewModel.selectedSize)
+            cell.configure(title: Constants.CategoryType.size.rawValue, subtitles: viewModel.selectedSize, categoryType: .size)
             return cell
         case 5:
             let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableTblCell.identifier, for: indexPath) as! ExpandableTblCell
-            cell.configure(title: Constants.CategoryType.fabric.rawValue, subtitle: viewModel.selectedFabric)
+            cell.configure(title: Constants.CategoryType.fabric.rawValue, subtitles: viewModel.selectedFabric, categoryType: .fabric)
             return cell
         case 6:
             let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableTblCell.identifier, for: indexPath) as! ExpandableTblCell
-            cell.configure(title: Constants.CategoryType.color.rawValue, subtitle: viewModel.selectedColor)
+            cell.configure(title: Constants.CategoryType.color.rawValue, subtitles: viewModel.selectedColor, categoryType: .color)
             return cell
        
         case 7:
             let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableTblCell.identifier, for: indexPath) as! ExpandableTblCell
-            cell.configure(title: Constants.CategoryType.price.rawValue, subtitle: "Please select price")
+            cell.configure(title: Constants.CategoryType.price.rawValue, subtitles: [DropDown](), categoryType: .price)
             return cell
         case 8:
             let cell = tableView.dequeueReusableCell(withIdentifier: RenewalOptionsTblCell.identifier, for: indexPath) as! RenewalOptionsTblCell

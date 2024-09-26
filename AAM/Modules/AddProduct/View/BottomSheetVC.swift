@@ -9,11 +9,12 @@ import UIKit
 class BottomSheetVC: UIViewController, Storyboarded {
     @IBOutlet weak var tbl: UITableView!
     @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var btnSave: UIButton!
     var bottomSheetType : Constants.CategoryType?
     var bottomSheetList = [DropDown]()
     var categoriesList = [ProductCategory]()
     var selectedCategory : ProductCategory?
-    var onDataPass: ((String) -> Void)?
+    var onDataPass: (([DropDown]) -> Void)?
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -54,24 +55,31 @@ class BottomSheetVC: UIViewController, Storyboarded {
             case Constants.CategoryType.category:
                 self.categoriesList = Constants.shared.categoriesList
                 self.lblTitle.text = "Select category"
+                self.btnSave.isHidden = true
             case Constants.CategoryType.subCategory:
                 self.categoriesList = Constants.shared.categoriesList
                 self.bottomSheetList = self.selectedCategory?.subCategories ?? []
                 self.lblTitle.text = "\(self.selectedCategory?.title ?? "Select subcategory")"
+                self.btnSave.isHidden = true
             case Constants.CategoryType.size:
                 self.bottomSheetList =  Constants.shared.sizesList
                 self.lblTitle.text = "Select size"
+                self.btnSave.isHidden = false
             case Constants.CategoryType.color:
                 self.bottomSheetList =  Constants.shared.colorsList
                 self.lblTitle.text = "Select color"
+                self.btnSave.isHidden = false
             case Constants.CategoryType.fabric:
                 self.bottomSheetList =  Constants.shared.fabricList
                 self.lblTitle.text = "Select fabric"
+                self.btnSave.isHidden = false
             default:
                 self.bottomSheetList =  Constants.shared.colorsList
                 self.lblTitle.text = "Select color"
+                self.btnSave.isHidden = false
             }
         }
+        self.tbl.reloadData()
     }
     
     
@@ -89,6 +97,18 @@ class BottomSheetVC: UIViewController, Storyboarded {
         tbl.rowHeight = UITableView.automaticDimension
     }
 
+    @IBAction func saveAction(){
+//
+        if self.bottomSheetType != .category || self.bottomSheetType != .subCategory{
+            let selectedItems = self.bottomSheetList.filter { $0.isChecked ?? false }
+            onDataPass?(selectedItems)
+            self.dismiss(animated: true)
+        }else{
+//            do nothing
+        }
+        
+        
+    }
    
 
 }
@@ -131,25 +151,16 @@ extension BottomSheetVC: UITableViewDelegate, UITableViewDataSource{
             case Constants.CategoryType.subCategory:
 //              move to previous screen
                 NotificationCenter.default.post(name: .didDismissBottomSheet, object: nil, userInfo: ["category": self.selectedCategory,
-                    "subcategory": self.bottomSheetList[indexPath.row].title])
+                    "subcategory": self.bottomSheetList[indexPath.row]])
                 self.dismiss(animated: true)
             case Constants.CategoryType.size:
                 self.toggleCheck(for: indexPath)
-//                onDataPass?(self.bottomSheetList[indexPath.row].title ?? "")
-//                self.dismiss(animated: true)
-                
             case Constants.CategoryType.color:
                 self.toggleCheck(for: indexPath)
-//                onDataPass?(self.bottomSheetList[indexPath.row].title ?? "")
-//                self.dismiss(animated: true)
             case Constants.CategoryType.fabric:
                 self.toggleCheck(for: indexPath)
-//                onDataPass?(self.bottomSheetList[indexPath.row].title ?? "")
-//                self.dismiss(animated: true)
             default:
                 self.toggleCheck(for: indexPath)
-//                onDataPass?(self.bottomSheetList[indexPath.row].title ?? "")
-//                self.dismiss(animated: true)
             }
         }
     }
