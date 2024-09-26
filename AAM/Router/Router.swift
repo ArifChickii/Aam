@@ -78,7 +78,7 @@ class Router {
             configuration: Constants.bottomSheetConfiguration,
             canBeDismissed: {
                 // return `true` or `false` based on your business logic
-                true
+                false
             },
             dismissCompletion: {
                 // handle bottom sheet dismissal completion

@@ -107,12 +107,11 @@ extension BottomSheetVC: UITableViewDelegate, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: BottomSheetTblCell.identifier, for: indexPath) as! BottomSheetTblCell
         if self.bottomSheetType == Constants.CategoryType.category{
             let item = self.categoriesList[indexPath.row]
-            cell.configure(objCategory: item)
+            cell.configure(objCategory: item, type: self.bottomSheetType ?? .category)
         }else{
             let item = self.bottomSheetList[indexPath.row]
-            cell.configure(obj: item)
+            cell.configure(obj: item, type: self.bottomSheetType ?? .color)
         }
-        
         
         return cell
         
@@ -128,11 +127,9 @@ extension BottomSheetVC: UITableViewDelegate, UITableViewDataSource{
         if let categoryType = self.bottomSheetType{
             switch categoryType {
             case Constants.CategoryType.category:
-                
                 Router.MoveToBottomSheetAsNavigation(from: self, bottomeSheetType: Constants.CategoryType.subCategory, selectedCategor: self.categoriesList[indexPath.row])
             case Constants.CategoryType.subCategory:
-//                move to previous screen
-                
+//              move to previous screen
                 NotificationCenter.default.post(name: .didDismissBottomSheet, object: nil, userInfo: ["category": self.selectedCategory,
                     "subcategory": self.bottomSheetList[indexPath.row].title])
                 self.dismiss(animated: true)

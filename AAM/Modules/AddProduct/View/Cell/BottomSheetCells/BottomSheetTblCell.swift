@@ -23,19 +23,24 @@ class BottomSheetTblCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configure(obj : DropDown? = nil, objCategory: ProductCategory? = nil){
+    func configure(obj : DropDown? = nil, objCategory: ProductCategory? = nil, type: Constants.CategoryType){
         self.viewColor.isHidden = true
         
-        if let obj = obj{
-            self.lblTitle.text = obj.title
-            self.imgCheckbox.image = obj.isChecked ?? false ? UIImage(named: "ic_checked") : UIImage(named: "ic_unchecked")
-        }else{
+        if type == .category{
             if let objCategory = objCategory{
                 self.lblTitle.text = objCategory.title
-                
             }
-           
+            self.imgCheckbox.image = UIImage(named: "ic_arrow_right")
+        }else{
+            if let obj = obj{
+                self.lblTitle.text = obj.title
+                self.imgCheckbox.image = obj.isChecked ?? false ? UIImage(named: "ic_checked") : UIImage(named: "ic_unchecked")
+            }
         }
+        
+
+        
+ 
         
 
     }

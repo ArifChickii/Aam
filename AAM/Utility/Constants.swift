@@ -20,7 +20,8 @@ class Constants{
     var categoriesList = [ProductCategory]()
     static let bottomSheetConfiguration = BottomSheetConfiguration(
         cornerRadius: 20,
-        pullBarConfiguration: .visible(.init(height: 20)),
+//        pullBarConfiguration: .visible(.init(height: 20)),
+        pullBarConfiguration: .hidden,
         shadowConfiguration: .init(backgroundColor: UIColor.black.withAlphaComponent(0.6))
     )
     
