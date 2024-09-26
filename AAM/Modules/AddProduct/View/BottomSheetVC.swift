@@ -134,21 +134,31 @@ extension BottomSheetVC: UITableViewDelegate, UITableViewDataSource{
                     "subcategory": self.bottomSheetList[indexPath.row].title])
                 self.dismiss(animated: true)
             case Constants.CategoryType.size:
-                
-                onDataPass?(self.bottomSheetList[indexPath.row].title ?? "")
-                self.dismiss(animated: true)
+                self.toggleCheck(for: indexPath)
+//                onDataPass?(self.bottomSheetList[indexPath.row].title ?? "")
+//                self.dismiss(animated: true)
                 
             case Constants.CategoryType.color:
-                onDataPass?(self.bottomSheetList[indexPath.row].title ?? "")
-                self.dismiss(animated: true)
+                self.toggleCheck(for: indexPath)
+//                onDataPass?(self.bottomSheetList[indexPath.row].title ?? "")
+//                self.dismiss(animated: true)
             case Constants.CategoryType.fabric:
-                onDataPass?(self.bottomSheetList[indexPath.row].title ?? "")
-                self.dismiss(animated: true)
+                self.toggleCheck(for: indexPath)
+//                onDataPass?(self.bottomSheetList[indexPath.row].title ?? "")
+//                self.dismiss(animated: true)
             default:
-                onDataPass?(self.bottomSheetList[indexPath.row].title ?? "")
-                self.dismiss(animated: true)
+                self.toggleCheck(for: indexPath)
+//                onDataPass?(self.bottomSheetList[indexPath.row].title ?? "")
+//                self.dismiss(animated: true)
             }
         }
+    }
+    
+    
+    
+    func toggleCheck(for index: IndexPath){
+        self.bottomSheetList[index.row].isChecked = !(bottomSheetList[index.row].isChecked ?? false)
+        tbl.reloadRows(at: [index], with: .automatic)
     }
     
 }
