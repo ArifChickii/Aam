@@ -29,9 +29,13 @@ class AddProductVC: UIViewController, Storyboarded {
     
     
     @objc func handleBottomSheetDismissedForCategory(_ notification: Notification) {
-         if let data = notification.userInfo?["data"] as? String {
-             print("Received data: \(data)")
+        if let userInfo = notification.userInfo,
+         let category = userInfo["category"] as? ProductCategory, let  subcategory = userInfo["subcategory"] as? String {
+             print("Received data: \(category) and subcategory \(subcategory)")
+             
              // Handle the data received from the BottomSheetVC
+             self.viewModel.selectedCategory = "\(category.title ?? "") -> \(subcategory)"
+             self.tblAddProduct.reloadRows(at: [IndexPath(row: 3, section: 0)], with: .automatic)
          }
      }
     
@@ -109,7 +113,7 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableTblCell.identifier, for: indexPath) as! ExpandableTblCell
-            cell.configure(title: Constants.CategoryType.category.rawValue, subtitle: "Please select category")
+            cell.configure(title: Constants.CategoryType.category.rawValue, subtitle: self.viewModel.selectedCategory)
             return cell
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableTblCell.identifier, for: indexPath) as! ExpandableTblCell
@@ -117,11 +121,11 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
             return cell
         case 5:
             let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableTblCell.identifier, for: indexPath) as! ExpandableTblCell
-            cell.configure(title: Constants.CategoryType.fabric.rawValue, subtitle: "Please select fabric")
+            cell.configure(title: Constants.CategoryType.fabric.rawValue, subtitle: viewModel.selectedFabric)
             return cell
         case 6:
             let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableTblCell.identifier, for: indexPath) as! ExpandableTblCell
-            cell.configure(title: Constants.CategoryType.color.rawValue, subtitle: "Please select color")
+            cell.configure(title: Constants.CategoryType.color.rawValue, subtitle: viewModel.selectedColor)
             return cell
        
         case 7:
@@ -186,11 +190,9 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
             print("do nothing")
         case 3:
             print("Category")
-//            Router.showBottomSheet(from: self, bottomeSheetType: Constants.CategoryType.category, dismissCompletion: {_ in 
-//                print("dismiss screen handled from category in add product vc")
-//            })
+
             Router.showBottomSheet(from: self, bottomeSheetType: Constants.CategoryType.category) { [weak self] data in
-                print("Received data: \(data) and fklsdfjak;dfjs na kr arif")
+                print("category data recieved in notification observer")
             }
             
             
@@ -200,19 +202,22 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
             Router.showBottomSheet(from: self,bottomeSheetType: Constants.CategoryType.size, onDataPass: {data in
                 print("selected size is \(data)")
                 self.viewModel.selectedSize = data
-                self.tblAddProduct.reloadData()
+                self.tblAddProduct.reloadRows(at: [IndexPath(row: 4, section: 0)], with: .automatic)
             })
         case 5:
             print("fabric")
-            Router.showBottomSheet(from: self,bottomeSheetType: Constants.CategoryType.size, onDataPass: {data in
+            Router.showBottomSheet(from: self,bottomeSheetType: Constants.CategoryType.fabric, onDataPass: {data in
                 print("selected fabric is \(data)")
+                self.viewModel.selectedFabric = data
+                self.tblAddProduct.reloadRows(at: [IndexPath(row: 5, section: 0)], with: .automatic)
                 
             })
         case 6:
             print("Color")
-            Router.showBottomSheet(from: self,bottomeSheetType: Constants.CategoryType.size, onDataPass: {data in
+            Router.showBottomSheet(from: self,bottomeSheetType: Constants.CategoryType.color, onDataPass: {data in
                 print("selected colors are \(data)")
-                
+                self.viewModel.selectedColor = data
+                self.tblAddProduct.reloadRows(at: [IndexPath(row: 6, section: 0)], with: .automatic)
             })
         case 7:
             print("price")
@@ -258,3 +263,4 @@ extension AddProductVC: UIImagePickerControllerDelegate, UINavigationControllerD
            picker.dismiss(animated: true, completion: nil)
        }
 }
+

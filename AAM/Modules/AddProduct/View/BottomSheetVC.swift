@@ -133,21 +133,26 @@ extension BottomSheetVC: UITableViewDelegate, UITableViewDataSource{
             case Constants.CategoryType.subCategory:
 //                move to previous screen
                 
-                NotificationCenter.default.post(name: .didDismissBottomSheet, object: nil, userInfo: ["data": "arif is passing data from kvos"])
+                NotificationCenter.default.post(name: .didDismissBottomSheet, object: nil, userInfo: ["category": self.selectedCategory,
+                    "subcategory": self.bottomSheetList[indexPath.row].title])
                 self.dismiss(animated: true)
             case Constants.CategoryType.size:
                 
-                onDataPass?("medium")
+                onDataPass?(self.bottomSheetList[indexPath.row].title ?? "")
                 self.dismiss(animated: true)
                 
             case Constants.CategoryType.color:
+                onDataPass?(self.bottomSheetList[indexPath.row].title ?? "")
                 self.dismiss(animated: true)
             case Constants.CategoryType.fabric:
+                onDataPass?(self.bottomSheetList[indexPath.row].title ?? "")
                 self.dismiss(animated: true)
             default:
+                onDataPass?(self.bottomSheetList[indexPath.row].title ?? "")
                 self.dismiss(animated: true)
             }
         }
     }
     
 }
+
