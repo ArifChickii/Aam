@@ -1,0 +1,6 @@
+framework module Pods_AAM {
+  umbrella header "Pods-AAM-umbrella.h"
+
+  export *
+  module * { export * }
+}

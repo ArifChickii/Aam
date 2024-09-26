@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Jost Bold 700.ttf">
+            <string>Jost-Bold</string>
+        </array>
+        <array key="Jost SemiBold 600.ttf">
+            <string>Jost-SemiBold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--AuthenticationVC-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="AuthenticationVC" id="Y6W-OH-hqX" customClass="AuthenticationVC" customModule="AAM" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="authenticationBg" translatesAutoresizingMaskIntoConstraints="NO" id="Vhw-md-fB5">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="POK-4d-JJ5">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aam_logo_oneline_white" translatesAutoresizingMaskIntoConstraints="NO" id="fiX-SD-xHi">
+                                        <rect key="frame" x="121.66666666666669" y="70" width="150" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="VLS-IX-t71"/>
+                                            <constraint firstAttribute="height" constant="80" id="gml-Ry-rkr"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="wvb-uP-PKd">
+                                        <rect key="frame" x="40" y="374.33333333333331" width="313" height="103.66666666666669"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step into a seamless buying and selling journey with AAM" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Tni-2M-je5">
+                                                <rect key="frame" x="0.0" y="0.0" width="313" height="52.333333333333336"/>
+                                                <fontDescription key="fontDescription" name="Jost-Bold" family="Jost" pointSize="18"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select an option below to continue" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="YuV-Q2-aeb">
+                                                <rect key="frame" x="0.0" y="77.333333333333371" width="313" height="26.333333333333329"/>
+                                                <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="18"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="6jP-TZ-6Zt">
+                                        <rect key="frame" x="30" y="702" width="333" height="100"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tl7-eo-eiG">
+                                                <rect key="frame" x="0.0" y="0.0" width="333" height="44"/>
+                                                <color key="backgroundColor" red="0.85882352939999995" green="0.2666666667" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="R2u-mN-jG7"/>
+                                                </constraints>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <inset key="imageEdgeInsets" minX="100" minY="0.0" maxX="20" maxY="0.0"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="ic_google" title="Continue with Google" imagePadding="10">
+                                                    <fontDescription key="titleFontDescription" name="Jost-Medium" family="Jost" pointSize="16"/>
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="googleBtnActionWithSender:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="wTm-2y-0Tv"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hZ5-AN-TO1">
+                                                <rect key="frame" x="0.0" y="56" width="333" height="44"/>
+                                                <color key="backgroundColor" red="0.16078431369999999" green="0.16078431369999999" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="6hZ-Of-ZkR"/>
+                                                </constraints>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <inset key="imageEdgeInsets" minX="100" minY="0.0" maxX="20" maxY="0.0"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="ic_apple" title="Continue with Apple" imagePadding="10">
+                                                    <fontDescription key="titleFontDescription" name="Jost-Medium" family="Jost" pointSize="16"/>
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="appleSignUpAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="cI6-oT-muN"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.47810374149659862" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="wvb-uP-PKd" firstAttribute="leading" secondItem="POK-4d-JJ5" secondAttribute="leading" constant="40" id="0xT-hf-OAA"/>
+                                    <constraint firstItem="wvb-uP-PKd" firstAttribute="centerY" secondItem="POK-4d-JJ5" secondAttribute="centerY" id="TOB-A2-E54"/>
+                                    <constraint firstAttribute="trailing" secondItem="wvb-uP-PKd" secondAttribute="trailing" constant="40" id="a10-KI-fLm"/>
+                                    <constraint firstAttribute="bottom" secondItem="6jP-TZ-6Zt" secondAttribute="bottom" constant="50" id="aEn-jd-mV4"/>
+                                    <constraint firstItem="fiX-SD-xHi" firstAttribute="centerX" secondItem="POK-4d-JJ5" secondAttribute="centerX" id="fNK-HC-Cpc"/>
+                                    <constraint firstItem="6jP-TZ-6Zt" firstAttribute="leading" secondItem="POK-4d-JJ5" secondAttribute="leading" constant="30" id="mzS-Us-EsU"/>
+                                    <constraint firstItem="fiX-SD-xHi" firstAttribute="top" secondItem="POK-4d-JJ5" secondAttribute="top" constant="70" id="ove-st-uNY"/>
+                                    <constraint firstAttribute="trailing" secondItem="6jP-TZ-6Zt" secondAttribute="trailing" constant="30" id="uMm-Xj-7B3"/>
+                                    <constraint firstItem="wvb-uP-PKd" firstAttribute="centerX" secondItem="POK-4d-JJ5" secondAttribute="centerX" id="zhy-j1-u5q"/>
+                                </constraints>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9s0-aC-Obg" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                <rect key="frame" x="171.66666666666666" y="401" width="50" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="a7h-wr-x2F"/>
+                                    <constraint firstAttribute="height" constant="50" id="fu8-DW-RRg"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Vhw-md-fB5" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="74n-pD-hsg"/>
+                            <constraint firstItem="POK-4d-JJ5" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="A4b-Sk-pqt"/>
+                            <constraint firstItem="Vhw-md-fB5" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="JxV-jP-DCN"/>
+                            <constraint firstAttribute="bottom" secondItem="POK-4d-JJ5" secondAttribute="bottom" id="LJe-GT-14x"/>
+                            <constraint firstItem="POK-4d-JJ5" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="N7u-GA-Eks"/>
+                            <constraint firstAttribute="trailing" secondItem="Vhw-md-fB5" secondAttribute="trailing" id="Pis-ba-eHS"/>
+                            <constraint firstAttribute="trailing" secondItem="POK-4d-JJ5" secondAttribute="trailing" id="QWf-LF-vWe"/>
+                            <constraint firstItem="9s0-aC-Obg" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="R2N-3U-VXl"/>
+                            <constraint firstItem="9s0-aC-Obg" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="sDF-8S-e9n"/>
+                            <constraint firstAttribute="bottom" secondItem="Vhw-md-fB5" secondAttribute="bottom" id="tIX-Uf-9Ri"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="9s0-aC-Obg" id="rsg-GY-ygH"/>
+                        <outlet property="btnApple" destination="hZ5-AN-TO1" id="exs-lh-969"/>
+                        <outlet property="btnGoogle" destination="Tl7-eo-eiG" id="amS-Su-hbS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139.69465648854961" y="4.9295774647887329"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="aam_logo_oneline_white" width="145.66667175292969" height="67"/>
+        <image name="authenticationBg" width="375" height="812"/>
+        <image name="ic_apple" width="24.333333969116211" height="24.333333969116211"/>
+        <image name="ic_google" width="20.333333969116211" height="20.333333969116211"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
