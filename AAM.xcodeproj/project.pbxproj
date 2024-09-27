@@ -98,6 +98,7 @@
 		807D8A882C7B263D00E9AE04 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807D8A872C7B263D00E9AE04 /* Product.swift */; };
 		807D8A8C2C7B26A200E9AE04 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807D8A8B2C7B26A200E9AE04 /* FirebaseService.swift */; };
 		807D8A8E2C7B2E5000E9AE04 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807D8A8D2C7B2E5000E9AE04 /* ProductViewModel.swift */; };
+		808F25792CA6921F00F59B57 /* LoaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808F25782CA6921F00F59B57 /* LoaderManager.swift */; };
 		80AF491E2C9C2F7700BCFD48 /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 80AF491D2C9C2F7700BCFD48 /* BottomSheet */; };
 		80AF49202C9C329200BCFD48 /* CustomTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AF491F2C9C329200BCFD48 /* CustomTableView.swift */; };
 		80B320492C61234A00359714 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B320482C61234A00359714 /* AuthenticationViewModel.swift */; };
@@ -111,6 +112,7 @@
 		80E8C3BD2C5AC3BD0087F009 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3BC2C5AC3BD0087F009 /* Assets.xcassets */; };
 		80E8C3C02C5AC3BD0087F009 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3BE2C5AC3BD0087F009 /* LaunchScreen.storyboard */; };
 		80E8C4032C5AC8470087F009 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C4022C5AC8470087F009 /* Onboarding.storyboard */; };
+		80EBAF9B2CA67A7A0036F1B0 /* PriceBottomSheetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EBAF9A2CA67A7A0036F1B0 /* PriceBottomSheetVC.swift */; };
 		80FFAA802C6339C9007E55EE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 80FFAA7F2C6339C9007E55EE /* GoogleService-Info.plist */; };
 		80FFAA872C64ADCB007E55EE /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80FFAA862C64ADCB007E55EE /* Home.storyboard */; };
 		80FFAA892C64AE35007E55EE /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FFAA882C64AE35007E55EE /* HomeVC.swift */; };
@@ -208,6 +210,7 @@
 		807D8A872C7B263D00E9AE04 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		807D8A8B2C7B26A200E9AE04 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		807D8A8D2C7B2E5000E9AE04 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
+		808F25782CA6921F00F59B57 /* LoaderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderManager.swift; sourceTree = "<group>"; };
 		80AF491F2C9C329200BCFD48 /* CustomTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableView.swift; sourceTree = "<group>"; };
 		80B320482C61234A00359714 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		80B3204A2C61252A00359714 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
@@ -223,6 +226,7 @@
 		80E8C3BF2C5AC3BD0087F009 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		80E8C3C12C5AC3BD0087F009 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80E8C4022C5AC8470087F009 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		80EBAF9A2CA67A7A0036F1B0 /* PriceBottomSheetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceBottomSheetVC.swift; sourceTree = "<group>"; };
 		80FFAA7F2C6339C9007E55EE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		80FFAA812C6339F8007E55EE /* AAM.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AAM.entitlements; sourceTree = "<group>"; };
 		80FFAA862C64ADCB007E55EE /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -343,6 +347,7 @@
 				0426D3E82C882395008AF976 /* AddProduct.storyboard */,
 				0426D3EA2C882424008AF976 /* AddProductVC.swift */,
 				04C183602C91824B00FDB170 /* BottomSheetVC.swift */,
+				80EBAF9A2CA67A7A0036F1B0 /* PriceBottomSheetVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -434,6 +439,7 @@
 				80B3204A2C61252A00359714 /* Helper.swift */,
 				0414EA152C7F36EC000201E0 /* LocalStorage.swift */,
 				80AF491F2C9C329200BCFD48 /* CustomTableView.swift */,
+				808F25782CA6921F00F59B57 /* LoaderManager.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -828,6 +834,7 @@
 				04ED9D5D2C872B4000C2D961 /* ExpandableTblCell.swift in Sources */,
 				8021AFB72C5BDDAF00A66611 /* Constants.swift in Sources */,
 				80B320492C61234A00359714 /* AuthenticationViewModel.swift in Sources */,
+				80EBAF9B2CA67A7A0036F1B0 /* PriceBottomSheetVC.swift in Sources */,
 				807D8A882C7B263D00E9AE04 /* Product.swift in Sources */,
 				8021AFC12C5C2A7400A66611 /* AuthenticationVC.swift in Sources */,
 				8013C7632C7514D0003AA5A3 /* ProductImageTblCell.swift in Sources */,
@@ -835,6 +842,7 @@
 				04ED9D512C87284B00C2D961 /* PickPhotoCollCell.swift in Sources */,
 				8013C7802C751AB2003AA5A3 /* ProductCategoryTitleCollCell.swift in Sources */,
 				0414EA0E2C7DAE37000201E0 /* ProductDetailViewModel.swift in Sources */,
+				808F25792CA6921F00F59B57 /* LoaderManager.swift in Sources */,
 				8021AFA52C5BBDBA00A66611 /* UIImageView.swift in Sources */,
 				807D8A8C2C7B26A200E9AE04 /* FirebaseService.swift in Sources */,
 				8013C7772C751576003AA5A3 /* ProductCategoryTblCell.swift in Sources */,
