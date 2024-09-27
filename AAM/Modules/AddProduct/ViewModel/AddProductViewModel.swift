@@ -14,6 +14,7 @@ class AddProductViewModel{
     var selectedFabric = [DropDown]()
     var selectedColor = [DropDown]()
     var selectedCategory  = "Please select Category"
+    var selectedPriceValues : PriceModelForPassingBack?
     
     init(productService: FirebaseService = FirebaseService()) {
         self.productService = productService

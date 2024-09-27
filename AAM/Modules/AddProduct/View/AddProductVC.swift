@@ -131,7 +131,12 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
        
         case 7:
             let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableTblCell.identifier, for: indexPath) as! ExpandableTblCell
-            cell.configure(title: Constants.CategoryType.price.rawValue, subtitles: [DropDown](), categoryType: .price)
+            if let priceObj = self.viewModel.selectedPriceValues{
+                cell.configure(title: Constants.CategoryType.price.rawValue, subtitles: [DropDown](), categoryType: .price, prices: priceObj)
+            }else{
+                cell.configure(title: Constants.CategoryType.price.rawValue, subtitles: [DropDown](), categoryType: .price)
+            }
+            
             return cell
         case 8:
             let cell = tableView.dequeueReusableCell(withIdentifier: RenewalOptionsTblCell.identifier, for: indexPath) as! RenewalOptionsTblCell
@@ -222,6 +227,11 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
             })
         case 7:
             print("price")
+            Router.showPriceBottomSheet(from: self) { priceObj in
+
+                self.viewModel.selectedPriceValues = priceObj
+                self.tblAddProduct.reloadRows(at: [IndexPath(row: 7, section: 0)], with: .automatic)
+            }
         case 8:
             print("do nothing")
         case 9:

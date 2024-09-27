@@ -22,7 +22,7 @@ class ExpandableTblCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configure(title: String, subtitles: [DropDown]? = nil,subcategory: String? = "", categoryType: Constants.CategoryType){
+    func configure(title: String, subtitles: [DropDown]? = nil,subcategory: String? = "", categoryType: Constants.CategoryType, prices: PriceModelForPassingBack? = nil){
         self.lblTitle.text = title
         if let subtitles = subtitles, subtitles.count > 0{
             let commaSeparatedTitle = subtitles.map { $0.title ?? "" }.joined(separator: ", ")
@@ -35,7 +35,6 @@ class ExpandableTblCell: UITableViewCell {
                 }else{
                     self.lblSubtitle.text = "Please select category"
                 }
-                
             case .color:
                 self.lblSubtitle.text = "Please select color"
             case .size:
@@ -44,6 +43,11 @@ class ExpandableTblCell: UITableViewCell {
                 self.lblSubtitle.text = "Please select fabric"
             case .price:
                 self.lblSubtitle.text = "Please select price"
+                if let price = prices{
+                    self.lblSubtitle.text = "Cut price: \(price.cutPrice)"
+                    self.lblTitle.text = "Product price: \(price.price)"
+                }
+                
             default:
                 self.lblSubtitle.text = "Please select color"
             }

@@ -111,6 +111,7 @@
 		80E8C3BD2C5AC3BD0087F009 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3BC2C5AC3BD0087F009 /* Assets.xcassets */; };
 		80E8C3C02C5AC3BD0087F009 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C3BE2C5AC3BD0087F009 /* LaunchScreen.storyboard */; };
 		80E8C4032C5AC8470087F009 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80E8C4022C5AC8470087F009 /* Onboarding.storyboard */; };
+		80EBAF9B2CA67A7A0036F1B0 /* PriceBottomSheetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EBAF9A2CA67A7A0036F1B0 /* PriceBottomSheetVC.swift */; };
 		80FFAA802C6339C9007E55EE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 80FFAA7F2C6339C9007E55EE /* GoogleService-Info.plist */; };
 		80FFAA872C64ADCB007E55EE /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80FFAA862C64ADCB007E55EE /* Home.storyboard */; };
 		80FFAA892C64AE35007E55EE /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FFAA882C64AE35007E55EE /* HomeVC.swift */; };
@@ -223,6 +224,7 @@
 		80E8C3BF2C5AC3BD0087F009 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		80E8C3C12C5AC3BD0087F009 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80E8C4022C5AC8470087F009 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		80EBAF9A2CA67A7A0036F1B0 /* PriceBottomSheetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceBottomSheetVC.swift; sourceTree = "<group>"; };
 		80FFAA7F2C6339C9007E55EE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		80FFAA812C6339F8007E55EE /* AAM.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AAM.entitlements; sourceTree = "<group>"; };
 		80FFAA862C64ADCB007E55EE /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 				0426D3E82C882395008AF976 /* AddProduct.storyboard */,
 				0426D3EA2C882424008AF976 /* AddProductVC.swift */,
 				04C183602C91824B00FDB170 /* BottomSheetVC.swift */,
+				80EBAF9A2CA67A7A0036F1B0 /* PriceBottomSheetVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -828,6 +831,7 @@
 				04ED9D5D2C872B4000C2D961 /* ExpandableTblCell.swift in Sources */,
 				8021AFB72C5BDDAF00A66611 /* Constants.swift in Sources */,
 				80B320492C61234A00359714 /* AuthenticationViewModel.swift in Sources */,
+				80EBAF9B2CA67A7A0036F1B0 /* PriceBottomSheetVC.swift in Sources */,
 				807D8A882C7B263D00E9AE04 /* Product.swift in Sources */,
 				8021AFC12C5C2A7400A66611 /* AuthenticationVC.swift in Sources */,
 				8013C7632C7514D0003AA5A3 /* ProductImageTblCell.swift in Sources */,

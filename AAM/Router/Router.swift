@@ -98,4 +98,27 @@ class Router {
     }
 
  
+    static func showPriceBottomSheet(from currentVC: UIViewController , onPriceValuePass: @escaping (PriceModelForPassingBack) -> Void){
+        let bottomSheetVC = PriceBottomSheetVC.instantiate(storyBoardName: "AddProduct")
+        
+        bottomSheetVC.onPriceValuePassback = onPriceValuePass
+        
+        currentVC.presentBottomSheet(
+            viewController: bottomSheetVC,
+            configuration: Constants.bottomSheetConfiguration,
+            canBeDismissed: {
+                // return `true` or `false` based on your business logic
+                false
+            },
+            dismissCompletion: {
+                // handle bottom sheet dismissal completion
+                print("bottom sheet dismisses by arif")
+                
+            }
+        )
+                
+        
+    }
+    
+    
 }
