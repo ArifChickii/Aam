@@ -10,11 +10,13 @@ import UIKit
 class AddProductViewModel{
     private let productService: FirebaseService
     var imageLists: [UIImage] = []
-    var selectedSize = [DropDown]()
-    var selectedFabric = [DropDown]()
-    var selectedColor = [DropDown]()
-    var selectedCategory  = "Please select Category"
+    var selectedSize = [String]()
+    var selectedFabric = [String]()
+    var selectedColor = [String]()
+    var selectedCategory  : ProductCategory?
     var selectedPriceValues : PriceModelForPassingBack?
+    var selectedTitle = ""
+    var selectedDesc = ""
     
     init(productService: FirebaseService = FirebaseService()) {
         self.productService = productService
@@ -49,12 +51,36 @@ class AddProductViewModel{
             completion(uploadedImages)  // Return the dictionary of image names and URLs
         }
     }
+    
+    
+    func addProductToFirebase(productObj: ProductInfo, completion: @escaping (String) -> Void){
+        
+        
+//        let newProduct = Product(images: ["https://example.com/image.png"], title: "first testing Product", description: "this is testing product for server uploading", size: ["Medium"], category: ["Women", "Saree"], price: 40.0, color: "Red", rating: "5", cutPrice: 30.0)
+        
+        
+        
+        productService.saveProductInfo(product: productObj) { result in
+            switch result {
+            case .success(let generatedID):
+                print("Product saved successfully with ID: \(generatedID)")
+                completion(generatedID)
+            case .failure(let error):
+                print("Failed to save product: \(error.localizedDescription)")
+                completion(error.localizedDescription)
+            }
+        }
+        
+        
+        
+    }
 
     
     func addProductToFirebase(){
         
         
         let newProduct = Product(images: ["https://example.com/image.png"], title: "first testing Product", description: "this is testing product for server uploading", size: "Medium", category: ["Women", "Saree"], price: 40.0, color: "Red", rating: "5", cutPrice: 30.0)
+        
         
         
         productService.saveProduct(product: newProduct) { result in

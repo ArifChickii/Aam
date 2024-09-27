@@ -23,7 +23,7 @@ class BottomSheetTblCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configure(obj : DropDown? = nil, objCategory: ProductCategory? = nil, type: Constants.CategoryType){
+    func configure(obj : DropDown? = nil, objCategory: ProductCategoryForDataRecieving? = nil, type: Constants.CategoryType){
         self.viewColor.isHidden = true
         
         if type == .category {

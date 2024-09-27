@@ -21,7 +21,7 @@ class ProductDescriptionTblCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func configure(obj: Product){
+    func configure(obj: ProductInfo){
         self.lblDesc.text = obj.description ?? ""
         
         

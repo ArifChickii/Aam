@@ -12,33 +12,75 @@ import FirebaseFirestore
 class FirebaseService {
     private var db = Firestore.firestore()
     
-    func fetchProducts(completion: @escaping ([Product]) -> Void) {
+//    func fetchProducts(completion: @escaping ([Product]) -> Void) {
+//        db.collection("Products").getDocuments { (querySnapshot, error) in
+//            if let error = error {
+//                print("Error getting documents: \(error)")
+//                completion([])
+//            } else {
+//                var products: [Product] = []
+//                for document in querySnapshot!.documents {
+//                    let data = document.data()
+//                    let product = Product(
+//                        id: document.documentID,
+//                        images: data["image"] as? [String] ?? [],
+//                        title: data["title"] as? String ?? "",
+//                        description: data["description"] as? String ?? "",
+//                        size: data["size"] as? String ?? "",
+//                        category: data["category"] as? [String] ?? [],
+//                        price: data["price"] as? Double ?? 0.0,
+//                        color: data["color"] as? String ?? "",
+//                        rating: data["rating"] as? String ?? "0.0",
+//                        cutPrice: data["cutPrice"] as? Double ?? 0.0
+//                    )
+//                    products.append(product)
+//                }
+//                completion(products)
+//            }
+//        }
+//    }
+    
+    func fetchProducts(completion: @escaping ([ProductInfo]) -> Void) {
         db.collection("Products").getDocuments { (querySnapshot, error) in
             if let error = error {
                 print("Error getting documents: \(error)")
                 completion([])
             } else {
-                var products: [Product] = []
+                var products: [ProductInfo] = []
                 for document in querySnapshot!.documents {
                     let data = document.data()
-                    let product = Product(
-                        id: document.documentID,
-                        images: data["image"] as? [String] ?? [],
-                        title: data["title"] as? String ?? "",
-                        description: data["description"] as? String ?? "",
-                        size: data["size"] as? String ?? "",
-                        category: data["category"] as? [String] ?? [],
-                        price: data["price"] as? Double ?? 0.0,
-                        color: data["color"] as? String ?? "",
-                        rating: data["rating"] as? String ?? "0.0",
-                        cutPrice: data["cutPrice"] as? Double ?? 0.0
-                    )
-                    products.append(product)
+                    
+                    // Parse the category dictionary safely
+                    if let productCatDic = data["category"] as? [String: Any] {
+                        let productCat = ProductCategory(
+                            title: productCatDic["title"] as? String ?? "",
+                            subCategories: productCatDic["subCategories"] as? [String] ?? []
+                        )
+                        
+                        let product = ProductInfo(
+                            id: document.documentID,
+                            images: data["images"] as? [String] ?? [],
+                            sizes: data["sizes"] as? [String] ?? [],
+                            colors: data["colors"] as? [String] ?? [],
+                            fabrics: data["fabrics"] as? [String] ?? [],
+                            category: productCat,
+                            title: data["title"] as? String ?? "",
+                            description: data["description"] as? String ?? "",
+                            price: data["price"] as? String ?? "",
+                            rating: data["rating"] as? String ?? "0.0",
+                            cutPrice: data["cutPrice"] as? String ?? ""
+                        )
+                        
+                        products.append(product)
+                    } else {
+                        print("Error parsing category for document ID: \(document.documentID)")
+                    }
                 }
                 completion(products)
             }
         }
     }
+
     
     
     
@@ -77,7 +119,33 @@ class FirebaseService {
     
     
     
-    
+    func saveProductInfo(product: ProductInfo, completion: @escaping (Result<String, Error>) -> Void) {
+        // Get a reference to the 'products' collection
+        let productsRef = db.collection("Products")
+        
+        // Create a new document with an automatically generated ID
+        let newProductRef = productsRef.document()
+        
+        // Set the product's ID to the auto-generated one
+        var productWithID = product
+        productWithID.id = newProductRef.documentID
+        
+        do {
+            // Convert the Product object to a dictionary
+            let productData = try Firestore.Encoder().encode(productWithID)
+            
+            // Save the product data
+            newProductRef.setData(productData) { error in
+                if let error = error {
+                    completion(.failure(error))  // Return failure if there's an error
+                } else {
+                    completion(.success(newProductRef.documentID))  // Return the generated document ID
+                }
+            }
+        } catch let error {
+            completion(.failure(error))  // Error during encoding
+        }
+    }
     
     
     
@@ -129,13 +197,13 @@ class FirebaseService {
         }
     
 
-    func fetchCategories(completion: @escaping ([ProductCategory]) -> Void) {
+    func fetchCategories(completion: @escaping ([ProductCategoryForDataRecieving]) -> Void) {
         // Reference to the categories collection
         let categoriesRef = db.collection("cats")
         
         // Fetch all documents in the categories collection
         categoriesRef.getDocuments { (snapshot, error) in
-            var categoriesData: [ProductCategory] = []
+            var categoriesData: [ProductCategoryForDataRecieving] = []
             
             if let error = error {
                 print("Error fetching categories: \(error.localizedDescription)")
@@ -153,7 +221,7 @@ class FirebaseService {
                         
                     }
                     
-                    let category = ProductCategory(title: categoryName, subCategories: subcategoriesDropDownList)
+                    let category = ProductCategoryForDataRecieving(title: categoryName, subCategories: subcategoriesDropDownList)
                     
                     categoriesData.append(category)
                 }

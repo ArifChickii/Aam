@@ -22,8 +22,11 @@ class ProductSizeTblCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func configure(obj: Product){
-        self.lblSize.text = "\(obj.size ?? "")/\(obj.color ?? "")"
+    func configure(obj: ProductInfo){
+        
+        let sizeStr = obj.sizes?.joined(separator: ", ") ?? ""
+        let colorStr = obj.colors?.joined(separator: ", ") ?? ""
+        self.lblSize.text = "\(sizeStr ?? "")/\(colorStr ?? "")"
         
     }
     

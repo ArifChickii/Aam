@@ -24,10 +24,10 @@ class ProductPriceAndTitleTblCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func configure(obj: Product){
+    func configure(obj: ProductInfo){
         self.lblTitle.text = obj.title
-        self.lblPrice.text = "\(obj.price ?? 0.0 )"
-        self.lblCutPrice.text = "\(obj.cutPrice ?? 0.0)"
+        self.lblPrice.text = "\(obj.price ?? "0.0" )"
+        self.lblCutPrice.text = "\(obj.cutPrice ?? "0.0")"
         
     }
 }

@@ -2,7 +2,7 @@ import Foundation
 
 class ProductsViewModel {
     private let productService: FirebaseService
-    var products: [Product] = []
+    var products: [ProductInfo] = []
 
     var onProductsFetched: (() -> Void)?
 
@@ -93,7 +93,7 @@ class ProductsViewModel {
         return products.count
     }
 
-    func product(at index: Int) -> Product {
+    func product(at index: Int) -> ProductInfo {
         return products[index]
     }
 }

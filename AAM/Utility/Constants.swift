@@ -17,7 +17,7 @@ class Constants{
     var colorsList = [DropDown]()
     var fabricList = [DropDown]()
     var sizesList = [DropDown]()
-    var categoriesList = [ProductCategory]()
+    var categoriesList = [ProductCategoryForDataRecieving]()
     static let bottomSheetConfiguration = BottomSheetConfiguration(
         cornerRadius: 20,
         pullBarConfiguration: .visible(.init(height: 12)),

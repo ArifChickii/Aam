@@ -28,8 +28,8 @@ class ProductCategoryTblCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func configure(obj: Product){
-        self.categoriesList = obj.category ?? []
+    func configure(obj: ProductInfo){
+        self.categoriesList = obj.category?.subCategories ?? []
         
         self.categoryCollView.reloadData()
     }

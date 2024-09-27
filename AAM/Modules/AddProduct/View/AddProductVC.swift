@@ -30,11 +30,11 @@ class AddProductVC: UIViewController, Storyboarded {
     
     @objc func handleBottomSheetDismissedForCategory(_ notification: Notification) {
         if let userInfo = notification.userInfo,
-         let category = userInfo["category"] as? ProductCategory, let  subcategory = userInfo["subcategory"] as? DropDown {
+         let category = userInfo["category"] as? ProductCategoryForDataRecieving, let  subcategory = userInfo["subcategory"] as? DropDown {
              print("Received data: \(category) and subcategory \(subcategory)")
-             
+            let prodCategory = ProductCategory(title: category.title ?? "", subCategories: [subcategory.title ?? ""])
+            self.viewModel.selectedCategory = prodCategory
              // Handle the data received from the BottomSheetVC
-            self.viewModel.selectedCategory = "\(category.title ?? "") -> \(subcategory.title ?? "")"
              self.tblAddProduct.reloadRows(at: [IndexPath(row: 3, section: 0)], with: .automatic)
          }
      }
@@ -113,7 +113,7 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableTblCell.identifier, for: indexPath) as! ExpandableTblCell
-            cell.configure(title: Constants.CategoryType.category.rawValue, subtitles: nil,subcategory: self.viewModel.selectedCategory, categoryType: .category)
+            cell.configure(title: Constants.CategoryType.category.rawValue, subtitles: nil, productCategory: self.viewModel.selectedCategory, categoryType: .category)
             
             return cell
         case 4:
@@ -132,9 +132,9 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
         case 7:
             let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableTblCell.identifier, for: indexPath) as! ExpandableTblCell
             if let priceObj = self.viewModel.selectedPriceValues{
-                cell.configure(title: Constants.CategoryType.price.rawValue, subtitles: [DropDown](), categoryType: .price, prices: priceObj)
+                cell.configure(title: Constants.CategoryType.price.rawValue, subtitles: [String](), categoryType: .price, prices: priceObj)
             }else{
-                cell.configure(title: Constants.CategoryType.price.rawValue, subtitles: [DropDown](), categoryType: .price)
+                cell.configure(title: Constants.CategoryType.price.rawValue, subtitles: [String](), categoryType: .price)
             }
             
             return cell
@@ -169,8 +169,13 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
 
         viewModel.uploadImagesToFirebase(images: self.viewModel.imageLists) { imgUrls in
         print(imgUrls)
-            LoaderManager.shared.hideLoader()
-//            self.viewModel.addProductToFirebase()
+//            
+            let newProduct = ProductInfo(id: UUID().uuidString, images: imgUrls, sizes: self.viewModel.selectedSize, colors: self.viewModel.selectedColor, fabrics: self.viewModel.selectedFabric, category: self.viewModel.selectedCategory, title: self.viewModel.selectedTitle, description: self.viewModel.selectedDesc, price: self.viewModel.selectedPriceValues?.price ?? "", rating: "", cutPrice: self.viewModel.selectedPriceValues?.cutPrice ?? "")
+            self.viewModel.addProductToFirebase(productObj: newProduct) { str in
+                LoaderManager.shared.hideLoader()
+                Router.pop(from: self)
+            }
+
         }
        }
     

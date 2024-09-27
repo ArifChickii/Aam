@@ -22,7 +22,7 @@ class ProductRatingTblCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func configure(obj: Product){
+    func configure(obj: ProductInfo){
         self.lblRating.text = "(\(obj.rating ?? ""))"
         self.lblRating.text = "Aam Reviewer"
         

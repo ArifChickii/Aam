@@ -20,23 +20,27 @@ struct Product: Codable {
 }
 
 
-struct ProductInfo {
+struct ProductInfo: Codable {
     var id: String
     let images: [String]?
     let sizes: [String]?
     let colors: [String]?
     let fabrics: [String]?
     let category: ProductCategory?
-    let subCategory: String?
     let title: String?
     let description: String?
     let price: String?
     let rating: String?
-    let cutPrice: Double?
+    let cutPrice: String?
 }
 
 
-struct ProductCategory {
+struct ProductCategory: Codable{
+    let title: String?
+    let subCategories: [String]?
+}
+
+struct ProductCategoryForDataRecieving {
     let title: String?
     let subCategories: [DropDown]?
 }

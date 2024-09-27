@@ -9,7 +9,7 @@ import UIKit
 
 class ProductDetailVC: UIViewController, Storyboarded {
     var viewModel : ProductDetailViewModel!
-    var productDetailObj : Product!
+    var productDetailObj : ProductInfo!
     @IBOutlet weak var productTblView: UITableView!
     
     override func viewDidLoad() {

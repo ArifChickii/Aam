@@ -22,19 +22,21 @@ class ExpandableTblCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configure(title: String, subtitles: [DropDown]? = nil,subcategory: String? = "", categoryType: Constants.CategoryType, prices: PriceModelForPassingBack? = nil){
+    func configure(title: String, subtitles: [String]? = nil, productCategory: ProductCategory? = nil, categoryType: Constants.CategoryType, prices: PriceModelForPassingBack? = nil){
         self.lblTitle.text = title
         if let subtitles = subtitles, subtitles.count > 0{
-            let commaSeparatedTitle = subtitles.map { $0.title ?? "" }.joined(separator: ", ")
+            let commaSeparatedTitle = subtitles.joined(separator: ", ")
             self.lblSubtitle.text = commaSeparatedTitle
         }else{
             switch categoryType {
             case .category:
-                if subcategory != ""{
-                    self.lblSubtitle.text = subcategory
+                
+                if let category = productCategory{
+                    self.lblSubtitle.text = "\(category.title ?? "") -> \(category.subCategories?[0] ?? "")"
                 }else{
                     self.lblSubtitle.text = "Please select category"
                 }
+                            
             case .color:
                 self.lblSubtitle.text = "Please select color"
             case .size:

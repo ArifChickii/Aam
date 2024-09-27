@@ -38,7 +38,7 @@ class Router {
                 
         
     }
-    static func MoveToProductDetail(from currentVC: UIViewController, product: Product) {
+    static func MoveToProductDetail(from currentVC: UIViewController, product: ProductInfo) {
         let vc = ProductDetailVC.instantiate(storyBoardName: "Home")
         vc.productDetailObj = product
         currentVC.navigationController?.pushViewController(vc, animated: true)
@@ -67,7 +67,7 @@ class Router {
     }
     
 
-    static func showBottomSheet(from currentVC: UIViewController, bottomeSheetType: Constants.CategoryType, onDataPass: @escaping ([DropDown]) -> Void){
+    static func showBottomSheet(from currentVC: UIViewController, bottomeSheetType: Constants.CategoryType, onDataPass: @escaping ([String]) -> Void){
         let bottomSheetVC = BottomSheetVC.instantiate(storyBoardName: "AddProduct")
         bottomSheetVC.bottomSheetType = bottomeSheetType
         
@@ -90,7 +90,7 @@ class Router {
         
     }
 
-    static func MoveToBottomSheetAsNavigation(from currentVC: UIViewController, bottomeSheetType: Constants.CategoryType, selectedCategor: ProductCategory) {
+    static func MoveToBottomSheetAsNavigation(from currentVC: UIViewController, bottomeSheetType: Constants.CategoryType, selectedCategor: ProductCategoryForDataRecieving) {
         let vc = BottomSheetVC.instantiate(storyBoardName: "AddProduct")
         vc.selectedCategory = selectedCategor
         vc.bottomSheetType = bottomeSheetType

@@ -12,9 +12,9 @@ class BottomSheetVC: UIViewController, Storyboarded {
     @IBOutlet weak var btnSave: UIButton!
     var bottomSheetType : Constants.CategoryType?
     var bottomSheetList = [DropDown]()
-    var categoriesList = [ProductCategory]()
-    var selectedCategory : ProductCategory?
-    var onDataPass: (([DropDown]) -> Void)?
+    var categoriesList = [ProductCategoryForDataRecieving]()
+    var selectedCategory : ProductCategoryForDataRecieving?
+    var onDataPass: (([String]) -> Void)?
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -101,7 +101,8 @@ class BottomSheetVC: UIViewController, Storyboarded {
 //
         if self.bottomSheetType != .category || self.bottomSheetType != .subCategory{
             let selectedItems = self.bottomSheetList.filter { $0.isChecked ?? false }
-            onDataPass?(selectedItems)
+            let selectedItemStrings: [String] = selectedItems.map { $0.title ?? "" }
+            onDataPass?(selectedItemStrings)
             self.dismiss(animated: true)
         }else{
 //            do nothing

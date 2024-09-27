@@ -36,7 +36,7 @@ class ProductImageTblCell: UITableViewCell {
         let nib = UINib(nibName: ProductImageCellColl.identifier, bundle: nil)
         collImages.register(nib, forCellWithReuseIdentifier: ProductImageCellColl.identifier)
     }
-    func configure(obj: Product){
+    func configure(obj: ProductInfo){
         
         self.imagesList = obj.images ?? []
         pageController.numberOfPages = imagesList.count
