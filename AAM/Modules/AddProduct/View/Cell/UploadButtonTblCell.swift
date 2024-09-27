@@ -9,6 +9,7 @@ import UIKit
 
 class UploadButtonTblCell: UITableViewCell {
     static let identifier = "UploadButtonTblCell"
+    @IBOutlet weak var btnUpload: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

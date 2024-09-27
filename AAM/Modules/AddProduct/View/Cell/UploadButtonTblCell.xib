@@ -49,6 +49,9 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="btnUpload" destination="9zt-dG-M1P" id="i6y-sL-5dh"/>
+            </connections>
             <point key="canvasLocation" x="4.5801526717557248" y="94.366197183098592"/>
         </tableViewCell>
     </objects>

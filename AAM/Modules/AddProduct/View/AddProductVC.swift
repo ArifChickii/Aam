@@ -144,10 +144,14 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
             return cell
         case 9:
             let cell = tableView.dequeueReusableCell(withIdentifier: SaveToDraftTblCell.identifier, for: indexPath) as! SaveToDraftTblCell
+            
 //            cell.configure(obj: viewModel.product)
             return cell
         case 10:
             let cell = tableView.dequeueReusableCell(withIdentifier: UploadButtonTblCell.identifier, for: indexPath) as! UploadButtonTblCell
+            cell.btnUpload.removeTarget(nil, action: nil, for: .allEvents)
+            cell.btnUpload.addTarget(self, action: #selector(uploadButtonTapped(_:)), for: .touchUpInside)
+            cell.btnUpload.tag = indexPath.row
 //            cell.configure(obj: viewModel.product)
             return cell
         default:
@@ -156,6 +160,20 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
         
         
     }
+    
+    @objc func uploadButtonTapped(_ sender: UIButton) {
+           let rowIndex = sender.tag
+           print("Button tapped in row: \(rowIndex)")
+           // Handle your button action here
+        LoaderManager.shared.showLoader(on: self.view, message: "Uploading Product, please wait a few moments...")
+
+        viewModel.uploadImagesToFirebase(images: self.viewModel.imageLists) { imgUrls in
+        print(imgUrls)
+            LoaderManager.shared.hideLoader()
+//            self.viewModel.addProductToFirebase()
+        }
+       }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:
@@ -240,8 +258,9 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
             
         case 10:
             print("do nothing")
+            
            
-            viewModel.addProductToFirebase()
+            
                    
                 
             

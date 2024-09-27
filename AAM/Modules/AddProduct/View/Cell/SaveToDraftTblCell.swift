@@ -9,6 +9,7 @@ import UIKit
 
 class SaveToDraftTblCell: UITableViewCell {
     static let identifier = "SaveToDraftTblCell"
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

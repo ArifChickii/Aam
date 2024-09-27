@@ -22,18 +22,34 @@ class AddProductViewModel{
     }
     
     
-    func uploadImageToFirebase(){
-        if let image = UIImage(named: "dummy") {  // Use your image here
-            productService.uploadImage(image: image, imageName: "dummy") { result in
+
+    func uploadImagesToFirebase(images: [UIImage], completion: @escaping ([String]) -> Void) {
+        let dispatchGroup = DispatchGroup()
+        var uploadedImages =  [String]() // Dictionary to store unique names and their URLs
+
+        for image in images {
+            let uniqueImageName = UUID().uuidString // Generate a unique image name
+            dispatchGroup.enter()
+
+            productService.uploadImage(image: image, imageName: uniqueImageName) { result in
                 switch result {
                 case .success(let downloadURL):
-                    print("Image uploaded successfully: \(downloadURL)")
+                    print("Image \(uniqueImageName) uploaded successfully: \(downloadURL)")
+                    uploadedImages.append(downloadURL) // Save image name and URL
                 case .failure(let error):
-                    print("Failed to upload image: \(error.localizedDescription)")
+                    print("Failed to upload image \(uniqueImageName): \(error.localizedDescription)")
                 }
+                dispatchGroup.leave()
             }
         }
+
+        // Notify when all images have been uploaded
+        dispatchGroup.notify(queue: .main) {
+            print("All images uploaded successfully.")
+            completion(uploadedImages)  // Return the dictionary of image names and URLs
+        }
     }
+
     
     func addProductToFirebase(){
         

@@ -46,7 +46,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hWe-6d-Vms">
                                 <rect key="frame" x="0.0" y="0.0" width="269.33333333333331" height="94"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gR3-oV-kgW">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_radio_unselected" translatesAutoresizingMaskIntoConstraints="NO" id="gR3-oV-kgW">
                                         <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="16" id="1bd-fk-cgN"/>
@@ -75,7 +75,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="H7x-8C-hpy">
                                 <rect key="frame" x="0.0" y="114" width="229.66666666666666" height="70.666666666666686"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eXp-0z-zr7">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_radio_selected" translatesAutoresizingMaskIntoConstraints="NO" id="eXp-0z-zr7">
                                         <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="16" id="Sxh-gT-oKv"/>
@@ -119,4 +119,8 @@
             <point key="canvasLocation" x="-192.36641221374046" y="88.028169014084511"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="ic_radio_selected" width="20" height="20"/>
+        <image name="ic_radio_unselected" width="20" height="20"/>
+    </resources>
 </document>
