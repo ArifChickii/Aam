@@ -19,29 +19,22 @@ class HomeVC: UIViewController, Storyboarded {
         // Do any additional setup after loading the view.
         setDelegatesAndDataSources()
         registerCells()
-        productViewModel.fetchProducts {
-                    // Additional actions after fetching products
-                    DispatchQueue.main.async {
-                        self.productTblView.reloadData()
-                    }
-                }
+        
         
 
-//        fetchAllCategoriesAndLists()
+
         
         
     }
     
-//    func fetchAllCategoriesAndLists(){
-//        productViewModel.fetchCategories {
-//            print("do nothing")
-//        }
-//        productViewModel.fetchAllSizes()
-//        productViewModel.fetchAllColors()
-//        productViewModel.fetchAllFabrics()
-//        
-//    }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        productViewModel.fetchProducts {
+            // Additional actions after fetching products
+            DispatchQueue.main.async {
+                self.productTblView.reloadData()
+            }
+        }
+    }
     
     
     func setDelegatesAndDataSources(){

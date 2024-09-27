@@ -8,6 +8,9 @@
 import UIKit
 import FittedSheets
 
+
+
+
 class AddProductVC: UIViewController, Storyboarded {
     
     
@@ -72,18 +75,37 @@ class AddProductVC: UIViewController, Storyboarded {
         tblAddProduct.rowHeight = UITableView.automaticDimension
     }
     
+    func saveTitleAndDescriptionToModel() {
+        let indexPath = IndexPath(row: 2, section: 0) // Specify the row and section you need
+            if let cell = tblAddProduct.cellForRow(at: indexPath) as? ProductNameAndDescTblCell {
+                // Access the cell's content
+                let title = cell.txtField.text
+                let descriptionstr = cell.txtViewDesc.text
+                print("Title: \(title ?? ""), Description: \(description ?? "")")
+                self.viewModel.selectedTitle = title ?? ""
+                self.viewModel.selectedDesc = descriptionstr ?? ""
+            }
+        
+    }
+    
     @IBAction func backAction(){
         Router.pop(from: self)
     }
 
 }
-
+extension AddProductVC: ProductTitleUpdateProtocol{
+    func didUpdateTitle(text: String, at indexPath: IndexPath) {
+        self.viewModel.selectedTitle = text
+    }
+    
+    
+}
 
 // MARK: UITableView
 extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return self.viewModel.courseList.count
         return 11
     }
     
@@ -108,8 +130,9 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: ProductNameAndDescTblCell.identifier, for: indexPath) as! ProductNameAndDescTblCell
+            cell.delegateTitle = self // Set the delegate
+            cell.indexPath = indexPath
            
-//            cell.configure(obj: viewModel.product)
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableTblCell.identifier, for: indexPath) as! ExpandableTblCell
@@ -166,10 +189,9 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
            print("Button tapped in row: \(rowIndex)")
            // Handle your button action here
         LoaderManager.shared.showLoader(on: self.view, message: "Uploading Product, please wait a few moments...")
-
+        self.saveTitleAndDescriptionToModel()
         viewModel.uploadImagesToFirebase(images: self.viewModel.imageLists) { imgUrls in
         print(imgUrls)
-//            
             let newProduct = ProductInfo(id: UUID().uuidString, images: imgUrls, sizes: self.viewModel.selectedSize, colors: self.viewModel.selectedColor, fabrics: self.viewModel.selectedFabric, category: self.viewModel.selectedCategory, title: self.viewModel.selectedTitle, description: self.viewModel.selectedDesc, price: self.viewModel.selectedPriceValues?.price ?? "", rating: "", cutPrice: self.viewModel.selectedPriceValues?.cutPrice ?? "")
             self.viewModel.addProductToFirebase(productObj: newProduct) { str in
                 LoaderManager.shared.hideLoader()

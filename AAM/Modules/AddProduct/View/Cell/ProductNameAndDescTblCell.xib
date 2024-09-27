@@ -118,6 +118,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="txtField" destination="lVk-aM-Cmc" id="ASU-NS-kgg"/>
                 <outlet property="txtViewDesc" destination="g7C-bh-iyb" id="U4j-Vk-xUL"/>
             </connections>
             <point key="canvasLocation" x="7.6335877862595414" y="98.591549295774655"/>

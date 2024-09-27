@@ -7,14 +7,26 @@
 
 import UIKit
 
-class ProductNameAndDescTblCell: UITableViewCell {
+protocol ProductTitleUpdateProtocol: AnyObject {
+    func didUpdateTitle(text: String, at indexPath: IndexPath)
+}
+protocol ProductDescriptionUpdateProtocol: AnyObject {
+    func didUpdateDesc(text: String, at indexPath: IndexPath)
+}
+//current these delegate are not used, but if need we can use to get more control of fields inside view controller
+class ProductNameAndDescTblCell: UITableViewCell , UITextFieldDelegate{
     @IBOutlet weak var txtViewDesc: UITextView!
+    @IBOutlet weak var txtField: UITextField!
+    var indexPath: IndexPath!
+    weak var delegateTitle: ProductTitleUpdateProtocol?
+    weak var delegateDesc: ProductDescriptionUpdateProtocol?
     static let identifier = "ProductNameAndDescTblCell"
     let placeholderText = "Enter your text here..."
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         txtViewDesc.delegate = self
+        txtField.delegate = self
         configurePlaceholder()
         
     }
@@ -36,6 +48,12 @@ class ProductNameAndDescTblCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+            if let text = textField.text {
+                delegateTitle?.didUpdateTitle(text: text, at: indexPath)
+            }
+        }
     
     
 }
