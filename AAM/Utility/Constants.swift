@@ -46,3 +46,7 @@ struct UserDefaultsKeys{
 extension Notification.Name {
     static let didDismissBottomSheet = Notification.Name("didDismissBottomSheet")
 }
+
+struct StringConstants {
+    static let maxImagesReached = "You cannot add more then 6 images for a product"
+}

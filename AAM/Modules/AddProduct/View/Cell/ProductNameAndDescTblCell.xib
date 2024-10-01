@@ -120,6 +120,8 @@
             <connections>
                 <outlet property="txtField" destination="lVk-aM-Cmc" id="ASU-NS-kgg"/>
                 <outlet property="txtViewDesc" destination="g7C-bh-iyb" id="U4j-Vk-xUL"/>
+                <outlet property="viewDesc" destination="L82-Nd-bj5" id="Led-BO-QvK"/>
+                <outlet property="viewTitle" destination="VUe-bz-KPD" id="Gbo-Ss-Lf4"/>
             </connections>
             <point key="canvasLocation" x="7.6335877862595414" y="98.591549295774655"/>
         </tableViewCell>

@@ -17,6 +17,8 @@ protocol ProductDescriptionUpdateProtocol: AnyObject {
 class ProductNameAndDescTblCell: UITableViewCell , UITextFieldDelegate{
     @IBOutlet weak var txtViewDesc: UITextView!
     @IBOutlet weak var txtField: UITextField!
+    @IBOutlet weak var viewTitle: UIView!
+    @IBOutlet weak var viewDesc: UIView!
     var indexPath: IndexPath!
     weak var delegateTitle: ProductTitleUpdateProtocol?
     weak var delegateDesc: ProductDescriptionUpdateProtocol?
@@ -42,6 +44,20 @@ class ProductNameAndDescTblCell: UITableViewCell , UITextFieldDelegate{
         
     }
     
+    func addBorder(titleFilled: Bool, descFilled: Bool){
+        if !titleFilled{
+            self.viewTitle.addRemoveAbleBorder(color: .red, width: 1.0)
+            
+        }else{
+            self.viewTitle.removeBorders()
+        }
+        if !descFilled{
+            self.viewDesc.addRemoveAbleBorder(color: .red, width: 1.0)
+        }else{
+            self.viewDesc.removeBorders()
+        }
+    }
+    
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -54,6 +70,10 @@ class ProductNameAndDescTblCell: UITableViewCell , UITextFieldDelegate{
                 delegateTitle?.didUpdateTitle(text: text, at: indexPath)
             }
         }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.viewTitle.removeBorders()
+    }
     
     
 }
@@ -90,6 +110,7 @@ extension ProductNameAndDescTblCell: UITextViewDelegate{
             textView.textColor = .black
             
         }
+        self.viewDesc.removeBorders()
     }
     
     // Re-add placeholder if textView is empty after editing
@@ -97,6 +118,10 @@ extension ProductNameAndDescTblCell: UITextViewDelegate{
         if textView.text.isEmpty {
             configurePlaceholder()
         }
+        if let text = textView.text {
+            delegateDesc?.didUpdateDesc(text: textView.text, at: indexPath)
+        }
+        
     }
 }
 

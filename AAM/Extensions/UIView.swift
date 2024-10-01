@@ -145,3 +145,31 @@ extension UIView {
             self.roundCorners(corners: corners, radius: radius)
         }
 }
+
+
+extension UIView {
+
+    
+    func addRemoveAbleBorder(color: UIColor, width: CGFloat = 1.0) {
+            let borderLayer = CALayer()
+            borderLayer.name = "customBorderLayer" // Add a name to identify this layer
+            borderLayer.frame = self.bounds
+            borderLayer.borderWidth = width
+            borderLayer.borderColor = color.cgColor
+        
+        borderLayer.cornerRadius = self.layer.cornerRadius
+        borderLayer.masksToBounds = true
+            self.layer.addSublayer(borderLayer)
+    }
+    func removeBorders() {
+            if let sublayers = self.layer.sublayers {
+                for layer in sublayers where layer.name == "customBorderLayer" {
+                    layer.removeFromSuperlayer() // Remove only the custom border layer
+                }
+            }
+        }
+
+
+
+    
+}

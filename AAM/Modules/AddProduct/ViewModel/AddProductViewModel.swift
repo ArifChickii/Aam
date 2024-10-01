@@ -17,6 +17,8 @@ class AddProductViewModel{
     var selectedPriceValues : PriceModelForPassingBack?
     var selectedTitle = ""
     var selectedDesc = ""
+    var isTitleFieldFilled = true
+    var isDescFieldFilled = true
     
     init(productService: FirebaseService = FirebaseService()) {
         self.productService = productService

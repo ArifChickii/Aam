@@ -91,10 +91,45 @@ class AddProductVC: UIViewController, Storyboarded {
     @IBAction func backAction(){
         Router.pop(from: self)
     }
+    
+    func validateAllFields() -> Bool{
+        
+        var isValid = true
+        let indexPathOfTitleAndDesc = IndexPath(row: 2, section: 0)
+        if self.viewModel.selectedTitle.elementsEqual(""){
+            self.viewModel.isTitleFieldFilled = false
+            isValid = false
+            self.tblAddProduct.reloadRows(at: [indexPathOfTitleAndDesc], with: .automatic)
+        }
+        if self.viewModel.selectedDesc.elementsEqual(""){
+            self.viewModel.isDescFieldFilled = false
+            isValid = false
+            self.tblAddProduct.reloadRows(at: [indexPathOfTitleAndDesc], with: .automatic)
+        }
+        
+        return isValid
+    }
+    
+    
+    
 
 }
-extension AddProductVC: ProductTitleUpdateProtocol{
+extension AddProductVC: ProductTitleUpdateProtocol, ProductDescriptionUpdateProtocol{
+    func didUpdateDesc(text: String, at indexPath: IndexPath) {
+        if text.elementsEqual(""){
+            self.viewModel.isDescFieldFilled = false
+        }else{
+            self.viewModel.isDescFieldFilled = true
+        }
+        self.viewModel.selectedDesc = text
+    }
+    
     func didUpdateTitle(text: String, at indexPath: IndexPath) {
+        if text.elementsEqual(""){
+            self.viewModel.isTitleFieldFilled = false
+        }else{
+            self.viewModel.isTitleFieldFilled = true
+        }
         self.viewModel.selectedTitle = text
     }
     
@@ -117,8 +152,10 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
 
             cell.configure(images: viewModel.imageLists)
             cell.onAddImageTapped = { [weak self] in
-                if self?.viewModel.imageLists.count ?? 0 < 4{
+                if self?.viewModel.imageLists.count ?? 0 < 7{
                     self?.openImagePicker(for: indexPath.row)
+                }else{
+                    Helper.showAlert(title: "Alert", msg: StringConstants.maxImagesReached, vc: self!)
                 }
                 
             }
@@ -131,8 +168,9 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: ProductNameAndDescTblCell.identifier, for: indexPath) as! ProductNameAndDescTblCell
             cell.delegateTitle = self // Set the delegate
+            cell.delegateDesc = self
             cell.indexPath = indexPath
-           
+            cell.addBorder(titleFilled: self.viewModel.isTitleFieldFilled, descFilled: self.viewModel.isDescFieldFilled)
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableTblCell.identifier, for: indexPath) as! ExpandableTblCell
@@ -185,21 +223,28 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
     }
     
     @objc func uploadButtonTapped(_ sender: UIButton) {
-           let rowIndex = sender.tag
-           print("Button tapped in row: \(rowIndex)")
-           // Handle your button action here
-        LoaderManager.shared.showLoader(on: self.view, message: "Uploading Product, please wait a few moments...")
-        self.saveTitleAndDescriptionToModel()
-        viewModel.uploadImagesToFirebase(images: self.viewModel.imageLists) { imgUrls in
-        print(imgUrls)
-            let newProduct = ProductInfo(id: UUID().uuidString, images: imgUrls, sizes: self.viewModel.selectedSize, colors: self.viewModel.selectedColor, fabrics: self.viewModel.selectedFabric, category: self.viewModel.selectedCategory, title: self.viewModel.selectedTitle, description: self.viewModel.selectedDesc, price: self.viewModel.selectedPriceValues?.price ?? "", rating: "", cutPrice: self.viewModel.selectedPriceValues?.cutPrice ?? "")
-            self.viewModel.addProductToFirebase(productObj: newProduct) { str in
-                LoaderManager.shared.hideLoader()
-                Router.pop(from: self)
+        self.view.endEditing(true)
+        if !self.validateAllFields(){
+            
+        }else{
+            
+            
+            let rowIndex = sender.tag
+            print("Button tapped in row: \(rowIndex)")
+            // Handle your button action here
+            LoaderManager.shared.showLoader(on: self.view, message: "Uploading Product, please wait a few moments...")
+            self.saveTitleAndDescriptionToModel()
+            viewModel.uploadImagesToFirebase(images: self.viewModel.imageLists) { imgUrls in
+                print(imgUrls)
+                let newProduct = ProductInfo(id: UUID().uuidString, images: imgUrls, sizes: self.viewModel.selectedSize, colors: self.viewModel.selectedColor, fabrics: self.viewModel.selectedFabric, category: self.viewModel.selectedCategory, title: self.viewModel.selectedTitle, description: self.viewModel.selectedDesc, price: self.viewModel.selectedPriceValues?.price ?? "", rating: "", cutPrice: self.viewModel.selectedPriceValues?.cutPrice ?? "")
+                self.viewModel.addProductToFirebase(productObj: newProduct) { str in
+                    LoaderManager.shared.hideLoader()
+                    Router.pop(from: self)
+                }
+                
             }
-
         }
-       }
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
