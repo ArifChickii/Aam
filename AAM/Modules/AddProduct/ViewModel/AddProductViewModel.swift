@@ -19,6 +19,11 @@ class AddProductViewModel{
     var selectedDesc = ""
     var isTitleFieldFilled = true
     var isDescFieldFilled = true
+    var showRedBorderOnCategory = false
+    var showRedBorderOnSize = false
+    var showRedBorderOnColor = false
+    var showRedBorderOnFabric = false
+    var showRedBorderOnPrice = false
     
     init(productService: FirebaseService = FirebaseService()) {
         self.productService = productService

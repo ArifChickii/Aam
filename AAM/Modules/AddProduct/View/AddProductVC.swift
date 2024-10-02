@@ -106,6 +106,24 @@ class AddProductVC: UIViewController, Storyboarded {
             isValid = false
             self.tblAddProduct.reloadRows(at: [indexPathOfTitleAndDesc], with: .automatic)
         }
+        if self.viewModel.selectedCategory == nil{
+            
+            isValid = false
+        }
+        if self.viewModel.selectedSize.count == 0{
+            isValid = false
+        }
+        if self.viewModel.selectedFabric.count == 0{
+            isValid = false
+        }
+        
+        if self.viewModel.selectedColor.count == 0{
+            isValid = false
+        }
+        if self.viewModel.selectedPriceValues == nil{
+            isValid = false
+        }
+        
         
         return isValid
     }
@@ -174,30 +192,29 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableTblCell.identifier, for: indexPath) as! ExpandableTblCell
-            cell.configure(title: Constants.CategoryType.category.rawValue, subtitles: nil, productCategory: self.viewModel.selectedCategory, categoryType: .category)
+            cell.configure(title: Constants.CategoryType.category.rawValue, subtitles: nil, productCategory: self.viewModel.selectedCategory, categoryType: .category, showBorder: self.viewModel.showRedBorderOnCategory)
             
             return cell
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableTblCell.identifier, for: indexPath) as! ExpandableTblCell
-            cell.configure(title: Constants.CategoryType.size.rawValue, subtitles: viewModel.selectedSize, categoryType: .size)
+            cell.configure(title: Constants.CategoryType.size.rawValue, subtitles: viewModel.selectedSize, categoryType: .size, showBorder: self.viewModel.showRedBorderOnSize)
             return cell
         case 5:
             let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableTblCell.identifier, for: indexPath) as! ExpandableTblCell
-            cell.configure(title: Constants.CategoryType.fabric.rawValue, subtitles: viewModel.selectedFabric, categoryType: .fabric)
+            cell.configure(title: Constants.CategoryType.fabric.rawValue, subtitles: viewModel.selectedFabric, categoryType: .fabric, showBorder: self.viewModel.showRedBorderOnFabric)
             return cell
         case 6:
             let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableTblCell.identifier, for: indexPath) as! ExpandableTblCell
-            cell.configure(title: Constants.CategoryType.color.rawValue, subtitles: viewModel.selectedColor, categoryType: .color)
+            cell.configure(title: Constants.CategoryType.color.rawValue, subtitles: viewModel.selectedColor, categoryType: .color, showBorder: self.viewModel.showRedBorderOnColor)
             return cell
        
         case 7:
             let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableTblCell.identifier, for: indexPath) as! ExpandableTblCell
             if let priceObj = self.viewModel.selectedPriceValues{
-                cell.configure(title: Constants.CategoryType.price.rawValue, subtitles: [String](), categoryType: .price, prices: priceObj)
+                cell.configure(title: Constants.CategoryType.price.rawValue, subtitles: [String](), categoryType: .price, prices: priceObj, showBorder: self.viewModel.showRedBorderOnColor)
             }else{
-                cell.configure(title: Constants.CategoryType.price.rawValue, subtitles: [String](), categoryType: .price)
+                cell.configure(title: Constants.CategoryType.price.rawValue, subtitles: [String](), categoryType: .price, showBorder: self.viewModel.showRedBorderOnColor)
             }
-            
             return cell
         case 8:
             let cell = tableView.dequeueReusableCell(withIdentifier: RenewalOptionsTblCell.identifier, for: indexPath) as! RenewalOptionsTblCell

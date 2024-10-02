@@ -10,6 +10,7 @@ import UIKit
 class ExpandableTblCell: UITableViewCell {
     static let identifier = "ExpandableTblCell"
     @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var viewBg: UIView!
     @IBOutlet weak var lblSubtitle: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,7 +23,7 @@ class ExpandableTblCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configure(title: String, subtitles: [String]? = nil, productCategory: ProductCategory? = nil, categoryType: Constants.CategoryType, prices: PriceModelForPassingBack? = nil){
+    func configure(title: String, subtitles: [String]? = nil, productCategory: ProductCategory? = nil, categoryType: Constants.CategoryType, prices: PriceModelForPassingBack? = nil, showBorder: Bool){
         self.lblTitle.text = title
         if let subtitles = subtitles, subtitles.count > 0{
             let commaSeparatedTitle = subtitles.joined(separator: ", ")
@@ -53,6 +54,13 @@ class ExpandableTblCell: UITableViewCell {
             default:
                 self.lblSubtitle.text = "Please select color"
             }
+        }
+        
+        if showBorder{
+            self.viewBg.addRemoveAbleBorder(color: .red, width: 1.0)
+            
+        }else{
+            self.viewBg.removeBorders()
         }
         
     }
