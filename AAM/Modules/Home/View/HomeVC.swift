@@ -12,6 +12,7 @@ class HomeVC: UIViewController, Storyboarded {
     @IBOutlet weak var productTblView: UITableView!
     private let viewModel = HomeViewModel()
     private let productViewModel = ProductsViewModel()
+    @IBOutlet weak var searchTextField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,7 @@ class HomeVC: UIViewController, Storyboarded {
     
     
     func setDelegatesAndDataSources(){
-        
+        searchTextField.delegate = self
         productTblView.delegate = self
         productTblView.dataSource = self
     }
@@ -89,6 +90,28 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource, CollectionViewCell
             Router.MoveToProductDetail(from: self, product: self.productViewModel.product(at: indexPath.row))
         }
         
+    }
+    
+}
+extension HomeVC: UITextFieldDelegate{
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let currentText = (textField.text ?? "") as NSString
+        let searchText = currentText.replacingCharacters(in: range, with: string)
+        
+        productViewModel.isFiltering = !searchText.isEmpty
+        productViewModel.filterProducts(by: searchText)
+        
+        productTblView.reloadData() // Reload table view with filtered data
+        
+        return true
+    }
+    
+    // Optionally, handle the clear button (if you add one) to reset the filter
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        productViewModel.isFiltering = false
+        productViewModel.filterProducts(by: "")
+        productTblView.reloadData()
+        return true
     }
     
 }

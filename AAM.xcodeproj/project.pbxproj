@@ -94,6 +94,7 @@
 		8021AFB92C5BDE3B00A66611 /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8021AFB82C5BDE3B00A66611 /* ColorConstants.swift */; };
 		8021AFBF2C5C23DB00A66611 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8021AFBE2C5C23DB00A66611 /* Authentication.storyboard */; };
 		8021AFC12C5C2A7400A66611 /* AuthenticationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8021AFC02C5C2A7400A66611 /* AuthenticationVC.swift */; };
+		805723F02CAF18F600D72E22 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 805723EF2CAF18F600D72E22 /* IQKeyboardManagerSwift */; };
 		807D8A862C75FC7B00E9AE04 /* ProductDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807D8A852C75FC7B00E9AE04 /* ProductDetailVC.swift */; };
 		807D8A882C7B263D00E9AE04 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807D8A872C7B263D00E9AE04 /* Product.swift */; };
 		807D8A8C2C7B26A200E9AE04 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807D8A8B2C7B26A200E9AE04 /* FirebaseService.swift */; };
@@ -239,6 +240,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				805723F02CAF18F600D72E22 /* IQKeyboardManagerSwift in Frameworks */,
 				0414EA012C7C88BB000201E0 /* SDWebImage in Frameworks */,
 				80AF491E2C9C2F7700BCFD48 /* BottomSheet in Frameworks */,
 				0414EA032C7C88BB000201E0 /* SDWebImageMapKit in Frameworks */,
@@ -678,6 +680,7 @@
 				0414EA002C7C88BB000201E0 /* SDWebImage */,
 				0414EA022C7C88BB000201E0 /* SDWebImageMapKit */,
 				80AF491D2C9C2F7700BCFD48 /* BottomSheet */,
+				805723EF2CAF18F600D72E22 /* IQKeyboardManagerSwift */,
 			);
 			productName = AAM;
 			productReference = 80E8C3AD2C5AC3BD0087F009 /* AAM.app */;
@@ -710,6 +713,7 @@
 			packageReferences = (
 				0414E9FF2C7C88BB000201E0 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				80AF491C2C9C2F7700BCFD48 /* XCRemoteSwiftPackageReference "BottomSheet" */,
+				805723EE2CAF18F600D72E22 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = 80E8C3AE2C5AC3BD0087F009 /* Products */;
 			projectDirPath = "";
@@ -1135,6 +1139,14 @@
 				minimumVersion = 5.19.7;
 			};
 		};
+		805723EE2CAF18F600D72E22 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.1.1;
+			};
+		};
 		80AF491C2C9C2F7700BCFD48 /* XCRemoteSwiftPackageReference "BottomSheet" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/joomcode/BottomSheet";
@@ -1155,6 +1167,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0414E9FF2C7C88BB000201E0 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImageMapKit;
+		};
+		805723EF2CAF18F600D72E22 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 805723EE2CAF18F600D72E22 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 		80AF491D2C9C2F7700BCFD48 /* BottomSheet */ = {
 			isa = XCSwiftPackageProductDependency;

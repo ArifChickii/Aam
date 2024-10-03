@@ -3,7 +3,8 @@ import Foundation
 class ProductsViewModel {
     private let productService: FirebaseService
     var products: [ProductInfo] = []
-
+    private var filteredProducts: [ProductInfo] = []
+    var isFiltering: Bool = false
     var onProductsFetched: (() -> Void)?
 
     init(productService: FirebaseService = FirebaseService()) {
@@ -17,6 +18,7 @@ class ProductsViewModel {
     func fetchProducts(completion: (() -> Void)? = nil) {
         productService.fetchProducts { [weak self] products in
             self?.products = products
+            self?.filteredProducts = self?.products ?? []
             self?.onProductsFetched?()
             completion?() // Call the completion closure if provided
         }
@@ -90,12 +92,22 @@ class ProductsViewModel {
     
 
     func numberOfProducts() -> Int {
-        return products.count
+        return isFiltering ? filteredProducts.count : self.products.count
     }
 
     func product(at index: Int) -> ProductInfo {
-        return products[index]
+        return isFiltering ? filteredProducts[index] : products[index]
     }
+    
+    
+    func filterProducts(by searchText: String) {
+        if searchText.isEmpty {
+            filteredProducts = products
+        } else {
+            filteredProducts = products.filter { ($0.title ?? "").lowercased().contains(searchText.lowercased()) }
+        }
+    }
+    
 }
 
 
