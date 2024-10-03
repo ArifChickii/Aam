@@ -20,6 +20,7 @@ class AddProductViewModel{
     var isTitleFieldFilled = true
     var isDescFieldFilled = true
     var showRedBorderOnCategory = false
+    var showRedBorderOnAddImage = false
     var showRedBorderOnSize = false
     var showRedBorderOnColor = false
     var showRedBorderOnFabric = false

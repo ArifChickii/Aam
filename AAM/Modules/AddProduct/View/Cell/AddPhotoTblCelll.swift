@@ -9,6 +9,7 @@ import UIKit
 
 class AddPhotoTblCelll: UITableViewCell, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     static let identifier = "AddPhotoTblCelll"
+    var showBorder = false
     @IBOutlet weak var collImages: UICollectionView!
     var images: [UIImage] = []
         var onAddImageTapped: (() -> Void)?
@@ -66,6 +67,8 @@ extension AddPhotoTblCelll: UICollectionViewDelegate, UICollectionViewDataSource
                     // Add Image cell
                     cell.imgAdded.isHidden = true
                     cell.imgAdd.isHidden = false
+            cell.showBorder = self.showBorder
+
                    
                 } else {
                     // Display selected image

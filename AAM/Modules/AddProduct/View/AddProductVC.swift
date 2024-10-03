@@ -95,6 +95,7 @@ class AddProductVC: UIViewController, Storyboarded {
     func validateAllFields() -> Bool{
         
         var isValid = true
+        let indexPathOfImage = IndexPath(row: 1, section: 0)
         let indexPathOfTitleAndDesc = IndexPath(row: 2, section: 0)
         let indexPathOfCategory = IndexPath(row: 3, section: 0)
         let indexPathOfSize = IndexPath(row: 4, section: 0)
@@ -106,6 +107,12 @@ class AddProductVC: UIViewController, Storyboarded {
             isValid = false
             self.tblAddProduct.reloadRows(at: [indexPathOfTitleAndDesc], with: .automatic)
         }
+        if self.viewModel.imageLists.count == 0{
+            self.viewModel.showRedBorderOnAddImage = true
+            isValid = false
+            self.tblAddProduct.reloadRows(at: [indexPathOfImage], with: .automatic)
+        }
+        
         if self.viewModel.selectedDesc.elementsEqual(""){
             self.viewModel.isDescFieldFilled = false
             isValid = false
@@ -183,7 +190,9 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: AddPhotoTblCelll.identifier, for: indexPath) as! AddPhotoTblCelll
 
             cell.configure(images: viewModel.imageLists)
+            cell.showBorder = self.viewModel.showRedBorderOnAddImage
             cell.onAddImageTapped = { [weak self] in
+                self?.viewModel.showRedBorderOnAddImage = false
                 if self?.viewModel.imageLists.count ?? 0 < 7{
                     self?.openImagePicker(for: indexPath.row)
                 }else{

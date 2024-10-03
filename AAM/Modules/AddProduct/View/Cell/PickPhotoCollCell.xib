@@ -60,6 +60,7 @@
             <connections>
                 <outlet property="imgAdd" destination="5fE-7K-PPt" id="zG8-DX-6rA"/>
                 <outlet property="imgAdded" destination="czk-eN-Osl" id="HgP-k0-QiU"/>
+                <outlet property="viewBg" destination="scR-tY-3tg" id="uF7-HE-7QS"/>
             </connections>
             <point key="canvasLocation" x="93.89312977099236" y="61.971830985915496"/>
         </collectionViewCell>
