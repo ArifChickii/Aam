@@ -12,6 +12,7 @@ class ExpandableTblCell: UITableViewCell {
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var viewBg: UIView!
     @IBOutlet weak var lblSubtitle: UILabel!
+    var showBorder = false
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,7 +24,18 @@ class ExpandableTblCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configure(title: String, subtitles: [String]? = nil, productCategory: ProductCategory? = nil, categoryType: Constants.CategoryType, prices: PriceModelForPassingBack? = nil, showBorder: Bool){
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        if showBorder {
+            self.viewBg.removeBorders()
+            self.viewBg.addRemoveAbleBorder(color: .red, width: 1.0)
+        } else {
+            self.viewBg.removeBorders()
+        }
+    }
+    
+    func configure(title: String, subtitles: [String]? = nil, productCategory: ProductCategory? = nil, categoryType: Constants.CategoryType, prices: PriceModelForPassingBack? = nil){
         self.lblTitle.text = title
         if let subtitles = subtitles, subtitles.count > 0{
             let commaSeparatedTitle = subtitles.joined(separator: ", ")
@@ -56,12 +68,7 @@ class ExpandableTblCell: UITableViewCell {
             }
         }
         
-        if showBorder{
-            self.viewBg.addRemoveAbleBorder(color: .red, width: 1.0)
-            
-        }else{
-            self.viewBg.removeBorders()
-        }
+        
         
     }
     

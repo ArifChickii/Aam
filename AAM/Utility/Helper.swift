@@ -29,6 +29,18 @@ class Helper{
         vc.present(alert, animated: true, completion: nil)
     }
     
+    static func showAlertWithOnlyOk(title: String, msg: String, vc: UIViewController, completion: (() -> Void)? = nil){
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: UIAlertController.Style.alert)
+
+  
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.cancel, handler: { actiiii in
+            completion?()
+        }))
+
+                // show the alert
+        vc.present(alert, animated: true, completion: nil)
+    }
+    
     func showToast(message : String, vc: UIViewController) {
         
         

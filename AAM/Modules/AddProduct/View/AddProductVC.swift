@@ -96,6 +96,11 @@ class AddProductVC: UIViewController, Storyboarded {
         
         var isValid = true
         let indexPathOfTitleAndDesc = IndexPath(row: 2, section: 0)
+        let indexPathOfCategory = IndexPath(row: 3, section: 0)
+        let indexPathOfSize = IndexPath(row: 4, section: 0)
+        let indexPathOfFabric = IndexPath(row: 5, section: 0)
+        let indexPathOfColor = IndexPath(row: 6, section: 0)
+        let indexPathOfPrice = IndexPath(row: 7, section: 0)
         if self.viewModel.selectedTitle.elementsEqual(""){
             self.viewModel.isTitleFieldFilled = false
             isValid = false
@@ -107,21 +112,30 @@ class AddProductVC: UIViewController, Storyboarded {
             self.tblAddProduct.reloadRows(at: [indexPathOfTitleAndDesc], with: .automatic)
         }
         if self.viewModel.selectedCategory == nil{
-            
+            self.viewModel.showRedBorderOnCategory = true
             isValid = false
+            self.tblAddProduct.reloadRows(at: [indexPathOfCategory], with: .automatic)
         }
         if self.viewModel.selectedSize.count == 0{
+            self.viewModel.showRedBorderOnSize = true
             isValid = false
+            self.tblAddProduct.reloadRows(at: [indexPathOfSize], with: .automatic)
         }
         if self.viewModel.selectedFabric.count == 0{
+            self.viewModel.showRedBorderOnFabric = true
             isValid = false
+            self.tblAddProduct.reloadRows(at: [indexPathOfFabric], with: .automatic)
         }
         
         if self.viewModel.selectedColor.count == 0{
+            self.viewModel.showRedBorderOnColor = true
             isValid = false
+            self.tblAddProduct.reloadRows(at: [indexPathOfColor], with: .automatic)
         }
         if self.viewModel.selectedPriceValues == nil{
+            self.viewModel.showRedBorderOnPrice = true
             isValid = false
+            self.tblAddProduct.reloadRows(at: [indexPathOfPrice], with: .automatic)
         }
         
         
@@ -192,29 +206,33 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableTblCell.identifier, for: indexPath) as! ExpandableTblCell
-            cell.configure(title: Constants.CategoryType.category.rawValue, subtitles: nil, productCategory: self.viewModel.selectedCategory, categoryType: .category, showBorder: self.viewModel.showRedBorderOnCategory)
-            
+            cell.configure(title: Constants.CategoryType.category.rawValue, subtitles: nil, productCategory: self.viewModel.selectedCategory, categoryType: .category)
+            cell.showBorder = self.viewModel.showRedBorderOnCategory
             return cell
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableTblCell.identifier, for: indexPath) as! ExpandableTblCell
-            cell.configure(title: Constants.CategoryType.size.rawValue, subtitles: viewModel.selectedSize, categoryType: .size, showBorder: self.viewModel.showRedBorderOnSize)
+            cell.showBorder = self.viewModel.showRedBorderOnSize
+            cell.configure(title: Constants.CategoryType.size.rawValue, subtitles: viewModel.selectedSize, categoryType: .size)
             return cell
         case 5:
             let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableTblCell.identifier, for: indexPath) as! ExpandableTblCell
-            cell.configure(title: Constants.CategoryType.fabric.rawValue, subtitles: viewModel.selectedFabric, categoryType: .fabric, showBorder: self.viewModel.showRedBorderOnFabric)
+            cell.configure(title: Constants.CategoryType.fabric.rawValue, subtitles: viewModel.selectedFabric, categoryType: .fabric)
+            cell.showBorder = self.viewModel.showRedBorderOnFabric
             return cell
         case 6:
             let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableTblCell.identifier, for: indexPath) as! ExpandableTblCell
-            cell.configure(title: Constants.CategoryType.color.rawValue, subtitles: viewModel.selectedColor, categoryType: .color, showBorder: self.viewModel.showRedBorderOnColor)
+            cell.configure(title: Constants.CategoryType.color.rawValue, subtitles: viewModel.selectedColor, categoryType: .color)
+            cell.showBorder = self.viewModel.showRedBorderOnColor
             return cell
        
         case 7:
             let cell = tableView.dequeueReusableCell(withIdentifier: ExpandableTblCell.identifier, for: indexPath) as! ExpandableTblCell
             if let priceObj = self.viewModel.selectedPriceValues{
-                cell.configure(title: Constants.CategoryType.price.rawValue, subtitles: [String](), categoryType: .price, prices: priceObj, showBorder: self.viewModel.showRedBorderOnColor)
+                cell.configure(title: Constants.CategoryType.price.rawValue, subtitles: [String](), categoryType: .price, prices: priceObj)
             }else{
-                cell.configure(title: Constants.CategoryType.price.rawValue, subtitles: [String](), categoryType: .price, showBorder: self.viewModel.showRedBorderOnColor)
+                cell.configure(title: Constants.CategoryType.price.rawValue, subtitles: [String](), categoryType: .price)
             }
+            cell.showBorder = self.viewModel.showRedBorderOnPrice
             return cell
         case 8:
             let cell = tableView.dequeueReusableCell(withIdentifier: RenewalOptionsTblCell.identifier, for: indexPath) as! RenewalOptionsTblCell
@@ -242,6 +260,7 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
     @objc func uploadButtonTapped(_ sender: UIButton) {
         self.view.endEditing(true)
         if !self.validateAllFields(){
+            Helper.showAlertWithOnlyOk(title: "Alert", msg: "Please fill out all fields", vc: self)
             
         }else{
             
@@ -303,15 +322,17 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
             print("do nothing")
         case 3:
             print("Category")
-
+            self.viewModel.showRedBorderOnCategory = false
             Router.showBottomSheet(from: self, bottomeSheetType: Constants.CategoryType.category) { [weak self] data in
                 print("category data recieved in notification observer")
+                
             }
             
             
             
         case 4:
             print("Size")
+            self.viewModel.showRedBorderOnSize = false
             Router.showBottomSheet(from: self,bottomeSheetType: Constants.CategoryType.size, onDataPass: {data in
                 print("selected size is \(data)")
                 self.viewModel.selectedSize = data
@@ -319,6 +340,7 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
             })
         case 5:
             print("fabric")
+            self.viewModel.showRedBorderOnFabric = false
             Router.showBottomSheet(from: self,bottomeSheetType: Constants.CategoryType.fabric, onDataPass: {data in
                 print("selected fabric is \(data)")
                 self.viewModel.selectedFabric = data
@@ -327,6 +349,7 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
             })
         case 6:
             print("Color")
+            self.viewModel.showRedBorderOnColor = false
             Router.showBottomSheet(from: self,bottomeSheetType: Constants.CategoryType.color, onDataPass: {data in
                 print("selected colors are \(data)")
                 self.viewModel.selectedColor = data
@@ -334,6 +357,7 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
             })
         case 7:
             print("price")
+            self.viewModel.showRedBorderOnPrice = false
             Router.showPriceBottomSheet(from: self) { priceObj in
 
                 self.viewModel.selectedPriceValues = priceObj

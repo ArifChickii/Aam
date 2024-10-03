@@ -88,6 +88,7 @@
             <connections>
                 <outlet property="lblSubtitle" destination="BLb-Yo-EY1" id="DKE-IV-KQ7"/>
                 <outlet property="lblTitle" destination="eZJ-8R-AJw" id="QX8-fo-JJZ"/>
+                <outlet property="viewBg" destination="0An-5k-edc" id="IJR-an-X8X"/>
             </connections>
             <point key="canvasLocation" x="96.946564885496173" y="102.46478873239437"/>
         </tableViewCell>
