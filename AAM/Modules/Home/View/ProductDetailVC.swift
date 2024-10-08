@@ -57,6 +57,8 @@ class ProductDetailVC: UIViewController, Storyboarded {
     @IBAction func backAction(){
         Router.pop(from: self)
     }
+    
+   
 
 }
 
@@ -77,10 +79,14 @@ extension ProductDetailVC: UITableViewDelegate, UITableViewDataSource{
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: ProductPriceAndTitleTblCell.identifier, for: indexPath) as! ProductPriceAndTitleTblCell
+            cell.btnShare.removeTarget(nil, action: nil, for: .allEvents)
+            cell.btnShare.addTarget(self, action: #selector(shareBtnTapped(_:)), for: .touchUpInside)
+            cell.btnShare.tag = indexPath.row
             cell.configure(obj: viewModel.product)
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: ProductDescriptionTblCell.identifier, for: indexPath) as! ProductDescriptionTblCell
+            
             cell.configure(obj: viewModel.product)
             return cell
         case 3:
@@ -104,6 +110,11 @@ extension ProductDetailVC: UITableViewDelegate, UITableViewDataSource{
         
         
     }
+    
+    @objc func shareBtnTapped(_ sender: UIButton) {
+        Helper.shareProduct(product: self.productDetailObj, image: UIImage(named: "dummy")!, viewController: self)
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:

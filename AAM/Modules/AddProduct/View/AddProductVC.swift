@@ -102,6 +102,8 @@ class AddProductVC: UIViewController, Storyboarded {
         let indexPathOfFabric = IndexPath(row: 5, section: 0)
         let indexPathOfColor = IndexPath(row: 6, section: 0)
         let indexPathOfPrice = IndexPath(row: 7, section: 0)
+        
+        
         if self.viewModel.selectedTitle.elementsEqual(""){
             self.viewModel.isTitleFieldFilled = false
             isValid = false

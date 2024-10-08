@@ -71,5 +71,35 @@ class Helper{
         })
     }
     
+    static func shareProduct(product: ProductInfo, image: UIImage, viewController: UIViewController) {
+        // Prepare the text details (title, price, size)
+        
+        let productDetails = """
+        Check out this product:
+        
+        Title: \(product.title ?? "")
+        Price: $\(product.price ?? "")
+        Size: "dummy size"
+        """
+
+        // Prepare the image
+        let productImage = image
+
+        // Combine text and image into an array to share
+        let itemsToShare: [Any] = [productDetails, productImage]
+
+        // Create the UIActivityViewController
+        let activityViewController = UIActivityViewController(activityItems: itemsToShare, applicationActivities: nil)
+
+        // Exclude some activity types (optional)
+        activityViewController.excludedActivityTypes = [
+            .assignToContact,
+            .saveToCameraRoll,
+            .addToReadingList
+        ]
+
+        // Present the activity view controller
+        viewController.present(activityViewController, animated: true, completion: nil)
+    }
     
 }
