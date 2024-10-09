@@ -88,9 +88,9 @@ class AddProductVC: UIViewController, Storyboarded {
         
     }
     
-    @IBAction func backAction(){
-        Router.pop(from: self)
-    }
+//    @IBAction func backAction(){
+//        Router.pop(from: self)
+//    }
     
     func validateAllFields() -> Bool{
         

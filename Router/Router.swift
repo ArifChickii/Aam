@@ -26,7 +26,7 @@ class Router {
     
     static func setHomeAsRootVC() {
         
-        if let vc = HomeVC.instantiate(storyBoardName: "Home") as? HomeVC {
+        if let vc = TabbarVC.instantiate(storyBoardName: "Tabbar") as? TabbarVC {
             // Replace the root view controller
             guard let window = UIApplication.shared.windows.first else { return }
             let navigationController = UINavigationController(rootViewController: vc)
