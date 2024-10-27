@@ -79,9 +79,11 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource, CollectionViewCell
         cell.configure(obj: self.productViewModel.product(at: indexPath.row))
         return cell
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 300
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         Router.MoveToProductDetail(from: self, product: self.productViewModel.product(at: indexPath.row))

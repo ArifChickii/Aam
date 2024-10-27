@@ -12,6 +12,14 @@
 				<string>com.googleusercontent.apps.1007650402025-5g0c2oji5klp19fbkh9q9m0rddlh605h</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>aamApp</string>
+			</array>
+		</dict>
 	</array>
 	<key>UIAppFonts</key>
 	<array>
@@ -53,7 +61,5 @@
 			</array>
 		</dict>
 	</dict>
-	<key>UIUserInterfaceStyle</key>
-	<string>Light</string>
 </dict>
 </plist>

@@ -71,35 +71,56 @@ class Helper{
         })
     }
     
-    static func shareProduct(product: ProductInfo, image: UIImage, viewController: UIViewController) {
-        // Prepare the text details (title, price, size)
+//    static func shareProduct(product: ProductInfo, image: UIImage, viewController: UIViewController) {
+//        // Prepare the text details (title, price, size)
+//        
+//        let productDetails = """
+//        Check out this product:
+//        
+//        Title: \(product.title ?? "")
+//        Price: $\(product.price ?? "")
+//        Size: "dummy size"
+//        """
+//
+//        // Prepare the image
+//        let productImage = image
+//
+//        // Combine text and image into an array to share
+//        let itemsToShare: [Any] = [productDetails, productImage]
+//
+//        // Create the UIActivityViewController
+//        let activityViewController = UIActivityViewController(activityItems: itemsToShare, applicationActivities: nil)
+//
+//        // Exclude some activity types (optional)
+//        activityViewController.excludedActivityTypes = [
+//            .assignToContact,
+//            .saveToCameraRoll,
+//            .addToReadingList
+//        ]
+//
+//        // Present the activity view controller
+//        viewController.present(activityViewController, animated: true, completion: nil)
+//    }
+    
+   
+    
+    static func shareProduct(product: ProductInfo, image: UIImage, viewController: UIViewController, customProductUrl: URL) {
         
-        let productDetails = """
-        Check out this product:
+//        let appStoreURL = URL(string: "https://apps.apple.com/app/idYOUR_APP_STORE_ID")!
+                let productDetails = """
+                Check out this product:
+                Title: \(product.title ?? "")
+                Price: $\(product.price ?? "")
+                """
         
-        Title: \(product.title ?? "")
-        Price: $\(product.price ?? "")
-        Size: "dummy size"
-        """
-
-        // Prepare the image
-        let productImage = image
-
-        // Combine text and image into an array to share
-        let itemsToShare: [Any] = [productDetails, productImage]
-
-        // Create the UIActivityViewController
-        let activityViewController = UIActivityViewController(activityItems: itemsToShare, applicationActivities: nil)
-
-        // Exclude some activity types (optional)
-        activityViewController.excludedActivityTypes = [
-            .assignToContact,
-            .saveToCameraRoll,
-            .addToReadingList
-        ]
-
-        // Present the activity view controller
-        viewController.present(activityViewController, animated: true, completion: nil)
+//        let activityVC = UIActivityViewController(activityItems: [shareTitle, image, customURL, appStoreURL], applicationActivities: nil)
+        let activityVC = UIActivityViewController(activityItems: [productDetails, image, customProductUrl], applicationActivities: nil)
+        
+        // Exclude some activity types if needed
+        activityVC.excludedActivityTypes = [.addToReadingList, .saveToCameraRoll]
+        
+        viewController.present(activityVC, animated: true, completion: nil)
     }
+
     
 }
