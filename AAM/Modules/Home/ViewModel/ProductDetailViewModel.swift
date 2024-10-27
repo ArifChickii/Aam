@@ -12,4 +12,9 @@ class ProductDetailViewModel{
         init(product: ProductInfo) {
             self.product = product
         }
+    
+    func generateCustomURL(for product: ProductInfo) -> URL {
+        return URL(string: "aamApp://product/\(product.id)")!
+    }
+
 }

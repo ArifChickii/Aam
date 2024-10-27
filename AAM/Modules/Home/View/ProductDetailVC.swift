@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ProductDetailVC: UIViewController, Storyboarded {
     var viewModel : ProductDetailViewModel!
@@ -80,8 +81,9 @@ extension ProductDetailVC: UITableViewDelegate, UITableViewDataSource{
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: ProductPriceAndTitleTblCell.identifier, for: indexPath) as! ProductPriceAndTitleTblCell
             cell.btnShare.removeTarget(nil, action: nil, for: .allEvents)
-            cell.btnShare.addTarget(self, action: #selector(shareBtnTapped(_:)), for: .touchUpInside)
             cell.btnShare.tag = indexPath.row
+            cell.btnShare.addTarget(self, action: #selector(shareBtnTapped(_:)), for: .touchUpInside)
+            
             cell.configure(obj: viewModel.product)
             return cell
         case 2:
@@ -112,8 +114,33 @@ extension ProductDetailVC: UITableViewDelegate, UITableViewDataSource{
     }
     
     @objc func shareBtnTapped(_ sender: UIButton) {
-        Helper.shareProduct(product: self.productDetailObj, image: UIImage(named: "dummy")!, viewController: self)
+        
+        guard let productDetailObj = self.productDetailObj,
+              let images = productDetailObj.images,
+              !images.isEmpty,
+              let imageUrl = URL(string: images[0]) else {
+            print("Invalid product details or image URL")
+            return
+        }
+        
+        // Download image using SDWebImageManager
+        SDWebImageManager.shared.loadImage(
+            with: imageUrl,
+            options: .highPriority,
+            progress: nil,
+            completed: { [weak self] (image, data, error, cacheType, finished, url) in
+                if let image = image , let strongSelf = self{
+                    // Image was successfully downloaded or loaded from cache
+                    if let product = self?.productDetailObj {
+                        let urlToShare =  strongSelf.viewModel.generateCustomURL(for: product)
+                        Helper.shareProduct(product: product, image: image, viewController: strongSelf, customProductUrl: urlToShare)
+                    }
+                } else {
+                    print("Error downloading image: \(error?.localizedDescription ?? "Unknown error")")
+                }
+            })
     }
+
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {

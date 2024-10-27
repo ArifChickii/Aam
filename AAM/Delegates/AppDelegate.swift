@@ -22,12 +22,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         return true
     }
-    func application(_ app: UIApplication,
-                     open url: URL,
-                     options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
-      return GIDSignIn.sharedInstance.handle(url)
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        // First, check if the URL is for Google Sign-In
+        if GIDSignIn.sharedInstance.handle(url) {
+            return true
+        }
+        
+        // Then, check if the URL matches the custom scheme
+        if url.scheme == "aamApp", let host = url.host {
+            if host == "product", let productID = url.pathComponents.dropFirst().first {
+                // Navigate to the product detail page with the productID
+//                navigateToProductDetail(withID: productID)
+                return true
+            }
+        }
+        
+        // If neither case matches, return false
+        return false
     }
 
+
+    
+    
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
@@ -41,6 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
+    
 
     // MARK: - Core Data stack
 
