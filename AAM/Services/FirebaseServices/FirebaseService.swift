@@ -82,6 +82,50 @@ class FirebaseService {
     }
 
     
+    func fetchProduct(withId productId: String, completion: @escaping (ProductInfo?) -> Void) {
+        db.collection("Products").document(productId).getDocument { (document, error) in
+            if let error = error {
+                print("❌ Error fetching product with ID \(productId): \(error.localizedDescription)")
+                completion(nil)
+                return
+            }
+            
+            guard let document = document, document.exists else {
+                print("❌ Product with ID \(productId) does not exist.")
+                completion(nil)
+                return
+            }
+            
+            let data = document.data()
+            
+            // Parse the category dictionary safely
+            if let productCatDic = data?["category"] as? [String: Any] {
+                let productCat = ProductCategory(
+                    title: productCatDic["title"] as? String ?? "",
+                    subCategories: productCatDic["subCategories"] as? [String] ?? []
+                )
+                
+                let product = ProductInfo(
+                    id: document.documentID,
+                    images: data?["images"] as? [String] ?? [],
+                    sizes: data?["sizes"] as? [String] ?? [],
+                    colors: data?["colors"] as? [String] ?? [],
+                    fabrics: data?["fabrics"] as? [String] ?? [],
+                    category: productCat,
+                    title: data?["title"] as? String ?? "",
+                    description: data?["description"] as? String ?? "",
+                    price: data?["price"] as? String ?? "",
+                    rating: data?["rating"] as? String ?? "0.0",
+                    cutPrice: data?["cutPrice"] as? String ?? ""
+                )
+                
+                completion(product)
+            } else {
+                print("❌ Error parsing category for product ID: \(productId)")
+                completion(nil)
+            }
+        }
+    }
     
     
     func uploadImage(image: UIImage,imageName: String, completion: @escaping (Result<String, Error>) -> Void) {

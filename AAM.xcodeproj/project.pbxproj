@@ -60,6 +60,7 @@
 		04ED9D5E2C872B4000C2D961 /* ExpandableTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04ED9D5C2C872B4000C2D961 /* ExpandableTblCell.xib */; };
 		04ED9D612C872C0300C2D961 /* RenewalOptionsTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED9D5F2C872C0300C2D961 /* RenewalOptionsTblCell.swift */; };
 		04ED9D622C872C0300C2D961 /* RenewalOptionsTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04ED9D602C872C0300C2D961 /* RenewalOptionsTblCell.xib */; };
+		80050F792CCFAC2400B7D90C /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 80050F782CCFAC2400B7D90C /* IQKeyboardManagerSwift */; };
 		8013C75D2C74B26A003AA5A3 /* ProductTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8013C75B2C74B26A003AA5A3 /* ProductTblCell.swift */; };
 		8013C75E2C74B26A003AA5A3 /* ProductTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8013C75C2C74B26A003AA5A3 /* ProductTblCell.xib */; };
 		8013C7602C750235003AA5A3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8013C75F2C750235003AA5A3 /* HomeViewModel.swift */; };
@@ -97,6 +98,10 @@
 		805723F02CAF18F600D72E22 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 805723EF2CAF18F600D72E22 /* IQKeyboardManagerSwift */; };
 		806DE3882CB618270038B6E5 /* Tabbar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 806DE3872CB618270038B6E5 /* Tabbar.storyboard */; };
 		806DE38A2CB61B260038B6E5 /* TabbarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806DE3892CB61B260038B6E5 /* TabbarVC.swift */; };
+		806F9F282CCFADC50068D0F3 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 806F9F272CCFADC50068D0F3 /* IQKeyboardManagerSwift */; };
+		806F9F2A2CCFAE160068D0F3 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 806F9F292CCFAE160068D0F3 /* SDWebImage */; };
+		806F9F2C2CCFAE160068D0F3 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 806F9F2B2CCFAE160068D0F3 /* SDWebImageMapKit */; };
+		806F9F2E2CCFB09B0068D0F3 /* ProductShareManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F9F2D2CCFB09B0068D0F3 /* ProductShareManager.swift */; };
 		807D8A862C75FC7B00E9AE04 /* ProductDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807D8A852C75FC7B00E9AE04 /* ProductDetailVC.swift */; };
 		807D8A882C7B263D00E9AE04 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807D8A872C7B263D00E9AE04 /* Product.swift */; };
 		807D8A8C2C7B26A200E9AE04 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807D8A8B2C7B26A200E9AE04 /* FirebaseService.swift */; };
@@ -108,6 +113,7 @@
 		80B3204B2C61252A00359714 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B3204A2C61252A00359714 /* Helper.swift */; };
 		80B3204D2C6128F000359714 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B3204C2C6128F000359714 /* Reachability.swift */; };
 		80B320752C6157AB00359714 /* Pods_AAM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80B320742C6157AB00359714 /* Pods_AAM.framework */; };
+		80B380282CCFFBA0000AFC82 /* DynamicLinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B380272CCFFBA0000AFC82 /* DynamicLinkManager.swift */; };
 		80E8C3B12C5AC3BD0087F009 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E8C3B02C5AC3BD0087F009 /* AppDelegate.swift */; };
 		80E8C3B32C5AC3BD0087F009 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E8C3B22C5AC3BD0087F009 /* SceneDelegate.swift */; };
 		80E8C3B52C5AC3BD0087F009 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E8C3B42C5AC3BD0087F009 /* ViewController.swift */; };
@@ -211,6 +217,7 @@
 		8021AFC02C5C2A7400A66611 /* AuthenticationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationVC.swift; sourceTree = "<group>"; };
 		806DE3872CB618270038B6E5 /* Tabbar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Tabbar.storyboard; path = Aam/Modules/Tabbar/Tabbar.storyboard; sourceTree = SOURCE_ROOT; };
 		806DE3892CB61B260038B6E5 /* TabbarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabbarVC.swift; path = Aam/Modules/Tabbar/TabbarVC.swift; sourceTree = SOURCE_ROOT; };
+		806F9F2D2CCFB09B0068D0F3 /* ProductShareManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductShareManager.swift; sourceTree = "<group>"; };
 		807D8A852C75FC7B00E9AE04 /* ProductDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailVC.swift; sourceTree = "<group>"; };
 		807D8A872C7B263D00E9AE04 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		807D8A8B2C7B26A200E9AE04 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
@@ -222,6 +229,7 @@
 		80B3204C2C6128F000359714 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		80B3204E2C61338200359714 /* CoreAudioTypes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudioTypes.framework; path = System/Library/Frameworks/CoreAudioTypes.framework; sourceTree = SDKROOT; };
 		80B320742C6157AB00359714 /* Pods_AAM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_AAM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		80B380272CCFFBA0000AFC82 /* DynamicLinkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicLinkManager.swift; sourceTree = "<group>"; };
 		80E8C3AD2C5AC3BD0087F009 /* AAM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AAM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80E8C3B02C5AC3BD0087F009 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80E8C3B22C5AC3BD0087F009 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -244,11 +252,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				806F9F282CCFADC50068D0F3 /* IQKeyboardManagerSwift in Frameworks */,
+				806F9F2C2CCFAE160068D0F3 /* SDWebImageMapKit in Frameworks */,
 				805723F02CAF18F600D72E22 /* IQKeyboardManagerSwift in Frameworks */,
+				806F9F2A2CCFAE160068D0F3 /* SDWebImage in Frameworks */,
 				0414EA012C7C88BB000201E0 /* SDWebImage in Frameworks */,
 				80AF491E2C9C2F7700BCFD48 /* BottomSheet in Frameworks */,
 				0414EA032C7C88BB000201E0 /* SDWebImageMapKit in Frameworks */,
 				80B320752C6157AB00359714 /* Pods_AAM.framework in Frameworks */,
+				80050F792CCFAC2400B7D90C /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +458,8 @@
 				0414EA152C7F36EC000201E0 /* LocalStorage.swift */,
 				80AF491F2C9C329200BCFD48 /* CustomTableView.swift */,
 				808F25782CA6921F00F59B57 /* LoaderManager.swift */,
+				806F9F2D2CCFB09B0068D0F3 /* ProductShareManager.swift */,
+				80B380272CCFFBA0000AFC82 /* DynamicLinkManager.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -695,6 +709,10 @@
 				0414EA022C7C88BB000201E0 /* SDWebImageMapKit */,
 				80AF491D2C9C2F7700BCFD48 /* BottomSheet */,
 				805723EF2CAF18F600D72E22 /* IQKeyboardManagerSwift */,
+				80050F782CCFAC2400B7D90C /* IQKeyboardManagerSwift */,
+				806F9F272CCFADC50068D0F3 /* IQKeyboardManagerSwift */,
+				806F9F292CCFAE160068D0F3 /* SDWebImage */,
+				806F9F2B2CCFAE160068D0F3 /* SDWebImageMapKit */,
 			);
 			productName = AAM;
 			productReference = 80E8C3AD2C5AC3BD0087F009 /* AAM.app */;
@@ -885,7 +903,9 @@
 				80B3204D2C6128F000359714 /* Reachability.swift in Sources */,
 				807D8A862C75FC7B00E9AE04 /* ProductDetailVC.swift in Sources */,
 				0426D3EB2C882424008AF976 /* AddProductVC.swift in Sources */,
+				806F9F2E2CCFB09B0068D0F3 /* ProductShareManager.swift in Sources */,
 				8021AFA32C5BBDBA00A66611 /* UIView.swift in Sources */,
+				80B380282CCFFBA0000AFC82 /* DynamicLinkManager.swift in Sources */,
 				0426D3E62C8822F2008AF976 /* UploadButtonTblCell.swift in Sources */,
 				8021AFB12C5BC04500A66611 /* onBoardingViewModel.swift in Sources */,
 				8013C7602C750235003AA5A3 /* HomeViewModel.swift in Sources */,
@@ -1186,10 +1206,29 @@
 			package = 0414E9FF2C7C88BB000201E0 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImageMapKit;
 		};
+		80050F782CCFAC2400B7D90C /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 805723EE2CAF18F600D72E22 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
 		805723EF2CAF18F600D72E22 /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 805723EE2CAF18F600D72E22 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
+		};
+		806F9F272CCFADC50068D0F3 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = IQKeyboardManagerSwift;
+		};
+		806F9F292CCFAE160068D0F3 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0414E9FF2C7C88BB000201E0 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		806F9F2B2CCFAE160068D0F3 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0414E9FF2C7C88BB000201E0 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
 		};
 		80AF491D2C9C2F7700BCFD48 /* BottomSheet */ = {
 			isa = XCSwiftPackageProductDependency;

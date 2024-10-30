@@ -50,3 +50,16 @@ extension Notification.Name {
 struct StringConstants {
     static let maxImagesReached = "You cannot add more then 6 images for a product"
 }
+
+
+
+struct DeepLinkConstants {
+    static let scheme = "aamApp"
+    static let productPath = "product"
+    
+    static func generateDeepLink(productId: String) -> String {
+        return "\(scheme)://\(productPath)/\(productId)"
+    }
+}
+
+

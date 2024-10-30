@@ -17,7 +17,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>aamApp</string>
+				<string>com.chickii-ventures.aam</string>
 			</array>
 		</dict>
 	</array>
@@ -61,5 +61,9 @@
 			</array>
 		</dict>
 	</dict>
+	<key>com.apple.developer.associated-domains</key>
+	<array>
+		<string>applinks:chickiiaam.page.link</string>
+	</array>
 </dict>
 </plist>

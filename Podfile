@@ -19,6 +19,7 @@ target 'AAM' do
         pod 'Firebase/Firestore'
         pod 'Firebase/Storage'
         pod 'FittedSheets'
+        pod 'Branch'
 
 
 end
