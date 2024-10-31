@@ -75,6 +75,11 @@ class ProductNameAndDescTblCell: UITableViewCell , UITextFieldDelegate{
         self.viewTitle.removeBorders()
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+          textField.resignFirstResponder()
+          return true
+      }
+    
     
 }
 extension ProductNameAndDescTblCell: UITextViewDelegate{

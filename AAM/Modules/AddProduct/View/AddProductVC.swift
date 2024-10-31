@@ -7,6 +7,7 @@
 
 import UIKit
 import FittedSheets
+import IQKeyboardManagerSwift
 
 
 
@@ -28,6 +29,7 @@ class AddProductVC: UIViewController, Storyboarded {
         setDelegatesAndDataSources()
         registerCells()
         NotificationCenter.default.addObserver(self, selector: #selector(handleBottomSheetDismissedForCategory(_:)), name: .didDismissBottomSheet, object: nil)
+        tblAddProduct.translatesAutoresizingMaskIntoConstraints = false
     }
     
     
@@ -73,6 +75,10 @@ class AddProductVC: UIViewController, Storyboarded {
         
         tblAddProduct.estimatedRowHeight = 80
         tblAddProduct.rowHeight = UITableView.automaticDimension
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        IQKeyboardManager.shared.reloadLayoutIfNeeded()
     }
     
     func saveTitleAndDescriptionToModel() {

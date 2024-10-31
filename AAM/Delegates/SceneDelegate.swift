@@ -46,7 +46,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
         if let incomingURL = userActivity.webpageURL {
             print("🔗 Received universal link: \(incomingURL.absoluteString)")
-            _ = handleDynamicLink(incomingURL)
+            _ = handleIncomingDynamicLink(incomingURL)
         }
     }
     
@@ -62,14 +62,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // Handle Dynamic Links
         print("🔗 Received URL scheme: \(url.absoluteString)")
-        _ = handleDynamicLink(url)
+        _ = handleIncomingDynamicLink(url)
     }
     
     // MARK: - Dynamic Link Handling
     
-    private func handleDynamicLink(_ url: URL) -> Bool {
+    private func handleIncomingDynamicLink(_ url: URL) -> Bool {
         print("🔗 Processing dynamic link: \(url.absoluteString)")
         
+        // Handle dynamic links asynchronously
         DynamicLinks.dynamicLinks().handleUniversalLink(url) { [weak self] dynamicLink, error in
             guard let self = self else { return }
             
@@ -135,48 +136,82 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
      
      - Parameter productId: The ID of the product to display.
      */
-    // In SceneDelegate.swift, replace the navigateToProductDetail method with:
-
     func navigateToProductDetail(withID productId: String) {
         // Get the main window's root view controller
-        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-              let window = windowScene.windows.first,
+        guard let window = self.window,
               let rootViewController = window.rootViewController else {
             print("❌ Unable to access root view controller")
+            presentErrorAlert(message: "Unable to navigate to product details.")
             return
         }
         
-        // Find the appropriate navigation controller
-        let navigationController: UINavigationController? = {
-            if let nav = rootViewController as? UINavigationController {
-                return nav
-            } else if let nav = rootViewController.navigationController {
-                return nav
-            } else {
-                return nil
-            }
-        }()
-        
-        // Create and push the product detail view controller
-        if let nav = navigationController {
-            let productDetailVC = ProductDetailVC.instantiate(storyBoardName: "Home")
-            
-            // Push the view controller first
-            nav.pushViewController(productDetailVC, animated: true)
-            
-            // Then load the product
-            productDetailVC.loadProduct(withId: productId)
-        } else {
+        // Find the top-most navigation controller
+        guard let navigationController = getTopNavigationController(from: rootViewController) else {
             print("❌ Navigation Controller not found")
-            presentErrorAlert(message: "Unable to display product details.")
+            presentErrorAlert(message: "Unable to navigate to product details.")
+            return
         }
+        
+        // Instantiate the ProductDetailVC
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        guard let productDetailVC = storyboard.instantiateViewController(withIdentifier: "ProductDetailVC") as? ProductDetailVC else {
+            print("❌ Unable to instantiate ProductDetailVC from Home storyboard")
+            presentErrorAlert(message: "Unable to display product details.")
+            return
+        }
+        
+        // Fetch product data and set it
+        FirebaseService().fetchProduct(withId: productId) { product in
+            guard let product = product else {
+                print("❌ Product not found for ID: \(productId)")
+                DispatchQueue.main.async {
+                    self.presentErrorAlert(message: "Product not found.")
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                productDetailVC.productDetailObj = product
+                productDetailVC.viewModel = ProductDetailViewModel(product: product)
+                
+                // If the view is already loaded, refresh it
+                if productDetailVC.isViewLoaded {
+                    productDetailVC.productTblView.reloadData()
+                }
+                
+                // Push the product detail view controller
+                navigationController.pushViewController(productDetailVC, animated: true)
+            }
+        }
+    }
+    
+    // MARK: - Helper Methods
+    
+    private func getTopNavigationController(from rootViewController: UIViewController) -> UINavigationController? {
+        // If the root is a navigation controller, return it
+        if let nav = rootViewController as? UINavigationController {
+            return nav
+        }
+        
+        // If the root is a tab bar controller, return its selected navigation controller
+        if let tabBarController = rootViewController as? UITabBarController,
+           let selectedNav = tabBarController.selectedViewController as? UINavigationController {
+            return selectedNav
+        }
+        
+        // If the root has a navigation controller, return it
+        if let nav = rootViewController.navigationController {
+            return nav
+        }
+        
+        // Otherwise, return nil
+        return nil
     }
     
     // MARK: - Error Handling
     
     private func presentErrorAlert(message: String) {
-        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-              let window = windowScene.windows.first,
+        guard let window = self.window,
               let rootViewController = window.rootViewController else {
             print("❌ Unable to present error alert: no root view controller")
             return
@@ -184,8 +219,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let topVC = getTopViewController(from: rootViewController)
         let alert = UIAlertController(title: "Error",
-                                    message: message,
-                                    preferredStyle: .alert)
+                                      message: message,
+                                      preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         topVC?.present(alert, animated: true)
     }
@@ -211,6 +246,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
+        // Release any resources associated with this scene here.
     }
     
     func sceneDidBecomeActive(_ scene: UIScene) {
@@ -230,3 +266,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
 }
+
