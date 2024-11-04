@@ -1,19 +1,17 @@
 //
-//  ProductAddToBagTblCell.swift
+//  ProductBagTblCell.swift
 //  AAM
 //
-//  Created by Arif ww on 20/08/2024.
+//  Created by Arif on 04/11/2024.
 //
 
 import UIKit
 
-class ProductAddToBagTblCell: UITableViewCell {
-    static let identifier = "ProductAddToBagTblCell"
-    @IBOutlet weak var btnAddToBag: UIButton!
+class ProductBagTblCell: UITableViewCell {
+    static let identifier = "ProductBagTblCell"
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.selectionStyle = .none
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

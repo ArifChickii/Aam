@@ -106,6 +106,10 @@
 		807D8A882C7B263D00E9AE04 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807D8A872C7B263D00E9AE04 /* Product.swift */; };
 		807D8A8C2C7B26A200E9AE04 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807D8A8B2C7B26A200E9AE04 /* FirebaseService.swift */; };
 		807D8A8E2C7B2E5000E9AE04 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807D8A8D2C7B2E5000E9AE04 /* ProductViewModel.swift */; };
+		808BAE0A2CD9284000B4E568 /* Payment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 808BAE092CD9284000B4E568 /* Payment.storyboard */; };
+		808BAE0E2CD9294F00B4E568 /* ProductBagTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808BAE0C2CD9294F00B4E568 /* ProductBagTblCell.swift */; };
+		808BAE0F2CD9294F00B4E568 /* ProductBagTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 808BAE0D2CD9294F00B4E568 /* ProductBagTblCell.xib */; };
+		808BAE122CD92CB700B4E568 /* ProductBagVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808BAE112CD92CB700B4E568 /* ProductBagVC.swift */; };
 		808F25792CA6921F00F59B57 /* LoaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808F25782CA6921F00F59B57 /* LoaderManager.swift */; };
 		80AF491E2C9C2F7700BCFD48 /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 80AF491D2C9C2F7700BCFD48 /* BottomSheet */; };
 		80AF49202C9C329200BCFD48 /* CustomTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AF491F2C9C329200BCFD48 /* CustomTableView.swift */; };
@@ -222,6 +226,10 @@
 		807D8A872C7B263D00E9AE04 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		807D8A8B2C7B26A200E9AE04 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		807D8A8D2C7B2E5000E9AE04 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
+		808BAE092CD9284000B4E568 /* Payment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Payment.storyboard; sourceTree = "<group>"; };
+		808BAE0C2CD9294F00B4E568 /* ProductBagTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductBagTblCell.swift; sourceTree = "<group>"; };
+		808BAE0D2CD9294F00B4E568 /* ProductBagTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductBagTblCell.xib; sourceTree = "<group>"; };
+		808BAE112CD92CB700B4E568 /* ProductBagVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductBagVC.swift; sourceTree = "<group>"; };
 		808F25782CA6921F00F59B57 /* LoaderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderManager.swift; sourceTree = "<group>"; };
 		80AF491F2C9C329200BCFD48 /* CustomTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableView.swift; sourceTree = "<group>"; };
 		80B320482C61234A00359714 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
@@ -542,6 +550,33 @@
 			path = FirebaseServices;
 			sourceTree = "<group>";
 		};
+		808BAE082CD9283200B4E568 /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				808BAE102CD92C9D00B4E568 /* VCs */,
+				808BAE0B2CD9292700B4E568 /* Cell */,
+				808BAE092CD9284000B4E568 /* Payment.storyboard */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		808BAE0B2CD9292700B4E568 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				808BAE0C2CD9294F00B4E568 /* ProductBagTblCell.swift */,
+				808BAE0D2CD9294F00B4E568 /* ProductBagTblCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		808BAE102CD92C9D00B4E568 /* VCs */ = {
+			isa = PBXGroup;
+			children = (
+				808BAE112CD92CB700B4E568 /* ProductBagVC.swift */,
+			);
+			path = VCs;
+			sourceTree = "<group>";
+		};
 		80E8C3A42C5AC3BC0087F009 = {
 			isa = PBXGroup;
 			children = (
@@ -584,6 +619,7 @@
 		80E8C3C72C5AC5000087F009 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				808BAE082CD9283200B4E568 /* Payment */,
 				806DE3842CB617E40038B6E5 /* Tabbar */,
 				04ED9D2D2C85E34A00C2D961 /* AddProduct */,
 				80FFAA822C64ADA0007E55EE /* Home */,
@@ -768,6 +804,7 @@
 				8013C7682C7514FD003AA5A3 /* ProductPriceAndTitleTblCell.xib in Resources */,
 				040A26E12C7C419E00C32F01 /* Jost Black Italic 900.ttf in Resources */,
 				040A26DB2C7C419E00C32F01 /* Jost ExtraBold Italic 800.ttf in Resources */,
+				808BAE0A2CD9284000B4E568 /* Payment.storyboard in Resources */,
 				04C183662C91845600FDB170 /* BottomSheetTblCell.xib in Resources */,
 				04ED9D522C87284B00C2D961 /* PickPhotoCollCell.xib in Resources */,
 				040A26E42C7C419E00C32F01 /* Jost SemiBold 600.ttf in Resources */,
@@ -782,6 +819,7 @@
 				040A26E72C7C419E00C32F01 /* Jost Medium Italic 500.ttf in Resources */,
 				8013C76C2C75151B003AA5A3 /* ProductDescriptionTblCell.xib in Resources */,
 				040A26DE2C7C419E00C32F01 /* Jost Italic 400.ttf in Resources */,
+				808BAE0F2CD9294F00B4E568 /* ProductBagTblCell.xib in Resources */,
 				0426D3E32C882265008AF976 /* SaveToDraftTblCell.xib in Resources */,
 				040A26DC2C7C419E00C32F01 /* Jost Light 300.ttf in Resources */,
 				040A26E62C7C419E00C32F01 /* Jost ExtraLight 250.ttf in Resources */,
@@ -886,6 +924,7 @@
 				8021AFA42C5BBDBA00A66611 /* UINav.swift in Sources */,
 				807D8A8E2C7B2E5000E9AE04 /* ProductViewModel.swift in Sources */,
 				80B3204B2C61252A00359714 /* Helper.swift in Sources */,
+				808BAE0E2CD9294F00B4E568 /* ProductBagTblCell.swift in Sources */,
 				04ED9D322C85E3AB00C2D961 /* AddPhotoTblCelll.swift in Sources */,
 				8021AFAF2C5BBFA400A66611 /* onBoardingPage3.swift in Sources */,
 				8013C75D2C74B26A003AA5A3 /* ProductTblCell.swift in Sources */,
@@ -908,6 +947,7 @@
 				80B380282CCFFBA0000AFC82 /* DynamicLinkManager.swift in Sources */,
 				0426D3E62C8822F2008AF976 /* UploadButtonTblCell.swift in Sources */,
 				8021AFB12C5BC04500A66611 /* onBoardingViewModel.swift in Sources */,
+				808BAE122CD92CB700B4E568 /* ProductBagVC.swift in Sources */,
 				8013C7602C750235003AA5A3 /* HomeViewModel.swift in Sources */,
 				8013C7672C7514FD003AA5A3 /* ProductPriceAndTitleTblCell.swift in Sources */,
 				04ED9D552C8728C500C2D961 /* AddListingTitleTblCell.swift in Sources */,

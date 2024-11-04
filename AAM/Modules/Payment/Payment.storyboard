@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Jost SemiBold 600.ttf">
+            <string>Jost-SemiBold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Product BagVC-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="ProductBagVC" id="Y6W-OH-hqX" customClass="ProductBagVC" customModule="AAM" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RR1-N3-qZZ">
+                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your bag" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Cd0-DW-U8p">
+                                        <rect key="frame" x="164" y="10.333333333333327" width="65.333333333333314" height="23.333333333333329"/>
+                                        <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="16"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gS4-Bq-Ila">
+                                        <rect key="frame" x="20" y="0.0" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="IZw-1K-Ryu"/>
+                                            <constraint firstAttribute="width" constant="44" id="Y6Y-8z-9zQ"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="ic_back" title="  "/>
+                                        <connections>
+                                            <action selector="backAction" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Pw9-eb-xR3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="gS4-Bq-Ila" firstAttribute="leading" secondItem="RR1-N3-qZZ" secondAttribute="leading" constant="20" id="6RO-16-ZZL"/>
+                                    <constraint firstItem="Cd0-DW-U8p" firstAttribute="centerY" secondItem="RR1-N3-qZZ" secondAttribute="centerY" id="B6U-3F-aZU"/>
+                                    <constraint firstItem="Cd0-DW-U8p" firstAttribute="centerX" secondItem="RR1-N3-qZZ" secondAttribute="centerX" id="JJq-3B-64Y"/>
+                                    <constraint firstItem="gS4-Bq-Ila" firstAttribute="centerY" secondItem="RR1-N3-qZZ" secondAttribute="centerY" id="fNb-z0-I37"/>
+                                    <constraint firstAttribute="height" constant="44" id="iVf-ic-ouh"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="cnq-p7-Xo1">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y3y-II-REH">
+                                <rect key="frame" x="30" y="748" width="333" height="50"/>
+                                <color key="backgroundColor" name="mainThemeColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="bbg-to-sge"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Proceed to checkout">
+                                    <fontDescription key="titleFontDescription" name="Jost-SemiBold" family="Jost" pointSize="15"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="ProceedToCheckout" destination="Y6W-OH-hqX" eventType="touchUpInside" id="xzp-Px-Kdb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="RR1-N3-qZZ" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="BIh-c0-nZS"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="RR1-N3-qZZ" secondAttribute="trailing" id="Dse-2r-mKa"/>
+                            <constraint firstItem="cnq-p7-Xo1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="KyO-lH-arF"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="cnq-p7-Xo1" secondAttribute="trailing" id="N9l-QX-LZU"/>
+                            <constraint firstItem="y3y-II-REH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="WAo-t3-aEf"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="cnq-p7-Xo1" secondAttribute="bottom" id="XCE-v1-KoF"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="y3y-II-REH" secondAttribute="bottom" constant="20" id="bhA-tP-uIP"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="y3y-II-REH" secondAttribute="trailing" constant="30" id="bjt-bB-2ef"/>
+                            <constraint firstItem="cnq-p7-Xo1" firstAttribute="top" secondItem="RR1-N3-qZZ" secondAttribute="bottom" id="mTG-56-UGg"/>
+                            <constraint firstItem="RR1-N3-qZZ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="nlN-KF-4Bi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="productTblView" destination="cnq-p7-Xo1" id="geR-x5-28c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="57.251908396946561" y="-2.1126760563380285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_back" width="24" height="24.666666030883789"/>
+        <namedColor name="mainThemeColor">
+            <color red="0.0" green="0.60799998044967651" blue="0.46700000762939453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

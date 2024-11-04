@@ -207,6 +207,10 @@ extension ProductDetailVC: UITableViewDelegate, UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ProductAddToBagTblCell.identifier, for: indexPath) as? ProductAddToBagTblCell else {
                 return UITableViewCell()
             }
+            
+            cell.btnAddToBag.removeTarget(nil, action: nil, for: .allEvents)
+            cell.btnAddToBag.tag = indexPath.row
+            cell.btnAddToBag.addTarget(self, action: #selector(addToBagBtnTapped(_:)), for: .touchUpInside)
             return cell
             
         case 5:
@@ -240,7 +244,14 @@ extension ProductDetailVC: UITableViewDelegate, UITableViewDataSource {
             from: self
         )
     }
-    
+    @objc func addToBagBtnTapped(_ sender: UIButton) {
+        guard let product = productDetailObj else {
+            print("❌ No product available to share")
+            showErrorAlert(message: "No product available to share.")
+            return
+        }
+        Router.MoveToProductsBagVC(from: self)
+    }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:
@@ -260,5 +271,6 @@ extension ProductDetailVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
     }
 }
