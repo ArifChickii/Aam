@@ -95,6 +95,18 @@
 		8021AFB92C5BDE3B00A66611 /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8021AFB82C5BDE3B00A66611 /* ColorConstants.swift */; };
 		8021AFBF2C5C23DB00A66611 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8021AFBE2C5C23DB00A66611 /* Authentication.storyboard */; };
 		8021AFC12C5C2A7400A66611 /* AuthenticationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8021AFC02C5C2A7400A66611 /* AuthenticationVC.swift */; };
+		8022089D2CD95CDE00F2225A /* AddressTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8022089B2CD95CDE00F2225A /* AddressTblCell.swift */; };
+		8022089E2CD95CDE00F2225A /* AddressTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8022089C2CD95CDE00F2225A /* AddressTblCell.xib */; };
+		802208A12CD9608800F2225A /* AddNewBtnCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8022089F2CD9608800F2225A /* AddNewBtnCell.swift */; };
+		802208A22CD9608800F2225A /* AddNewBtnCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 802208A02CD9608800F2225A /* AddNewBtnCell.xib */; };
+		802208A52CD9609900F2225A /* ContinueBtnCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802208A32CD9609900F2225A /* ContinueBtnCell.swift */; };
+		802208A62CD9609900F2225A /* ContinueBtnCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 802208A42CD9609900F2225A /* ContinueBtnCell.xib */; };
+		802208AB2CD961BA00F2225A /* MasterCardTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802208A92CD961BA00F2225A /* MasterCardTblCell.swift */; };
+		802208AC2CD961BA00F2225A /* MasterCardTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 802208AA2CD961BA00F2225A /* MasterCardTblCell.xib */; };
+		802208AF2CD963B800F2225A /* VisaTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802208AD2CD963B800F2225A /* VisaTblCell.swift */; };
+		802208B02CD963B800F2225A /* VisaTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 802208AE2CD963B800F2225A /* VisaTblCell.xib */; };
+		802208B52CD9652B00F2225A /* OrderInfoTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802208B32CD9652B00F2225A /* OrderInfoTblCell.swift */; };
+		802208B62CD9652B00F2225A /* OrderInfoTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 802208B42CD9652B00F2225A /* OrderInfoTblCell.xib */; };
 		805723F02CAF18F600D72E22 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 805723EF2CAF18F600D72E22 /* IQKeyboardManagerSwift */; };
 		806DE3882CB618270038B6E5 /* Tabbar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 806DE3872CB618270038B6E5 /* Tabbar.storyboard */; };
 		806DE38A2CB61B260038B6E5 /* TabbarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806DE3892CB61B260038B6E5 /* TabbarVC.swift */; };
@@ -226,6 +238,18 @@
 		8021AFB82C5BDE3B00A66611 /* ColorConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
 		8021AFBE2C5C23DB00A66611 /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
 		8021AFC02C5C2A7400A66611 /* AuthenticationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationVC.swift; sourceTree = "<group>"; };
+		8022089B2CD95CDE00F2225A /* AddressTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTblCell.swift; sourceTree = "<group>"; };
+		8022089C2CD95CDE00F2225A /* AddressTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressTblCell.xib; sourceTree = "<group>"; };
+		8022089F2CD9608800F2225A /* AddNewBtnCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewBtnCell.swift; sourceTree = "<group>"; };
+		802208A02CD9608800F2225A /* AddNewBtnCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewBtnCell.xib; sourceTree = "<group>"; };
+		802208A32CD9609900F2225A /* ContinueBtnCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueBtnCell.swift; sourceTree = "<group>"; };
+		802208A42CD9609900F2225A /* ContinueBtnCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContinueBtnCell.xib; sourceTree = "<group>"; };
+		802208A92CD961BA00F2225A /* MasterCardTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterCardTblCell.swift; sourceTree = "<group>"; };
+		802208AA2CD961BA00F2225A /* MasterCardTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MasterCardTblCell.xib; sourceTree = "<group>"; };
+		802208AD2CD963B800F2225A /* VisaTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisaTblCell.swift; sourceTree = "<group>"; };
+		802208AE2CD963B800F2225A /* VisaTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VisaTblCell.xib; sourceTree = "<group>"; };
+		802208B32CD9652B00F2225A /* OrderInfoTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderInfoTblCell.swift; sourceTree = "<group>"; };
+		802208B42CD9652B00F2225A /* OrderInfoTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderInfoTblCell.xib; sourceTree = "<group>"; };
 		806DE3872CB618270038B6E5 /* Tabbar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Tabbar.storyboard; path = Aam/Modules/Tabbar/Tabbar.storyboard; sourceTree = SOURCE_ROOT; };
 		806DE3892CB61B260038B6E5 /* TabbarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabbarVC.swift; path = Aam/Modules/Tabbar/TabbarVC.swift; sourceTree = SOURCE_ROOT; };
 		806F9F2D2CCFB09B0068D0F3 /* ProductShareManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductShareManager.swift; sourceTree = "<group>"; };
@@ -539,6 +563,63 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		802208992CD95CC500F2225A /* Address */ = {
+			isa = PBXGroup;
+			children = (
+				8022089A2CD95CCD00F2225A /* Cell */,
+			);
+			path = Address;
+			sourceTree = "<group>";
+		};
+		8022089A2CD95CCD00F2225A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				8022089B2CD95CDE00F2225A /* AddressTblCell.swift */,
+				8022089C2CD95CDE00F2225A /* AddressTblCell.xib */,
+				8022089F2CD9608800F2225A /* AddNewBtnCell.swift */,
+				802208A02CD9608800F2225A /* AddNewBtnCell.xib */,
+				802208A32CD9609900F2225A /* ContinueBtnCell.swift */,
+				802208A42CD9609900F2225A /* ContinueBtnCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		802208A72CD9617D00F2225A /* PaymentMethod */ = {
+			isa = PBXGroup;
+			children = (
+				802208A82CD9619D00F2225A /* Cell */,
+			);
+			path = PaymentMethod;
+			sourceTree = "<group>";
+		};
+		802208A82CD9619D00F2225A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				802208A92CD961BA00F2225A /* MasterCardTblCell.swift */,
+				802208AA2CD961BA00F2225A /* MasterCardTblCell.xib */,
+				802208AD2CD963B800F2225A /* VisaTblCell.swift */,
+				802208AE2CD963B800F2225A /* VisaTblCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		802208B12CD9651000F2225A /* OrderInfo */ = {
+			isa = PBXGroup;
+			children = (
+				802208B22CD9651800F2225A /* Cell */,
+			);
+			path = OrderInfo;
+			sourceTree = "<group>";
+		};
+		802208B22CD9651800F2225A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				802208B32CD9652B00F2225A /* OrderInfoTblCell.swift */,
+				802208B42CD9652B00F2225A /* OrderInfoTblCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		806DE3842CB617E40038B6E5 /* Tabbar */ = {
 			isa = PBXGroup;
 			children = (
@@ -586,6 +667,9 @@
 		808BAE102CD92C9D00B4E568 /* VCs */ = {
 			isa = PBXGroup;
 			children = (
+				802208B12CD9651000F2225A /* OrderInfo */,
+				802208A72CD9617D00F2225A /* PaymentMethod */,
+				802208992CD95CC500F2225A /* Address */,
 				808BAE152CD935A300B4E568 /* checkoutForm */,
 				808BAE112CD92CB700B4E568 /* ProductBagVC.swift */,
 			);
@@ -855,6 +939,7 @@
 				80FFAA802C6339C9007E55EE /* GoogleService-Info.plist in Resources */,
 				040A26E22C7C419E00C32F01 /* Jost Thin Italic 250.ttf in Resources */,
 				0414EA072C7C8D1F000201E0 /* ProductImageCellColl.xib in Resources */,
+				802208A62CD9609900F2225A /* ContinueBtnCell.xib in Resources */,
 				8013C7682C7514FD003AA5A3 /* ProductPriceAndTitleTblCell.xib in Resources */,
 				040A26E12C7C419E00C32F01 /* Jost Black Italic 900.ttf in Resources */,
 				040A26DB2C7C419E00C32F01 /* Jost ExtraBold Italic 800.ttf in Resources */,
@@ -867,6 +952,7 @@
 				80E8C3C02C5AC3BD0087F009 /* LaunchScreen.storyboard in Resources */,
 				04ED9D562C8728C500C2D961 /* AddListingTitleTblCell.xib in Resources */,
 				040A26D82C7C419E00C32F01 /* Jost ExtraLight Italic 250.ttf in Resources */,
+				802208AC2CD961BA00F2225A /* MasterCardTblCell.xib in Resources */,
 				040A26E32C7C419E00C32F01 /* Jost_Regular.ttf in Resources */,
 				8013C75E2C74B26A003AA5A3 /* ProductTblCell.xib in Resources */,
 				8021AFBF2C5C23DB00A66611 /* Authentication.storyboard in Resources */,
@@ -881,16 +967,20 @@
 				040A26E02C7C419E00C32F01 /* Jost SemiBold Italic 600.ttf in Resources */,
 				8013C7782C751576003AA5A3 /* ProductCategoryTblCell.xib in Resources */,
 				0426D3E92C882395008AF976 /* AddProduct.storyboard in Resources */,
+				802208A22CD9608800F2225A /* AddNewBtnCell.xib in Resources */,
 				806DE3882CB618270038B6E5 /* Tabbar.storyboard in Resources */,
 				04ED9D5A2C87294100C2D961 /* ProductNameAndDescTblCell.xib in Resources */,
 				8013C7702C751539003AA5A3 /* ProductSizeTblCell.xib in Resources */,
+				802208B62CD9652B00F2225A /* OrderInfoTblCell.xib in Resources */,
 				0426D3E72C8822F2008AF976 /* UploadButtonTblCell.xib in Resources */,
+				8022089E2CD95CDE00F2225A /* AddressTblCell.xib in Resources */,
 				8013C7642C7514D0003AA5A3 /* ProductImageTblCell.xib in Resources */,
 				040A26DF2C7C419E00C32F01 /* Jost ExtraBold 800.ttf in Resources */,
 				040A26E82C7C419E00C32F01 /* Jost Thin 250.ttf in Resources */,
 				04ED9D332C85E3AB00C2D961 /* AddPhotoTblCelll.xib in Resources */,
 				80E8C4032C5AC8470087F009 /* Onboarding.storyboard in Resources */,
 				040A26EC2C7C419E00C32F01 /* Almarai-ExtraBold.ttf in Resources */,
+				802208B02CD963B800F2225A /* VisaTblCell.xib in Resources */,
 				04ED9D622C872C0300C2D961 /* RenewalOptionsTblCell.xib in Resources */,
 				040A26D92C7C419E00C32F01 /* Jost Light Italic 300.ttf in Resources */,
 				040A26EE2C7C419E00C32F01 /* OFL.txt in Resources */,
@@ -962,6 +1052,7 @@
 				8013C76F2C751539003AA5A3 /* ProductSizeTblCell.swift in Sources */,
 				8013C77B2C75158C003AA5A3 /* ProductRatingTblCell.swift in Sources */,
 				04ED9D5D2C872B4000C2D961 /* ExpandableTblCell.swift in Sources */,
+				8022089D2CD95CDE00F2225A /* AddressTblCell.swift in Sources */,
 				8021AFB72C5BDDAF00A66611 /* Constants.swift in Sources */,
 				80B320492C61234A00359714 /* AuthenticationViewModel.swift in Sources */,
 				80EBAF9B2CA67A7A0036F1B0 /* PriceBottomSheetVC.swift in Sources */,
@@ -971,8 +1062,10 @@
 				8013C7632C7514D0003AA5A3 /* ProductImageTblCell.swift in Sources */,
 				8021AFB92C5BDE3B00A66611 /* ColorConstants.swift in Sources */,
 				04ED9D512C87284B00C2D961 /* PickPhotoCollCell.swift in Sources */,
+				802208B52CD9652B00F2225A /* OrderInfoTblCell.swift in Sources */,
 				8013C7802C751AB2003AA5A3 /* ProductCategoryTitleCollCell.swift in Sources */,
 				0414EA0E2C7DAE37000201E0 /* ProductDetailViewModel.swift in Sources */,
+				802208AF2CD963B800F2225A /* VisaTblCell.swift in Sources */,
 				808F25792CA6921F00F59B57 /* LoaderManager.swift in Sources */,
 				8021AFA52C5BBDBA00A66611 /* UIImageView.swift in Sources */,
 				807D8A8C2C7B26A200E9AE04 /* FirebaseService.swift in Sources */,
@@ -998,6 +1091,7 @@
 				8021AFAD2C5BBF6D00A66611 /* onBoardingPage2.swift in Sources */,
 				80B3204D2C6128F000359714 /* Reachability.swift in Sources */,
 				807D8A862C75FC7B00E9AE04 /* ProductDetailVC.swift in Sources */,
+				802208AB2CD961BA00F2225A /* MasterCardTblCell.swift in Sources */,
 				0426D3EB2C882424008AF976 /* AddProductVC.swift in Sources */,
 				806F9F2E2CCFB09B0068D0F3 /* ProductShareManager.swift in Sources */,
 				80B7042F2CD93BE300A78989 /* CheckBoxLblTblCell.swift in Sources */,
@@ -1017,11 +1111,13 @@
 				04ED9D612C872C0300C2D961 /* RenewalOptionsTblCell.swift in Sources */,
 				04C183682C91AD3800FDB170 /* DropDown.swift in Sources */,
 				0414EA162C7F36EC000201E0 /* LocalStorage.swift in Sources */,
+				802208A52CD9609900F2225A /* ContinueBtnCell.swift in Sources */,
 				8021AFAB2C5BBF6000A66611 /* onBoardingVC.swift in Sources */,
 				04C1835F2C91762600FDB170 /* AddProductViewModel.swift in Sources */,
 				80B704272CD9377200A78989 /* ProductBagModel.swift in Sources */,
 				04ED9D592C87294100C2D961 /* ProductNameAndDescTblCell.swift in Sources */,
 				8013C7732C75155B003AA5A3 /* ProductAddToBagTblCell.swift in Sources */,
+				802208A12CD9608800F2225A /* AddNewBtnCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
