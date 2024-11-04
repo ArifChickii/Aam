@@ -28,7 +28,7 @@ class ProductBagVC: UIViewController , Storyboarded{
         Router.pop(from: self)
     }
     @IBAction func ProceedToCheckout(){
-        
+        Router.MoveToCheckOutFormVC(from: self)
     }
    
 }

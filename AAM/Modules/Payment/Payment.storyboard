@@ -102,6 +102,113 @@
             </objects>
             <point key="canvasLocation" x="57.251908396946561" y="-2.1126760563380285"/>
         </scene>
+        <!--Checkout FormVC-->
+        <scene sceneID="6Ko-HN-G2o">
+            <objects>
+                <viewController storyboardIdentifier="CheckoutFormVC" id="Eon-XI-2Ft" customClass="CheckoutFormVC" customModule="AAM" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pOp-82-Ypi">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Mt-Pi-VY0">
+                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checkout" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qbW-fg-T2K">
+                                        <rect key="frame" x="162.66666666666666" y="10.333333333333327" width="68" height="23.333333333333329"/>
+                                        <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="16"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cqs-KP-fSZ">
+                                        <rect key="frame" x="20" y="0.0" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="gpv-xY-sY8"/>
+                                            <constraint firstAttribute="width" constant="44" id="utP-j7-j53"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="ic_back" title="  "/>
+                                        <connections>
+                                            <action selector="backAction" destination="Eon-XI-2Ft" eventType="touchUpInside" id="J61-Iq-2Nl"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Cqs-KP-fSZ" firstAttribute="leading" secondItem="0Mt-Pi-VY0" secondAttribute="leading" constant="20" id="4Go-Da-i4U"/>
+                                    <constraint firstAttribute="height" constant="44" id="5Z1-kI-YOr"/>
+                                    <constraint firstItem="qbW-fg-T2K" firstAttribute="centerY" secondItem="0Mt-Pi-VY0" secondAttribute="centerY" id="DVq-ni-kaJ"/>
+                                    <constraint firstItem="qbW-fg-T2K" firstAttribute="centerX" secondItem="0Mt-Pi-VY0" secondAttribute="centerX" id="XYn-3x-ESy"/>
+                                    <constraint firstItem="Cqs-KP-fSZ" firstAttribute="centerY" secondItem="0Mt-Pi-VY0" secondAttribute="centerY" id="xck-Yj-DmU"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Nb-Bo-0j7">
+                                <rect key="frame" x="0.0" y="103" width="393" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Shipping Address" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="A2b-DT-8Ag">
+                                        <rect key="frame" x="20" y="10.333333333333327" width="165" height="23.333333333333329"/>
+                                        <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="16"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="A2b-DT-8Ag" firstAttribute="centerY" secondItem="7Nb-Bo-0j7" secondAttribute="centerY" id="kmn-fc-FZF"/>
+                                    <constraint firstItem="A2b-DT-8Ag" firstAttribute="leading" secondItem="7Nb-Bo-0j7" secondAttribute="leading" constant="20" id="zIN-FF-iiI"/>
+                                    <constraint firstAttribute="height" constant="44" id="zPu-bq-bof"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="G57-bM-Qoq">
+                                <rect key="frame" x="0.0" y="147" width="393" height="591"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gvb-3x-t0M">
+                                <rect key="frame" x="30" y="748" width="333" height="50"/>
+                                <color key="backgroundColor" name="mainThemeColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="0MQ-7i-n0E"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Continue">
+                                    <fontDescription key="titleFontDescription" name="Jost-SemiBold" family="Jost" pointSize="15"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="Continue" destination="Eon-XI-2Ft" eventType="touchUpInside" id="MAy-mo-OWx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="t0d-7X-YKV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="t0d-7X-YKV" firstAttribute="trailing" secondItem="0Mt-Pi-VY0" secondAttribute="trailing" id="CcA-XP-rfD"/>
+                            <constraint firstItem="t0d-7X-YKV" firstAttribute="bottom" secondItem="gvb-3x-t0M" secondAttribute="bottom" constant="20" id="N7N-aE-c7R"/>
+                            <constraint firstItem="gvb-3x-t0M" firstAttribute="leading" secondItem="t0d-7X-YKV" secondAttribute="leading" constant="30" id="NrD-JM-2ru"/>
+                            <constraint firstItem="G57-bM-Qoq" firstAttribute="leading" secondItem="t0d-7X-YKV" secondAttribute="leading" id="R8D-GI-fVz"/>
+                            <constraint firstItem="7Nb-Bo-0j7" firstAttribute="leading" secondItem="t0d-7X-YKV" secondAttribute="leading" id="TyH-mj-NXT"/>
+                            <constraint firstItem="0Mt-Pi-VY0" firstAttribute="leading" secondItem="pOp-82-Ypi" secondAttribute="leading" id="V2z-i4-X0N"/>
+                            <constraint firstItem="G57-bM-Qoq" firstAttribute="top" secondItem="7Nb-Bo-0j7" secondAttribute="bottom" id="avw-SS-hhZ"/>
+                            <constraint firstItem="t0d-7X-YKV" firstAttribute="trailing" secondItem="G57-bM-Qoq" secondAttribute="trailing" id="caR-CU-E6F"/>
+                            <constraint firstItem="t0d-7X-YKV" firstAttribute="trailing" secondItem="gvb-3x-t0M" secondAttribute="trailing" constant="30" id="jL5-1w-YJN"/>
+                            <constraint firstItem="7Nb-Bo-0j7" firstAttribute="trailing" secondItem="t0d-7X-YKV" secondAttribute="trailing" id="pqB-3b-DI3"/>
+                            <constraint firstItem="0Mt-Pi-VY0" firstAttribute="top" secondItem="t0d-7X-YKV" secondAttribute="top" id="qRN-jf-cKb"/>
+                            <constraint firstItem="t0d-7X-YKV" firstAttribute="bottom" secondItem="G57-bM-Qoq" secondAttribute="bottom" constant="80" id="qSi-8C-gQj"/>
+                            <constraint firstItem="7Nb-Bo-0j7" firstAttribute="top" secondItem="0Mt-Pi-VY0" secondAttribute="bottom" id="slB-5p-SSV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="formTblView" destination="G57-bM-Qoq" id="QNq-KI-m00"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ToY-Yf-hll" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="721" y="-2"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ic_back" width="24" height="24.666666030883789"/>
