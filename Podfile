@@ -20,6 +20,7 @@ target 'AAM' do
         pod 'Firebase/Storage'
         pod 'FittedSheets'
         pod 'Branch'
+        pod 'SDWebImage', '~> 5.0'
 
 
 end

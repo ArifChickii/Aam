@@ -8,7 +8,7 @@
 import UIKit
 
 class AdditionalInfoTblCell: UITableViewCell {
-
+    static let identifier = "AdditionalInfoTblCell"
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

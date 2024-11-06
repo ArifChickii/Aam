@@ -31,8 +31,6 @@
 		040A26ED2C7C419E00C32F01 /* Almarai-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 040A26D52C7C419E00C32F01 /* Almarai-Regular.ttf */; };
 		040A26EE2C7C419E00C32F01 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 040A26D62C7C419E00C32F01 /* OFL.txt */; };
 		040A26EF2C7C419E00C32F01 /* Almarai-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 040A26D72C7C419E00C32F01 /* Almarai-Light.ttf */; };
-		0414EA012C7C88BB000201E0 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0414EA002C7C88BB000201E0 /* SDWebImage */; };
-		0414EA032C7C88BB000201E0 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0414EA022C7C88BB000201E0 /* SDWebImageMapKit */; };
 		0414EA062C7C8D1E000201E0 /* ProductImageCellColl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414EA042C7C8D1E000201E0 /* ProductImageCellColl.swift */; };
 		0414EA072C7C8D1F000201E0 /* ProductImageCellColl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0414EA052C7C8D1E000201E0 /* ProductImageCellColl.xib */; };
 		0414EA0E2C7DAE37000201E0 /* ProductDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414EA0D2C7DAE37000201E0 /* ProductDetailViewModel.swift */; };
@@ -60,7 +58,6 @@
 		04ED9D5E2C872B4000C2D961 /* ExpandableTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04ED9D5C2C872B4000C2D961 /* ExpandableTblCell.xib */; };
 		04ED9D612C872C0300C2D961 /* RenewalOptionsTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED9D5F2C872C0300C2D961 /* RenewalOptionsTblCell.swift */; };
 		04ED9D622C872C0300C2D961 /* RenewalOptionsTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04ED9D602C872C0300C2D961 /* RenewalOptionsTblCell.xib */; };
-		80050F792CCFAC2400B7D90C /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 80050F782CCFAC2400B7D90C /* IQKeyboardManagerSwift */; };
 		8013C75D2C74B26A003AA5A3 /* ProductTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8013C75B2C74B26A003AA5A3 /* ProductTblCell.swift */; };
 		8013C75E2C74B26A003AA5A3 /* ProductTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8013C75C2C74B26A003AA5A3 /* ProductTblCell.xib */; };
 		8013C7602C750235003AA5A3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8013C75F2C750235003AA5A3 /* HomeViewModel.swift */; };
@@ -111,12 +108,8 @@
 		802208BC2CDA7FCA00F2225A /* PaymentMethodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802208BA2CDA7FCA00F2225A /* PaymentMethodVC.swift */; };
 		802208BF2CDA830500F2225A /* AddCardInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802208BE2CDA830500F2225A /* AddCardInfoVC.swift */; };
 		802208C22CDA832A00F2225A /* AddCardInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802208C12CDA832A00F2225A /* AddCardInfoViewModel.swift */; };
-		805723F02CAF18F600D72E22 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 805723EF2CAF18F600D72E22 /* IQKeyboardManagerSwift */; };
 		806DE3882CB618270038B6E5 /* Tabbar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 806DE3872CB618270038B6E5 /* Tabbar.storyboard */; };
 		806DE38A2CB61B260038B6E5 /* TabbarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806DE3892CB61B260038B6E5 /* TabbarVC.swift */; };
-		806F9F282CCFADC50068D0F3 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 806F9F272CCFADC50068D0F3 /* IQKeyboardManagerSwift */; };
-		806F9F2A2CCFAE160068D0F3 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 806F9F292CCFAE160068D0F3 /* SDWebImage */; };
-		806F9F2C2CCFAE160068D0F3 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 806F9F2B2CCFAE160068D0F3 /* SDWebImageMapKit */; };
 		806F9F2E2CCFB09B0068D0F3 /* ProductShareManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F9F2D2CCFB09B0068D0F3 /* ProductShareManager.swift */; };
 		807905C02CDA8A5A00F8D5F3 /* AdditionalInfoTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807905BE2CDA8A5A00F8D5F3 /* AdditionalInfoTblCell.swift */; };
 		807905C12CDA8A5A00F8D5F3 /* AdditionalInfoTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 807905BF2CDA8A5A00F8D5F3 /* AdditionalInfoTblCell.xib */; };
@@ -124,6 +117,8 @@
 		807D8A882C7B263D00E9AE04 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807D8A872C7B263D00E9AE04 /* Product.swift */; };
 		807D8A8C2C7B26A200E9AE04 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807D8A8B2C7B26A200E9AE04 /* FirebaseService.swift */; };
 		807D8A8E2C7B2E5000E9AE04 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807D8A8D2C7B2E5000E9AE04 /* ProductViewModel.swift */; };
+		808B550D2CDBFC320076376E /* OrderInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808B550C2CDBFC320076376E /* OrderInfoVC.swift */; };
+		808B55102CDC004B0076376E /* DialogeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808B550F2CDC004B0076376E /* DialogeVC.swift */; };
 		808BAE0A2CD9284000B4E568 /* Payment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 808BAE092CD9284000B4E568 /* Payment.storyboard */; };
 		808BAE0E2CD9294F00B4E568 /* ProductBagTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808BAE0C2CD9294F00B4E568 /* ProductBagTblCell.swift */; };
 		808BAE0F2CD9294F00B4E568 /* ProductBagTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 808BAE0D2CD9294F00B4E568 /* ProductBagTblCell.xib */; };
@@ -269,6 +264,8 @@
 		807D8A872C7B263D00E9AE04 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		807D8A8B2C7B26A200E9AE04 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		807D8A8D2C7B2E5000E9AE04 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
+		808B550C2CDBFC320076376E /* OrderInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OrderInfoVC.swift; path = Aam/Modules/Payment/VCs/OrderInfo/OrderInfoVC.swift; sourceTree = SOURCE_ROOT; };
+		808B550F2CDC004B0076376E /* DialogeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DialogeVC.swift; path = Aam/Modules/Dialog/DialogeVC.swift; sourceTree = SOURCE_ROOT; };
 		808BAE092CD9284000B4E568 /* Payment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Payment.storyboard; sourceTree = "<group>"; };
 		808BAE0C2CD9294F00B4E568 /* ProductBagTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductBagTblCell.swift; sourceTree = "<group>"; };
 		808BAE0D2CD9294F00B4E568 /* ProductBagTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductBagTblCell.xib; sourceTree = "<group>"; };
@@ -310,15 +307,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				806F9F282CCFADC50068D0F3 /* IQKeyboardManagerSwift in Frameworks */,
-				806F9F2C2CCFAE160068D0F3 /* SDWebImageMapKit in Frameworks */,
-				805723F02CAF18F600D72E22 /* IQKeyboardManagerSwift in Frameworks */,
-				806F9F2A2CCFAE160068D0F3 /* SDWebImage in Frameworks */,
-				0414EA012C7C88BB000201E0 /* SDWebImage in Frameworks */,
 				80AF491E2C9C2F7700BCFD48 /* BottomSheet in Frameworks */,
-				0414EA032C7C88BB000201E0 /* SDWebImageMapKit in Frameworks */,
 				80B320752C6157AB00359714 /* Pods_AAM.framework in Frameworks */,
-				80050F792CCFAC2400B7D90C /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -621,6 +611,7 @@
 			isa = PBXGroup;
 			children = (
 				802208B22CD9651800F2225A /* Cell */,
+				808B550C2CDBFC320076376E /* OrderInfoVC.swift */,
 			);
 			path = OrderInfo;
 			sourceTree = "<group>";
@@ -676,6 +667,14 @@
 				807D8A8B2C7B26A200E9AE04 /* FirebaseService.swift */,
 			);
 			path = FirebaseServices;
+			sourceTree = "<group>";
+		};
+		808B550E2CDC003B0076376E /* Dialog */ = {
+			isa = PBXGroup;
+			children = (
+				808B550F2CDC004B0076376E /* DialogeVC.swift */,
+			);
+			path = Dialog;
 			sourceTree = "<group>";
 		};
 		808BAE082CD9283200B4E568 /* Payment */ = {
@@ -790,6 +789,7 @@
 		80E8C3C72C5AC5000087F009 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				808B550E2CDC003B0076376E /* Dialog */,
 				808BAE082CD9283200B4E568 /* Payment */,
 				806DE3842CB617E40038B6E5 /* Tabbar */,
 				04ED9D2D2C85E34A00C2D961 /* AddProduct */,
@@ -912,14 +912,7 @@
 			);
 			name = AAM;
 			packageProductDependencies = (
-				0414EA002C7C88BB000201E0 /* SDWebImage */,
-				0414EA022C7C88BB000201E0 /* SDWebImageMapKit */,
 				80AF491D2C9C2F7700BCFD48 /* BottomSheet */,
-				805723EF2CAF18F600D72E22 /* IQKeyboardManagerSwift */,
-				80050F782CCFAC2400B7D90C /* IQKeyboardManagerSwift */,
-				806F9F272CCFADC50068D0F3 /* IQKeyboardManagerSwift */,
-				806F9F292CCFAE160068D0F3 /* SDWebImage */,
-				806F9F2B2CCFAE160068D0F3 /* SDWebImageMapKit */,
 			);
 			productName = AAM;
 			productReference = 80E8C3AD2C5AC3BD0087F009 /* AAM.app */;
@@ -950,9 +943,7 @@
 			);
 			mainGroup = 80E8C3A42C5AC3BC0087F009;
 			packageReferences = (
-				0414E9FF2C7C88BB000201E0 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				80AF491C2C9C2F7700BCFD48 /* XCRemoteSwiftPackageReference "BottomSheet" */,
-				805723EE2CAF18F600D72E22 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = 80E8C3AE2C5AC3BD0087F009 /* Products */;
 			projectDirPath = "";
@@ -1092,6 +1083,7 @@
 				80B320492C61234A00359714 /* AuthenticationViewModel.swift in Sources */,
 				80EBAF9B2CA67A7A0036F1B0 /* PriceBottomSheetVC.swift in Sources */,
 				808BAE192CD935E700B4E568 /* FormTblCell.swift in Sources */,
+				808B55102CDC004B0076376E /* DialogeVC.swift in Sources */,
 				807D8A882C7B263D00E9AE04 /* Product.swift in Sources */,
 				8021AFC12C5C2A7400A66611 /* AuthenticationVC.swift in Sources */,
 				8013C7632C7514D0003AA5A3 /* ProductImageTblCell.swift in Sources */,
@@ -1123,6 +1115,7 @@
 				808BAE142CD9359B00B4E568 /* CheckoutFormVC.swift in Sources */,
 				8021AFA92C5BBF3D00A66611 /* onBoardingPage1.swift in Sources */,
 				80E8C3B32C5AC3BD0087F009 /* SceneDelegate.swift in Sources */,
+				808B550D2CDBFC320076376E /* OrderInfoVC.swift in Sources */,
 				0426D3E22C882265008AF976 /* SaveToDraftTblCell.swift in Sources */,
 				04C183612C91824B00FDB170 /* BottomSheetVC.swift in Sources */,
 				8021AFAD2C5BBF6D00A66611 /* onBoardingPage2.swift in Sources */,
@@ -1405,22 +1398,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0414E9FF2C7C88BB000201E0 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.19.7;
-			};
-		};
-		805723EE2CAF18F600D72E22 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.1.1;
-			};
-		};
 		80AF491C2C9C2F7700BCFD48 /* XCRemoteSwiftPackageReference "BottomSheet" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/joomcode/BottomSheet";
@@ -1432,40 +1409,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0414EA002C7C88BB000201E0 /* SDWebImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0414E9FF2C7C88BB000201E0 /* XCRemoteSwiftPackageReference "SDWebImage" */;
-			productName = SDWebImage;
-		};
-		0414EA022C7C88BB000201E0 /* SDWebImageMapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0414E9FF2C7C88BB000201E0 /* XCRemoteSwiftPackageReference "SDWebImage" */;
-			productName = SDWebImageMapKit;
-		};
-		80050F782CCFAC2400B7D90C /* IQKeyboardManagerSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 805723EE2CAF18F600D72E22 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
-			productName = IQKeyboardManagerSwift;
-		};
-		805723EF2CAF18F600D72E22 /* IQKeyboardManagerSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 805723EE2CAF18F600D72E22 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
-			productName = IQKeyboardManagerSwift;
-		};
-		806F9F272CCFADC50068D0F3 /* IQKeyboardManagerSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = IQKeyboardManagerSwift;
-		};
-		806F9F292CCFAE160068D0F3 /* SDWebImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0414E9FF2C7C88BB000201E0 /* XCRemoteSwiftPackageReference "SDWebImage" */;
-			productName = SDWebImage;
-		};
-		806F9F2B2CCFAE160068D0F3 /* SDWebImageMapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0414E9FF2C7C88BB000201E0 /* XCRemoteSwiftPackageReference "SDWebImage" */;
-			productName = SDWebImageMapKit;
-		};
 		80AF491D2C9C2F7700BCFD48 /* BottomSheet */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 80AF491C2C9C2F7700BCFD48 /* XCRemoteSwiftPackageReference "BottomSheet" */;

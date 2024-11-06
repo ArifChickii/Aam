@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -30,7 +30,7 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your bag" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Cd0-DW-U8p">
-                                        <rect key="frame" x="164" y="10.333333333333327" width="65.333333333333314" height="23.333333333333329"/>
+                                        <rect key="frame" x="164.66666666666666" y="12.666666666666673" width="64" height="18.666666666666671"/>
                                         <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="16"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -117,7 +117,7 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checkout" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qbW-fg-T2K">
-                                        <rect key="frame" x="162.66666666666666" y="10.333333333333327" width="68" height="23.333333333333329"/>
+                                        <rect key="frame" x="162" y="12.666666666666673" width="69.333333333333314" height="18.666666666666671"/>
                                         <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="16"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -148,7 +148,7 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Shipping Address" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="A2b-DT-8Ag">
-                                        <rect key="frame" x="20" y="10.333333333333327" width="165" height="23.333333333333329"/>
+                                        <rect key="frame" x="20" y="12.666666666666673" width="160.66666666666666" height="18.666666666666671"/>
                                         <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="16"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -224,7 +224,7 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checkout" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7VG-Ik-IFe">
-                                        <rect key="frame" x="162.66666666666666" y="10.333333333333327" width="68" height="23.333333333333329"/>
+                                        <rect key="frame" x="162" y="12.666666666666673" width="69.333333333333314" height="18.666666666666671"/>
                                         <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="16"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -255,7 +255,7 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Shipping Address" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="8Ws-Ta-3Ek">
-                                        <rect key="frame" x="20" y="10.333333333333327" width="178.33333333333334" height="23.333333333333329"/>
+                                        <rect key="frame" x="20" y="12.666666666666673" width="176.33333333333334" height="18.666666666666671"/>
                                         <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="16"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -359,7 +359,7 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checkout" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="OCR-yp-Q5i">
-                                        <rect key="frame" x="162.66666666666666" y="10.333333333333327" width="68" height="23.333333333333329"/>
+                                        <rect key="frame" x="162" y="12.666666666666673" width="69.333333333333314" height="18.666666666666671"/>
                                         <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="16"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -387,16 +387,16 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="01n-Xd-gw3">
-                                <rect key="frame" x="20" y="115" width="353" height="73.666666666666686"/>
+                                <rect key="frame" x="20" y="115" width="353" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a payment method" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Odf-YD-TLd">
-                                        <rect key="frame" x="0.0" y="0.0" width="353" height="23.333333333333332"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="353" height="18.666666666666668"/>
                                         <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="16"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You won't be charged until you review the order on the next page" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Zbw-aV-VYf">
-                                        <rect key="frame" x="0.0" y="27.333333333333346" width="353" height="46.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="22.666666666666661" width="353" height="37.333333333333343"/>
                                         <fontDescription key="fontDescription" name="Jost-Regular" family="Jost" pointSize="16"/>
                                         <color key="textColor" name="greyLabel_color"/>
                                         <nil key="highlightedColor"/>
@@ -404,7 +404,7 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hPJ-gs-97w">
-                                <rect key="frame" x="0.0" y="208.66666666666666" width="393" height="465.33333333333337"/>
+                                <rect key="frame" x="0.0" y="195" width="393" height="479"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Ss3-0L-lR9">
@@ -494,7 +494,7 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checkout" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="bgJ-Yb-bWA">
-                                        <rect key="frame" x="162.66666666666666" y="10.333333333333327" width="68" height="23.333333333333329"/>
+                                        <rect key="frame" x="162" y="12.666666666666673" width="69.333333333333314" height="18.666666666666671"/>
                                         <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="16"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -522,16 +522,16 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="O9B-IE-qm8">
-                                <rect key="frame" x="20" y="115" width="353" height="73.666666666666686"/>
+                                <rect key="frame" x="20" y="115" width="353" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Card Details" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="2sp-bq-cKW">
-                                        <rect key="frame" x="0.0" y="0.0" width="353" height="23.333333333333332"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="353" height="18.666666666666668"/>
                                         <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="16"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet consectetur. Consequat nam etiam sed nunc gravida cras. " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="aJD-T2-K2U">
-                                        <rect key="frame" x="0.0" y="27.333333333333346" width="353" height="46.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="22.666666666666661" width="353" height="37.333333333333343"/>
                                         <fontDescription key="fontDescription" name="Jost-Regular" family="Jost" pointSize="16"/>
                                         <color key="textColor" name="greyLabel_color"/>
                                         <nil key="highlightedColor"/>
@@ -539,7 +539,7 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hUe-Fq-ttS">
-                                <rect key="frame" x="0.0" y="208.66666666666669" width="393" height="527.33333333333326"/>
+                                <rect key="frame" x="0.0" y="195" width="393" height="541"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="WFx-OC-5AE">
@@ -594,14 +594,190 @@
             </objects>
             <point key="canvasLocation" x="2650" y="-2"/>
         </scene>
+        <!--Order InfoVC-->
+        <scene sceneID="VIS-Bh-QpY">
+            <objects>
+                <viewController storyboardIdentifier="OrderInfoVC" id="mu3-Cg-qba" customClass="OrderInfoVC" customModule="AAM" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4Ch-Cm-PN4">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0lW-nJ-LVr">
+                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order info" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ozT-Kb-D2A">
+                                        <rect key="frame" x="160.66666666666666" y="12.666666666666673" width="71.666666666666657" height="18.666666666666671"/>
+                                        <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="16"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdN-ad-03g">
+                                        <rect key="frame" x="20" y="0.0" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="44" id="ReY-Uc-MYF"/>
+                                            <constraint firstAttribute="height" constant="44" id="y9U-TN-arq"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="ic_back" title="  "/>
+                                        <connections>
+                                            <action selector="backAction" destination="mu3-Cg-qba" eventType="touchUpInside" id="Z7p-ov-epd"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="ozT-Kb-D2A" firstAttribute="centerX" secondItem="0lW-nJ-LVr" secondAttribute="centerX" id="7Rw-Bd-ZAe"/>
+                                    <constraint firstItem="ozT-Kb-D2A" firstAttribute="centerY" secondItem="0lW-nJ-LVr" secondAttribute="centerY" id="HBO-rI-PuE"/>
+                                    <constraint firstItem="zdN-ad-03g" firstAttribute="leading" secondItem="0lW-nJ-LVr" secondAttribute="leading" constant="20" id="Wxm-TG-PFB"/>
+                                    <constraint firstAttribute="height" constant="44" id="kHq-Az-Kd7"/>
+                                    <constraint firstItem="zdN-ad-03g" firstAttribute="centerY" secondItem="0lW-nJ-LVr" secondAttribute="centerY" id="wgQ-H0-2id"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="DIW-dW-2tz">
+                                <rect key="frame" x="0.0" y="103" width="393" height="625"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QZY-bQ-V8N">
+                                <rect key="frame" x="30" y="748" width="333" height="50"/>
+                                <color key="backgroundColor" name="mainThemeColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="2UC-e3-MGg"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Confirm">
+                                    <fontDescription key="titleFontDescription" name="Jost-SemiBold" family="Jost" pointSize="15"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="continueAction" destination="mu3-Cg-qba" eventType="touchUpInside" id="0i7-Yl-j21"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="RKP-Eo-ibJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="RKP-Eo-ibJ" firstAttribute="bottom" secondItem="QZY-bQ-V8N" secondAttribute="bottom" constant="20" id="0Y8-VE-daW"/>
+                            <constraint firstItem="RKP-Eo-ibJ" firstAttribute="trailing" secondItem="QZY-bQ-V8N" secondAttribute="trailing" constant="30" id="0hP-lT-Fno"/>
+                            <constraint firstItem="QZY-bQ-V8N" firstAttribute="leading" secondItem="RKP-Eo-ibJ" secondAttribute="leading" constant="30" id="3eN-6z-kiz"/>
+                            <constraint firstItem="DIW-dW-2tz" firstAttribute="leading" secondItem="RKP-Eo-ibJ" secondAttribute="leading" id="JKL-HM-b0T"/>
+                            <constraint firstItem="QZY-bQ-V8N" firstAttribute="top" secondItem="DIW-dW-2tz" secondAttribute="bottom" constant="20" id="SEh-9o-aRh"/>
+                            <constraint firstItem="DIW-dW-2tz" firstAttribute="top" secondItem="0lW-nJ-LVr" secondAttribute="bottom" id="XKM-De-oed"/>
+                            <constraint firstItem="RKP-Eo-ibJ" firstAttribute="trailing" secondItem="DIW-dW-2tz" secondAttribute="trailing" id="eJI-jP-Se6"/>
+                            <constraint firstItem="0lW-nJ-LVr" firstAttribute="leading" secondItem="4Ch-Cm-PN4" secondAttribute="leading" id="gUT-lg-VmM"/>
+                            <constraint firstItem="RKP-Eo-ibJ" firstAttribute="trailing" secondItem="0lW-nJ-LVr" secondAttribute="trailing" id="mWb-CF-8sn"/>
+                            <constraint firstItem="0lW-nJ-LVr" firstAttribute="top" secondItem="RKP-Eo-ibJ" secondAttribute="top" id="vj3-b0-s6b"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="orderTblView" destination="DIW-dW-2tz" id="Ktr-Iq-P6Y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="212-if-CbH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3291" y="-2"/>
+        </scene>
+        <!--DialogeVC-->
+        <scene sceneID="Qvr-e0-4b4">
+            <objects>
+                <viewController storyboardIdentifier="DialogeVC" id="LDF-hE-CDL" customClass="DialogeVC" customModule="AAM" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VCf-Yr-NiY">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="neE-jN-FyJ">
+                                <rect key="frame" x="30" y="285.33333333333326" width="333" height="281.66666666666674"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="0xV-h8-b6Z">
+                                        <rect key="frame" x="30" y="29.999999999999986" width="273" height="221.66666666666663"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="success" translatesAutoresizingMaskIntoConstraints="NO" id="R1s-Sl-o2Z">
+                                                <rect key="frame" x="106.66666666666666" y="0.0" width="60" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="Tnp-db-1wr"/>
+                                                    <constraint firstAttribute="width" constant="60" id="mWt-J6-sa0"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your order has been confirmed." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7mX-Wh-umM">
+                                                <rect key="frame" x="22.666666666666671" y="80" width="227.66666666666663" height="71.666666666666686"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zuA-ff-stk">
+                                                <rect key="frame" x="0.0" y="171.66666666666669" width="273" height="50"/>
+                                                <color key="backgroundColor" name="textfield_bg_color"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="6js-ts-Izr"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Confirm">
+                                                    <fontDescription key="titleFontDescription" name="Jost-SemiBold" family="Jost" pointSize="15"/>
+                                                    <color key="baseForegroundColor" name="mainThemeColor"/>
+                                                </buttonConfiguration>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="continueAction" destination="LDF-hE-CDL" eventType="touchUpInside" id="Ugt-r6-ZL0"/>
+                                                    <action selector="continueAction" destination="mu3-Cg-qba" eventType="touchUpInside" id="mj6-Up-NRG"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="zuA-ff-stk" firstAttribute="leading" secondItem="0xV-h8-b6Z" secondAttribute="leading" id="IaE-Tl-yg1"/>
+                                            <constraint firstAttribute="trailing" secondItem="zuA-ff-stk" secondAttribute="trailing" id="Zs3-c2-A4y"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" name="mainThemeColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="0xV-h8-b6Z" secondAttribute="bottom" constant="30" id="89d-0Y-Ps3"/>
+                                    <constraint firstAttribute="trailing" secondItem="0xV-h8-b6Z" secondAttribute="trailing" constant="30" id="KyQ-b3-p2w"/>
+                                    <constraint firstItem="0xV-h8-b6Z" firstAttribute="top" secondItem="neE-jN-FyJ" secondAttribute="top" constant="30" id="enj-yT-fYu"/>
+                                    <constraint firstItem="0xV-h8-b6Z" firstAttribute="leading" secondItem="neE-jN-FyJ" secondAttribute="leading" constant="30" id="k96-5j-gnh"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="0Ft-AQ-9Rc"/>
+                        <color key="backgroundColor" name="black_opacity"/>
+                        <constraints>
+                            <constraint firstItem="0Ft-AQ-9Rc" firstAttribute="trailing" secondItem="neE-jN-FyJ" secondAttribute="trailing" constant="30" id="1pa-Lg-q1j"/>
+                            <constraint firstItem="neE-jN-FyJ" firstAttribute="leading" secondItem="0Ft-AQ-9Rc" secondAttribute="leading" constant="30" id="aN7-rc-GLc"/>
+                            <constraint firstItem="neE-jN-FyJ" firstAttribute="centerY" secondItem="VCf-Yr-NiY" secondAttribute="centerY" id="lD7-1i-KBb"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K7M-Ai-L5T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4014" y="11"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ic_back" width="24" height="24.666666030883789"/>
+        <image name="success" width="120" height="120.33333587646484"/>
+        <namedColor name="black_opacity">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="greyLabel_color">
             <color red="0.45500001311302185" green="0.45500001311302185" blue="0.45500001311302185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="mainThemeColor">
             <color red="0.0" green="0.60799998044967651" blue="0.46700000762939453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textfield_bg_color">
+            <color red="0.92500001192092896" green="0.96100002527236938" blue="0.95300000905990601" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

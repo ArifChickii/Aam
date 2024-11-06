@@ -68,6 +68,21 @@ class Router {
         let vc = AddCardInfoVC.instantiate(storyBoardName: "Payment")
         currentVC.navigationController?.pushViewController(vc, animated: true)
     }
+    static func MoveToOrderInfo(from currentVC: UIViewController) {
+        let vc = OrderInfoVC.instantiate(storyBoardName: "Payment")
+        currentVC.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    static func showSuccessDialog(from currentVC: UIViewController) {
+        let vc = DialogeVC.instantiate(storyBoardName: "Payment")
+        vc.modalPresentationStyle = .overFullScreen
+        currentVC.present(vc, animated: false, completion: nil)
+        
+    }
+ 
+    
+    
+    
 //    static func OpenBottomSheet(from currentVC: UIViewController) {
 //        let vc = BottomSheetVC.instantiate(storyBoardName: "AddProduct")
 //        var options = SheetOptions(

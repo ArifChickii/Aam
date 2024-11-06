@@ -35,7 +35,7 @@ class AddCardInfoVC: UIViewController, Storyboarded {
         Router.pop(from: self)
     }
     @IBAction func Continue(){
-        Router.MoveToSelectShippingAddress(from: self)
+        Router.MoveToOrderInfo(from: self)
     }
 
 

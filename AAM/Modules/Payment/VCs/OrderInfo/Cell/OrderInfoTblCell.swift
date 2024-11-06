@@ -8,7 +8,7 @@
 import UIKit
 
 class OrderInfoTblCell: UITableViewCell {
-
+    static let identifier = "OrderInfoTblCell"
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
