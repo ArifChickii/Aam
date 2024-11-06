@@ -8,7 +8,7 @@
 import UIKit
 
 class AddressTblCell: UITableViewCell {
-
+    static let identifier = "AddressTblCell"
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

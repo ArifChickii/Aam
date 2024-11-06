@@ -1,5 +1,5 @@
 //
-//  VisaTblCell.swift
+//  AdditionalInfoTblCell.swift
 //  AAM
 //
 //  Created by Arif on 05/11/2024.
@@ -7,8 +7,8 @@
 
 import UIKit
 
-class VisaTblCell: UITableViewCell {
-    static let identifier = "VisaTblCell"
+class AdditionalInfoTblCell: UITableViewCell {
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

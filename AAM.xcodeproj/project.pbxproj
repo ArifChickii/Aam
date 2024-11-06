@@ -107,6 +107,10 @@
 		802208B02CD963B800F2225A /* VisaTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 802208AE2CD963B800F2225A /* VisaTblCell.xib */; };
 		802208B52CD9652B00F2225A /* OrderInfoTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802208B32CD9652B00F2225A /* OrderInfoTblCell.swift */; };
 		802208B62CD9652B00F2225A /* OrderInfoTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 802208B42CD9652B00F2225A /* OrderInfoTblCell.xib */; };
+		802208B92CDA7D1000F2225A /* SelectShippingAddressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802208B82CDA7D1000F2225A /* SelectShippingAddressVC.swift */; };
+		802208BC2CDA7FCA00F2225A /* PaymentMethodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802208BA2CDA7FCA00F2225A /* PaymentMethodVC.swift */; };
+		802208BF2CDA830500F2225A /* AddCardInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802208BE2CDA830500F2225A /* AddCardInfoVC.swift */; };
+		802208C22CDA832A00F2225A /* AddCardInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802208C12CDA832A00F2225A /* AddCardInfoViewModel.swift */; };
 		805723F02CAF18F600D72E22 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 805723EF2CAF18F600D72E22 /* IQKeyboardManagerSwift */; };
 		806DE3882CB618270038B6E5 /* Tabbar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 806DE3872CB618270038B6E5 /* Tabbar.storyboard */; };
 		806DE38A2CB61B260038B6E5 /* TabbarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806DE3892CB61B260038B6E5 /* TabbarVC.swift */; };
@@ -114,6 +118,8 @@
 		806F9F2A2CCFAE160068D0F3 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 806F9F292CCFAE160068D0F3 /* SDWebImage */; };
 		806F9F2C2CCFAE160068D0F3 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 806F9F2B2CCFAE160068D0F3 /* SDWebImageMapKit */; };
 		806F9F2E2CCFB09B0068D0F3 /* ProductShareManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F9F2D2CCFB09B0068D0F3 /* ProductShareManager.swift */; };
+		807905C02CDA8A5A00F8D5F3 /* AdditionalInfoTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807905BE2CDA8A5A00F8D5F3 /* AdditionalInfoTblCell.swift */; };
+		807905C12CDA8A5A00F8D5F3 /* AdditionalInfoTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 807905BF2CDA8A5A00F8D5F3 /* AdditionalInfoTblCell.xib */; };
 		807D8A862C75FC7B00E9AE04 /* ProductDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807D8A852C75FC7B00E9AE04 /* ProductDetailVC.swift */; };
 		807D8A882C7B263D00E9AE04 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807D8A872C7B263D00E9AE04 /* Product.swift */; };
 		807D8A8C2C7B26A200E9AE04 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807D8A8B2C7B26A200E9AE04 /* FirebaseService.swift */; };
@@ -250,9 +256,15 @@
 		802208AE2CD963B800F2225A /* VisaTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VisaTblCell.xib; sourceTree = "<group>"; };
 		802208B32CD9652B00F2225A /* OrderInfoTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderInfoTblCell.swift; sourceTree = "<group>"; };
 		802208B42CD9652B00F2225A /* OrderInfoTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderInfoTblCell.xib; sourceTree = "<group>"; };
+		802208B82CDA7D1000F2225A /* SelectShippingAddressVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectShippingAddressVC.swift; sourceTree = "<group>"; };
+		802208BA2CDA7FCA00F2225A /* PaymentMethodVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodVC.swift; sourceTree = "<group>"; };
+		802208BE2CDA830500F2225A /* AddCardInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardInfoVC.swift; sourceTree = "<group>"; };
+		802208C12CDA832A00F2225A /* AddCardInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardInfoViewModel.swift; sourceTree = "<group>"; };
 		806DE3872CB618270038B6E5 /* Tabbar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Tabbar.storyboard; path = Aam/Modules/Tabbar/Tabbar.storyboard; sourceTree = SOURCE_ROOT; };
 		806DE3892CB61B260038B6E5 /* TabbarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabbarVC.swift; path = Aam/Modules/Tabbar/TabbarVC.swift; sourceTree = SOURCE_ROOT; };
 		806F9F2D2CCFB09B0068D0F3 /* ProductShareManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductShareManager.swift; sourceTree = "<group>"; };
+		807905BE2CDA8A5A00F8D5F3 /* AdditionalInfoTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoTblCell.swift; sourceTree = "<group>"; };
+		807905BF2CDA8A5A00F8D5F3 /* AdditionalInfoTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdditionalInfoTblCell.xib; sourceTree = "<group>"; };
 		807D8A852C75FC7B00E9AE04 /* ProductDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailVC.swift; sourceTree = "<group>"; };
 		807D8A872C7B263D00E9AE04 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		807D8A8B2C7B26A200E9AE04 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
@@ -566,6 +578,7 @@
 		802208992CD95CC500F2225A /* Address */ = {
 			isa = PBXGroup;
 			children = (
+				802208B82CDA7D1000F2225A /* SelectShippingAddressVC.swift */,
 				8022089A2CD95CCD00F2225A /* Cell */,
 			);
 			path = Address;
@@ -588,6 +601,7 @@
 			isa = PBXGroup;
 			children = (
 				802208A82CD9619D00F2225A /* Cell */,
+				802208BA2CDA7FCA00F2225A /* PaymentMethodVC.swift */,
 			);
 			path = PaymentMethod;
 			sourceTree = "<group>";
@@ -616,8 +630,27 @@
 			children = (
 				802208B32CD9652B00F2225A /* OrderInfoTblCell.swift */,
 				802208B42CD9652B00F2225A /* OrderInfoTblCell.xib */,
+				807905BE2CDA8A5A00F8D5F3 /* AdditionalInfoTblCell.swift */,
+				807905BF2CDA8A5A00F8D5F3 /* AdditionalInfoTblCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		802208B72CDA7CCB00F2225A /* AddCardInfo */ = {
+			isa = PBXGroup;
+			children = (
+				802208C02CDA830F00F2225A /* ViewModel */,
+				802208BE2CDA830500F2225A /* AddCardInfoVC.swift */,
+			);
+			path = AddCardInfo;
+			sourceTree = "<group>";
+		};
+		802208C02CDA830F00F2225A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				802208C12CDA832A00F2225A /* AddCardInfoViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		806DE3842CB617E40038B6E5 /* Tabbar */ = {
@@ -667,6 +700,7 @@
 		808BAE102CD92C9D00B4E568 /* VCs */ = {
 			isa = PBXGroup;
 			children = (
+				802208B72CDA7CCB00F2225A /* AddCardInfo */,
 				802208B12CD9651000F2225A /* OrderInfo */,
 				802208A72CD9617D00F2225A /* PaymentMethod */,
 				802208992CD95CC500F2225A /* Address */,
@@ -991,6 +1025,7 @@
 				040A26ED2C7C419E00C32F01 /* Almarai-Regular.ttf in Resources */,
 				040A26DD2C7C419E00C32F01 /* Jost Black 900.ttf in Resources */,
 				04ED9D5E2C872B4000C2D961 /* ExpandableTblCell.xib in Resources */,
+				807905C12CDA8A5A00F8D5F3 /* AdditionalInfoTblCell.xib in Resources */,
 				8013C77C2C75158C003AA5A3 /* ProductRatingTblCell.xib in Resources */,
 				80FFAA872C64ADCB007E55EE /* Home.storyboard in Resources */,
 				8013C7812C751AB2003AA5A3 /* ProductCategoryTitleCollCell.xib in Resources */,
@@ -1064,6 +1099,7 @@
 				04ED9D512C87284B00C2D961 /* PickPhotoCollCell.swift in Sources */,
 				802208B52CD9652B00F2225A /* OrderInfoTblCell.swift in Sources */,
 				8013C7802C751AB2003AA5A3 /* ProductCategoryTitleCollCell.swift in Sources */,
+				807905C02CDA8A5A00F8D5F3 /* AdditionalInfoTblCell.swift in Sources */,
 				0414EA0E2C7DAE37000201E0 /* ProductDetailViewModel.swift in Sources */,
 				802208AF2CD963B800F2225A /* VisaTblCell.swift in Sources */,
 				808F25792CA6921F00F59B57 /* LoaderManager.swift in Sources */,
@@ -1073,6 +1109,7 @@
 				8021AFA42C5BBDBA00A66611 /* UINav.swift in Sources */,
 				807D8A8E2C7B2E5000E9AE04 /* ProductViewModel.swift in Sources */,
 				80B3204B2C61252A00359714 /* Helper.swift in Sources */,
+				802208C22CDA832A00F2225A /* AddCardInfoViewModel.swift in Sources */,
 				808BAE0E2CD9294F00B4E568 /* ProductBagTblCell.swift in Sources */,
 				04ED9D322C85E3AB00C2D961 /* AddPhotoTblCelll.swift in Sources */,
 				8021AFAF2C5BBFA400A66611 /* onBoardingPage3.swift in Sources */,
@@ -1097,13 +1134,16 @@
 				80B7042F2CD93BE300A78989 /* CheckBoxLblTblCell.swift in Sources */,
 				8021AFA32C5BBDBA00A66611 /* UIView.swift in Sources */,
 				80B380282CCFFBA0000AFC82 /* DynamicLinkManager.swift in Sources */,
+				802208BF2CDA830500F2225A /* AddCardInfoVC.swift in Sources */,
 				0426D3E62C8822F2008AF976 /* UploadButtonTblCell.swift in Sources */,
+				802208BC2CDA7FCA00F2225A /* PaymentMethodVC.swift in Sources */,
 				8021AFB12C5BC04500A66611 /* onBoardingViewModel.swift in Sources */,
 				808BAE122CD92CB700B4E568 /* ProductBagVC.swift in Sources */,
 				8013C7602C750235003AA5A3 /* HomeViewModel.swift in Sources */,
 				8013C7672C7514FD003AA5A3 /* ProductPriceAndTitleTblCell.swift in Sources */,
 				04ED9D552C8728C500C2D961 /* AddListingTitleTblCell.swift in Sources */,
 				8021AF9A2C5BBD1C00A66611 /* Storyboard.swift in Sources */,
+				802208B92CDA7D1000F2225A /* SelectShippingAddressVC.swift in Sources */,
 				8013C76B2C75151B003AA5A3 /* ProductDescriptionTblCell.swift in Sources */,
 				8021AF9E2C5BBD8E00A66611 /* Router.swift in Sources */,
 				80B7042C2CD9385400A78989 /* ProductFormViewModel.swift in Sources */,

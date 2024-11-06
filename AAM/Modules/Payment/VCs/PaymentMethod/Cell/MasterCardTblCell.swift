@@ -8,7 +8,7 @@
 import UIKit
 
 class MasterCardTblCell: UITableViewCell {
-
+    static let identifier = "MasterCardTblCell"
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -56,6 +56,18 @@ class Router {
         let vc = AddProductVC.instantiate(storyBoardName: "AddProduct")
         currentVC.navigationController?.pushViewController(vc, animated: true)
     }
+    static func MoveToSelectShippingAddress(from currentVC: UIViewController) {
+        let vc = SelectShippingAddressVC.instantiate(storyBoardName: "Payment")
+        currentVC.navigationController?.pushViewController(vc, animated: true)
+    }
+    static func MoveToSelectPaymentMethod(from currentVC: UIViewController) {
+        let vc = PaymentMethodVC.instantiate(storyBoardName: "Payment")
+        currentVC.navigationController?.pushViewController(vc, animated: true)
+    }
+    static func MoveToAddCardInfo(from currentVC: UIViewController) {
+        let vc = AddCardInfoVC.instantiate(storyBoardName: "Payment")
+        currentVC.navigationController?.pushViewController(vc, animated: true)
+    }
 //    static func OpenBottomSheet(from currentVC: UIViewController) {
 //        let vc = BottomSheetVC.instantiate(storyBoardName: "AddProduct")
 //        var options = SheetOptions(
