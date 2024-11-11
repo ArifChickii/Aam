@@ -270,7 +270,12 @@ extension ProductDetailVC: UITableViewDelegate, UITableViewDataSource {
                     switch result {
                     case .success:
                         // Show success message
-                        self.showToast(message: "Product added to bag")
+                        DispatchQueue.main.async {
+                            self.showToast(message: "Product added to bag")
+                            Router.MoveToProductsBagVC(from: self)
+                        }
+                        
+                        
                     case .failure(let error):
                         // Show error message
                         self.showErrorAlert(message: "Failed to add product to bag: \(error.localizedDescription)")

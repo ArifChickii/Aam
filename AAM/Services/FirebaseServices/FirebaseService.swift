@@ -374,9 +374,17 @@ extension FirebaseService {
             } else {
                 // If not exists, add new document with count 1
                 do {
-                    var productData = try Firestore.Encoder().encode(product)
-                    productData["count"] = 1 // Add count field
-                    productRef.setData(productData) { error in
+                    // Encode the product
+                    let productData = try Firestore.Encoder().encode(product)
+                    
+                    // Create a dictionary that matches the structure of BagProduct
+                    var bagProductData: [String: Any] = [:]
+                    bagProductData["id"] = product.id
+                    bagProductData["product"] = productData  // Nest the product data under 'product' key
+                    bagProductData["count"] = 1  // Add count field
+                    
+                    // Save the bag product data
+                    productRef.setData(bagProductData) { error in
                         if let error = error {
                             completion(.failure(error))
                         } else {
@@ -393,31 +401,39 @@ extension FirebaseService {
     /// Fetches all products in the bag from Firebase.
     /// - Parameter completion: Completion handler with an array of `BagProduct`.
     func fetchBagProducts(completion: @escaping ([BagProduct]) -> Void) {
-        let bagProductsRef = db.collection("BagProducts")
-        bagProductsRef.getDocuments { (snapshot, error) in
-            var bagProducts: [BagProduct] = []
-            if let error = error {
-                print("Error fetching bag products: \(error.localizedDescription)")
-                completion([])
-                return
-            }
-            
-            if let snapshot = snapshot {
-                for document in snapshot.documents {
-                    let data = document.data()
-                    // Decode data into BagProduct
-                    do {
-                        var bagProduct = try Firestore.Decoder().decode(BagProduct.self, from: data)
-                        bagProduct.id = document.documentID
-                        bagProducts.append(bagProduct)
-                    } catch let error {
-                        print("Error decoding bag product: \(error.localizedDescription)")
+            let bagProductsRef = db.collection("BagProducts")
+            bagProductsRef.getDocuments { (snapshot, error) in
+                var bagProducts: [BagProduct] = []
+                if let error = error {
+                    print("Error fetching bag products: \(error.localizedDescription)")
+                    completion([])
+                    return
+                }
+                
+                if let snapshot = snapshot {
+                    for document in snapshot.documents {
+                        let data = document.data()
+                        // Manually parse data into BagProduct
+                        if let id = data["id"] as? String,
+                           let count = data["count"] as? Int,
+                           let productData = data["product"] as? [String: Any] {
+                            do {
+                                // Decode the nested product data
+                                let product = try Firestore.Decoder().decode(ProductInfo.self, from: productData)
+                                var bagProduct = BagProduct(product: product, count: count)
+                                bagProduct.id = id
+                                bagProducts.append(bagProduct)
+                            } catch let error {
+                                print("Error decoding product: \(error.localizedDescription)")
+                            }
+                        } else {
+                            print("Error parsing bag product data")
+                        }
                     }
                 }
+                completion(bagProducts)
             }
-            completion(bagProducts)
         }
-    }
     
     /// Updates the count of a product in the bag.
     /// - Parameters:
@@ -425,35 +441,35 @@ extension FirebaseService {
     ///   - newCount: The new count value.
     ///   - completion: Completion handler with a result.
     func updateBagProductCount(productId: String, newCount: Int, completion: @escaping (Result<Void, Error>) -> Void) {
-        let productRef = db.collection("BagProducts").document(productId)
-        productRef.updateData(["count": newCount]) { error in
-            if let error = error {
-                completion(.failure(error))
-            } else {
-                // If count reaches zero, delete the product from bag
-                if newCount <= 0 {
-                    self.deleteBagProduct(withId: productId) { result in
-                        completion(result)
-                    }
+            let productRef = db.collection("BagProducts").document(productId)
+            productRef.updateData(["count": newCount]) { error in
+                if let error = error {
+                    completion(.failure(error))
                 } else {
-                    completion(.success(()))
+                    // If count reaches zero, delete the product from bag
+                    if newCount <= 0 {
+                        self.deleteBagProduct(withId: productId) { result in
+                            completion(result)
+                        }
+                    } else {
+                        completion(.success(()))
+                    }
                 }
             }
         }
-    }
     
     /// Deletes a product from the bag in Firebase.
     /// - Parameters:
     ///   - productId: The ID of the product to delete.
     ///   - completion: Completion handler with a result.
     func deleteBagProduct(withId productId: String, completion: @escaping (Result<Void, Error>) -> Void) {
-        let productRef = db.collection("BagProducts").document(productId)
-        productRef.delete { error in
-            if let error = error {
-                completion(.failure(error))
-            } else {
-                completion(.success(()))
+            let productRef = db.collection("BagProducts").document(productId)
+            productRef.delete { error in
+                if let error = error {
+                    completion(.failure(error))
+                } else {
+                    completion(.success(()))
+                }
             }
         }
-    }
 }

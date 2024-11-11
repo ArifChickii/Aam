@@ -30,7 +30,7 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your bag" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Cd0-DW-U8p">
-                                        <rect key="frame" x="164.66666666666666" y="12.666666666666673" width="64" height="18.666666666666671"/>
+                                        <rect key="frame" x="164" y="10.333333333333327" width="65.333333333333314" height="23.333333333333329"/>
                                         <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="16"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -78,7 +78,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="ProceedToCheckout" destination="Y6W-OH-hqX" eventType="touchUpInside" id="xzp-Px-Kdb"/>
+                                    <action selector="proceedToCheckout" destination="Y6W-OH-hqX" eventType="touchUpInside" id="dlo-Mg-9It"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -117,7 +117,7 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checkout" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qbW-fg-T2K">
-                                        <rect key="frame" x="162" y="12.666666666666673" width="69.333333333333314" height="18.666666666666671"/>
+                                        <rect key="frame" x="162.66666666666666" y="10.333333333333327" width="68" height="23.333333333333329"/>
                                         <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="16"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -148,7 +148,7 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Shipping Address" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="A2b-DT-8Ag">
-                                        <rect key="frame" x="20" y="12.666666666666673" width="160.66666666666666" height="18.666666666666671"/>
+                                        <rect key="frame" x="20" y="10.333333333333327" width="165" height="23.333333333333329"/>
                                         <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="16"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -224,7 +224,7 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checkout" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7VG-Ik-IFe">
-                                        <rect key="frame" x="162" y="12.666666666666673" width="69.333333333333314" height="18.666666666666671"/>
+                                        <rect key="frame" x="162.66666666666666" y="10.333333333333327" width="68" height="23.333333333333329"/>
                                         <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="16"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -255,7 +255,7 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Shipping Address" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="8Ws-Ta-3Ek">
-                                        <rect key="frame" x="20" y="12.666666666666673" width="176.33333333333334" height="18.666666666666671"/>
+                                        <rect key="frame" x="20" y="10.333333333333327" width="178.33333333333334" height="23.333333333333329"/>
                                         <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="16"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -359,7 +359,7 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checkout" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="OCR-yp-Q5i">
-                                        <rect key="frame" x="162" y="12.666666666666673" width="69.333333333333314" height="18.666666666666671"/>
+                                        <rect key="frame" x="162.66666666666666" y="10.333333333333327" width="68" height="23.333333333333329"/>
                                         <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="16"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -387,16 +387,16 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="01n-Xd-gw3">
-                                <rect key="frame" x="20" y="115" width="353" height="60"/>
+                                <rect key="frame" x="20" y="115" width="353" height="73.666666666666686"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a payment method" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Odf-YD-TLd">
-                                        <rect key="frame" x="0.0" y="0.0" width="353" height="18.666666666666668"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="353" height="23.333333333333332"/>
                                         <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="16"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You won't be charged until you review the order on the next page" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Zbw-aV-VYf">
-                                        <rect key="frame" x="0.0" y="22.666666666666661" width="353" height="37.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="27.333333333333346" width="353" height="46.333333333333343"/>
                                         <fontDescription key="fontDescription" name="Jost-Regular" family="Jost" pointSize="16"/>
                                         <color key="textColor" name="greyLabel_color"/>
                                         <nil key="highlightedColor"/>
@@ -404,7 +404,7 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hPJ-gs-97w">
-                                <rect key="frame" x="0.0" y="195" width="393" height="479"/>
+                                <rect key="frame" x="0.0" y="208.66666666666666" width="393" height="465.33333333333337"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Ss3-0L-lR9">
@@ -494,7 +494,7 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checkout" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="bgJ-Yb-bWA">
-                                        <rect key="frame" x="162" y="12.666666666666673" width="69.333333333333314" height="18.666666666666671"/>
+                                        <rect key="frame" x="162.66666666666666" y="10.333333333333327" width="68" height="23.333333333333329"/>
                                         <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="16"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -522,16 +522,16 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="O9B-IE-qm8">
-                                <rect key="frame" x="20" y="115" width="353" height="60"/>
+                                <rect key="frame" x="20" y="115" width="353" height="73.666666666666686"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Card Details" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="2sp-bq-cKW">
-                                        <rect key="frame" x="0.0" y="0.0" width="353" height="18.666666666666668"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="353" height="23.333333333333332"/>
                                         <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="16"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet consectetur. Consequat nam etiam sed nunc gravida cras. " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="aJD-T2-K2U">
-                                        <rect key="frame" x="0.0" y="22.666666666666661" width="353" height="37.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="27.333333333333346" width="353" height="46.333333333333343"/>
                                         <fontDescription key="fontDescription" name="Jost-Regular" family="Jost" pointSize="16"/>
                                         <color key="textColor" name="greyLabel_color"/>
                                         <nil key="highlightedColor"/>
@@ -539,7 +539,7 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hUe-Fq-ttS">
-                                <rect key="frame" x="0.0" y="195" width="393" height="541"/>
+                                <rect key="frame" x="0.0" y="208.66666666666669" width="393" height="527.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="WFx-OC-5AE">
@@ -606,7 +606,7 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order info" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ozT-Kb-D2A">
-                                        <rect key="frame" x="160.66666666666666" y="12.666666666666673" width="71.666666666666657" height="18.666666666666671"/>
+                                        <rect key="frame" x="158.33333333333334" y="10.333333333333327" width="76.666666666666657" height="23.333333333333329"/>
                                         <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="16"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -768,7 +768,7 @@
         <image name="ic_back" width="24" height="24.666666030883789"/>
         <image name="success" width="120" height="120.33333587646484"/>
         <namedColor name="black_opacity">
-            <color red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.69999998807907104" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="greyLabel_color">
             <color red="0.45500001311302185" green="0.45500001311302185" blue="0.45500001311302185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
