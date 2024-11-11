@@ -138,6 +138,8 @@
 		80B7042C2CD9385400A78989 /* ProductFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B7042B2CD9385400A78989 /* ProductFormViewModel.swift */; };
 		80B7042F2CD93BE300A78989 /* CheckBoxLblTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B7042D2CD93BE300A78989 /* CheckBoxLblTblCell.swift */; };
 		80B704302CD93BE300A78989 /* CheckBoxLblTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80B7042E2CD93BE300A78989 /* CheckBoxLblTblCell.xib */; };
+		80D4934E2CE2657D000BE84C /* BagProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D4934D2CE2657D000BE84C /* BagProduct.swift */; };
+		80D493502CE266D4000BE84C /* UIViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D4934F2CE266D4000BE84C /* UIViewcontroller.swift */; };
 		80E8C3B12C5AC3BD0087F009 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E8C3B02C5AC3BD0087F009 /* AppDelegate.swift */; };
 		80E8C3B32C5AC3BD0087F009 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E8C3B22C5AC3BD0087F009 /* SceneDelegate.swift */; };
 		80E8C3B52C5AC3BD0087F009 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E8C3B42C5AC3BD0087F009 /* ViewController.swift */; };
@@ -285,6 +287,8 @@
 		80B7042B2CD9385400A78989 /* ProductFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductFormViewModel.swift; sourceTree = "<group>"; };
 		80B7042D2CD93BE300A78989 /* CheckBoxLblTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxLblTblCell.swift; sourceTree = "<group>"; };
 		80B7042E2CD93BE300A78989 /* CheckBoxLblTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckBoxLblTblCell.xib; sourceTree = "<group>"; };
+		80D4934D2CE2657D000BE84C /* BagProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BagProduct.swift; path = Aam/Modules/Payment/VCs/bagProduct/Model/BagProduct.swift; sourceTree = SOURCE_ROOT; };
+		80D4934F2CE266D4000BE84C /* UIViewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIViewcontroller.swift; path = Aam/Extensions/UIViewcontroller.swift; sourceTree = SOURCE_ROOT; };
 		80E8C3AD2C5AC3BD0087F009 /* AAM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AAM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80E8C3B02C5AC3BD0087F009 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80E8C3B22C5AC3BD0087F009 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -527,6 +531,7 @@
 				8021AFA12C5BBDBA00A66611 /* UINav.swift */,
 				8021AFA22C5BBDBA00A66611 /* UIImageView.swift */,
 				8021AFB22C5BDD7400A66611 /* UIColor.swift */,
+				80D4934F2CE266D4000BE84C /* UIViewcontroller.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -699,12 +704,12 @@
 		808BAE102CD92C9D00B4E568 /* VCs */ = {
 			isa = PBXGroup;
 			children = (
+				80D4934B2CE26528000BE84C /* bagProduct */,
 				802208B72CDA7CCB00F2225A /* AddCardInfo */,
 				802208B12CD9651000F2225A /* OrderInfo */,
 				802208A72CD9617D00F2225A /* PaymentMethod */,
 				802208992CD95CC500F2225A /* Address */,
 				808BAE152CD935A300B4E568 /* checkoutForm */,
-				808BAE112CD92CB700B4E568 /* ProductBagVC.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -745,6 +750,23 @@
 				80B7042B2CD9385400A78989 /* ProductFormViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		80D4934B2CE26528000BE84C /* bagProduct */ = {
+			isa = PBXGroup;
+			children = (
+				80D4934C2CE26564000BE84C /* Model */,
+				808BAE112CD92CB700B4E568 /* ProductBagVC.swift */,
+			);
+			path = bagProduct;
+			sourceTree = "<group>";
+		};
+		80D4934C2CE26564000BE84C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				80D4934D2CE2657D000BE84C /* BagProduct.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		80E8C3A42C5AC3BC0087F009 = {
@@ -1119,10 +1141,12 @@
 				0426D3E22C882265008AF976 /* SaveToDraftTblCell.swift in Sources */,
 				04C183612C91824B00FDB170 /* BottomSheetVC.swift in Sources */,
 				8021AFAD2C5BBF6D00A66611 /* onBoardingPage2.swift in Sources */,
+				80D493502CE266D4000BE84C /* UIViewcontroller.swift in Sources */,
 				80B3204D2C6128F000359714 /* Reachability.swift in Sources */,
 				807D8A862C75FC7B00E9AE04 /* ProductDetailVC.swift in Sources */,
 				802208AB2CD961BA00F2225A /* MasterCardTblCell.swift in Sources */,
 				0426D3EB2C882424008AF976 /* AddProductVC.swift in Sources */,
+				80D4934E2CE2657D000BE84C /* BagProduct.swift in Sources */,
 				806F9F2E2CCFB09B0068D0F3 /* ProductShareManager.swift in Sources */,
 				80B7042F2CD93BE300A78989 /* CheckBoxLblTblCell.swift in Sources */,
 				8021AFA32C5BBDBA00A66611 /* UIView.swift in Sources */,

@@ -13,6 +13,7 @@ class ProductDetailVC: UIViewController, Storyboarded {
     private let productService = FirebaseService()
     var viewModel: ProductDetailViewModel?
     var productDetailObj: ProductInfo?
+
     @IBOutlet weak var productTblView: UITableView!
     
     // Add loading state
@@ -246,11 +247,37 @@ extension ProductDetailVC: UITableViewDelegate, UITableViewDataSource {
     }
     @objc func addToBagBtnTapped(_ sender: UIButton) {
         guard let product = productDetailObj else {
-            print("❌ No product available to share")
-            showErrorAlert(message: "No product available to share.")
+            print("❌ No product available to add to bag")
+            showErrorAlert(message: "No product available to add to bag.")
             return
         }
-        Router.MoveToProductsBagVC(from: self)
+        
+        // Show loader
+        let loadingVC = UIAlertController(title: nil, message: "Adding to Bag...", preferredStyle: .alert)
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = .medium
+        loadingIndicator.startAnimating()
+        loadingVC.view.addSubview(loadingIndicator)
+        present(loadingVC, animated: true)
+        
+        // Add product to bag
+        productService.addProductToBag(product: product) { [weak self] result in
+            DispatchQueue.main.async {
+                // Dismiss loader
+                loadingVC.dismiss(animated: true) {
+                    guard let self = self else { return }
+                    switch result {
+                    case .success:
+                        // Show success message
+                        self.showToast(message: "Product added to bag")
+                    case .failure(let error):
+                        // Show error message
+                        self.showErrorAlert(message: "Failed to add product to bag: \(error.localizedDescription)")
+                    }
+                }
+            }
+        }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
