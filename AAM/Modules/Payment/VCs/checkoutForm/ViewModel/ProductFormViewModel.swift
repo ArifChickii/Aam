@@ -6,18 +6,37 @@
 //
 
 import Foundation
-class ProductFormViewModel{
+
+class ProductFormViewModel {
     var makeDefaultAddress = "Make this my default address"
     var saveBillingAddress = "Same billing address"
-    let formFields: [ProductFormModel] = [
-            ProductFormModel(title: "Full Name", placeHolder: "Enter your full name"),
-            ProductFormModel(title: "Address", placeHolder: "Enter your address"),
-            ProductFormModel(title: "Flat/Block No", placeHolder: "Enter flat/block number"),
-            ProductFormModel(title: "Postal / Zipcode", placeHolder: "Enter postal/zipcode"),
-            ProductFormModel(title: "Country", placeHolder: "Enter your country"),
-            ProductFormModel(title: "City", placeHolder: "Enter your city"),
-            ProductFormModel(title: "Make this my default address", placeHolder: ""),
-            ProductFormModel(title: "Same billing address", placeHolder: "")
-        ]
     
+    var formFields: [ProductFormModel] = []
+    
+    init() {
+        formFields = [
+            ProductFormModel(title: "Full Name", placeHolder: "Enter your full name", value: nil, isRequired: true),
+            ProductFormModel(title: "Address", placeHolder: "Enter your address", value: nil, isRequired: true),
+            ProductFormModel(title: "Flat/Block No", placeHolder: "Enter flat/block number", value: nil, isRequired: true),
+            ProductFormModel(title: "Postal / Zipcode", placeHolder: "Enter postal/zipcode", value: nil, isRequired: true),
+            ProductFormModel(title: "Country", placeHolder: "Enter your country", value: nil, isRequired: true),
+            ProductFormModel(title: "City", placeHolder: "Enter your city", value: nil, isRequired: true),
+            ProductFormModel(title: "Make this my default address", placeHolder: "", value: "false", isRequired: false),
+            ProductFormModel(title: "Same billing address", placeHolder: "", value: "false", isRequired: false)
+        ]
+    }
+    
+    /// Retrieves the value for a given field title.
+    func getValueForTitle(_ title: String) -> String? {
+        return formFields.first(where: { $0.title == title })?.value
+    }
+    
+    /// Retrieves the Boolean value for a given field title.
+    func getBoolValueForTitle(_ title: String) -> Bool {
+        if let value = formFields.first(where: { $0.title == title })?.value {
+            return value == "true"
+        }
+        return false
+    }
 }
+

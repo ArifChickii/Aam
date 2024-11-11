@@ -182,7 +182,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="Continue" destination="Eon-XI-2Ft" eventType="touchUpInside" id="MAy-mo-OWx"/>
+                                    <action selector="continueButtonTapped" destination="Eon-XI-2Ft" eventType="touchUpInside" id="d2K-iF-Yob"/>
                                 </connections>
                             </button>
                         </subviews>

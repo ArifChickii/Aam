@@ -8,10 +8,11 @@
 import Foundation
 import FirebaseStorage
 import FirebaseFirestore
+import FirebaseAuth
 
 class FirebaseService {
     private var db = Firestore.firestore()
-    
+    private var auth = Auth.auth()
 
     
     func fetchProducts(completion: @escaping ([ProductInfo]) -> Void) {
@@ -472,4 +473,43 @@ extension FirebaseService {
                 }
             }
         }
+}
+extension FirebaseService {
+    
+    // MARK: - Shipping Address Methods
+    
+    /// Saves a shipping address for the current user to Firebase.
+    /// - Parameters:
+    ///   - address: The `ShippingAddress` object to save.
+    ///   - completion: Completion handler with a result.
+    func saveShippingAddress(address: ShippingAddress, completion: @escaping (Result<Void, Error>) -> Void) {
+        guard let userId = auth.currentUser?.uid else {
+            completion(.failure(NSError(domain: "FirebaseService", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not logged in"])))
+            return
+        }
+        
+        do {
+            let addressData = try Firestore.Encoder().encode(address)
+            
+            let userAddressesRef = db.collection("users").document(userId).collection("shippingAddresses")
+            
+            // If the address is marked as default, we can store it with a specific document ID
+            let addressRef: DocumentReference
+            if address.makeDefaultAddress {
+                addressRef = userAddressesRef.document("default")
+            } else {
+                addressRef = userAddressesRef.document() // Auto-generated ID
+            }
+            
+            addressRef.setData(addressData) { error in
+                if let error = error {
+                    completion(.failure(error))
+                } else {
+                    completion(.success(()))
+                }
+            }
+        } catch let error {
+            completion(.failure(error))
+        }
+    }
 }

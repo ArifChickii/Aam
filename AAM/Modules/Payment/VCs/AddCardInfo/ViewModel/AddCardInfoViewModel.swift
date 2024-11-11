@@ -8,9 +8,9 @@
 import Foundation
 class AddCardInfoViewModel{
     let formFields: [ProductFormModel] = [
-            ProductFormModel(title: "Card name", placeHolder: "Enter Card Name"),
-            ProductFormModel(title: "Card number", placeHolder: "000 - 000 - 000 - 000"),
-            ProductFormModel(title: "CVV", placeHolder: "Enter code"),
+        ProductFormModel(title: "Card name", placeHolder: "Enter Card Name", isRequired: false),
+        ProductFormModel(title: "Card number", placeHolder: "000 - 000 - 000 - 000", isRequired: false),
+        ProductFormModel(title: "CVV", placeHolder: "Enter code", isRequired: false),
             
         ]
 }

@@ -108,6 +108,7 @@
 		802208BC2CDA7FCA00F2225A /* PaymentMethodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802208BA2CDA7FCA00F2225A /* PaymentMethodVC.swift */; };
 		802208BF2CDA830500F2225A /* AddCardInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802208BE2CDA830500F2225A /* AddCardInfoVC.swift */; };
 		802208C22CDA832A00F2225A /* AddCardInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802208C12CDA832A00F2225A /* AddCardInfoViewModel.swift */; };
+		806BF50A2CE27B92006011F3 /* ShippingAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806BF5092CE27B92006011F3 /* ShippingAddress.swift */; };
 		806DE3882CB618270038B6E5 /* Tabbar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 806DE3872CB618270038B6E5 /* Tabbar.storyboard */; };
 		806DE38A2CB61B260038B6E5 /* TabbarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806DE3892CB61B260038B6E5 /* TabbarVC.swift */; };
 		806F9F2E2CCFB09B0068D0F3 /* ProductShareManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F9F2D2CCFB09B0068D0F3 /* ProductShareManager.swift */; };
@@ -258,6 +259,7 @@
 		802208BA2CDA7FCA00F2225A /* PaymentMethodVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodVC.swift; sourceTree = "<group>"; };
 		802208BE2CDA830500F2225A /* AddCardInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardInfoVC.swift; sourceTree = "<group>"; };
 		802208C12CDA832A00F2225A /* AddCardInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardInfoViewModel.swift; sourceTree = "<group>"; };
+		806BF5092CE27B92006011F3 /* ShippingAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingAddress.swift; sourceTree = "<group>"; };
 		806DE3872CB618270038B6E5 /* Tabbar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Tabbar.storyboard; path = Aam/Modules/Tabbar/Tabbar.storyboard; sourceTree = SOURCE_ROOT; };
 		806DE3892CB61B260038B6E5 /* TabbarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabbarVC.swift; path = Aam/Modules/Tabbar/TabbarVC.swift; sourceTree = SOURCE_ROOT; };
 		806F9F2D2CCFB09B0068D0F3 /* ProductShareManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductShareManager.swift; sourceTree = "<group>"; };
@@ -637,6 +639,7 @@
 		802208B72CDA7CCB00F2225A /* AddCardInfo */ = {
 			isa = PBXGroup;
 			children = (
+				806BF5082CE27B87006011F3 /* Model */,
 				802208C02CDA830F00F2225A /* ViewModel */,
 				802208BE2CDA830500F2225A /* AddCardInfoVC.swift */,
 			);
@@ -649,6 +652,13 @@
 				802208C12CDA832A00F2225A /* AddCardInfoViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		806BF5082CE27B87006011F3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		806DE3842CB617E40038B6E5 /* Tabbar */ = {
@@ -740,6 +750,7 @@
 		80B704252CD9375800A78989 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				806BF5092CE27B92006011F3 /* ShippingAddress.swift */,
 				80B704262CD9377200A78989 /* ProductBagModel.swift */,
 			);
 			path = Model;
@@ -1158,6 +1169,7 @@
 				807D8A862C75FC7B00E9AE04 /* ProductDetailVC.swift in Sources */,
 				802208AB2CD961BA00F2225A /* MasterCardTblCell.swift in Sources */,
 				0426D3EB2C882424008AF976 /* AddProductVC.swift in Sources */,
+				806BF50A2CE27B92006011F3 /* ShippingAddress.swift in Sources */,
 				80D4934E2CE2657D000BE84C /* BagProduct.swift in Sources */,
 				806F9F2E2CCFB09B0068D0F3 /* ProductShareManager.swift in Sources */,
 				80B7042F2CD93BE300A78989 /* CheckBoxLblTblCell.swift in Sources */,
