@@ -142,6 +142,8 @@
 		80D4934E2CE2657D000BE84C /* BagProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D4934D2CE2657D000BE84C /* BagProduct.swift */; };
 		80D493502CE266D4000BE84C /* UIViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D4934F2CE266D4000BE84C /* UIViewcontroller.swift */; };
 		80D493532CE27002000BE84C /* ProductBagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D493522CE27002000BE84C /* ProductBagViewModel.swift */; };
+		80D4F7612CE3CB2200C93913 /* ShippingAddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D4F7602CE3CB2200C93913 /* ShippingAddressModel.swift */; };
+		80D4F7642CE3CB4E00C93913 /* ShippingAddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D4F7632CE3CB4E00C93913 /* ShippingAddressViewModel.swift */; };
 		80E8C3B12C5AC3BD0087F009 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E8C3B02C5AC3BD0087F009 /* AppDelegate.swift */; };
 		80E8C3B32C5AC3BD0087F009 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E8C3B22C5AC3BD0087F009 /* SceneDelegate.swift */; };
 		80E8C3B52C5AC3BD0087F009 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E8C3B42C5AC3BD0087F009 /* ViewController.swift */; };
@@ -293,6 +295,8 @@
 		80D4934D2CE2657D000BE84C /* BagProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BagProduct.swift; path = Aam/Modules/Payment/VCs/bagProduct/Model/BagProduct.swift; sourceTree = SOURCE_ROOT; };
 		80D4934F2CE266D4000BE84C /* UIViewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIViewcontroller.swift; path = Aam/Extensions/UIViewcontroller.swift; sourceTree = SOURCE_ROOT; };
 		80D493522CE27002000BE84C /* ProductBagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProductBagViewModel.swift; path = AAM/Extensions/ProductBagViewModel.swift; sourceTree = SOURCE_ROOT; };
+		80D4F7602CE3CB2200C93913 /* ShippingAddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingAddressModel.swift; sourceTree = "<group>"; };
+		80D4F7632CE3CB4E00C93913 /* ShippingAddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingAddressViewModel.swift; sourceTree = "<group>"; };
 		80E8C3AD2C5AC3BD0087F009 /* AAM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AAM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80E8C3B02C5AC3BD0087F009 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80E8C3B22C5AC3BD0087F009 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -577,6 +581,8 @@
 		802208992CD95CC500F2225A /* Address */ = {
 			isa = PBXGroup;
 			children = (
+				80D4F7622CE3CB4000C93913 /* ViewModel */,
+				80D4F75F2CE3CB1600C93913 /* Model */,
 				802208B82CDA7D1000F2225A /* SelectShippingAddressVC.swift */,
 				8022089A2CD95CCD00F2225A /* Cell */,
 			);
@@ -787,6 +793,22 @@
 			isa = PBXGroup;
 			children = (
 				80D493522CE27002000BE84C /* ProductBagViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		80D4F75F2CE3CB1600C93913 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				80D4F7602CE3CB2200C93913 /* ShippingAddressModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		80D4F7622CE3CB4000C93913 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				80D4F7632CE3CB4E00C93913 /* ShippingAddressViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1122,6 +1144,7 @@
 				8013C76F2C751539003AA5A3 /* ProductSizeTblCell.swift in Sources */,
 				8013C77B2C75158C003AA5A3 /* ProductRatingTblCell.swift in Sources */,
 				04ED9D5D2C872B4000C2D961 /* ExpandableTblCell.swift in Sources */,
+				80D4F7642CE3CB4E00C93913 /* ShippingAddressViewModel.swift in Sources */,
 				8022089D2CD95CDE00F2225A /* AddressTblCell.swift in Sources */,
 				8021AFB72C5BDDAF00A66611 /* Constants.swift in Sources */,
 				80B320492C61234A00359714 /* AuthenticationViewModel.swift in Sources */,
@@ -1194,6 +1217,7 @@
 				0414EA162C7F36EC000201E0 /* LocalStorage.swift in Sources */,
 				802208A52CD9609900F2225A /* ContinueBtnCell.swift in Sources */,
 				8021AFAB2C5BBF6000A66611 /* onBoardingVC.swift in Sources */,
+				80D4F7612CE3CB2200C93913 /* ShippingAddressModel.swift in Sources */,
 				04C1835F2C91762600FDB170 /* AddProductViewModel.swift in Sources */,
 				80B704272CD9377200A78989 /* ProductBagModel.swift in Sources */,
 				04ED9D592C87294100C2D961 /* ProductNameAndDescTblCell.swift in Sources */,

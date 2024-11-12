@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -157,12 +157,21 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eQJ-ku-IZW">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="307"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="   "/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="eQJ-ku-IZW" firstAttribute="leading" secondItem="o9x-pJ-wBL" secondAttribute="leading" id="1tV-6b-GdD"/>
+                            <constraint firstAttribute="trailing" secondItem="eQJ-ku-IZW" secondAttribute="trailing" id="5Tm-wI-LbK"/>
                             <constraint firstItem="tgt-I8-iC2" firstAttribute="top" secondItem="o9x-pJ-wBL" secondAttribute="top" constant="20" id="9In-Lo-8r0"/>
                             <constraint firstAttribute="trailing" secondItem="tgt-I8-iC2" secondAttribute="trailing" constant="20" id="Eq4-qX-iVd"/>
+                            <constraint firstItem="eQJ-ku-IZW" firstAttribute="top" secondItem="o9x-pJ-wBL" secondAttribute="top" id="Spt-Ho-3Xu"/>
                             <constraint firstAttribute="bottom" secondItem="gmI-tZ-ryu" secondAttribute="bottom" constant="20" id="Stb-zb-qeu"/>
+                            <constraint firstAttribute="bottom" secondItem="eQJ-ku-IZW" secondAttribute="bottom" id="fF9-Cm-pFF"/>
                             <constraint firstAttribute="trailing" secondItem="gmI-tZ-ryu" secondAttribute="trailing" constant="20" id="mq1-Zs-rUU"/>
                             <constraint firstItem="tgt-I8-iC2" firstAttribute="leading" secondItem="o9x-pJ-wBL" secondAttribute="leading" constant="20" id="rX6-iW-pZv"/>
                             <constraint firstItem="gmI-tZ-ryu" firstAttribute="top" secondItem="tgt-I8-iC2" secondAttribute="bottom" constant="12" id="u5t-F7-b1D"/>
@@ -178,7 +187,16 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <point key="canvasLocation" x="211" y="55"/>
+            <connections>
+                <outlet property="btnRadioToSelectShippingAddress" destination="eQJ-ku-IZW" id="AwE-Hz-XfF"/>
+                <outlet property="imgRadio" destination="G0S-Eq-3V1" id="yDz-Fk-Nza"/>
+                <outlet property="lblShippingAddress" destination="CaC-RN-7jc" id="eLB-HB-EYA"/>
+                <outlet property="lblShippingAddressTitle" destination="Mdq-5o-keF" id="YGf-em-XWS"/>
+                <outlet property="lblShippingCountry" destination="Int-7f-eUG" id="Nze-OP-Ict"/>
+                <outlet property="lblShippingUserName" destination="ghn-ml-B9v" id="0HD-G8-6cg"/>
+                <outlet property="lblShippingZipCode" destination="l8o-42-GYd" id="CJa-r3-O0l"/>
+            </connections>
+            <point key="canvasLocation" x="210.68702290076334" y="54.577464788732399"/>
         </tableViewCell>
     </objects>
     <resources>

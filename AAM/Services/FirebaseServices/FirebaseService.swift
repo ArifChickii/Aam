@@ -474,6 +474,7 @@ extension FirebaseService {
             }
         }
 }
+
 extension FirebaseService {
     
     // MARK: - Shipping Address Methods
@@ -510,6 +511,41 @@ extension FirebaseService {
             }
         } catch let error {
             completion(.failure(error))
+        }
+    }
+    
+    /// Fetches all shipping addresses for the current user from Firebase.
+    /// - Parameter completion: Completion handler with a result.
+    func fetchShippingAddresses(completion: @escaping (Result<[ShippingAddress], Error>) -> Void) {
+        guard let userId = auth.currentUser?.uid else {
+            completion(.failure(NSError(domain: "FirebaseService", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not logged in"])))
+            return
+        }
+        
+        let userAddressesRef = db.collection("users").document(userId).collection("shippingAddresses")
+        
+        userAddressesRef.getDocuments { snapshot, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            var addresses: [ShippingAddress] = []
+            if let documents = snapshot?.documents {
+                for document in documents {
+                    do {
+                        var address = try document.data(as: ShippingAddress.self)
+                        address.id = document.documentID
+                        addresses.append(address)
+                    } catch {
+                        print("Error decoding address: \(error)")
+                        // Handle decoding error if necessary
+                    }
+                }
+                completion(.success(addresses))
+            } else {
+                completion(.success([]))
+            }
         }
     }
 }

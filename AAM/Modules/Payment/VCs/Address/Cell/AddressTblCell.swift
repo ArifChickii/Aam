@@ -8,16 +8,37 @@
 import UIKit
 
 class AddressTblCell: UITableViewCell {
+    @IBOutlet weak var lblShippingAddressTitle: UILabel!
+    @IBOutlet weak var lblShippingAddress: UILabel!
+    @IBOutlet weak var lblShippingUserName: UILabel!
+    @IBOutlet weak var lblShippingZipCode: UILabel!
+    @IBOutlet weak var lblShippingCountry: UILabel!
+    @IBOutlet weak var imgRadio: UIImageView!
+    @IBOutlet weak var btnRadioToSelectShippingAddress: UIButton!
+    
     static let identifier = "AddressTblCell"
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        btnRadioToSelectShippingAddress.addTarget(self, action: #selector(radioButtonTapped), for: .touchUpInside)
     }
     
+    /// Configures the cell with a `ShippingAddress`.
+    func configure(with address: ShippingAddress, isSelected: Bool) {
+        lblShippingAddressTitle.text = address.address
+        lblShippingUserName.text = address.fullName
+        lblShippingZipCode.text = "Zip Code: \(address.postalCode)"
+        lblShippingCountry.text = "\(address.city), \(address.country)"
+        lblShippingAddress.text = "Flat/Block No: \(address.flatOrBlockNo)"
+        
+        // Update radio button image
+        imgRadio.image = isSelected ? UIImage(named: "radio_selected") : UIImage(named: "radio_unselected")
+    }
+    
+    @objc private func radioButtonTapped() {
+        // This method can be used if you prefer to handle selection via the button
+        // Otherwise, selection is handled in didSelectRowAt
+    }
 }
+
