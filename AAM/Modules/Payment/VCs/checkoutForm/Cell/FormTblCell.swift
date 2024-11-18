@@ -16,7 +16,7 @@ class FormTblCell: UITableViewCell {
     static let identifier = "FormTblCell"
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var txt: UITextField!
-    
+    @IBOutlet weak var viewTxt: UIView!
     weak var delegate: FormTblCellDelegate?
     
     override func awakeFromNib() {
@@ -27,8 +27,8 @@ class FormTblCell: UITableViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        txt.layer.borderWidth = 0
-        txt.layer.borderColor = UIColor.clear.cgColor
+        viewTxt.layer.borderWidth = 0
+        viewTxt.layer.borderColor = UIColor.clear.cgColor
     }
     
     /// Configures the cell with a `ProductFormModel`.
@@ -41,11 +41,11 @@ class FormTblCell: UITableViewCell {
     /// Sets validation error state.
     func setValidationError(_ hasError: Bool) {
         if hasError {
-            txt.layer.borderWidth = 1
-            txt.layer.borderColor = UIColor.red.cgColor
+            viewTxt.layer.borderWidth = 1
+            viewTxt.layer.borderColor = UIColor.red.cgColor
         } else {
-            txt.layer.borderWidth = 0
-            txt.layer.borderColor = UIColor.clear.cgColor
+            viewTxt.layer.borderWidth = 0
+            viewTxt.layer.borderColor = UIColor.clear.cgColor
         }
     }
     
@@ -53,4 +53,5 @@ class FormTblCell: UITableViewCell {
         delegate?.formTblCell(self, didUpdateText: textField.text)
     }
 }
+
 
