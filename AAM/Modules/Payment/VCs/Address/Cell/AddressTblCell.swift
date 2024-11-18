@@ -33,8 +33,11 @@ class AddressTblCell: UITableViewCell {
         lblShippingAddress.text = "Flat/Block No: \(address.flatOrBlockNo)"
         
         // Update radio button image
-        imgRadio.image = isSelected ? UIImage(named: "radio_selected") : UIImage(named: "radio_unselected")
+        
+        let imageName = isSelected ? "ic_radio_selected" : "ic_radio_unselected"
+        imgRadio.image = UIImage(named: imageName)
     }
+    
     
     @objc private func radioButtonTapped() {
         // This method can be used if you prefer to handle selection via the button

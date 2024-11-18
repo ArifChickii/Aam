@@ -24,17 +24,17 @@ class SelectShippingAddressVC: UIViewController, Storyboarded {
     }
     
     private func setupViewModelCallbacks() {
-        viewModel.onAddressesFetched = { [weak self] in
-            self?.addressTblView.reloadData()
-            // Hide loader if any
-            self?.hideActivityIndicator()
-        }
-        
-        viewModel.onError = { [weak self] errorMessage in
-            self?.hideActivityIndicator()
-            self?.showAlert(title: "Error", message: errorMessage)
-        }
-    }
+          viewModel.onAddressesFetched = { [weak self] in
+              self?.addressTblView.reloadData()
+              // Hide loader if any
+              self?.hideLoadingIndicator()
+          }
+
+          viewModel.onError = { [weak self] errorMessage in
+              self?.hideLoadingIndicator()
+              self?.showAlert(title: "Error", message: errorMessage)
+          }
+      }
     
     private func fetchShippingAddresses() {
         // Show loader
@@ -104,25 +104,39 @@ extension SelectShippingAddressVC: UITableViewDelegate, UITableViewDataSource {
         return count
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: AddressTblCell.identifier, for: indexPath) as? AddressTblCell else {
             return UITableViewCell()
         }
-        
+
         let address = viewModel.address(at: indexPath.row)
-        let isSelected = address.id == viewModel.selectedAddressId
+        let isSelected = address.makeDefaultAddress
         cell.configure(with: address, isSelected: isSelected)
-        
+
         return cell
     }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Update selection
-        viewModel.selectAddress(at: indexPath.row)
-        tableView.reloadData()
+        // Show loader
+        showLoadingIndicator()
+
+        // Update selection in ViewModel
+        viewModel.selectAddress(at: indexPath.row) { [weak self] success in
+            DispatchQueue.main.async {
+                // Hide loader
+                self?.hideLoadingIndicator()
+
+                if success {
+                    // Reload table view to reflect changes
+                    self?.addressTblView.reloadData()
+                } else {
+                    // Handle error if needed
+                    self?.showAlert(title: "Error", message: "Failed to update default address.")
+                }
+            }
+        }
     }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }

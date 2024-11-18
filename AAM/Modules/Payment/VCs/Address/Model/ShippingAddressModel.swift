@@ -34,3 +34,4 @@ struct ShippingAddress: Codable {
         self.isSelected = isSelected
     }
 }
+

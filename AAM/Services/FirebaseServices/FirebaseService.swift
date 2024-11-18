@@ -572,3 +572,37 @@ extension FirebaseService {
     }
 
 }
+extension FirebaseService {
+
+    // MARK: - Update Shipping Address Method
+
+    /// Updates an existing shipping address in Firebase.
+    /// - Parameters:
+    ///   - address: The `ShippingAddress` object to update.
+    ///   - completion: Completion handler with a result.
+    func updateShippingAddress(address: ShippingAddress, completion: @escaping (Result<Void, Error>) -> Void) {
+        guard let userId = auth.currentUser?.uid else {
+            completion(.failure(NSError(domain: "FirebaseService", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not logged in"])))
+            return
+        }
+        guard let addressId = address.id else {
+            completion(.failure(NSError(domain: "FirebaseService", code: -1, userInfo: [NSLocalizedDescriptionKey: "Address ID not found"])))
+            return
+        }
+
+        let addressRef = db.collection("users").document(userId).collection("shippingAddresses").document(addressId)
+
+        do {
+            let addressData = try Firestore.Encoder().encode(address)
+            addressRef.setData(addressData) { error in
+                if let error = error {
+                    completion(.failure(error))
+                } else {
+                    completion(.success(()))
+                }
+            }
+        } catch let error {
+            completion(.failure(error))
+        }
+    }
+}
