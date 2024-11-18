@@ -302,6 +302,9 @@
                                                 <color key="value" name="mainThemeColor"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="addAddress" destination="fyt-Z5-eJA" eventType="touchUpInside" id="4NG-FU-pIf"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2SQ-rD-1Z8">
                                         <rect key="frame" x="0.0" y="62" width="333" height="50"/>

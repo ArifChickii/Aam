@@ -38,3 +38,40 @@ extension UIViewController {
         })
     }
 }
+
+
+extension UIViewController {
+    private static let loadingIndicatorTag = 999999  // A unique tag for the loading indicator
+
+    /// Displays a loading indicator over the entire view controller.
+    func showLoadingIndicator() {
+        // Check if the loading indicator is already presented
+        if let _ = self.view.viewWithTag(UIViewController.loadingIndicatorTag) {
+            return
+        }
+
+        // Create a semi-transparent overlay
+        let overlay = UIView(frame: self.view.bounds)
+        overlay.backgroundColor = UIColor(white: 0.0, alpha: 0.5)
+        overlay.tag = UIViewController.loadingIndicatorTag
+
+        // Create and configure the activity indicator
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.center = overlay.center
+        activityIndicator.startAnimating()
+
+        // Add the activity indicator to the overlay
+        overlay.addSubview(activityIndicator)
+
+        // Add the overlay to the view controller's view
+        self.view.addSubview(overlay)
+    }
+
+    /// Hides the loading indicator.
+    func hideLoadingIndicator() {
+        // Find the overlay by its unique tag and remove it
+        if let overlay = self.view.viewWithTag(UIViewController.loadingIndicatorTag) {
+            overlay.removeFromSuperview()
+        }
+    }
+}

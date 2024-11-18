@@ -57,6 +57,10 @@ class SelectShippingAddressVC: UIViewController, Storyboarded {
         Router.pop(from: self)
     }
     
+    @IBAction func addAddress(){
+        Router.MoveToCheckOutFormVC(from: self)
+    }
+    
     @IBAction func continueAction() {
         // Proceed with selected address
         if let selectedAddressId = viewModel.selectedAddressId {

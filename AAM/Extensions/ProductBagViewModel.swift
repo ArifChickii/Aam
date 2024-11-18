@@ -73,5 +73,20 @@ class ProductBagViewModel {
             }
         }
     }
+    
+    
+    /// Checks if the user has any shipping addresses saved.
+        /// - Parameter completion: Closure returning a Bool indicating if addresses exist.
+        func userHasShippingAddresses(completion: @escaping (Bool) -> Void) {
+            productService.fetchShippingAddresses { result in
+                switch result {
+                case .success(let addresses):
+                    completion(!addresses.isEmpty)
+                case .failure(_):
+                    // Handle the error as needed.
+                    completion(false)
+                }
+            }
+        }
 }
 

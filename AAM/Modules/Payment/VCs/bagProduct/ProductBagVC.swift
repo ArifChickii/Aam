@@ -50,8 +50,26 @@ class ProductBagVC: UIViewController, Storyboarded {
     }
     
     @IBAction func proceedToCheckout() {
-        Router.MoveToCheckOutFormVC(from: self)
+        showLoadingIndicator()
+
+        // Use the ViewModel to check for saved shipping addresses
+        viewModel.userHasShippingAddresses { [weak self] hasAddresses in
+            DispatchQueue.main.async {
+                // Hide the loading indicator
+                self?.hideLoadingIndicator()
+                guard let self = self else { return }
+
+                if hasAddresses {
+                    // Addresses exist, navigate to SelectShippingAddressVC
+                    Router.MoveToSelectShippingAddress(from: self)
+                } else {
+                    // No addresses found, navigate to CheckoutFormVC to add a new address
+                    Router.MoveToCheckOutFormVC(from: self)
+                }
+            }
+        }
     }
+
 }
 
 // MARK: - UITableViewDelegate & UITableViewDataSource
