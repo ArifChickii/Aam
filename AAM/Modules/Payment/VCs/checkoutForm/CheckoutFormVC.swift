@@ -76,7 +76,7 @@ class CheckoutFormVC: UIViewController, Storyboarded {
         let city = viewModel.getValueForTitle("City") ?? ""
         let makeDefaultAddress = viewModel.getBoolValueForTitle("Make this my default address")
         let sameBillingAddress = viewModel.getBoolValueForTitle("Same billing address")
-        
+
         let shippingAddress = ShippingAddress(
             fullName: fullName,
             address: address,
@@ -87,25 +87,20 @@ class CheckoutFormVC: UIViewController, Storyboarded {
             makeDefaultAddress: makeDefaultAddress,
             sameBillingAddress: sameBillingAddress
         )
-        
+
         // Show loader if needed
-        // e.g., showActivityIndicator()
-        
-        
+        showLoadingIndicator()
+
         // Save to Firebase
         let firebaseService = FirebaseService()
         firebaseService.saveShippingAddress(address: shippingAddress) { [weak self] result in
             DispatchQueue.main.async {
-                // Hide loader if needed
-                // e.g., self?.hideActivityIndicator()
-                guard let self = self else {
-//                               self?.hideActivityIndicator()
-                               return
-                           }
+                // Hide loader
+                self?.hideLoadingIndicator()
+                guard let self = self else { return }
                 switch result {
                 case .success():
-                    // Move to next screen
-                    
+                    // Move to SelectShippingAddressVC
                     Router.MoveToSelectShippingAddress(from: self)
                 case .failure(let error):
                     // Show error
@@ -116,14 +111,14 @@ class CheckoutFormVC: UIViewController, Storyboarded {
     }
     
     private func showAlert(title: String, message: String) {
-        let alertController = UIAlertController(title: title,
-                                                message: message,
-                                                preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK",
-                                     style: .default)
-        alertController.addAction(okAction)
-        present(alertController, animated: true)
-    }
+            let alertController = UIAlertController(title: title,
+                                                    message: message,
+                                                    preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK",
+                                         style: .default)
+            alertController.addAction(okAction)
+            present(alertController, animated: true)
+        }
 }
 
 // MARK: - UITableViewDelegate & UITableViewDataSource

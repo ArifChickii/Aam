@@ -480,28 +480,35 @@ extension FirebaseService {
     // MARK: - Shipping Address Methods
     
     /// Saves a shipping address for the current user to Firebase.
-    /// - Parameters:
-    ///   - address: The `ShippingAddress` object to save.
-    ///   - completion: Completion handler with a result.
+        /// - Parameters:
+        ///   - address: The `ShippingAddress` object to save.
+        ///   - completion: Completion handler with a result.
     func saveShippingAddress(address: ShippingAddress, completion: @escaping (Result<Void, Error>) -> Void) {
         guard let userId = auth.currentUser?.uid else {
             completion(.failure(NSError(domain: "FirebaseService", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not logged in"])))
             return
         }
         
+        let userAddressesRef = db.collection("users").document(userId).collection("shippingAddresses")
+        
+        // Use auto-generated ID unless it's the default address
+        let addressRef: DocumentReference
+        if address.makeDefaultAddress {
+            addressRef = userAddressesRef.document("default")
+        } else {
+            addressRef = userAddressesRef.document() // Auto-generated ID
+        }
+        
+        // Update the address ID within the address object
+        var addressWithID = address
+        addressWithID.id = addressRef.documentID
+        
         do {
-            let addressData = try Firestore.Encoder().encode(address)
+            var addressData = try Firestore.Encoder().encode(addressWithID)
+            // Include the document ID in the data
+            addressData["id"] = addressRef.documentID
             
-            let userAddressesRef = db.collection("users").document(userId).collection("shippingAddresses")
-            
-            // If the address is marked as default, we can store it with a specific document ID
-            let addressRef: DocumentReference
-            if address.makeDefaultAddress {
-                addressRef = userAddressesRef.document("default")
-            } else {
-                addressRef = userAddressesRef.document() // Auto-generated ID
-            }
-            
+            // Save the address data
             addressRef.setData(addressData) { error in
                 if let error = error {
                     completion(.failure(error))
@@ -513,23 +520,25 @@ extension FirebaseService {
             completion(.failure(error))
         }
     }
+
+
     
-    /// Fetches all shipping addresses for the current user from Firebase.
+     /// Fetches all shipping addresses for the current user from Firebase.
     /// - Parameter completion: Completion handler with a result.
     func fetchShippingAddresses(completion: @escaping (Result<[ShippingAddress], Error>) -> Void) {
         guard let userId = auth.currentUser?.uid else {
             completion(.failure(NSError(domain: "FirebaseService", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not logged in"])))
             return
         }
-        
+
         let userAddressesRef = db.collection("users").document(userId).collection("shippingAddresses")
-        
+
         userAddressesRef.getDocuments { snapshot, error in
             if let error = error {
                 completion(.failure(error))
                 return
             }
-            
+
             var addresses: [ShippingAddress] = []
             if let documents = snapshot?.documents {
                 for document in documents {
@@ -548,6 +557,7 @@ extension FirebaseService {
             }
         }
     }
+    
     
     
     func checkProductInBag(productId: String, completion: @escaping (Bool) -> Void) {
