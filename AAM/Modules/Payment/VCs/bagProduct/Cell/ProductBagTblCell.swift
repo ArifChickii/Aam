@@ -63,7 +63,7 @@ class ProductBagTblCell: UITableViewCell {
         let product = bagProduct.product
         lblProductTitle.text = product.title ?? ""
         lblCounter.text = "\(bagProduct.count)"
-        lblPrice.text = product.price ?? ""
+        lblPrice.text =  "$\(product.price ?? "")"
         
         // Assuming colors and sizes are arrays
         lblColorAndSize.text = "Color: \(product.colors?.first ?? "") Size: \(product.sizes?.first ?? "")"

@@ -157,7 +157,7 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$22.00" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="fJA-uW-CRm">
-                        <rect key="frame" x="377.33333333333331" y="85.666666666666671" width="48.666666666666686" height="20.333333333333329"/>
+                        <rect key="frame" x="132" y="80.666666666666671" width="48.666666666666657" height="20.333333333333329"/>
                         <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="14"/>
                         <color key="textColor" name="171717"/>
                         <nil key="highlightedColor"/>
@@ -169,15 +169,20 @@
                     <constraint firstItem="9xd-zw-4Sd" firstAttribute="leading" secondItem="zmw-Ly-Iog" secondAttribute="trailing" constant="12" id="6Ed-E7-oQP"/>
                     <constraint firstAttribute="trailing" secondItem="sox-yg-6IO" secondAttribute="trailing" constant="20" id="DKO-ny-5cd"/>
                     <constraint firstItem="9xd-zw-4Sd" firstAttribute="top" secondItem="zmw-Ly-Iog" secondAttribute="top" id="DaY-f6-R2g"/>
-                    <constraint firstAttribute="trailing" secondItem="fJA-uW-CRm" secondAttribute="trailing" constant="20" id="Huh-UH-KLg"/>
                     <constraint firstItem="sox-yg-6IO" firstAttribute="leading" secondItem="9xd-zw-4Sd" secondAttribute="trailing" constant="20" id="J92-OX-iaJ"/>
                     <constraint firstItem="zmw-Ly-Iog" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="MOz-cd-tf1"/>
                     <constraint firstItem="30Q-pj-MB6" firstAttribute="top" secondItem="9xd-zw-4Sd" secondAttribute="bottom" constant="6" id="OTm-jy-6oU"/>
-                    <constraint firstItem="fJA-uW-CRm" firstAttribute="centerY" secondItem="ynA-NB-XYW" secondAttribute="centerY" id="QZL-kn-MiZ"/>
+                    <constraint firstItem="fJA-uW-CRm" firstAttribute="top" secondItem="30Q-pj-MB6" secondAttribute="bottom" constant="12" id="TCv-eg-ngg"/>
                     <constraint firstItem="ynA-NB-XYW" firstAttribute="top" secondItem="30Q-pj-MB6" secondAttribute="bottom" constant="12" id="gUb-pn-0Rn"/>
                     <constraint firstItem="ynA-NB-XYW" firstAttribute="leading" secondItem="30Q-pj-MB6" secondAttribute="leading" id="nYb-Vb-pea"/>
                     <constraint firstItem="30Q-pj-MB6" firstAttribute="leading" secondItem="9xd-zw-4Sd" secondAttribute="leading" id="r4z-Lw-4Sr"/>
+                    <constraint firstItem="fJA-uW-CRm" firstAttribute="leading" secondItem="30Q-pj-MB6" secondAttribute="leading" id="vsH-iH-g6O"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="subviews">
+                        <exclude reference="ynA-NB-XYW"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
