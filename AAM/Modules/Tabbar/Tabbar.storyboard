@@ -106,12 +106,22 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="sT6-Li-bBM" kind="relationship" relationship="rootViewController" id="jVT-L2-OqZ"/>
+                        <segue destination="bHu-Zg-Id2" kind="relationship" relationship="rootViewController" id="gN3-x7-ODF"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iQn-aQ-xq0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1312" y="811"/>
+        </scene>
+        <!--ProductBagVC-->
+        <scene sceneID="4q2-RL-9od">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Payment" referencedIdentifier="ProductBagVC" id="bHu-Zg-Id2" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="3tp-vK-O2I"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tKY-iu-OXU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2265" y="688"/>
         </scene>
         <!--Settings-->
         <scene sceneID="DiO-hd-Idt">
@@ -157,38 +167,10 @@
             </objects>
             <point key="canvasLocation" x="195" y="737"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="TKR-5h-ypC">
-            <objects>
-                <viewController id="sT6-Li-bBM" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="CfE-N0-K0p">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming soon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YBK-Ir-oIP">
-                                <rect key="frame" x="146.33333333333334" y="415.66666666666669" width="100.66666666666666" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="biD-19-QGp"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="YBK-Ir-oIP" firstAttribute="centerY" secondItem="CfE-N0-K0p" secondAttribute="centerY" id="R1Q-Mf-5MB"/>
-                            <constraint firstItem="YBK-Ir-oIP" firstAttribute="centerX" secondItem="CfE-N0-K0p" secondAttribute="centerX" id="fo8-XL-inb"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="fyW-6o-1kW"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9PC-Mh-YIh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2193" y="811"/>
-        </scene>
     </scenes>
     <resources>
-        <image name="ic_add_selected" width="50" height="50"/>
-        <image name="ic_add_unselected" width="50" height="50"/>
+        <image name="ic_add_selected" width="24" height="24"/>
+        <image name="ic_add_unselected" width="24" height="24"/>
         <image name="ic_cart_selected" width="24.333333969116211" height="24"/>
         <image name="ic_cart_unselected" width="24.333333969116211" height="24"/>
         <image name="ic_home_selected" width="24.333333969116211" height="24"/>
