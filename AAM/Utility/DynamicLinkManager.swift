@@ -77,11 +77,14 @@ class DynamicLinkManager {
     
     // Create dynamic link (unchanged)
     func createDynamicLink(for product: ProductInfo, completion: @escaping (URL?) -> Void) {
-        guard let productID = product.id.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
-            print("❌ Invalid product ID")
-            completion(nil)
-            return
-        }
+        if let id = product.id{
+            guard let productID = id.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+                print("❌ Invalid product ID")
+                completion(nil)
+                return
+            }
+        
+        
         
         // Create deep link URL with query parameter for better parsing
         let linkString = "\(Constants.baseURL)/product?id=\(productID)"
@@ -136,6 +139,7 @@ class DynamicLinkManager {
             
             completion(shortURL)
         }
+    }
     }
 }
 

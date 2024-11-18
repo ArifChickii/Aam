@@ -21,7 +21,7 @@ struct Product: Codable {
 
 
 struct ProductInfo: Codable {
-    var id: String
+    var id: String?
     let images: [String]?
     let sizes: [String]?
     let colors: [String]?

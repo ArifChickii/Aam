@@ -548,4 +548,17 @@ extension FirebaseService {
             }
         }
     }
+    
+    
+    func checkProductInBag(productId: String, completion: @escaping (Bool) -> Void) {
+        let productRef = db.collection("BagProducts").document(productId)
+        productRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                completion(true)
+            } else {
+                completion(false)
+            }
+        }
+    }
+
 }

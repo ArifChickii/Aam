@@ -10,12 +10,12 @@ import SDWebImage
 
 class ProductDetailVC: UIViewController, Storyboarded {
     // MARK: - Properties
-    private let productService = FirebaseService()
     var viewModel: ProductDetailViewModel?
     var productDetailObj: ProductInfo?
 
     @IBOutlet weak var productTblView: UITableView!
     
+        
     // Add loading state
     private var isLoading = false {
         didSet {
@@ -99,6 +99,7 @@ class ProductDetailVC: UIViewController, Storyboarded {
         present(loadingVC, animated: true)
         
         // Fetch product using FirebaseService
+        let productService = FirebaseService()
         productService.fetchProduct(withId: productId) { [weak self] product in
             DispatchQueue.main.async {
                 // Dismiss loading indicator
@@ -124,10 +125,14 @@ class ProductDetailVC: UIViewController, Storyboarded {
         self.productDetailObj = product
         self.viewModel = ProductDetailViewModel(product: product)
         self.productTblView.isHidden = false
-        self.productTblView.reloadData()
         
-        // Optionally, scroll to top to ensure the product details are visible
-        self.productTblView.setContentOffset(.zero, animated: true)
+        // Check if product is in bag using ViewModel
+        self.viewModel?.checkIfProductIsInBag { [weak self] isInBag in
+            DispatchQueue.main.async {
+                // Reload the table view to update the Add to Bag button
+                self?.productTblView.reloadData()
+            }
+        }
     }
     
     // MARK: - Action Methods
@@ -160,12 +165,14 @@ class ProductDetailVC: UIViewController, Storyboarded {
 
 extension ProductDetailVC: UITableViewDelegate, UITableViewDataSource {
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard viewModel != nil else { return 0 }
         return 7
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
         // Safety check for viewModel
         guard let viewModel = viewModel else {
             return UITableViewCell()
@@ -212,6 +219,8 @@ extension ProductDetailVC: UITableViewDelegate, UITableViewDataSource {
             cell.btnAddToBag.removeTarget(nil, action: nil, for: .allEvents)
             cell.btnAddToBag.tag = indexPath.row
             cell.btnAddToBag.addTarget(self, action: #selector(addToBagBtnTapped(_:)), for: .touchUpInside)
+            // Update the button based on ViewModel's state
+            cell.updateAddToBagButton(isInBag: viewModel.isProductInBag)
             return cell
             
         case 5:
@@ -245,12 +254,9 @@ extension ProductDetailVC: UITableViewDelegate, UITableViewDataSource {
             from: self
         )
     }
+    
     @objc func addToBagBtnTapped(_ sender: UIButton) {
-        guard let product = productDetailObj else {
-            print("❌ No product available to add to bag")
-            showErrorAlert(message: "No product available to add to bag.")
-            return
-        }
+        guard let viewModel = viewModel else { return }
         
         // Show loader
         let loadingVC = UIAlertController(title: nil, message: "Adding to Bag...", preferredStyle: .alert)
@@ -261,21 +267,18 @@ extension ProductDetailVC: UITableViewDelegate, UITableViewDataSource {
         loadingVC.view.addSubview(loadingIndicator)
         present(loadingVC, animated: true)
         
-        // Add product to bag
-        productService.addProductToBag(product: product) { [weak self] result in
+        // Add product to bag via ViewModel
+        viewModel.addToBag { [weak self] result in
             DispatchQueue.main.async {
                 // Dismiss loader
                 loadingVC.dismiss(animated: true) {
                     guard let self = self else { return }
                     switch result {
                     case .success:
-                        // Show success message
-                        DispatchQueue.main.async {
-                            self.showToast(message: "Product added to bag")
-                            Router.MoveToProductsBagVC(from: self)
-                        }
-                        
-                        
+                        // Show success message and update UI
+                        self.showToast(message: "Product added to bag")
+                        // Reload the Add to Bag cell to update its state
+                        self.productTblView.reloadRows(at: [IndexPath(row: 4, section: 0)], with: .none)
                     case .failure(let error):
                         // Show error message
                         self.showErrorAlert(message: "Failed to add product to bag: \(error.localizedDescription)")
@@ -284,6 +287,7 @@ extension ProductDetailVC: UITableViewDelegate, UITableViewDataSource {
             }
         }
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:
