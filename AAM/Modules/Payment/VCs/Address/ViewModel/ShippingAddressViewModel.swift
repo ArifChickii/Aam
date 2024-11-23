@@ -103,7 +103,29 @@ class SelectShippingAddressViewModel {
             }
         }
     }
+
+    /// Deletes an address at a specific index
+    func deleteAddress(at index: Int, completion: @escaping (Bool) -> Void) {
+        guard index < addresses.count else {
+            completion(false)
+            return
+        }
+        let addressToDelete = addresses[index]
+        firebaseService.deleteShippingAddress(addressId: addressToDelete.id ?? "") { [weak self] result in
+            switch result {
+            case .success():
+                // Remove the address from local array
+                self?.addresses.remove(at: index)
+                // Update selectedAddressId if needed
+                if addressToDelete.id == self?.selectedAddressId {
+                    self?.selectedAddressId = self?.addresses.first?.id
+                }
+                completion(true)
+            case .failure(let error):
+                self?.onError?(error.localizedDescription)
+                completion(false)
+            }
+        }
+    }
 }
-
-
 

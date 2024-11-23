@@ -605,4 +605,27 @@ extension FirebaseService {
             completion(.failure(error))
         }
     }
+    
+    
+    
+    // MARK: - Delete Shipping Address Method
+
+        /// Deletes a shipping address from Firebase.
+        /// - Parameters:
+        ///   - addressId: The ID of the address to delete.
+        ///   - completion: Completion handler with a result.
+        func deleteShippingAddress(addressId: String, completion: @escaping (Result<Void, Error>) -> Void) {
+            guard let userId = auth.currentUser?.uid else {
+                completion(.failure(NSError(domain: "FirebaseService", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not logged in"])))
+                return
+            }
+            let addressRef = db.collection("users").document(userId).collection("shippingAddresses").document(addressId)
+            addressRef.delete { error in
+                if let error = error {
+                    completion(.failure(error))  // Return failure if there's an error
+                } else {
+                    completion(.success(()))  // Success, address deleted
+                }
+            }
+        }
 }

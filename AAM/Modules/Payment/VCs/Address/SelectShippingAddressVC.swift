@@ -38,7 +38,7 @@ class SelectShippingAddressVC: UIViewController, Storyboarded {
     
     private func fetchShippingAddresses() {
         // Show loader
-        showActivityIndicator()
+        showLoadingIndicator()
         viewModel.fetchShippingAddresses()
     }
     
@@ -71,14 +71,7 @@ class SelectShippingAddressVC: UIViewController, Storyboarded {
             showAlert(title: "Error", message: "Please select a shipping address.")
         }
     }
-    
-    private func showActivityIndicator() {
-        // Implement your loader here
-    }
-    
-    private func hideActivityIndicator() {
-        // Hide your loader here
-    }
+
     
     private func showAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title,
@@ -93,7 +86,7 @@ class SelectShippingAddressVC: UIViewController, Storyboarded {
 
 // MARK: - UITableViewDelegate & UITableViewDataSource
 
-extension SelectShippingAddressVC: UITableViewDelegate, UITableViewDataSource {
+extension SelectShippingAddressVC: UITableViewDelegate, UITableViewDataSource, AddressTblCellDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -112,8 +105,9 @@ extension SelectShippingAddressVC: UITableViewDelegate, UITableViewDataSource {
         }
 
         let address = viewModel.address(at: indexPath.row)
-        let isSelected = address.makeDefaultAddress
+        let isSelected = address.id == viewModel.selectedAddressId
         cell.configure(with: address, isSelected: isSelected)
+        cell.delegate = self
 
         return cell
     }
@@ -133,6 +127,47 @@ extension SelectShippingAddressVC: UITableViewDelegate, UITableViewDataSource {
                 } else {
                     // Handle error if needed
                     self?.showAlert(title: "Error", message: "Failed to update default address.")
+                }
+            }
+        }
+    }
+    
+    // MARK: - AddressTblCellDelegate
+    
+    func addressTblCellDidTapDelete(_ cell: AddressTblCell) {
+        guard let indexPath = addressTblView.indexPath(for: cell) else { return }
+
+        // Show confirmation alert
+        let alertController = UIAlertController(title: "Delete Address", message: "Are you sure you want to delete this address?", preferredStyle: .alert)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [weak self] _ in
+            self?.deleteAddress(at: indexPath)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(deleteAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+    }
+
+    /// Deletes an address at a specific indexPath
+    private func deleteAddress(at indexPath: IndexPath) {
+        // Show loader
+        showLoadingIndicator()
+
+        viewModel.deleteAddress(at: indexPath.row) { [weak self] success in
+            DispatchQueue.main.async {
+                // Hide loader
+                self?.hideLoadingIndicator()
+
+                if success {
+                    // Remove the row from table view
+                    self?.addressTblView.deleteRows(at: [indexPath], with: .automatic)
+                    // Check if the deleted address was the selected one
+                    if self?.viewModel.selectedAddressId == nil, let firstAddress = self?.viewModel.addresses.first {
+                        self?.viewModel.selectedAddressId = firstAddress.id
+                        self?.addressTblView.reloadData()
+                    }
+                } else {
+                    self?.showAlert(title: "Error", message: "Failed to delete address.")
                 }
             }
         }
