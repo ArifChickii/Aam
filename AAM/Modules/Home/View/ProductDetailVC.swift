@@ -194,6 +194,10 @@ extension ProductDetailVC: UITableViewDelegate, UITableViewDataSource {
             cell.btnShare.removeTarget(nil, action: nil, for: .allEvents)
             cell.btnShare.tag = indexPath.row
             cell.btnShare.addTarget(self, action: #selector(shareBtnTapped(_:)), for: .touchUpInside)
+            // Configure delete button
+            cell.btnDelete.removeTarget(nil, action: nil, for: .allEvents)
+            cell.btnDelete.tag = indexPath.row
+            cell.btnDelete.addTarget(self, action: #selector(deleteBtnTapped(_:)), for: .touchUpInside)
             cell.configure(obj: viewModel.product)
             return cell
             
@@ -253,6 +257,45 @@ extension ProductDetailVC: UITableViewDelegate, UITableViewDataSource {
             sender: sender,
             from: self
         )
+    }
+    
+    @objc func deleteBtnTapped(_ sender: UIButton) {
+        // Show confirmation alert
+        let alert = UIAlertController(title: "Delete Product", message: "Are you sure you want to delete this product?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { [weak self] _ in
+            guard let self = self else { return }
+            self.performDeleteProduct()
+        }))
+        present(alert, animated: true)
+    }
+    
+    func performDeleteProduct() {
+        // Show loader
+        let loadingVC = UIAlertController(title: nil, message: "Deleting...", preferredStyle: .alert)
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = .medium
+        loadingIndicator.startAnimating()
+        loadingVC.view.addSubview(loadingIndicator)
+        present(loadingVC, animated: true)
+        
+        // Call deleteProduct on viewModel
+        viewModel?.deleteProduct { [weak self] result in
+            DispatchQueue.main.async {
+                loadingVC.dismiss(animated: true) {
+                    guard let self = self else { return }
+                    switch result {
+                    case .success():
+                        self.showToast(message: "Product deleted successfully")
+                        // Pop or dismiss the view controller
+                        self.navigationController?.popViewController(animated: true)
+                    case .failure(let error):
+                        self.showErrorAlert(message: "Failed to delete product: \(error.localizedDescription)")
+                    }
+                }
+            }
+        }
     }
     
     @objc func addToBagBtnTapped(_ sender: UIButton) {

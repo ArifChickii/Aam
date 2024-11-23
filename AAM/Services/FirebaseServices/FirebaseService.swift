@@ -201,19 +201,7 @@ class FirebaseService {
     
   
 
-        func deleteProduct(withId productId: String, completion: @escaping (Result<Void, Error>) -> Void) {
-            // Reference to the 'products' collection
-            let productRef = db.collection("Products").document(productId)
 
-            // Attempt to delete the document
-            productRef.delete { error in
-                if let error = error {
-                    completion(.failure(error))  // Return failure if there's an error
-                } else {
-                    completion(.success(()))  // Success, product deleted
-                }
-            }
-        }
     
 
     func fetchCategories(completion: @escaping ([ProductCategoryForDataRecieving]) -> Void) {
@@ -528,6 +516,20 @@ extension FirebaseService {
             }
         }
     }
+    func deleteProduct(withId productId: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        // Reference to the 'Products' collection
+        let productRef = db.collection("Products").document(productId)
+        
+        // Attempt to delete the document
+        productRef.delete { error in
+            if let error = error {
+                completion(.failure(error))  // Return failure if there's an error
+            } else {
+                completion(.success(()))  // Success, product deleted
+            }
+        }
+    }
+
 
 }
 extension FirebaseService {

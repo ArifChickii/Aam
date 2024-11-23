@@ -47,5 +47,14 @@ class ProductDetailViewModel {
             completion(result)
         }
     }
+    /// Deletes the product
+        /// - Parameter completion: Closure returning a Result indicating success or failure
+        func deleteProduct(completion: @escaping (Result<Void, Error>) -> Void) {
+            guard let productId = product.id else {
+                completion(.failure(NSError(domain: "ProductDetailViewModel", code: -1, userInfo: [NSLocalizedDescriptionKey: "Product ID not found"])))
+                return
+            }
+            productService.deleteProduct(withId: productId, completion: completion)
+        }
 }
 

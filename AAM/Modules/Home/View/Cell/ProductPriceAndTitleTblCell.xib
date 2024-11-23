@@ -33,16 +33,16 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="RSq-1o-ubS">
-                        <rect key="frame" x="0.0" y="8" width="90" height="22"/>
+                        <rect key="frame" x="0.0" y="8" width="101.33333333333333" height="22"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$34,00" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="g7r-Au-SPb">
-                                <rect key="frame" x="0.0" y="0.0" width="43" height="22"/>
+                                <rect key="frame" x="0.0" y="0.0" width="48.666666666666664" height="22"/>
                                 <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="14"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$44,00" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Cqc-Lb-LmL">
-                                <rect key="frame" x="47" y="0.0" width="43" height="22"/>
+                                <rect key="frame" x="52.666666666666671" y="0.0" width="48.666666666666671" height="22"/>
                                 <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="12"/>
                                 <color key="textColor" name="greyLabel_color"/>
                                 <nil key="highlightedColor"/>
@@ -53,33 +53,33 @@
                         </constraints>
                     </stackView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1xX-m5-AVt">
-                        <rect key="frame" x="53.333333333333336" y="18.666666666666668" width="30.333333333333336" height="1"/>
+                        <rect key="frame" x="60" y="18.666666666666668" width="34" height="1"/>
                         <color key="backgroundColor" name="greyLabel_color"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="TsI-kA-OCo"/>
                         </constraints>
                     </view>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dGQ-F3-TH8">
-                        <rect key="frame" x="240" y="7" width="82" height="24"/>
+                        <rect key="frame" x="270" y="7" width="52" height="24"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GxI-9G-2fX">
-                                <rect key="frame" x="0.0" y="0.0" width="22" height="24"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GxI-9G-2fX">
+                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="24"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="ic_like" title=" "/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8oe-as-k31">
-                                <rect key="frame" x="30" y="0.0" width="22" height="24"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="ic_message" title=" "/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ypr-QG-aSO">
-                                <rect key="frame" x="60" y="0.0" width="22" height="24"/>
+                                <rect key="frame" x="0.0" y="0.0" width="22" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="n1O-Ye-VGM"/>
                                     <constraint firstAttribute="width" constant="22" id="qBd-sU-7Fh"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="ic_share" title=" "/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8oe-as-k31">
+                                <rect key="frame" x="30" y="0.0" width="22" height="24"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="trash" title=" "/>
                             </button>
                         </subviews>
                     </stackView>
@@ -102,6 +102,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="btnDelete" destination="8oe-as-k31" id="3te-UO-9BQ"/>
                 <outlet property="btnShare" destination="Ypr-QG-aSO" id="ahK-EQ-vVp"/>
                 <outlet property="lblCutPrice" destination="Cqc-Lb-LmL" id="frZ-Fs-Gyp"/>
                 <outlet property="lblPrice" destination="g7r-Au-SPb" id="IwF-Wb-9VQ"/>
@@ -112,8 +113,8 @@
     </objects>
     <resources>
         <image name="ic_like" width="20" height="20"/>
-        <image name="ic_message" width="24" height="24"/>
         <image name="ic_share" width="24" height="24"/>
+        <image name="trash" width="20" height="20"/>
         <namedColor name="greyLabel_color">
             <color red="0.45500001311302185" green="0.45500001311302185" blue="0.45500001311302185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

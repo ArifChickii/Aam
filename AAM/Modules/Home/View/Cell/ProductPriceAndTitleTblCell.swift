@@ -13,6 +13,7 @@ class ProductPriceAndTitleTblCell: UITableViewCell {
     @IBOutlet weak var lblPrice: UILabel!
     @IBOutlet weak var lblCutPrice: UILabel!
     @IBOutlet weak var btnShare: UIButton!
+    @IBOutlet weak var btnDelete: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
