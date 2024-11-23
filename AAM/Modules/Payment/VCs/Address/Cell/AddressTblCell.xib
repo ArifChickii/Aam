@@ -41,15 +41,15 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Mdq-5o-keF">
-                                        <rect key="frame" x="32" y="5" width="206" height="20.333333333333332"/>
+                                        <rect key="frame" x="32" y="5" width="164" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="14"/>
                                         <color key="textColor" name="171717"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WXv-jT-qkc">
-                                        <rect key="frame" x="250" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="208" y="0.0" width="30" height="30"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trash" translatesAutoresizingMaskIntoConstraints="NO" id="PUx-aT-yGe">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_edit" translatesAutoresizingMaskIntoConstraints="NO" id="PUx-aT-yGe">
                                                 <rect key="frame" x="5" y="5" width="20" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="20" id="NNG-Bb-rFm"/>
@@ -72,6 +72,34 @@
                                             <constraint firstAttribute="height" constant="30" id="hah-dD-2IO"/>
                                             <constraint firstAttribute="bottom" secondItem="zH1-je-qwT" secondAttribute="bottom" id="s4B-SK-ukj"/>
                                             <constraint firstAttribute="width" constant="30" id="sfo-2D-aGo"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bzD-jZ-dOI">
+                                        <rect key="frame" x="250" y="0.0" width="30" height="30"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trash" translatesAutoresizingMaskIntoConstraints="NO" id="FAc-hw-J28">
+                                                <rect key="frame" x="5" y="5" width="20" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="8cM-Km-hJL"/>
+                                                    <constraint firstAttribute="width" constant="20" id="YmP-GY-wty"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="il2-xU-1Dy">
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="   "/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="1pH-Tr-O6f"/>
+                                            <constraint firstItem="il2-xU-1Dy" firstAttribute="leading" secondItem="bzD-jZ-dOI" secondAttribute="leading" id="7IP-iK-jfh"/>
+                                            <constraint firstAttribute="trailing" secondItem="il2-xU-1Dy" secondAttribute="trailing" id="DEF-RQ-koZ"/>
+                                            <constraint firstItem="FAc-hw-J28" firstAttribute="centerX" secondItem="bzD-jZ-dOI" secondAttribute="centerX" id="L5J-nd-ffu"/>
+                                            <constraint firstAttribute="bottom" secondItem="il2-xU-1Dy" secondAttribute="bottom" id="L6h-DB-6zx"/>
+                                            <constraint firstItem="FAc-hw-J28" firstAttribute="centerY" secondItem="bzD-jZ-dOI" secondAttribute="centerY" id="LAk-9T-3GT"/>
+                                            <constraint firstItem="il2-xU-1Dy" firstAttribute="top" secondItem="bzD-jZ-dOI" secondAttribute="top" id="eUV-VM-ajW"/>
+                                            <constraint firstAttribute="height" constant="30" id="u5l-7P-vid"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -214,7 +242,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="btnDeleteAddress" destination="zH1-je-qwT" id="w8k-yF-y7I"/>
+                <outlet property="btnDeleteAddress" destination="il2-xU-1Dy" id="NzQ-bn-dRA"/>
+                <outlet property="btnEditAddress" destination="zH1-je-qwT" id="Enp-jo-NtK"/>
                 <outlet property="btnRadioToSelectShippingAddress" destination="eQJ-ku-IZW" id="AwE-Hz-XfF"/>
                 <outlet property="imgRadio" destination="G0S-Eq-3V1" id="yDz-Fk-Nza"/>
                 <outlet property="lblShippingAddress" destination="CaC-RN-7jc" id="eLB-HB-EYA"/>
@@ -227,6 +256,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="ic_edit" width="24" height="24"/>
         <image name="ic_radio_unselected" width="20" height="20"/>
         <image name="trash" width="20" height="20"/>
         <namedColor name="171717">

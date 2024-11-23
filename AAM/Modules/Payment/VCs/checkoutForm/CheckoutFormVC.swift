@@ -11,6 +11,9 @@ class CheckoutFormVC: UIViewController, Storyboarded {
     var viewModel = ProductFormViewModel()
     @IBOutlet weak var formTblView: UITableView!
     
+    // New property to hold the address being edited
+    var addressToEdit: ShippingAddress?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,6 +23,11 @@ class CheckoutFormVC: UIViewController, Storyboarded {
         
         formTblView.estimatedRowHeight = 100
         formTblView.rowHeight = UITableView.automaticDimension
+        
+        // If editing an address, populate the form fields
+        if let address = addressToEdit {
+            viewModel.populateFormFields(with: address)
+        }
     }
     
     private func registerCells() {
@@ -77,7 +85,8 @@ class CheckoutFormVC: UIViewController, Storyboarded {
         let makeDefaultAddress = viewModel.getBoolValueForTitle("Make this my default address")
         let sameBillingAddress = viewModel.getBoolValueForTitle("Same billing address")
 
-        let shippingAddress = ShippingAddress(
+        // Create or update the ShippingAddress object
+        var shippingAddress = ShippingAddress(
             fullName: fullName,
             address: address,
             flatOrBlockNo: flatOrBlockNo,
@@ -87,6 +96,10 @@ class CheckoutFormVC: UIViewController, Storyboarded {
             makeDefaultAddress: makeDefaultAddress,
             sameBillingAddress: sameBillingAddress
         )
+        // If editing, retain the existing address ID
+        if let existingAddressId = addressToEdit?.id {
+            shippingAddress.id = existingAddressId
+        }
 
         // Show loader if needed
         showLoadingIndicator()
@@ -100,8 +113,8 @@ class CheckoutFormVC: UIViewController, Storyboarded {
                 guard let self = self else { return }
                 switch result {
                 case .success():
-                    // Move to SelectShippingAddressVC
-                    Router.MoveToSelectShippingAddress(from: self)
+                    // Move back to SelectShippingAddressVC
+                    self.navigationController?.popViewController(animated: true)
                 case .failure(let error):
                     // Show error
                     self.showAlert(title: "Error", message: error.localizedDescription)

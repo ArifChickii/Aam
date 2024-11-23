@@ -64,7 +64,7 @@ class ProductBagVC: UIViewController, Storyboarded {
                     Router.MoveToSelectShippingAddress(from: self)
                 } else {
                     // No addresses found, navigate to CheckoutFormVC to add a new address
-                    Router.MoveToCheckOutFormVC(from: self)
+                    Router.MoveToCheckOutFormVC(from: self, addressToEdit: nil)
                 }
             }
         }

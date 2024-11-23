@@ -48,10 +48,11 @@ class Router {
         let vc = ProductBagVC.instantiate(storyBoardName: "Payment")
         currentVC.navigationController?.pushViewController(vc, animated: true)
     }
-    static func MoveToCheckOutFormVC(from currentVC: UIViewController) {
-        let vc = CheckoutFormVC.instantiate(storyBoardName: "Payment")
-        currentVC.navigationController?.pushViewController(vc, animated: true)
-    }
+    static func MoveToCheckOutFormVC(from currentVC: UIViewController, addressToEdit: ShippingAddress?) {
+            let vc = CheckoutFormVC.instantiate(storyBoardName: "Payment")
+            vc.addressToEdit = addressToEdit
+            currentVC.navigationController?.pushViewController(vc, animated: true)
+        }
     static func MoveToAddProduct(from currentVC: UIViewController) {
         let vc = AddProductVC.instantiate(storyBoardName: "AddProduct")
         currentVC.navigationController?.pushViewController(vc, animated: true)

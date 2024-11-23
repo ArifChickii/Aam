@@ -26,6 +26,32 @@ class ProductFormViewModel {
         ]
     }
     
+    /// Populates the form fields with data from a `ShippingAddress`.
+    func populateFormFields(with address: ShippingAddress) {
+        for index in 0..<formFields.count {
+            switch formFields[index].title {
+            case "Full Name":
+                formFields[index].value = address.fullName
+            case "Address":
+                formFields[index].value = address.address
+            case "Flat/Block No":
+                formFields[index].value = address.flatOrBlockNo
+            case "Postal / Zipcode":
+                formFields[index].value = address.postalCode
+            case "Country":
+                formFields[index].value = address.country
+            case "City":
+                formFields[index].value = address.city
+            case "Make this my default address":
+                formFields[index].value = address.makeDefaultAddress ? "true" : "false"
+            case "Same billing address":
+                formFields[index].value = address.sameBillingAddress ? "true" : "false"
+            default:
+                break
+            }
+        }
+    }
+    
     /// Retrieves the value for a given field title.
     func getValueForTitle(_ title: String) -> String? {
         return formFields.first(where: { $0.title == title })?.value

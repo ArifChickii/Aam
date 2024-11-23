@@ -477,49 +477,7 @@ extension FirebaseService {
 
 extension FirebaseService {
     
-    // MARK: - Shipping Address Methods
-    
-    /// Saves a shipping address for the current user to Firebase.
-        /// - Parameters:
-        ///   - address: The `ShippingAddress` object to save.
-        ///   - completion: Completion handler with a result.
-    func saveShippingAddress(address: ShippingAddress, completion: @escaping (Result<Void, Error>) -> Void) {
-        guard let userId = auth.currentUser?.uid else {
-            completion(.failure(NSError(domain: "FirebaseService", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not logged in"])))
-            return
-        }
-        
-        let userAddressesRef = db.collection("users").document(userId).collection("shippingAddresses")
-        
-        // Use auto-generated ID unless it's the default address
-        let addressRef: DocumentReference
-        if address.makeDefaultAddress {
-            addressRef = userAddressesRef.document("default")
-        } else {
-            addressRef = userAddressesRef.document() // Auto-generated ID
-        }
-        
-        // Update the address ID within the address object
-        var addressWithID = address
-        addressWithID.id = addressRef.documentID
-        
-        do {
-            var addressData = try Firestore.Encoder().encode(addressWithID)
-            // Include the document ID in the data
-            addressData["id"] = addressRef.documentID
-            
-            // Save the address data
-            addressRef.setData(addressData) { error in
-                if let error = error {
-                    completion(.failure(error))
-                } else {
-                    completion(.success(()))
-                }
-            }
-        } catch let error {
-            completion(.failure(error))
-        }
-    }
+
 
 
     
@@ -628,4 +586,92 @@ extension FirebaseService {
                 }
             }
         }
+    
+    // MARK: - Shipping Address Methods
+
+    /// Saves or updates a shipping address for the current user in Firebase.
+    /// - Parameters:
+    ///   - address: The `ShippingAddress` object to save or update.
+    ///   - completion: Completion handler with a result.
+    func saveShippingAddress(address: ShippingAddress, completion: @escaping (Result<Void, Error>) -> Void) {
+        guard let userId = auth.currentUser?.uid else {
+            completion(.failure(NSError(domain: "FirebaseService", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not logged in"])))
+            return
+        }
+        
+        let userAddressesRef = db.collection("users").document(userId).collection("shippingAddresses")
+        
+        let addressRef: DocumentReference
+        var mutableAddress = address // Create a mutable copy of the address
+        if let addressId = mutableAddress.id {
+            // If the address has an ID, we're updating an existing address
+            addressRef = userAddressesRef.document(addressId)
+        } else {
+            // Otherwise, we're adding a new address
+            addressRef = userAddressesRef.document()
+            mutableAddress.id = addressRef.documentID // Assign the new document ID to the mutable copy
+        }
+        
+        do {
+            var addressData = try Firestore.Encoder().encode(mutableAddress)
+            // Include the document ID in the data
+            addressData["id"] = mutableAddress.id
+            
+            // Save or update the address data
+            addressRef.setData(addressData) { error in
+                if let error = error {
+                    completion(.failure(error))
+                } else {
+                    // If the address is set as default, update other addresses
+                    if mutableAddress.makeDefaultAddress {
+                        self.updateOtherAddressesMakeDefaultFalse(userId: userId, currentAddressId: addressRef.documentID) { result in
+                            switch result {
+                            case .success():
+                                completion(.success(()))
+                            case .failure(let error):
+                                completion(.failure(error))
+                            }
+                        }
+                    } else {
+                        completion(.success(()))
+                    }
+                }
+            }
+        } catch let error {
+            completion(.failure(error))
+        }
+    }
+
+    
+    /// Updates other shipping addresses to set `makeDefaultAddress` to `false`.
+    /// - Parameters:
+    ///   - userId: The ID of the current user.
+    ///   - currentAddressId: The ID of the current address.
+    ///   - completion: Completion handler with a result.
+    private func updateOtherAddressesMakeDefaultFalse(userId: String, currentAddressId: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        let userAddressesRef = db.collection("users").document(userId).collection("shippingAddresses")
+        
+        userAddressesRef.getDocuments { (snapshot, error) in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            let batch = self.db.batch()
+            
+            snapshot?.documents.forEach { document in
+                if document.documentID != currentAddressId {
+                    batch.updateData(["makeDefaultAddress": false], forDocument: document.reference)
+                }
+            }
+            
+            batch.commit { error in
+                if let error = error {
+                    completion(.failure(error))
+                } else {
+                    completion(.success(()))
+                }
+            }
+        }
+    }
 }

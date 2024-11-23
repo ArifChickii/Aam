@@ -19,6 +19,10 @@ class SelectShippingAddressVC: UIViewController, Storyboarded {
         registerCells()
         setupViewModelCallbacks()
         
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         // Fetch addresses
         fetchShippingAddresses()
     }
@@ -58,7 +62,7 @@ class SelectShippingAddressVC: UIViewController, Storyboarded {
     }
     
     @IBAction func addAddress(){
-        Router.MoveToCheckOutFormVC(from: self)
+        Router.MoveToCheckOutFormVC(from: self, addressToEdit: nil)
     }
     
     @IBAction func continueAction() {
@@ -71,6 +75,7 @@ class SelectShippingAddressVC: UIViewController, Storyboarded {
             showAlert(title: "Error", message: "Please select a shipping address.")
         }
     }
+    
 
     
     private func showAlert(title: String, message: String) {
@@ -172,6 +177,14 @@ extension SelectShippingAddressVC: UITableViewDelegate, UITableViewDataSource, A
             }
         }
     }
+    
+    func addressTblCellDidTapEdit(_ cell: AddressTblCell) {
+        guard let indexPath = addressTblView.indexPath(for: cell) else { return }
+        let addressToEdit = viewModel.address(at: indexPath.row)
+        // Navigate to CheckoutFormVC with the address to edit
+        Router.MoveToCheckOutFormVC(from: self, addressToEdit: addressToEdit)
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }

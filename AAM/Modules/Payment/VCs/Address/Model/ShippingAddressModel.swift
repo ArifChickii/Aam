@@ -1,4 +1,3 @@
-
 //
 //  ShippingAddress.swift
 //  AAM
@@ -8,10 +7,9 @@
 
 import Foundation
 
-
 /// Model representing a shipping address.
 struct ShippingAddress: Codable {
-   var id: String?
+    var id: String?
     var fullName: String
     var address: String
     var flatOrBlockNo: String
@@ -22,7 +20,8 @@ struct ShippingAddress: Codable {
     var sameBillingAddress: Bool
     var isSelected: Bool? // Used for UI selection state, not stored in Firestore
     
-    init(fullName: String, address: String, flatOrBlockNo: String, postalCode: String, country: String, city: String, makeDefaultAddress: Bool, sameBillingAddress: Bool, isSelected: Bool = false) {
+    init(id: String? = nil, fullName: String, address: String, flatOrBlockNo: String, postalCode: String, country: String, city: String, makeDefaultAddress: Bool, sameBillingAddress: Bool, isSelected: Bool = false) {
+        self.id = id
         self.fullName = fullName
         self.address = address
         self.flatOrBlockNo = flatOrBlockNo

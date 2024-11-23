@@ -12,6 +12,9 @@ protocol AddressTblCellDelegate: AnyObject {
     /// Notifies the delegate that the delete button was tapped.
     /// - Parameter cell: The cell where the delete button was tapped.
     func addressTblCellDidTapDelete(_ cell: AddressTblCell)
+    /// Notifies the delegate that the edit button was tapped.
+        /// - Parameter cell: The cell where the edit button was tapped.
+        func addressTblCellDidTapEdit(_ cell: AddressTblCell)
 }
 
 class AddressTblCell: UITableViewCell {
@@ -23,6 +26,7 @@ class AddressTblCell: UITableViewCell {
     @IBOutlet weak var imgRadio: UIImageView!
     @IBOutlet weak var btnRadioToSelectShippingAddress: UIButton!
     @IBOutlet weak var btnDeleteAddress: UIButton!
+    @IBOutlet weak var btnEditAddress: UIButton!
     
     static let identifier = "AddressTblCell"
     
@@ -34,6 +38,7 @@ class AddressTblCell: UITableViewCell {
         // Initialization code
         btnRadioToSelectShippingAddress.addTarget(self, action: #selector(radioButtonTapped), for: .touchUpInside)
         btnDeleteAddress.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
+        btnEditAddress.addTarget(self, action: #selector(editButtonTapped), for: .touchUpInside)
     }
     
     /// Configures the cell with a `ShippingAddress`.
@@ -58,5 +63,9 @@ class AddressTblCell: UITableViewCell {
         // Notify the delegate that delete button was tapped
         delegate?.addressTblCellDidTapDelete(self)
     }
+    @objc private func editButtonTapped() {
+            // Notify the delegate that edit button was tapped
+            delegate?.addressTblCellDidTapEdit(self)
+        }
 }
 
