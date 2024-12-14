@@ -25,7 +25,6 @@ import FirebaseCore
   import GTMSessionFetcherCore
 #endif
 
-@available(iOS 13, tvOS 13, macOS 10.15, macCatalyst 13, watchOS 7, *)
 class StorageTokenAuthorizer: NSObject, GTMSessionFetcherAuthorizer {
   func authorizeRequest(_ request: NSMutableURLRequest?,
                         completionHandler handler: @escaping (Error?) -> Void) {
@@ -37,6 +36,7 @@ class StorageTokenAuthorizer: NSObject, GTMSessionFetcherAuthorizer {
     request?.setValue(googleAppID, forHTTPHeaderField: "x-firebase-gmpid")
 
     var tokenError: NSError?
+    let callbackQueue = fetcherService.callbackQueue ?? DispatchQueue.main
     let fetchTokenGroup = DispatchGroup()
     if let auth {
       fetchTokenGroup.enter()
@@ -45,7 +45,12 @@ class StorageTokenAuthorizer: NSObject, GTMSessionFetcherAuthorizer {
           var errorDictionary = error.userInfo
           errorDictionary["ResponseErrorDomain"] = error.domain
           errorDictionary["ResponseErrorCode"] = error.code
-          tokenError = StorageError.unauthenticated(serverError: errorDictionary) as NSError
+          errorDictionary[NSLocalizedDescriptionKey] =
+            "User is not authenticated, please authenticate" +
+            " using Firebase Authentication and try again."
+          tokenError = NSError(domain: "FIRStorageErrorDomain",
+                               code: StorageErrorCode.unauthenticated.rawValue,
+                               userInfo: errorDictionary)
         } else if let token {
           let firebaseToken = "Firebase \(token)"
           request?.setValue(firebaseToken, forHTTPHeaderField: "Authorization")
@@ -100,7 +105,7 @@ class StorageTokenAuthorizer: NSObject, GTMSessionFetcherAuthorizer {
 
   var userEmail: String?
 
-  let callbackQueue: DispatchQueue
+  let fetcherService: GTMSessionFetcherService
   private let googleAppID: String
   private let auth: AuthInterop?
   private let appCheck: AppCheckInterop?
@@ -108,11 +113,11 @@ class StorageTokenAuthorizer: NSObject, GTMSessionFetcherAuthorizer {
   private let serialAuthArgsQueue = DispatchQueue(label: "com.google.firebasestorage.authorizer")
 
   init(googleAppID: String,
-       callbackQueue: DispatchQueue = DispatchQueue.main,
+       fetcherService: GTMSessionFetcherService,
        authProvider: AuthInterop?,
        appCheck: AppCheckInterop?) {
     self.googleAppID = googleAppID
-    self.callbackQueue = callbackQueue
+    self.fetcherService = fetcherService
     auth = authProvider
     self.appCheck = appCheck
   }

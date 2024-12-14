@@ -69,9 +69,15 @@ class Router {
         let vc = AddCardInfoVC.instantiate(storyBoardName: "Payment")
         currentVC.navigationController?.pushViewController(vc, animated: true)
     }
-    static func MoveToOrderInfo(from currentVC: UIViewController) {
-        let vc = OrderInfoVC.instantiate(storyBoardName: "Payment")
-        currentVC.navigationController?.pushViewController(vc, animated: true)
+//    static func MoveToOrderInfo(from currentVC: UIViewController) {
+//        let vc = OrderInfoVC.instantiate(storyBoardName: "Payment")
+//        currentVC.navigationController?.pushViewController(vc, animated: true)
+//    }
+    
+    static func MoveToOrderInfo(from currentVC: UIViewController, bagProducts: [BagProduct], selectedAddress: ShippingAddress) {
+        let orderInfoVC = OrderInfoVC.instantiate(storyBoardName: "Payment")
+        orderInfoVC.viewModel = OrderInfoViewModel(bagProducts: bagProducts, selectedAddress: selectedAddress)
+        currentVC.navigationController?.pushViewController(orderInfoVC, animated: true)
     }
     
     static func showSuccessDialog(from currentVC: UIViewController) {

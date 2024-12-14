@@ -131,7 +131,7 @@ static NSString *trackedQueryKeysKey(NSUInteger trackedQueryId, NSString *key) {
                    error);
         }
     } else if ([oldVersion isEqualToString:kFPersistenceVersion]) {
-        // Everything's fine, no need for migration
+        // Everythings fine no need for migration
     } else if ([oldVersion length] == 0) {
         FFWarn(@"I-RDB076036",
                @"Version file empty. Assuming database version 1.");

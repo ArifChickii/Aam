@@ -9,11 +9,55 @@ import Foundation
 import FirebaseStorage
 import FirebaseFirestore
 import FirebaseAuth
+import FirebaseFunctions
 
 class FirebaseService {
     private var db = Firestore.firestore()
     private var auth = Auth.auth()
+    private let functions = Functions.functions()
+    
+    func ensureStripeCustomerId(completion: @escaping (Result<Void, Error>) -> Void) {
+        guard let uid = auth.currentUser?.uid else {
+            completion(.failure(NSError(domain: "FirebaseService", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not logged in"])))
+            return
+        }
+        let userRef = db.collection("users").document(uid)
+        userRef.getDocument { document, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            if let document = document, document.exists {
+                if let stripeCustomerId = document.data()?["stripeCustomerId"] as? String, !stripeCustomerId.isEmpty {
+                    // Stripe customer ID exists
+                    completion(.success(()))
+                } else {
+                    // Create Stripe customer
+                    self.createStripeCustomer(completion: completion)
+                }
+            } else {
+                // User document does not exist; create it and then create Stripe customer
+                userRef.setData([:]) { error in
+                    if let error = error {
+                        completion(.failure(error))
+                    } else {
+                        self.createStripeCustomer(completion: completion)
+                    }
+                }
+            }
+        }
+    }
 
+    private func createStripeCustomer(completion: @escaping (Result<Void, Error>) -> Void) {
+        functions.httpsCallable("createStripeCustomer").call { result, error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
+        }
+    }
+    
     
     func fetchProducts(completion: @escaping ([ProductInfo]) -> Void) {
         db.collection("Products").getDocuments { (querySnapshot, error) in
@@ -389,40 +433,51 @@ extension FirebaseService {
     
     /// Fetches all products in the bag from Firebase.
     /// - Parameter completion: Completion handler with an array of `BagProduct`.
-    func fetchBagProducts(completion: @escaping ([BagProduct]) -> Void) {
-            let bagProductsRef = db.collection("BagProducts")
-            bagProductsRef.getDocuments { (snapshot, error) in
-                var bagProducts: [BagProduct] = []
-                if let error = error {
-                    print("Error fetching bag products: \(error.localizedDescription)")
-                    completion([])
+    
+
+    func fetchBagProducts(completion: @escaping (Result<[BagProduct], Error>) -> Void) {
+        let bagProductsRef = db.collection("BagProducts")
+        bagProductsRef.getDocuments { (snapshot, error) in
+            if let error = error {
+                print("Error fetching bag products: \(error.localizedDescription)")
+                completion(.failure(error))
+                return
+            }
+            
+            guard let snapshot = snapshot else {
+                completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No data found."])))
+                return
+            }
+            
+            var bagProducts: [BagProduct] = []
+            for document in snapshot.documents {
+                let data = document.data()
+                // Manually parse data into BagProduct
+                if let id = data["id"] as? String,
+                   let count = data["count"] as? Int,
+                   let productData = data["product"] as? [String: Any] {
+                    do {
+                        // Decode the nested product data
+                        let product = try Firestore.Decoder().decode(ProductInfo.self, from: productData)
+                        var bagProduct = BagProduct(product: product, count: count)
+                        bagProduct.id = id
+                        bagProducts.append(bagProduct)
+                    } catch let error {
+                        print("Error decoding product: \(error.localizedDescription)")
+                        completion(.failure(error))
+                        return
+                    }
+                } else {
+                    print("Error parsing bag product data")
+                    let parsingError = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Error parsing bag product data"])
+                    completion(.failure(parsingError))
                     return
                 }
-                
-                if let snapshot = snapshot {
-                    for document in snapshot.documents {
-                        let data = document.data()
-                        // Manually parse data into BagProduct
-                        if let id = data["id"] as? String,
-                           let count = data["count"] as? Int,
-                           let productData = data["product"] as? [String: Any] {
-                            do {
-                                // Decode the nested product data
-                                let product = try Firestore.Decoder().decode(ProductInfo.self, from: productData)
-                                var bagProduct = BagProduct(product: product, count: count)
-                                bagProduct.id = id
-                                bagProducts.append(bagProduct)
-                            } catch let error {
-                                print("Error decoding product: \(error.localizedDescription)")
-                            }
-                        } else {
-                            print("Error parsing bag product data")
-                        }
-                    }
-                }
-                completion(bagProducts)
             }
+            completion(.success(bagProducts))
         }
+    }
+
     
     /// Updates the count of a product in the bag.
     /// - Parameters:
@@ -677,3 +732,4 @@ extension FirebaseService {
         }
     }
 }
+

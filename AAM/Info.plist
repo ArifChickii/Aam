@@ -65,5 +65,8 @@
 	<array>
 		<string>applinks:chickiiaam.page.link</string>
 	</array>
+    <key>CFBundleIconName</key>
+    <string>AppIcon</string>
+
 </dict>
 </plist>

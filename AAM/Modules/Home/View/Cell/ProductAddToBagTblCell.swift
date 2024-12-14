@@ -35,7 +35,7 @@ class ProductAddToBagTblCell: UITableViewCell {
             btnAddToBag.isEnabled = false
             btnAddToBag.backgroundColor = UIColor.lightGray
             btnAddToBag.setTitle("Added to Bag", for: .normal)
-            btnAddToBag.setTitleColor(.darkGray, for: .normal)
+            btnAddToBag.setTitleColor(.white, for: .disabled) 
         } else {
             btnAddToBag.isEnabled = true
             btnAddToBag.backgroundColor = ColorConstants.mainThemeColor

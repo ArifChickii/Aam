@@ -85,6 +85,7 @@
             [NSString stringWithFormat:@"firebase:host:%@", self.host];
         GULUserDefaults *cache = [GULUserDefaults standardUserDefaults];
         [cache setObject:internalHost forKey:internalHostKey];
+        [cache synchronize];
     }
 }
 
@@ -96,6 +97,7 @@
         [NSString stringWithFormat:@"firebase:host:%@", self.host];
     GULUserDefaults *cache = [GULUserDefaults standardUserDefaults];
     [cache removeObjectForKey:internalHostKey];
+    [cache synchronize];
 }
 
 - (BOOL)isDemoHost {

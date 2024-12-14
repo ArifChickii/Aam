@@ -30,13 +30,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oSB-dW-W7A">
-                        <rect key="frame" x="20" y="12" width="280" height="131.66666666666666"/>
+                        <rect key="frame" x="20" y="12" width="280" height="172"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="3pG-7t-9yI">
-                                <rect key="frame" x="0.0" y="0.0" width="280" height="16.333333333333332"/>
+                                <rect key="frame" x="0.0" y="0.0" width="280" height="20.333333333333332"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Summary" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="iHb-Iu-zyV">
-                                        <rect key="frame" x="0.0" y="0.0" width="280" height="16.333333333333332"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" name="Jost-Medium" family="Jost" pointSize="14"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -44,18 +44,18 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="VSm-ou-KOW">
-                                <rect key="frame" x="0.0" y="24.333333333333336" width="280" height="16.333333333333336"/>
+                                <rect key="frame" x="0.0" y="28.333333333333339" width="280" height="40.666666666666657"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Indian Bollywood Art Silk Sari" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Gzf-QI-hai">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="16.333333333333332"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="40.666666666666664"/>
                                         <fontDescription key="fontDescription" name="Jost-Regular" family="Jost" pointSize="14"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$35" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="IRf-Tu-iB7">
-                                        <rect key="frame" x="240" y="0.0" width="40" height="16.333333333333332"/>
+                                        <rect key="frame" x="200" y="0.0" width="80" height="20.333333333333332"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="txI-CV-PK3"/>
+                                            <constraint firstAttribute="width" constant="80" id="txI-CV-PK3"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Jost-Regular" family="Jost" pointSize="14"/>
                                         <color key="textColor" name="171717"/>
@@ -64,18 +64,18 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="EMr-aq-leH">
-                                <rect key="frame" x="0.0" y="48.666666666666664" width="280" height="16.333333333333336"/>
+                                <rect key="frame" x="0.0" y="77" width="280" height="20.333333333333329"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Taxes" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rEs-Cx-QZH">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="16.333333333333332"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" name="Jost-Regular" family="Jost" pointSize="14"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$8" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="UdP-pi-lcc">
-                                        <rect key="frame" x="240" y="0.0" width="40" height="16.333333333333332"/>
+                                        <rect key="frame" x="200" y="0.0" width="80" height="20.333333333333332"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="BNv-eM-rec"/>
+                                            <constraint firstAttribute="width" constant="80" id="BNv-eM-rec"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Jost-Regular" family="Jost" pointSize="14"/>
                                         <color key="textColor" name="171717"/>
@@ -84,18 +84,18 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="voD-O5-f35">
-                                <rect key="frame" x="0.0" y="73" width="280" height="16.333333333333329"/>
+                                <rect key="frame" x="0.0" y="105.33333333333333" width="280" height="20.333333333333329"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shipping" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="noe-hX-QMW">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="16.333333333333332"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" name="Jost-Regular" family="Jost" pointSize="14"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$5" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="8q1-bA-fGx">
-                                        <rect key="frame" x="240" y="0.0" width="40" height="16.333333333333332"/>
+                                        <rect key="frame" x="200" y="0.0" width="80" height="20.333333333333332"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="bex-sx-dj2"/>
+                                            <constraint firstAttribute="width" constant="80" id="bex-sx-dj2"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Jost-Regular" family="Jost" pointSize="14"/>
                                         <color key="textColor" name="171717"/>
@@ -104,32 +104,32 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5N6-OE-juE">
-                                <rect key="frame" x="0.0" y="97.333333333333329" width="280" height="1"/>
+                                <rect key="frame" x="0.0" y="133.66666666666666" width="280" height="1"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="Khj-4v-wCp"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fik-i1-woE">
-                                <rect key="frame" x="0.0" y="106.33333333333333" width="280" height="1"/>
+                                <rect key="frame" x="0.0" y="142.66666666666666" width="280" height="1"/>
                                 <color key="backgroundColor" name="DEDEDE"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="t6x-tf-BLS"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="iu0-o8-Hw2">
-                                <rect key="frame" x="0.0" y="115.33333333333333" width="280" height="16.333333333333329"/>
+                                <rect key="frame" x="0.0" y="151.66666666666666" width="280" height="20.333333333333343"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Geg-T6-2di">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="16.333333333333332"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="140" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="14"/>
                                         <color key="textColor" name="mainThemeColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$48" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="C94-Ep-4Rg">
-                                        <rect key="frame" x="240" y="0.0" width="40" height="16.333333333333332"/>
+                                        <rect key="frame" x="180" y="0.0" width="100" height="20.333333333333332"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="VDL-If-7gc"/>
+                                            <constraint firstAttribute="width" constant="100" id="VDL-If-7gc"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="14"/>
                                         <color key="textColor" name="mainThemeColor"/>
@@ -148,6 +148,14 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="lblProductName" destination="Gzf-QI-hai" id="vA6-28-b85"/>
+                <outlet property="lblProductPrice" destination="IRf-Tu-iB7" id="fkq-nZ-rKf"/>
+                <outlet property="lblShippingPrice" destination="8q1-bA-fGx" id="Mji-17-FK6"/>
+                <outlet property="lblTax" destination="UdP-pi-lcc" id="555-p8-e9j"/>
+                <outlet property="lblTotalPrice" destination="C94-Ep-4Rg" id="EXC-OL-DmT"/>
+                <outlet property="totalView" destination="iu0-o8-Hw2" id="1bc-FK-a0L"/>
+            </connections>
             <point key="canvasLocation" x="36.641221374045799" y="123.59154929577466"/>
         </tableViewCell>
     </objects>

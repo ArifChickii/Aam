@@ -7,77 +7,81 @@
 
 import UIKit
 
+
+
 class SelectShippingAddressVC: UIViewController, Storyboarded {
     @IBOutlet weak var addressTblView: UITableView!
     private let viewModel = SelectShippingAddressViewModel()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Setup
         setDelegatesAndDataSources()
         registerCells()
         setupViewModelCallbacks()
-        
-        
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Fetch bag products
+        viewModel.fetchBagProducts()
         // Fetch addresses
         fetchShippingAddresses()
     }
-    
-    private func setupViewModelCallbacks() {
-          viewModel.onAddressesFetched = { [weak self] in
-              self?.addressTblView.reloadData()
-              // Hide loader if any
-              self?.hideLoadingIndicator()
-          }
 
-          viewModel.onError = { [weak self] errorMessage in
-              self?.hideLoadingIndicator()
-              self?.showAlert(title: "Error", message: errorMessage)
-          }
-      }
-    
+    private func setupViewModelCallbacks() {
+        viewModel.onAddressesFetched = { [weak self] in
+            self?.addressTblView.reloadData()
+            // Hide loader if any
+            self?.hideLoadingIndicator()
+        }
+
+        viewModel.onBagProductsFetched = { [weak self] in
+            // Bag products fetched; handle if needed
+            // For example, enable the Continue button
+        }
+
+        viewModel.onError = { [weak self] errorMessage in
+            self?.hideLoadingIndicator()
+            self?.showAlert(title: "Error", message: errorMessage)
+        }
+    }
+
     private func fetchShippingAddresses() {
         // Show loader
         showLoadingIndicator()
         viewModel.fetchShippingAddresses()
     }
-    
+
     private func registerCells() {
         addressTblView.register(UINib(nibName: AddressTblCell.identifier, bundle: nil), forCellReuseIdentifier: AddressTblCell.identifier)
         addressTblView.estimatedRowHeight = 200
         addressTblView.rowHeight = UITableView.automaticDimension
     }
-    
+
     private func setDelegatesAndDataSources() {
         addressTblView.delegate = self
         addressTblView.dataSource = self
     }
-    
+
     @IBAction func backAction() {
         Router.pop(from: self)
     }
-    
-    @IBAction func addAddress(){
+
+    @IBAction func addAddress() {
         Router.MoveToCheckOutFormVC(from: self, addressToEdit: nil)
     }
-    
+
     @IBAction func continueAction() {
-        // Proceed with selected address
-        if let selectedAddressId = viewModel.selectedAddressId {
-            print("Selected Address ID: \(selectedAddressId)")
-            // You can pass the selected address to the next screen as needed
-            Router.MoveToSelectPaymentMethod(from: self)
+        if let selectedAddress = viewModel.selectedAddress {
+            let bagProducts = viewModel.bagProducts
+            Router.MoveToOrderInfo(from: self, bagProducts: bagProducts, selectedAddress: selectedAddress)
         } else {
             showAlert(title: "Error", message: "Please select a shipping address.")
         }
     }
-    
 
-    
     private func showAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title,
                                                 message: message,
@@ -88,6 +92,7 @@ class SelectShippingAddressVC: UIViewController, Storyboarded {
         present(alertController, animated: true)
     }
 }
+
 
 // MARK: - UITableViewDelegate & UITableViewDataSource
 

@@ -5,17 +5,28 @@
 //  Created by Arif on 05/11/2024.
 //
 
+// SelectShippingAddressViewModel.swift
+
 import Foundation
 
 class SelectShippingAddressViewModel {
     // MARK: - Properties
 
     private let firebaseService = FirebaseService()
+
+    // Addresses
     private(set) var addresses: [ShippingAddress] = []
     var selectedAddressId: String?
+    var selectedAddress: ShippingAddress? {
+        return addresses.first(where: { $0.id == selectedAddressId })
+    }
+
+    // Bag Products
+    private(set) var bagProducts: [BagProduct] = []
 
     // Callbacks for updating the UI
     var onAddressesFetched: (() -> Void)?
+    var onBagProductsFetched: (() -> Void)?
     var onError: ((String) -> Void)?
 
     // MARK: - Methods
@@ -35,6 +46,19 @@ class SelectShippingAddressViewModel {
                     self?.selectedAddressId = firstAddress.id
                 }
                 self?.onAddressesFetched?()
+            case .failure(let error):
+                self?.onError?(error.localizedDescription)
+            }
+        }
+    }
+
+    /// Fetches bag products from Firebase
+    func fetchBagProducts() {
+        firebaseService.fetchBagProducts { [weak self] result in
+            switch result {
+            case .success(let bagProducts):
+                self?.bagProducts = bagProducts
+                self?.onBagProductsFetched?()
             case .failure(let error):
                 self?.onError?(error.localizedDescription)
             }
@@ -128,4 +152,5 @@ class SelectShippingAddressViewModel {
         }
     }
 }
+
 

@@ -19,7 +19,6 @@ import Foundation
  * A snapshot contains a task, storage reference, metadata (if it exists),
  * progress, and an error (if one occurred).
  */
-@available(iOS 13, tvOS 13, macOS 10.15, macCatalyst 13, watchOS 7, *)
 @objc(FIRStorageTaskSnapshot) open class StorageTaskSnapshot: NSObject {
   /**
    * The task this snapshot represents.
@@ -69,7 +68,7 @@ import Foundation
        reference: StorageReference,
        progress: Progress,
        metadata: StorageMetadata? = nil,
-       error: Error? = nil) {
+       error: NSError? = nil) {
     self.task = task
     self.reference = reference
     self.progress = progress

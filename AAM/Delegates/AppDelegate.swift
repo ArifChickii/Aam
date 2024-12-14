@@ -10,6 +10,8 @@ import CoreData
 import FirebaseCore
 import IQKeyboardManagerSwift
 import GoogleSignIn
+import Stripe
+
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -36,6 +38,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             print("❌ URL Scheme not found in Info.plist")
         }
+        
+        
+        StripeAPI.defaultPublishableKey = "pk_live_51OjZjHEXNMgV91NeH5rdn7xnSXjQH96qXQ3j67X2hboUNIh2DSQoMZ0wINXdZ58slnSC9KlNKgm9teXa4jAWUoiy00b9kYn4pg"
         
         return true
     }

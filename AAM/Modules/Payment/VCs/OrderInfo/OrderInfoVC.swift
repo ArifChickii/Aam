@@ -10,10 +10,12 @@ import UIKit
 
 class OrderInfoVC: UIViewController , Storyboarded{
     @IBOutlet weak var orderTblView: UITableView!
+    var viewModel: OrderInfoViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        assert(viewModel != nil, "OrderInfoViewModel should not be nil")
         setDelegatesAndDataSources()
         registerCells()
     }
@@ -37,36 +39,39 @@ class OrderInfoVC: UIViewController , Storyboarded{
    
 }
 extension OrderInfoVC: UITableViewDelegate, UITableViewDataSource {
+  
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return 2
+    
+    
+    
+    
+    
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel.numberOfSections()
     }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.row {
-        case 0:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: OrderInfoTblCell.identifier, for: indexPath) as? OrderInfoTblCell else {
-                return UITableViewCell()
-            }
-            return cell
-        case 1:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: AdditionalInfoTblCell.identifier, for: indexPath) as? AdditionalInfoTblCell else {
-                return UITableViewCell()
-            }
-            return cell
-        default:
-            return UITableViewCell()
-        }
-        
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.numberOfRows(in: section)
     }
-    
-    
-    
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == 0 {
+            // Product cells
+            let cell = tableView.dequeueReusableCell(withIdentifier: OrderInfoTblCell.identifier, for: indexPath) as! OrderInfoTblCell
+            let bagProduct = viewModel.bagProducts[indexPath.row]
+            let isLastProduct = indexPath.row == viewModel.bagProducts.count - 1
+            cell.configure(with: bagProduct, showTotal: isLastProduct, totalPrice: viewModel.grandTotal, tax: viewModel.tax, shippingCost: viewModel.shippingCost)
+            return cell
+        } else {
+            // Address cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: AdditionalInfoTblCell.identifier, for: indexPath) as! AdditionalInfoTblCell
+            cell.configure(with: viewModel.selectedAddress)
+            return cell
+        }
+    }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
-    
-    
+
 }

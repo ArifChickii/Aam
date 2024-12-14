@@ -9,6 +9,7 @@ import UIKit
 
 class AdditionalInfoTblCell: UITableViewCell {
     static let identifier = "AdditionalInfoTblCell"
+    @IBOutlet weak var lblAddressDescription: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,5 +20,7 @@ class AdditionalInfoTblCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+    func configure(with address: ShippingAddress) {
+            lblAddressDescription.text = address.fullDescription
+        }
 }
