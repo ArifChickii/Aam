@@ -1,13 +1,15 @@
 //
-//  DraftItemsTblCell.swift
+//  SettingTitleTblCell.swift
 //  AAM
 //
-//  Created by Arif on 10/12/2024.
+//  Created by Arif on 16/12/2024.
 //
 
 import UIKit
 
-class DraftItemsTblCell: UITableViewCell {
+class SettingTitleTblCell: UITableViewCell {
+    static let identifier = "SettingTitleTblCell"
+    @IBOutlet weak var lblTitle: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -1,14 +1,15 @@
 //
-//  DashboardTblCell.swift
+//  SettingLabelTblCell.swift
 //  AAM
 //
-//  Created by Arif on 10/12/2024.
+//  Created by Arif on 16/12/2024.
 //
 
 import UIKit
 
-class DashboardTblCell: UITableViewCell {
-
+class SettingLabelTblCell: UITableViewCell {
+    static let identifier = "SettingLabelTblCell"
+    @IBOutlet weak var lblTitle: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

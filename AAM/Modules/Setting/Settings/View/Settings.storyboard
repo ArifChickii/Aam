@@ -8,6 +8,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Jost SemiBold 600.ttf">
+            <string>Jost-SemiBold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--SettingsVC-->
         <scene sceneID="s0d-6b-0kx">
@@ -16,9 +21,64 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iv9-ek-bKm">
+                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Vt5-Ia-b3e">
+                                        <rect key="frame" x="167.66666666666666" y="10.333333333333327" width="58" height="23.333333333333329"/>
+                                        <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="16"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BLs-35-9db">
+                                        <rect key="frame" x="20" y="0.0" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="AxQ-yo-2O4"/>
+                                            <constraint firstAttribute="width" constant="44" id="RUM-qL-NpS"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="ic_back" title="  "/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Vt5-Ia-b3e" firstAttribute="centerX" secondItem="iv9-ek-bKm" secondAttribute="centerX" id="E3K-I7-Lu5"/>
+                                    <constraint firstItem="Vt5-Ia-b3e" firstAttribute="centerY" secondItem="iv9-ek-bKm" secondAttribute="centerY" id="KjU-EB-EEI"/>
+                                    <constraint firstAttribute="height" constant="44" id="cC5-He-4zi"/>
+                                    <constraint firstItem="BLs-35-9db" firstAttribute="leading" secondItem="iv9-ek-bKm" secondAttribute="leading" constant="20" id="pXD-hN-mfs"/>
+                                    <constraint firstItem="BLs-35-9db" firstAttribute="centerY" secondItem="iv9-ek-bKm" secondAttribute="centerY" id="rCO-Tp-REf"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="BLs-35-9db"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bCL-1M-NG0">
+                                <rect key="frame" x="0.0" y="103" width="393" height="695"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="HZw-Ll-L9y"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="90e-R6-gNw"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bCL-1M-NG0" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="1f5-IN-cC2"/>
+                            <constraint firstItem="iv9-ek-bKm" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="7bz-Df-ExB"/>
+                            <constraint firstAttribute="trailing" secondItem="iv9-ek-bKm" secondAttribute="trailing" id="LTR-EK-3Vq"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="bCL-1M-NG0" secondAttribute="bottom" constant="20" id="bqI-1K-6NX"/>
+                            <constraint firstItem="bCL-1M-NG0" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="fqz-Xn-D1s"/>
+                            <constraint firstItem="bCL-1M-NG0" firstAttribute="top" secondItem="iv9-ek-bKm" secondAttribute="bottom" id="lhB-hE-ZKZ"/>
+                            <constraint firstItem="iv9-ek-bKm" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="n39-tg-4ir"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="settingsTableView" destination="bCL-1M-NG0" id="eCc-rx-cs8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -26,6 +86,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ic_back" width="24" height="24.666666030883789"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
