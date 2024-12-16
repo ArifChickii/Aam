@@ -16,6 +16,7 @@ class SettingsVC: UIViewController, Storyboarded {
     // MARK: - Properties
     
     private let viewModel = SettingsViewModel()
+    private let authViewModel = AuthenticationViewModel()
     
     // MARK: - Lifecycle Methods
     
@@ -54,6 +55,16 @@ class SettingsVC: UIViewController, Storyboarded {
                                       message: message,
                                       preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true)
+    }
+    private func showConfirmationAlert(title: String, message: String, confirmAction: @escaping () -> Void) {
+        let alert = UIAlertController(title: title,
+                                      message: message,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Logout", style: .destructive, handler: { _ in
+            confirmAction()
+        }))
         self.present(alert, animated: true)
     }
 }
@@ -107,9 +118,9 @@ extension SettingsVC: UITableViewDelegate, UITableViewDataSource {
             Router.MoveToNotificationVC(from: self)
             
         case "Logout":
-            print("Handle Logout")
-            // Example: Perform logout operations
-            // handleLogout()
+            showConfirmationAlert(title: "Logout", message: "Are you sure you want to logout?") { [weak self] in
+                            self?.performLogout()
+                        }
             
         default:
             break
@@ -120,5 +131,29 @@ extension SettingsVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50 // Adjust based on your design
     }
+    
+    private func performLogout() {
+        authViewModel.logoutUser { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success():
+                    print("User successfully logged out.")
+                    // Navigate to the login screen
+                    self?.clearAllUserDefaults()
+                    Router.MoveToLogin(from: self!)
+                    
+                case .failure(let error):
+                    print("Logout failed with error: \(error.localizedDescription)")
+                    self?.showErrorAlert(message: "Failed to logout. Please try again.")
+                }
+            }
+        }
+    }
+    
+    private func clearAllUserDefaults() {
+           if let appDomain = Bundle.main.bundleIdentifier {
+               UserDefaults.standard.removePersistentDomain(forName: appDomain)
+           }
+       }
 }
 

@@ -30,10 +30,16 @@ class AuthenticationViewModel{
     var userEmail = ""
     
     
-    func logoutUser() {
-        // call from any screen
-        do { try Auth.auth().signOut() }
-        catch { print("already logged out") }
+    // Logout function with completion handler
+    func logoutUser(completion: ((Result<Void, Error>) -> Void)? = nil) {
+        do {
+            try Auth.auth().signOut()
+            print("User successfully logged out.")
+            completion?(.success(()))
+        } catch let signOutError as NSError {
+            print("Error signing out: %@", signOutError)
+            completion?(.failure(signOutError))
+        }
     }
     
     

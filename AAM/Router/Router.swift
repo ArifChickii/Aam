@@ -12,7 +12,21 @@ import BottomSheet
 
 class Router {
     
-   
+    static func MoveToLogin(from currentVC: UIViewController) {
+        
+        
+         let loginVC = AuthenticationVC.instantiate(storyBoardName: "Authentication")
+        
+        // Option 1: Reset Root View Controller to LoginVC
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let window = windowScene.windows.first {
+            window.rootViewController = loginVC
+            window.makeKeyAndVisible()
+        }
+        
+
+    }
+    
     
     static func showAuthenticationVC(from currentVC: UIViewController) {
         let vc = AuthenticationVC.instantiate(storyBoardName: "Authentication")

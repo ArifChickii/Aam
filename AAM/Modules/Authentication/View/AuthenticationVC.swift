@@ -291,7 +291,7 @@ extension AuthenticationVC{
         
         if Reachability.isConnectedToNetwork(){
             print("Internet Connection Available!")
-            viewModel.logoutUser()
+            viewModel.logoutUser(completion: nil)
             if let user = Auth.auth().currentUser{
                 print("user exist")
             }else{
@@ -414,7 +414,7 @@ extension AuthenticationVC{
         
         if Reachability.isConnectedToNetwork(){
             print("Internet Connection Available!")
-            viewModel.logoutUser()
+            viewModel.logoutUser(completion: nil)
             if let user = Auth.auth().currentUser{
                 print("user exist")
             }else{
