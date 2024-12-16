@@ -33,13 +33,13 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="74"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Price" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5sW-Iw-JB3">
-                                        <rect key="frame" x="151" y="42" width="91" height="20"/>
+                                        <rect key="frame" x="151" y="37.333333333333329" width="91" height="24.666666666666671"/>
                                         <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="17"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kTq-u0-jA1">
-                                        <rect key="frame" x="313" y="37" width="70" height="30.333333333333329"/>
+                                        <rect key="frame" x="313" y="32.666666666666671" width="70" height="34.333333333333329"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="70" id="m0e-Qb-2Cv"/>
                                         </constraints>
@@ -191,34 +191,52 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Product" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="szL-gY-PSl">
-                                        <rect key="frame" x="151.33333333333334" y="12.666666666666673" width="90.666666666666657" height="18.666666666666671"/>
+                                        <rect key="frame" x="151" y="10.333333333333327" width="91.333333333333314" height="23.333333333333329"/>
                                         <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="16"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0r3-xq-FVF">
-                                        <rect key="frame" x="20" y="0.0" width="44" height="44"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p3N-8D-x3U">
+                                        <rect key="frame" x="333" y="0.0" width="60" height="44"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_cross" translatesAutoresizingMaskIntoConstraints="NO" id="uY7-nO-qZp">
+                                                <rect key="frame" x="10" y="7" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="VKd-7v-keF"/>
+                                                    <constraint firstAttribute="width" constant="30" id="Xf0-be-QBl"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bVd-j5-r88">
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="44"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="      "/>
+                                                <connections>
+                                                    <action selector="crossAction" destination="Y6W-OH-hqX" eventType="touchUpInside" id="cxR-8b-xJj"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="P7a-SM-Bvu"/>
-                                            <constraint firstAttribute="width" constant="44" id="oHB-VM-fXY"/>
+                                            <constraint firstItem="bVd-j5-r88" firstAttribute="top" secondItem="p3N-8D-x3U" secondAttribute="top" id="3mv-xC-vqs"/>
+                                            <constraint firstAttribute="trailing" secondItem="bVd-j5-r88" secondAttribute="trailing" id="5N6-UZ-1OT"/>
+                                            <constraint firstItem="uY7-nO-qZp" firstAttribute="centerY" secondItem="p3N-8D-x3U" secondAttribute="centerY" id="5mn-43-FgT"/>
+                                            <constraint firstItem="bVd-j5-r88" firstAttribute="leading" secondItem="p3N-8D-x3U" secondAttribute="leading" id="DI6-II-gfN"/>
+                                            <constraint firstAttribute="width" constant="60" id="JNM-qa-x1T"/>
+                                            <constraint firstAttribute="trailing" secondItem="uY7-nO-qZp" secondAttribute="trailing" constant="20" id="RYa-Db-fyk"/>
+                                            <constraint firstAttribute="bottom" secondItem="bVd-j5-r88" secondAttribute="bottom" id="mhc-Je-AxH"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="ic_back" title="  "/>
-                                    </button>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="0r3-xq-FVF" firstAttribute="leading" secondItem="vHZ-cF-zAf" secondAttribute="leading" constant="20" id="5Pf-62-70k"/>
+                                    <constraint firstItem="p3N-8D-x3U" firstAttribute="top" secondItem="vHZ-cF-zAf" secondAttribute="top" id="6yp-hd-GyE"/>
+                                    <constraint firstAttribute="trailing" secondItem="p3N-8D-x3U" secondAttribute="trailing" id="7e5-hE-FNY"/>
                                     <constraint firstItem="szL-gY-PSl" firstAttribute="centerX" secondItem="vHZ-cF-zAf" secondAttribute="centerX" id="ICi-eM-fwO"/>
-                                    <constraint firstItem="0r3-xq-FVF" firstAttribute="centerY" secondItem="vHZ-cF-zAf" secondAttribute="centerY" id="TcM-WZ-tU8"/>
+                                    <constraint firstAttribute="bottom" secondItem="p3N-8D-x3U" secondAttribute="bottom" id="dBM-cS-SXg"/>
+                                    <constraint firstItem="p3N-8D-x3U" firstAttribute="centerY" secondItem="vHZ-cF-zAf" secondAttribute="centerY" id="eYu-pu-mww"/>
                                     <constraint firstAttribute="height" constant="44" id="ezb-8W-foT"/>
                                     <constraint firstItem="szL-gY-PSl" firstAttribute="centerY" secondItem="vHZ-cF-zAf" secondAttribute="centerY" id="hD4-JK-qhe"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="subviews">
-                                        <exclude reference="0r3-xq-FVF"/>
-                                    </mask>
-                                </variation>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="1QW-vn-ZBg">
                                 <rect key="frame" x="0.0" y="103" width="393" height="715"/>
@@ -247,7 +265,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-680" y="-359"/>
+            <point key="canvasLocation" x="-680.15267175572512" y="-359.15492957746483"/>
         </scene>
         <!--Bottom SheetVC-->
         <scene sceneID="kX1-Vc-HMb">
@@ -261,13 +279,13 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="74"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ijb-NV-kTa">
-                                        <rect key="frame" x="182.66666666666666" y="42" width="27.666666666666657" height="20"/>
+                                        <rect key="frame" x="182.33333333333334" y="37.333333333333329" width="28.666666666666657" height="24.666666666666671"/>
                                         <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="17"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dp1-ay-a1J">
-                                        <rect key="frame" x="313" y="37" width="70" height="30.333333333333329"/>
+                                        <rect key="frame" x="313" y="32.666666666666671" width="70" height="34.333333333333329"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="70" id="Jzt-3c-ohN"/>
                                         </constraints>
@@ -340,6 +358,7 @@
     </scenes>
     <resources>
         <image name="ic_back" width="24" height="24.666666030883789"/>
+        <image name="ic_cross" width="64" height="64"/>
         <namedColor name="mainThemeColor">
             <color red="0.0" green="0.60799998044967651" blue="0.46700000762939453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

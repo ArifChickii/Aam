@@ -158,7 +158,9 @@ class AddProductVC: UIViewController, Storyboarded {
     }
     
     
-    
+    @IBAction func crossAction(){
+        Router.dismiss(from: self)
+    }
 
 }
 extension AddProductVC: ProductTitleUpdateProtocol, ProductDescriptionUpdateProtocol{
@@ -292,7 +294,7 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
                 let newProduct = ProductInfo(id: UUID().uuidString, images: imgUrls, sizes: self.viewModel.selectedSize, colors: self.viewModel.selectedColor, fabrics: self.viewModel.selectedFabric, category: self.viewModel.selectedCategory, title: self.viewModel.selectedTitle, description: self.viewModel.selectedDesc, price: self.viewModel.selectedPriceValues?.price ?? "", rating: "", cutPrice: self.viewModel.selectedPriceValues?.cutPrice ?? "")
                 self.viewModel.addProductToFirebase(productObj: newProduct) { str in
                     LoaderManager.shared.hideLoader()
-                    Router.pop(from: self)
+                    Router.dismiss(from: self)
                 }
                 
             }

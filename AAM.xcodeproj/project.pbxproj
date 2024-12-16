@@ -114,6 +114,9 @@
 		805582442CFB428700BBAD13 /* StripeFinancialConnections in Frameworks */ = {isa = PBXBuildFile; productRef = 805582432CFB428700BBAD13 /* StripeFinancialConnections */; };
 		805582462CFB428700BBAD13 /* StripeIdentity in Frameworks */ = {isa = PBXBuildFile; productRef = 805582452CFB428700BBAD13 /* StripeIdentity */; };
 		805582492CFB52A900BBAD13 /* OrderInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805582482CFB52A800BBAD13 /* OrderInfoViewModel.swift */; };
+		8063BAC12D0F110100F4273F /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8063BAC02D0F110100F4273F /* Settings.storyboard */; };
+		8063BAC32D0F113B00F4273F /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8063BAC22D0F113B00F4273F /* SettingsVC.swift */; };
+		8063BAC52D1086A900F4273F /* PlaceholderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8063BAC42D1086A900F4273F /* PlaceholderVC.swift */; };
 		806BF50A2CE27B92006011F3 /* ShippingAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806BF5092CE27B92006011F3 /* ShippingAddress.swift */; };
 		806DE3882CB618270038B6E5 /* Tabbar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 806DE3872CB618270038B6E5 /* Tabbar.storyboard */; };
 		806DE38A2CB61B260038B6E5 /* TabbarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806DE3892CB61B260038B6E5 /* TabbarVC.swift */; };
@@ -278,6 +281,9 @@
 		802208BE2CDA830500F2225A /* AddCardInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardInfoVC.swift; sourceTree = "<group>"; };
 		802208C12CDA832A00F2225A /* AddCardInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardInfoViewModel.swift; sourceTree = "<group>"; };
 		805582482CFB52A800BBAD13 /* OrderInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderInfoViewModel.swift; sourceTree = "<group>"; };
+		8063BAC02D0F110100F4273F /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		8063BAC22D0F113B00F4273F /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		8063BAC42D1086A900F4273F /* PlaceholderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderVC.swift; sourceTree = "<group>"; };
 		806BF5092CE27B92006011F3 /* ShippingAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingAddress.swift; sourceTree = "<group>"; };
 		806DE3872CB618270038B6E5 /* Tabbar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Tabbar.storyboard; path = Aam/Modules/Tabbar/Tabbar.storyboard; sourceTree = SOURCE_ROOT; };
 		806DE3892CB61B260038B6E5 /* TabbarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabbarVC.swift; path = Aam/Modules/Tabbar/TabbarVC.swift; sourceTree = SOURCE_ROOT; };
@@ -713,6 +719,7 @@
 			children = (
 				806DE3872CB618270038B6E5 /* Tabbar.storyboard */,
 				806DE3892CB61B260038B6E5 /* TabbarVC.swift */,
+				8063BAC42D1086A900F4273F /* PlaceholderVC.swift */,
 			);
 			path = Tabbar;
 			sourceTree = "<group>";
@@ -890,6 +897,8 @@
 			isa = PBXGroup;
 			children = (
 				80DB8CB82D08B4F700B4CB26 /* Cells */,
+				8063BAC02D0F110100F4273F /* Settings.storyboard */,
+				8063BAC22D0F113B00F4273F /* SettingsVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1165,6 +1174,7 @@
 				040A26E02C7C419E00C32F01 /* Jost SemiBold Italic 600.ttf in Resources */,
 				8013C7782C751576003AA5A3 /* ProductCategoryTblCell.xib in Resources */,
 				0426D3E92C882395008AF976 /* AddProduct.storyboard in Resources */,
+				8063BAC12D0F110100F4273F /* Settings.storyboard in Resources */,
 				802208A22CD9608800F2225A /* AddNewBtnCell.xib in Resources */,
 				806DE3882CB618270038B6E5 /* Tabbar.storyboard in Resources */,
 				04ED9D5A2C87294100C2D961 /* ProductNameAndDescTblCell.xib in Resources */,
@@ -1262,6 +1272,7 @@
 				808BAE192CD935E700B4E568 /* FormTblCell.swift in Sources */,
 				808B55102CDC004B0076376E /* DialogeVC.swift in Sources */,
 				807D8A882C7B263D00E9AE04 /* Product.swift in Sources */,
+				8063BAC32D0F113B00F4273F /* SettingsVC.swift in Sources */,
 				8021AFC12C5C2A7400A66611 /* AuthenticationVC.swift in Sources */,
 				8013C7632C7514D0003AA5A3 /* ProductImageTblCell.swift in Sources */,
 				8021AFB92C5BDE3B00A66611 /* ColorConstants.swift in Sources */,
@@ -1334,6 +1345,7 @@
 				8021AFAB2C5BBF6000A66611 /* onBoardingVC.swift in Sources */,
 				80D4F7612CE3CB2200C93913 /* ShippingAddressModel.swift in Sources */,
 				04C1835F2C91762600FDB170 /* AddProductViewModel.swift in Sources */,
+				8063BAC52D1086A900F4273F /* PlaceholderVC.swift in Sources */,
 				80B704272CD9377200A78989 /* ProductBagModel.swift in Sources */,
 				04ED9D592C87294100C2D961 /* ProductNameAndDescTblCell.swift in Sources */,
 				80DB8CDC2D08B5AE00B4CB26 /* DashboardTblCell.swift in Sources */,

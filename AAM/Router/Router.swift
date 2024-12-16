@@ -109,6 +109,10 @@ class Router {
         currentVC.navigationController?.popViewController(animated: true)
     }
     
+    static func dismiss(from currentVC: UIViewController) {
+        currentVC.dismiss(animated: true)
+    }
+    
 
     static func showBottomSheet(from currentVC: UIViewController, bottomeSheetType: Constants.CategoryType, onDataPass: @escaping ([String]) -> Void){
         let bottomSheetVC = BottomSheetVC.instantiate(storyBoardName: "AddProduct")

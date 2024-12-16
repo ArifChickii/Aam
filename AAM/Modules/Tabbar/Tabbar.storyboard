@@ -40,94 +40,25 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
-                    <connections>
-                        <segue destination="ZFZ-Xd-dW3" kind="relationship" relationship="viewControllers" id="Jhq-Zj-3Ap"/>
-                        <segue destination="NhH-jg-SBK" kind="relationship" relationship="viewControllers" id="rCJ-J2-I4q"/>
-                        <segue destination="Wra-dU-uKf" kind="relationship" relationship="viewControllers" id="GXc-Od-eeH"/>
-                        <segue destination="WvB-c6-tUv" kind="relationship" relationship="viewControllers" id="mBn-tk-vCJ"/>
-                    </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ltu-mF-Na2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="216" y="-75"/>
         </scene>
-        <!--HomeVC-->
-        <scene sceneID="0uh-If-KPS">
+        <!--PlaceholderVC-->
+        <scene sceneID="EQB-9e-Hey">
             <objects>
-                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="HomeVC" id="hXE-GX-kc5" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="KEv-dF-WHf"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6dd-Fb-Puk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="83Z-vi-eg8" customClass="PlaceholderVC" customModule="AAM" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Vht-WI-cEi">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="4rm-om-Q35"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hdd-id-5uN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1925" y="-489"/>
-        </scene>
-        <!--Add Product-->
-        <scene sceneID="D33-wu-77X">
-            <objects>
-                <navigationController navigationBarHidden="YES" id="NhH-jg-SBK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Add Product" image="ic_add_unselected" selectedImage="ic_add_selected" id="h7a-fq-Gtk"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0CV-Gi-eav">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="iPb-cX-GMU" kind="relationship" relationship="rootViewController" id="CHE-Yg-adg"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CzQ-xw-pLc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1288" y="158"/>
-        </scene>
-        <!--AddProductVC-->
-        <scene sceneID="RiK-VZ-kiD">
-            <objects>
-                <viewControllerPlaceholder storyboardName="AddProduct" referencedIdentifier="AddProductVC" id="iPb-cX-GMU" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="7Vm-dC-clk"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bLC-x9-33m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1985" y="158"/>
-        </scene>
-        <!--Home-->
-        <scene sceneID="wb0-A5-Kej">
-            <objects>
-                <navigationController navigationBarHidden="YES" id="ZFZ-Xd-dW3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="ic_home_unselected" selectedImage="ic_home_selected" id="Mmx-Mm-9fV"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hzY-gm-vZC">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="hXE-GX-kc5" kind="relationship" relationship="rootViewController" id="lKX-sF-vUt"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ynh-ir-ZbM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1289" y="-489"/>
-        </scene>
-        <!--Cart-->
-        <scene sceneID="hhA-zt-3Ar">
-            <objects>
-                <navigationController navigationBarHidden="YES" id="Wra-dU-uKf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Cart" image="ic_cart_unselected" selectedImage="ic_cart_selected" id="mHa-FW-RkF"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cAi-2R-Eno">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="bHu-Zg-Id2" kind="relationship" relationship="rootViewController" id="gN3-x7-ODF"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iQn-aQ-xq0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1312" y="811"/>
-        </scene>
-        <!--ProductBagVC-->
-        <scene sceneID="4q2-RL-9od">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Payment" referencedIdentifier="ProductBagVC" id="bHu-Zg-Id2" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="3tp-vK-O2I"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tKY-iu-OXU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2265" y="688"/>
+            <point key="canvasLocation" x="1079" y="-75"/>
         </scene>
         <!--Settings-->
         <scene sceneID="DiO-hd-Idt">
@@ -201,7 +132,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z9U-1M-09O">
-                                <rect key="frame" x="20" y="699" width="353" height="50"/>
+                                <rect key="frame" x="20" y="748" width="353" height="50"/>
                                 <color key="backgroundColor" name="mainThemeColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="j4g-9H-RgC"/>
@@ -243,12 +174,6 @@
     </scenes>
     <resources>
         <image name="bell" width="40" height="40"/>
-        <image name="ic_add_selected" width="24" height="24"/>
-        <image name="ic_add_unselected" width="24" height="24"/>
-        <image name="ic_cart_selected" width="24.333333969116211" height="24"/>
-        <image name="ic_cart_unselected" width="24.333333969116211" height="24"/>
-        <image name="ic_home_selected" width="24.333333969116211" height="24"/>
-        <image name="ic_home_unselected" width="24.333333969116211" height="24"/>
         <image name="ic_setting_selected" width="24.333333969116211" height="24"/>
         <image name="ic_setting_unselected" width="24.333333969116211" height="24"/>
         <namedColor name="mainThemeColor">
