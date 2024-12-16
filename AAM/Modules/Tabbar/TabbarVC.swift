@@ -28,33 +28,39 @@ class TabbarVC: UITabBarController, UITabBarControllerDelegate, Storyboarded {
     
     // MARK: - Setup Methods
     private func setupViewControllers() {
-        // Initialize your three existing view controllers
+        // Initialize your existing view controllers
         let firstVC = HomeVC.instantiate(storyBoardName: "Home")
         firstVC.tabBarItem = UITabBarItem(title: "Home",
                                           image: UIImage(named: "ic_home_unselected"),
                                           selectedImage: UIImage(named: "ic_home_selected"))
         
         let secondVC = AddProductVC.instantiate(storyBoardName: "AddProduct")
-        
         secondVC.tabBarItem = UITabBarItem(title: "Add Product",
                                            image: UIImage(named: "ic_add_unselected"),
                                            selectedImage: UIImage(named: "ic_add_selected"))
         
         let thirdVC = ProductBagVC.instantiate(storyBoardName: "Payment")
         thirdVC.tabBarItem = UITabBarItem(title: "Favorites",
-                                          image: UIImage(named: "ic_cart_selected"),
-                                          selectedImage: UIImage(named: "ic_cart_unselected"))
+                                          image: UIImage(named: "ic_cart_unselected"), // Corrected image name
+                                          selectedImage: UIImage(named: "ic_cart_selected"))
         
         let fourthVC = SettingsVC.instantiate(storyBoardName: "Settings")
         fourthVC.tabBarItem = UITabBarItem(title: "Settings",
-                                           image: UIImage(named: "ic_setting_selected"),
-                                           selectedImage: UIImage(named: "ic_setting_unselected"))
+                                           image: UIImage(named: "ic_setting_unselected"),
+                                           selectedImage: UIImage(named: "ic_setting_selected"))
         
-        // Embed each view controller in a UINavigationController
+        // Embed each view controller in a UINavigationController and hide the navigation bar
         let firstNav = UINavigationController(rootViewController: firstVC)
+        firstNav.setNavigationBarHidden(true, animated: false) // Hides the navigation bar
+        
         let secNav = UINavigationController(rootViewController: secondVC)
+        secNav.setNavigationBarHidden(true, animated: false) // Hides the navigation bar
+        
         let thirdNav = UINavigationController(rootViewController: thirdVC)
+        thirdNav.setNavigationBarHidden(true, animated: false) // Hides the navigation bar
+        
         let fourthNav = UINavigationController(rootViewController: fourthVC)
+        fourthNav.setNavigationBarHidden(true, animated: false) // Hides the navigation bar
         
         // Placeholder view controller for the center tab
         let placeholderVC = PlaceholderVC()
