@@ -69,6 +69,11 @@ class Router {
         let vc = AddCardInfoVC.instantiate(storyBoardName: "Payment")
         currentVC.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    static func MoveToNotificationVC(from currentVC: UIViewController) {
+        let vc = NotificationVc.instantiate(storyBoardName: "Notification")
+        currentVC.navigationController?.pushViewController(vc, animated: true)
+    }
 //    static func MoveToOrderInfo(from currentVC: UIViewController) {
 //        let vc = OrderInfoVC.instantiate(storyBoardName: "Payment")
 //        currentVC.navigationController?.pushViewController(vc, animated: true)

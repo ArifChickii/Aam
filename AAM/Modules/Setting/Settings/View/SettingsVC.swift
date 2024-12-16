@@ -101,14 +101,10 @@ extension SettingsVC: UITableViewDelegate, UITableViewDataSource {
             // Router.MoveToProfile(from: self)
             
         case "Shipping":
-            print("Navigate to Shipping screen")
-            // Example: Navigate to ShippingVC
-            // Router.MoveToShipping(from: self)
+            Router.MoveToSelectShippingAddress(from: self)
             
         case "Notification":
-            print("Navigate to Notification settings")
-            // Example: Navigate to NotificationSettingsVC
-            // Router.MoveToNotificationSettings(from: self)
+            Router.MoveToNotificationVC(from: self)
             
         case "Logout":
             print("Handle Logout")

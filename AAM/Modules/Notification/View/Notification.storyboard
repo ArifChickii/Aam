@@ -17,7 +17,7 @@
         <!--Notification Vc-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="NotificationVc" customModule="AAM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NotificationVc" id="Y6W-OH-hqX" customClass="NotificationVc" customModule="AAM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -39,6 +39,9 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="ic_back" title="  "/>
+                                        <connections>
+                                            <action selector="backAction" destination="Y6W-OH-hqX" eventType="touchUpInside" id="y4X-2j-DpI"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -76,6 +79,9 @@
                             <constraint firstAttribute="trailing" secondItem="Y18-Rk-gSO" secondAttribute="trailing" id="y6E-3l-CJL"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="switchAllowNotification" destination="Lm1-VG-eMI" id="60a-JJ-gNV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

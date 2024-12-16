@@ -7,7 +7,9 @@
 
 import UIKit
 
-class NotificationVc: UIViewController {
+class NotificationVc: UIViewController, Storyboarded {
+    
+    @IBOutlet weak var switchAllowNotification: UISwitch!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,14 +18,8 @@ class NotificationVc: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func backAction(){
+        Router.pop(from: self)
     }
-    */
 
 }
