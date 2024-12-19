@@ -110,6 +110,9 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="ic_back" title="  "/>
+                                        <connections>
+                                            <action selector="backBtnAction" destination="DfM-Ym-tVl" eventType="touchUpInside" id="PIy-lr-SgE"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -120,11 +123,6 @@
                                     <constraint firstItem="BFU-i9-HBb" firstAttribute="leading" secondItem="Bmx-mw-9P4" secondAttribute="leading" constant="20" id="DIH-DC-dWv"/>
                                     <constraint firstItem="BFU-i9-HBb" firstAttribute="centerY" secondItem="Bmx-mw-9P4" secondAttribute="centerY" id="fok-J3-yb9"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="subviews">
-                                        <exclude reference="BFU-i9-HBb"/>
-                                    </mask>
-                                </variation>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bTb-SL-DYH">
                                 <rect key="frame" x="0.0" y="103" width="393" height="633"/>

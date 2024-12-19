@@ -53,6 +53,11 @@ class ProfileVC: UIViewController, Storyboarded {
         view.addGestureRecognizer(tapGesture)
     }
     
+    
+    @IBAction func backBtnAction() {
+        Router.pop(from: self)
+    }
+    
     // MARK: - Actions
     @IBAction func saveButtonTapped() {
         // Fetch values from fields cell (if currently visible and loaded)
@@ -115,7 +120,7 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
             if let selectedImage = selectedProfileImage {
                 cell.profileImageView.image = selectedImage
             } else {
-                cell.profileImageView.image = UIImage(named: "defaultProfileImage")
+                cell.profileImageView.image = UIImage(named: "dummyProfile")
             }
             
             // Handle edit button tap

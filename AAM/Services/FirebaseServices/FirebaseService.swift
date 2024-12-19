@@ -16,6 +16,30 @@ class FirebaseService {
     private var auth = Auth.auth()
     private let functions = Functions.functions()
     
+    
+    // MARK: - User Info Saving Method
+    /// Saves or updates user information in the Firestore `users` collection.
+    func saveUserInformation(user: UserModel, completion: @escaping (Result<Void, Error>) -> Void) {
+        let userRef = db.collection("users").document(user.uid)
+        
+        do {
+            let userData = try Firestore.Encoder().encode(user)
+            userRef.setData(userData, merge: true) { error in
+                if let error = error {
+                    print("❌ Error saving user info: \(error.localizedDescription)")
+                    completion(.failure(error))
+                } else {
+                    print("✅ User info saved/updated successfully for UID: \(user.uid)")
+                    completion(.success(()))
+                }
+            }
+        } catch let error {
+            print("❌ Error encoding user info: \(error.localizedDescription)")
+            completion(.failure(error))
+        }
+    }
+    
+    
     func ensureStripeCustomerId(completion: @escaping (Result<Void, Error>) -> Void) {
         guard let uid = auth.currentUser?.uid else {
             completion(.failure(NSError(domain: "FirebaseService", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not logged in"])))

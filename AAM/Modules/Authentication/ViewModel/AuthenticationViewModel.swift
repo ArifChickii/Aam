@@ -15,6 +15,7 @@ import FirebaseAuth
 import NVActivityIndicatorView
 import Firebase
 import CryptoKit
+import FirebaseAuth
 
 
 
@@ -28,7 +29,11 @@ class AuthenticationViewModel{
     var uid = ""
     var userName = ""
     var userEmail = ""
-    
+    var bio: String?
+        var country: String?
+        var location: String?
+        var profileImage: String?
+    private let firebaseService = FirebaseService()
     
     // Logout function with completion handler
     func logoutUser(completion: ((Result<Void, Error>) -> Void)? = nil) {
@@ -44,7 +49,23 @@ class AuthenticationViewModel{
     
     
 
-    
+    func saveUserInfoToFirebase(completion: @escaping (Result<Void, Error>) -> Void) {
+            guard let currentUser = Auth.auth().currentUser else {
+                completion(.failure(NSError(domain: "Authentication", code: -1, userInfo: [NSLocalizedDescriptionKey: "No authenticated user"])))
+                return
+            }
+            
+            // Construct the user model. Email is must, others if available
+            let user = UserModel(uid: currentUser.uid,
+                                 email: currentUser.email ?? self.userEmail,
+                                 name: self.userName,
+                                 bio: self.bio,
+                                 country: self.country,
+                                 location: self.location,
+                                 profileImage: self.profileImage)
+            
+            firebaseService.saveUserInformation(user: user, completion: completion)
+        }
     
 }
 
