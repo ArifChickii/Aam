@@ -733,3 +733,44 @@ extension FirebaseService {
     }
 }
 
+extension FirebaseService {
+
+    /// Saves the given order to Firestore.
+    /// - Parameters:
+    ///   - order: The `Order` object containing all order details.
+    ///   - completion: Completion handler with a result that returns the generated order ID on success.
+    func saveOrder(order: Order, completion: @escaping (Result<String, Error>) -> Void) {
+        // Ensure the user is logged in to associate the order with them
+        guard let userId = auth.currentUser?.uid else {
+            completion(.failure(NSError(domain: "FirebaseService", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not logged in"])))
+            return
+        }
+        
+        // Reference to 'Orders' collection
+        let ordersRef = db.collection("Orders")
+        
+        // Create a new document with an automatically generated ID
+        let newOrderRef = ordersRef.document()
+        
+        var orderWithID = order
+        orderWithID.id = newOrderRef.documentID
+        orderWithID.userId = userId
+        
+        do {
+            // Encode the order
+            let orderData = try Firestore.Encoder().encode(orderWithID)
+            
+            // Save the order data
+            newOrderRef.setData(orderData) { error in
+                if let error = error {
+                    completion(.failure(error))
+                } else {
+                    completion(.success(newOrderRef.documentID))
+                }
+            }
+        } catch let error {
+            completion(.failure(error))
+        }
+    }
+
+}

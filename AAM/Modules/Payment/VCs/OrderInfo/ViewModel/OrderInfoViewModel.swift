@@ -42,4 +42,20 @@ class OrderInfoViewModel {
         }
         return 0
     }
+    
+    func createOrder() -> Order {
+        // Construct a new order object
+        let order = Order(
+            id: nil, // will be assigned by Firebase
+            userId: nil, // will be set in FirebaseService.saveOrder()
+            bagProducts: bagProducts,
+            selectedAddress: selectedAddress,
+            tax: tax,
+            shippingCost: shippingCost,
+            grandTotal: grandTotal,
+            orderDate: Date(), // current date/time as orderDate
+            status: "created" // initial status
+        )
+        return order
+    }
 }

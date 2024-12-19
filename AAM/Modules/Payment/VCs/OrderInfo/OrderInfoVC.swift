@@ -34,7 +34,35 @@ class OrderInfoVC: UIViewController , Storyboarded{
         Router.pop(from: self)
     }
     @IBAction func continueAction(){
-        Router.showSuccessDialog(from: self)
+        self.showLoadingIndicator()
+        // 1. Create the order from the viewModel
+        let order = viewModel.createOrder()
+        
+        // 2. Save the order to Firebase
+        let firebaseService = FirebaseService()
+        firebaseService.saveOrder(order: order) { [weak self] result in
+            switch result {
+        
+            case .success(let orderId):
+                // Order saved successfully with ID: orderId
+                // Here we can show a success dialog to the user.
+                // For now we just call the Router as original code suggests.
+                DispatchQueue.main.async {
+                    self?.hideLoadingIndicator()
+                    // Show success dialog
+                    Router.showSuccessDialog(from: self!)
+                }
+                
+            case .failure(let error):
+                // Handle error saving order
+                DispatchQueue.main.async {
+                    self?.hideLoadingIndicator()
+                    let alert = UIAlertController(title: "Error", message: "Failed to place order: \(error.localizedDescription)", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default))
+                    self?.present(alert, animated: true, completion: nil)
+                }
+            }
+        }
     }
    
 }

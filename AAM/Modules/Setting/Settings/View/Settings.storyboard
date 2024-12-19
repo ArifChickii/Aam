@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -84,9 +85,105 @@
             </objects>
             <point key="canvasLocation" x="63" y="-23"/>
         </scene>
+        <!--ProfileVC-->
+        <scene sceneID="sw7-hz-YLI">
+            <objects>
+                <viewController storyboardIdentifier="ProfileVC" id="DfM-Ym-tVl" customClass="ProfileVC" customModule="AAM" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cOR-Hw-dB7">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bmx-mw-9P4">
+                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="E65-AY-yjY">
+                                        <rect key="frame" x="173" y="10.333333333333327" width="47.333333333333343" height="23.333333333333329"/>
+                                        <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="16"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BFU-i9-HBb">
+                                        <rect key="frame" x="20" y="0.0" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="0Dt-P4-pmO"/>
+                                            <constraint firstAttribute="width" constant="44" id="uMH-jo-1fx"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="ic_back" title="  "/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="E65-AY-yjY" firstAttribute="centerY" secondItem="Bmx-mw-9P4" secondAttribute="centerY" id="4tg-Of-AvQ"/>
+                                    <constraint firstItem="E65-AY-yjY" firstAttribute="centerX" secondItem="Bmx-mw-9P4" secondAttribute="centerX" id="93Q-Va-UOC"/>
+                                    <constraint firstAttribute="height" constant="44" id="CDl-CR-7tv"/>
+                                    <constraint firstItem="BFU-i9-HBb" firstAttribute="leading" secondItem="Bmx-mw-9P4" secondAttribute="leading" constant="20" id="DIH-DC-dWv"/>
+                                    <constraint firstItem="BFU-i9-HBb" firstAttribute="centerY" secondItem="Bmx-mw-9P4" secondAttribute="centerY" id="fok-J3-yb9"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="BFU-i9-HBb"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bTb-SL-DYH">
+                                <rect key="frame" x="0.0" y="103" width="393" height="633"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="DfM-Ym-tVl" id="tgG-QH-20N"/>
+                                    <outlet property="delegate" destination="DfM-Ym-tVl" id="xOB-SA-UXV"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N4c-be-p7q">
+                                <rect key="frame" x="20" y="748" width="353" height="50"/>
+                                <color key="backgroundColor" name="mainThemeColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Dgc-hT-jKQ"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Save">
+                                    <fontDescription key="titleFontDescription" name="Jost-SemiBold" family="Jost" pointSize="15"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="saveButtonTapped" destination="DfM-Ym-tVl" eventType="touchUpInside" id="cMa-GX-7sn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="nvm-7a-bjY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nvm-7a-bjY" firstAttribute="bottom" secondItem="N4c-be-p7q" secondAttribute="bottom" constant="20" id="6Je-Gk-W7Z"/>
+                            <constraint firstItem="N4c-be-p7q" firstAttribute="top" secondItem="bTb-SL-DYH" secondAttribute="bottom" constant="12" id="LsS-j3-b0T"/>
+                            <constraint firstItem="bTb-SL-DYH" firstAttribute="trailing" secondItem="nvm-7a-bjY" secondAttribute="trailing" id="MnA-TT-2lG"/>
+                            <constraint firstItem="bTb-SL-DYH" firstAttribute="leading" secondItem="nvm-7a-bjY" secondAttribute="leading" id="RaY-pc-jmL"/>
+                            <constraint firstItem="nvm-7a-bjY" firstAttribute="trailing" secondItem="N4c-be-p7q" secondAttribute="trailing" constant="20" id="Wxf-sV-8v7"/>
+                            <constraint firstAttribute="trailing" secondItem="Bmx-mw-9P4" secondAttribute="trailing" id="ZhS-Us-e5N"/>
+                            <constraint firstItem="N4c-be-p7q" firstAttribute="leading" secondItem="nvm-7a-bjY" secondAttribute="leading" constant="20" id="ap8-TR-fZD"/>
+                            <constraint firstItem="Bmx-mw-9P4" firstAttribute="top" secondItem="nvm-7a-bjY" secondAttribute="top" id="pUP-Hg-FoA"/>
+                            <constraint firstItem="bTb-SL-DYH" firstAttribute="top" secondItem="Bmx-mw-9P4" secondAttribute="bottom" id="qhL-4R-JCv"/>
+                            <constraint firstItem="Bmx-mw-9P4" firstAttribute="leading" secondItem="nvm-7a-bjY" secondAttribute="leading" id="sw9-qp-xwV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="profileTableView" destination="bTb-SL-DYH" id="OgF-hE-6ab"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fmH-y0-wom" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="735" y="-23"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ic_back" width="24" height="24.666666030883789"/>
+        <namedColor name="mainThemeColor">
+            <color red="0.0" green="0.60799998044967651" blue="0.46700000762939453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

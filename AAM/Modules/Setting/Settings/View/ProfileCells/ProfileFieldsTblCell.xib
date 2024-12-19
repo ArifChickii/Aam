@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Jost Medium 500.ttf">
+            <string>Jost-Medium</string>
+        </array>
+        <array key="Jost_Regular.ttf">
+            <string>Jost-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="673" id="KGk-i7-Jjw" customClass="ProfileFieldsTblCell" customModule="AAM" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="673"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="673"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="u5A-Jy-8Yo">
+                        <rect key="frame" x="20" y="12" width="280" height="407"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1Dv-Cp-iJv">
+                                <rect key="frame" x="0.0" y="0.0" width="280" height="75"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="sIb-SQ-rc6">
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="17" id="8Et-Ja-ycU"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Jost-Medium" family="Jost" pointSize="16"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uAW-6O-xFW">
+                                        <rect key="frame" x="0.0" y="25" width="280" height="50"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Write Your Name here..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aLY-Pv-gMb">
+                                                <rect key="frame" x="20" y="4" width="240" height="42"/>
+                                                <fontDescription key="fontDescription" name="Jost-Regular" family="Jost" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" name="textfield_bg_color"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="3AL-mQ-3cG"/>
+                                            <constraint firstItem="aLY-Pv-gMb" firstAttribute="top" secondItem="uAW-6O-xFW" secondAttribute="top" constant="4" id="D8H-ZD-QoA"/>
+                                            <constraint firstAttribute="trailing" secondItem="aLY-Pv-gMb" secondAttribute="trailing" constant="20" id="K8p-th-6Sc"/>
+                                            <constraint firstItem="aLY-Pv-gMb" firstAttribute="leading" secondItem="uAW-6O-xFW" secondAttribute="leading" constant="20" id="R0i-dT-bmF"/>
+                                            <constraint firstAttribute="bottom" secondItem="aLY-Pv-gMb" secondAttribute="bottom" constant="4" id="Rqb-wf-p6s"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qcX-ts-daf">
+                                <rect key="frame" x="0.0" y="83" width="280" height="75"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="QI1-b5-ATT">
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="17" id="2D8-Jq-fBY"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Jost-Medium" family="Jost" pointSize="16"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7J8-rU-8EG">
+                                        <rect key="frame" x="0.0" y="25" width="280" height="50"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Write Your Email here..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vhg-aw-Vkr">
+                                                <rect key="frame" x="20" y="4" width="240" height="42"/>
+                                                <fontDescription key="fontDescription" name="Jost-Regular" family="Jost" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" name="textfield_bg_color"/>
+                                        <constraints>
+                                            <constraint firstItem="vhg-aw-Vkr" firstAttribute="top" secondItem="7J8-rU-8EG" secondAttribute="top" constant="4" id="ACV-cz-XLN"/>
+                                            <constraint firstItem="vhg-aw-Vkr" firstAttribute="leading" secondItem="7J8-rU-8EG" secondAttribute="leading" constant="20" id="FA7-6z-Hbo"/>
+                                            <constraint firstAttribute="trailing" secondItem="vhg-aw-Vkr" secondAttribute="trailing" constant="20" id="GaK-nU-MfU"/>
+                                            <constraint firstAttribute="bottom" secondItem="vhg-aw-Vkr" secondAttribute="bottom" constant="4" id="Hra-q1-Sby"/>
+                                            <constraint firstAttribute="height" constant="50" id="gZF-N9-41x"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="SXk-sy-Sf5">
+                                <rect key="frame" x="0.0" y="166" width="280" height="75"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="EYh-b3-PcX">
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="17" id="S04-ev-YvI"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Jost-Medium" family="Jost" pointSize="16"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l2G-jK-4Hc">
+                                        <rect key="frame" x="0.0" y="25" width="280" height="50"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Write Your Location here..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c27-WY-0Kq">
+                                                <rect key="frame" x="20" y="4" width="240" height="42"/>
+                                                <fontDescription key="fontDescription" name="Jost-Regular" family="Jost" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" name="textfield_bg_color"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="c27-WY-0Kq" secondAttribute="bottom" constant="4" id="401-ot-2BK"/>
+                                            <constraint firstItem="c27-WY-0Kq" firstAttribute="leading" secondItem="l2G-jK-4Hc" secondAttribute="leading" constant="20" id="4mr-TR-w18"/>
+                                            <constraint firstItem="c27-WY-0Kq" firstAttribute="top" secondItem="l2G-jK-4Hc" secondAttribute="top" constant="4" id="UpH-59-3HF"/>
+                                            <constraint firstAttribute="trailing" secondItem="c27-WY-0Kq" secondAttribute="trailing" constant="20" id="YAF-Er-EWL"/>
+                                            <constraint firstAttribute="height" constant="50" id="ZFg-qQ-zjj"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oz3-O7-Rgz">
+                                <rect key="frame" x="0.0" y="249" width="280" height="75"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rle-Ls-4VD">
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="17" id="s9c-d1-SA4"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Jost-Medium" family="Jost" pointSize="16"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kJv-ZT-khH">
+                                        <rect key="frame" x="0.0" y="25" width="280" height="50"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Write Your Country here..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jv6-sw-Klq">
+                                                <rect key="frame" x="20" y="4" width="240" height="42"/>
+                                                <fontDescription key="fontDescription" name="Jost-Regular" family="Jost" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" name="textfield_bg_color"/>
+                                        <constraints>
+                                            <constraint firstItem="Jv6-sw-Klq" firstAttribute="top" secondItem="kJv-ZT-khH" secondAttribute="top" constant="4" id="4o7-nC-U41"/>
+                                            <constraint firstAttribute="trailing" secondItem="Jv6-sw-Klq" secondAttribute="trailing" constant="20" id="6Kb-tY-YJw"/>
+                                            <constraint firstAttribute="bottom" secondItem="Jv6-sw-Klq" secondAttribute="bottom" constant="4" id="Iyj-jq-5t5"/>
+                                            <constraint firstItem="Jv6-sw-Klq" firstAttribute="leading" secondItem="kJv-ZT-khH" secondAttribute="leading" constant="20" id="eGI-N5-7Er"/>
+                                            <constraint firstAttribute="height" constant="50" id="udL-hw-5ND"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hcK-90-XSk">
+                                <rect key="frame" x="0.0" y="332" width="280" height="75"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bio" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tPj-Sd-Wzk">
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="17" id="uAh-hC-fx0"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Jost-Medium" family="Jost" pointSize="16"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FTh-Pn-QDc">
+                                        <rect key="frame" x="0.0" y="25" width="280" height="50"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Write Your Bio here..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qfP-jo-xJ0">
+                                                <rect key="frame" x="20" y="4" width="240" height="42"/>
+                                                <fontDescription key="fontDescription" name="Jost-Regular" family="Jost" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" name="textfield_bg_color"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="qfP-jo-xJ0" secondAttribute="bottom" constant="4" id="8Ow-Bc-xDj"/>
+                                            <constraint firstAttribute="height" constant="50" id="kx1-o9-8Du"/>
+                                            <constraint firstItem="qfP-jo-xJ0" firstAttribute="leading" secondItem="FTh-Pn-QDc" secondAttribute="leading" constant="20" id="nwB-WZ-tSG"/>
+                                            <constraint firstAttribute="trailing" secondItem="qfP-jo-xJ0" secondAttribute="trailing" constant="20" id="oec-Fo-kLx"/>
+                                            <constraint firstItem="qfP-jo-xJ0" firstAttribute="top" secondItem="FTh-Pn-QDc" secondAttribute="top" constant="4" id="rjQ-6M-OnC"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="u5A-Jy-8Yo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="BLN-8E-cuF"/>
+                    <constraint firstAttribute="trailing" secondItem="u5A-Jy-8Yo" secondAttribute="trailing" constant="20" id="mmp-Lc-Z7q"/>
+                    <constraint firstAttribute="bottom" secondItem="u5A-Jy-8Yo" secondAttribute="bottom" constant="12" id="zEo-kF-Xtc"/>
+                    <constraint firstItem="u5A-Jy-8Yo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="zIw-Km-6E7"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="bioStackView" destination="hcK-90-XSk" id="tXJ-3W-RH8"/>
+                <outlet property="bioTextField" destination="qfP-jo-xJ0" id="dgS-MW-Wf2"/>
+                <outlet property="countryStackView" destination="oz3-O7-Rgz" id="tO7-5H-Fx5"/>
+                <outlet property="countryTextField" destination="Jv6-sw-Klq" id="ARw-f0-WC4"/>
+                <outlet property="emailStackView" destination="qcX-ts-daf" id="FkJ-Kc-bFL"/>
+                <outlet property="emailTextField" destination="vhg-aw-Vkr" id="Flo-6r-APm"/>
+                <outlet property="locationStackView" destination="SXk-sy-Sf5" id="7de-8E-AcP"/>
+                <outlet property="locationTextField" destination="c27-WY-0Kq" id="nZf-TF-JKw"/>
+                <outlet property="nameStackView" destination="1Dv-Cp-iJv" id="Vwf-Te-95H"/>
+                <outlet property="nameTextField" destination="aLY-Pv-gMb" id="Xj6-3M-iMU"/>
+            </connections>
+            <point key="canvasLocation" x="45.801526717557252" y="220.07042253521129"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="textfield_bg_color">
+            <color red="0.92500001192092896" green="0.96100002527236938" blue="0.95300000905990601" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

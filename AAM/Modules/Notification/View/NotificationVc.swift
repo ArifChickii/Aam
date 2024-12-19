@@ -8,9 +8,8 @@
 import UIKit
 
 class NotificationVc: UIViewController, Storyboarded {
-    
-    @IBOutlet weak var switchAllowNotification: UISwitch!
 
+    @IBOutlet weak var switchAllowNotification: UISwitch!
     override func viewDidLoad() {
         super.viewDidLoad()
 

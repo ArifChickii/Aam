@@ -97,20 +97,16 @@ extension SettingsVC: UITableViewDelegate, UITableViewDataSource {
     // Handle cell selection with print statements
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        
-        
         let title = viewModel.settingTitle(at: indexPath.row)
-        
         // Print the selected title
         print("Selected: \(title)")
-        
         // Handle selection based on the title
         switch title {
         case "Profile":
             print("Navigate to Profile screen")
             // Example: Navigate to ProfileVC
             // Router.MoveToProfile(from: self)
-            
+            Router.showProfileVC(from: self)
         case "Shipping":
             Router.MoveToSelectShippingAddress(from: self)
             
