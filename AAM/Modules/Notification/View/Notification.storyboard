@@ -64,6 +64,9 @@
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lm1-VG-eMI">
                                         <rect key="frame" x="304" y="0.0" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="switchValueChanged:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="JyP-fZ-Fbe"/>
+                                        </connections>
                                     </switch>
                                 </subviews>
                             </stackView>
