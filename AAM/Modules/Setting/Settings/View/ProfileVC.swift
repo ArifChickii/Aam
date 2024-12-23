@@ -6,9 +6,6 @@
 //
 
 
-
-
-
 import UIKit
 
 class ProfileVC: UIViewController, Storyboarded {
@@ -20,6 +17,17 @@ class ProfileVC: UIViewController, Storyboarded {
     private let viewModel = ProfileViewModel()
     private var selectedProfileImage: UIImage?
     
+    // NEW: Track whether any field or image changed
+    private var profileHasChanges = false
+    
+    // NEW: A loader (activity indicator) to show while updating
+    private var activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.color = .systemGray
+        indicator.hidesWhenStopped = true
+        return indicator
+    }()
+    
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +35,10 @@ class ProfileVC: UIViewController, Storyboarded {
         setupUI()
         setupTableView()
         setupTapGestureToEndEditing()
+        setupActivityIndicator()
+        
+        // Disable the Save button initially
+        setSaveButtonEnabled(false)
         
         // Fetch user profile from Firebase
         viewModel.fetchUserProfile { [weak self] result in
@@ -45,10 +57,12 @@ class ProfileVC: UIViewController, Storyboarded {
     
     // MARK: - Setup Methods
     private func setupUI() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save",
-                                                            style: .done,
-                                                            target: self,
-                                                            action: #selector(saveButtonTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Save",
+            style: .done,
+            target: self,
+            action: #selector(saveButtonTapped)
+        )
     }
     
     private func setupTableView() {
@@ -69,27 +83,100 @@ class ProfileVC: UIViewController, Storyboarded {
         view.addGestureRecognizer(tapGesture)
     }
     
+    // NEW:
+    private func setupActivityIndicator() {
+        // Place in center of view
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(activityIndicator)
+        
+        NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+    }
+    
     @IBAction func backBtnAction() {
         Router.pop(from: self)
     }
     
     // MARK: - Actions
-    @IBAction func saveButtonTapped() {
+    
+    /// Toggles the Save button (enabled/disabled) and adjusts tint color for visual feedback
+    private func setSaveButtonEnabled(_ isEnabled: Bool) {
+        navigationItem.rightBarButtonItem?.isEnabled = isEnabled
+        navigationItem.rightBarButtonItem?.tintColor = isEnabled ? view.tintColor : .lightGray
+    }
+    
+    @objc private func saveButtonTapped() {
+        // Start loader
+        activityIndicator.startAnimating()
+        setSaveButtonEnabled(false)
+        
+        // Update fields from text fields
         if let fieldsCell = visibleFieldsCell() {
             viewModel.name = fieldsCell.nameTextField.text ?? ""
-            viewModel.email = fieldsCell.emailTextField.text ?? ""
             viewModel.location = fieldsCell.locationTextField.text ?? ""
             viewModel.country = fieldsCell.countryTextField.text ?? ""
             viewModel.bio = fieldsCell.bioTextField.text ?? ""
         }
         
-        print("Name: \(viewModel.name)")
-        print("Email: \(viewModel.email)")
-        print("Location: \(viewModel.location)")
-        print("Country: \(viewModel.country)")
-        print("Bio: \(viewModel.bio)")
-        
-        view.endEditing(true)
+        // 1) If user selected a new image, upload it to Firebase Storage
+        if let newImage = selectedProfileImage {
+            
+            // Generate a unique filename
+            let imageName = "profileImage_\(UUID().uuidString)"
+            viewModel.firebaseService.uploadImage(image: newImage, imageName: imageName) { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .success(let urlString):
+                    // 2) Update the user profile with new image URL
+                    self.viewModel.updateUserProfile(newImageURL: urlString) { updateResult in
+                        self.handleProfileUpdateResult(updateResult)
+                    }
+                case .failure(let error):
+                    self.handleProfileUpdateResult(.failure(error))
+                }
+            }
+            
+        } else {
+            // If image not changed, just update data with nil for newImageURL
+            viewModel.updateUserProfile(newImageURL: nil) { [weak self] updateResult in
+                self?.handleProfileUpdateResult(updateResult)
+            }
+        }
+    }
+    
+    // NEW:
+    /// Handles result of the profile update, stops loader, and shows alert
+    private func handleProfileUpdateResult(_ result: Result<Void, Error>) {
+        DispatchQueue.main.async {
+            self.activityIndicator.stopAnimating()
+            
+            switch result {
+            case .success:
+                self.showAlert(title: "Success",
+                               message: "Profile updated successfully.")
+                
+                // Reset change tracking
+                self.profileHasChanges = false
+                self.setSaveButtonEnabled(false)
+                
+            case .failure(let error):
+                self.showAlert(title: "Error",
+                               message: "Failed to update profile: \(error.localizedDescription)")
+                // Re-enable save button to allow retry
+                self.setSaveButtonEnabled(true)
+            }
+        }
+    }
+    
+    // NEW:
+    private func showAlert(title: String, message: String) {
+        let alertVC = UIAlertController(title: title,
+                                        message: message,
+                                        preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alertVC, animated: true, completion: nil)
     }
     
     @objc private func endEditingOnTap() {
@@ -115,7 +202,8 @@ class ProfileVC: UIViewController, Storyboarded {
 // MARK: - UITableViewDelegate & UITableViewDataSource
 extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
         return 2
     }
     
@@ -130,19 +218,17 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
             }
             
-            // 1) If user picked a new image, display it
+            // Show user-selected image if available
             if let selectedImage = selectedProfileImage {
                 cell.profileImageView.image = selectedImage
-                
-            // 2) If no new image but we have a URL from Firebase, load it
-            } else if !viewModel.profileImageLink.isEmpty {
-                // Naive approach: load image synchronously.
-                // For production, consider using URLSession or an image loading library (e.g. SDWebImage)
+            }
+            // Otherwise, load from Firestore if available
+            else if !viewModel.profileImageLink.isEmpty {
                 if let url = URL(string: viewModel.profileImageLink) {
                     DispatchQueue.global().async {
                         if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
                             DispatchQueue.main.async {
-                                // Only update if no user-selected image arrived in the meantime
+                                // Only set if user hasn't picked a new image in the meantime
                                 if self.selectedProfileImage == nil {
                                     cell.profileImageView.image = image
                                 }
@@ -156,13 +242,12 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
                 } else {
                     cell.profileImageView.image = UIImage(named: "dummyProfile")
                 }
-                
-            // 3) Otherwise, use the fallback image
-            } else {
+            }
+            // Fallback
+            else {
                 cell.profileImageView.image = UIImage(named: "dummyProfile")
             }
             
-            // Handle edit button tap
             cell.editButton.addTarget(self,
                                       action: #selector(editProfileImageTapped),
                                       for: .touchUpInside)
@@ -185,6 +270,24 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
             cell.countryTextField.text = viewModel.country
             cell.bioTextField.text = viewModel.bio
             
+            // NEW: Make email textfield non-editable (disabled + gray color)
+            cell.emailTextField.isUserInteractionEnabled = false
+            cell.emailTextField.textColor = .gray
+            
+            // NEW: Add target to text fields to track changes
+            cell.nameTextField.addTarget(self,
+                                         action: #selector(textFieldDidChange(_:)),
+                                         for: .editingChanged)
+            cell.locationTextField.addTarget(self,
+                                         action: #selector(textFieldDidChange(_:)),
+                                         for: .editingChanged)
+            cell.countryTextField.addTarget(self,
+                                         action: #selector(textFieldDidChange(_:)),
+                                         for: .editingChanged)
+            cell.bioTextField.addTarget(self,
+                                         action: #selector(textFieldDidChange(_:)),
+                                         for: .editingChanged)
+            
             cell.selectionStyle = .none
             return cell
         }
@@ -195,12 +298,21 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Handle cell selection if needed
+        // Handle selection if needed
     }
     
     func tableView(_ tableView: UITableView,
                    heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return indexPath.row == 0 ? 200 : UITableView.automaticDimension
+        return (indexPath.row == 0) ? 200 : UITableView.automaticDimension
+    }
+}
+
+// MARK: - Track Text Field Changes
+extension ProfileVC {
+    @objc private func textFieldDidChange(_ textField: UITextField) {
+        // If user modifies any text field, mark profile as changed
+        profileHasChanges = true
+        setSaveButtonEnabled(true)
     }
 }
 
@@ -224,6 +336,10 @@ extension ProfileVC: UIImagePickerControllerDelegate, UINavigationControllerDele
         
         if let selectedImage = selectedImageFromPicker {
             self.selectedProfileImage = selectedImage
+            // Mark changes and enable Save button
+            profileHasChanges = true
+            setSaveButtonEnabled(true)
+            
             // Reload only the profile image cell
             profileTableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
         }
@@ -231,6 +347,17 @@ extension ProfileVC: UIImagePickerControllerDelegate, UINavigationControllerDele
         dismiss(animated: true, completion: nil)
     }
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
