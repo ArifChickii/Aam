@@ -13,7 +13,7 @@ import FirebaseFunctions
 
 class FirebaseService {
     private var db = Firestore.firestore()
-    private var auth = Auth.auth()
+     var auth = Auth.auth()
     private let functions = Functions.functions()
     
     
@@ -797,4 +797,37 @@ extension FirebaseService {
         }
     }
 
+}
+extension FirebaseService {
+    
+    /// Fetches user information from the Firestore `users` collection by user ID.
+    /// - Parameters:
+    ///   - uid: The user's unique ID.
+    ///   - completion: A completion handler returning a `Result<UserModel, Error>`.
+    func fetchUserInformation(uid: String, completion: @escaping (Result<UserModel, Error>) -> Void) {
+        let userRef = db.collection("users").document(uid)
+        
+        userRef.getDocument { document, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let document = document, document.exists else {
+                let err = NSError(domain: "FirebaseService",
+                                  code: -1,
+                                  userInfo: [NSLocalizedDescriptionKey: "User document does not exist for uid: \(uid)"])
+                completion(.failure(err))
+                return
+            }
+            
+            do {
+                // Decode Firestore document into UserModel
+                let userModel = try document.data(as: UserModel.self)
+                completion(.success(userModel))
+            } catch {
+                completion(.failure(error))
+            }
+        }
+    }
 }

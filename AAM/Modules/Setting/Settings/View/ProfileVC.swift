@@ -5,6 +5,10 @@
 //  Created by Arif on 17/12/2024.
 //
 
+
+
+
+
 import UIKit
 
 class ProfileVC: UIViewController, Storyboarded {
@@ -23,11 +27,24 @@ class ProfileVC: UIViewController, Storyboarded {
         setupUI()
         setupTableView()
         setupTapGestureToEndEditing()
+        
+        // Fetch user profile from Firebase
+        viewModel.fetchUserProfile { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success():
+                // Successfully fetched user data, reload the table
+                DispatchQueue.main.async {
+                    self.profileTableView.reloadData()
+                }
+            case .failure(let error):
+                print("Error fetching user profile: \(error.localizedDescription)")
+            }
+        }
     }
     
     // MARK: - Setup Methods
     private func setupUI() {
-        // Example: Add a save button on the navigation bar
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save",
                                                             style: .done,
                                                             target: self,
@@ -43,7 +60,6 @@ class ProfileVC: UIViewController, Storyboarded {
         profileTableView.register(UINib(nibName: ProfileFieldsTblCell.identifier, bundle: nil),
                                   forCellReuseIdentifier: ProfileFieldsTblCell.identifier)
         
-        // Optional: Remove extra separators
         profileTableView.tableFooterView = UIView()
     }
     
@@ -53,14 +69,12 @@ class ProfileVC: UIViewController, Storyboarded {
         view.addGestureRecognizer(tapGesture)
     }
     
-    
     @IBAction func backBtnAction() {
         Router.pop(from: self)
     }
     
     // MARK: - Actions
     @IBAction func saveButtonTapped() {
-        // Fetch values from fields cell (if currently visible and loaded)
         if let fieldsCell = visibleFieldsCell() {
             viewModel.name = fieldsCell.nameTextField.text ?? ""
             viewModel.email = fieldsCell.emailTextField.text ?? ""
@@ -69,14 +83,12 @@ class ProfileVC: UIViewController, Storyboarded {
             viewModel.bio = fieldsCell.bioTextField.text ?? ""
         }
         
-        // Print all fields texts
         print("Name: \(viewModel.name)")
         print("Email: \(viewModel.email)")
         print("Location: \(viewModel.location)")
         print("Country: \(viewModel.country)")
         print("Bio: \(viewModel.bio)")
         
-        // End editing
         view.endEditing(true)
     }
     
@@ -85,7 +97,6 @@ class ProfileVC: UIViewController, Storyboarded {
     }
     
     private func visibleFieldsCell() -> ProfileFieldsTblCell? {
-        // Assuming the fields cell is always at indexPath.row = 1
         let indexPath = IndexPath(row: 1, section: 0)
         if let cell = profileTableView.cellForRow(at: indexPath) as? ProfileFieldsTblCell {
             return cell
@@ -103,37 +114,71 @@ class ProfileVC: UIViewController, Storyboarded {
 
 // MARK: - UITableViewDelegate & UITableViewDataSource
 extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
-    // Two cells: 0 for profile image cell, 1 for fields cell
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         if indexPath.row == 0 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: ProfileImageTblCell.identifier, for: indexPath) as? ProfileImageTblCell else {
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: ProfileImageTblCell.identifier,
+                for: indexPath
+            ) as? ProfileImageTblCell else {
                 return UITableViewCell()
             }
             
-            // Configure cell if needed
-            // If an image is already selected, display it
+            // 1) If user picked a new image, display it
             if let selectedImage = selectedProfileImage {
                 cell.profileImageView.image = selectedImage
+                
+            // 2) If no new image but we have a URL from Firebase, load it
+            } else if !viewModel.profileImageLink.isEmpty {
+                // Naive approach: load image synchronously.
+                // For production, consider using URLSession or an image loading library (e.g. SDWebImage)
+                if let url = URL(string: viewModel.profileImageLink) {
+                    DispatchQueue.global().async {
+                        if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
+                            DispatchQueue.main.async {
+                                // Only update if no user-selected image arrived in the meantime
+                                if self.selectedProfileImage == nil {
+                                    cell.profileImageView.image = image
+                                }
+                            }
+                        } else {
+                            DispatchQueue.main.async {
+                                cell.profileImageView.image = UIImage(named: "dummyProfile")
+                            }
+                        }
+                    }
+                } else {
+                    cell.profileImageView.image = UIImage(named: "dummyProfile")
+                }
+                
+            // 3) Otherwise, use the fallback image
             } else {
                 cell.profileImageView.image = UIImage(named: "dummyProfile")
             }
             
             // Handle edit button tap
-            cell.editButton.addTarget(self, action: #selector(editProfileImageTapped), for: .touchUpInside)
+            cell.editButton.addTarget(self,
+                                      action: #selector(editProfileImageTapped),
+                                      for: .touchUpInside)
             
             cell.selectionStyle = .none
             return cell
+            
         } else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: ProfileFieldsTblCell.identifier, for: indexPath) as? ProfileFieldsTblCell else {
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: ProfileFieldsTblCell.identifier,
+                for: indexPath
+            ) as? ProfileFieldsTblCell else {
                 return UITableViewCell()
             }
             
-            // If viewModel already has some data (just an example)
+            // Populate text fields from the ViewModel
             cell.nameTextField.text = viewModel.name
             cell.emailTextField.text = viewModel.email
             cell.locationTextField.text = viewModel.location
@@ -150,27 +195,24 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // If needed, handle cell selection. Currently, no action required.
+        // Handle cell selection if needed
     }
     
-    // Set row heights if you want
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 {
-            return 200 // height for profile image cell
-        } else {
-            return UITableView.automaticDimension // Let it size automatically or set a fixed size
-        }
+    func tableView(_ tableView: UITableView,
+                   heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return indexPath.row == 0 ? 200 : UITableView.automaticDimension
     }
 }
 
 // MARK: - UIImagePickerControllerDelegate & UINavigationControllerDelegate
 extension ProfileVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
     
-    // Handle the picked image
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         
         var selectedImageFromPicker: UIImage?
         
@@ -182,11 +224,13 @@ extension ProfileVC: UIImagePickerControllerDelegate, UINavigationControllerDele
         
         if let selectedImage = selectedImageFromPicker {
             self.selectedProfileImage = selectedImage
-            // Reload the first cell to show updated image
+            // Reload only the profile image cell
             profileTableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
         }
         
         dismiss(animated: true, completion: nil)
     }
 }
+
+
 

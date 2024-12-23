@@ -17,7 +17,12 @@ struct UserModel: Codable {
     var location: String?
     var profileImage: String?
     
-    init(uid: String, email: String, name: String? = nil, bio: String? = nil, country: String? = nil, location: String? = nil, profileImage: String? = nil) {
+    init(uid: String, email: String,
+         name: String? = nil,
+         bio: String? = nil,
+         country: String? = nil,
+         location: String? = nil,
+         profileImage: String? = nil) {
         self.uid = uid
         self.email = email
         self.name = name
@@ -27,3 +32,4 @@ struct UserModel: Codable {
         self.profileImage = profileImage
     }
 }
+
