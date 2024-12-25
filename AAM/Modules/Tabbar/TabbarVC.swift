@@ -35,9 +35,9 @@ class TabbarVC: UITabBarController, UITabBarControllerDelegate, Storyboarded {
                                           selectedImage: UIImage(named: "ic_home_selected"))
         
         let secondVC = AddProductVC.instantiate(storyBoardName: "AddProduct")
-        secondVC.tabBarItem = UITabBarItem(title: "Add Product",
-                                           image: UIImage(named: "ic_add_unselected"),
-                                           selectedImage: UIImage(named: "ic_add_selected"))
+        secondVC.tabBarItem = UITabBarItem(title: "Profile",
+                                           image: UIImage(named: "ic_profile_unselected"),
+                                           selectedImage: UIImage(named: "ic_profile_unselected"))
         
         let thirdVC = ProductBagVC.instantiate(storyBoardName: "Payment")
         thirdVC.tabBarItem = UITabBarItem(title: "Favorites",
