@@ -34,7 +34,7 @@ class TabbarVC: UITabBarController, UITabBarControllerDelegate, Storyboarded {
                                           image: UIImage(named: "ic_home_unselected"),
                                           selectedImage: UIImage(named: "ic_home_selected"))
         
-        let secondVC = AddProductVC.instantiate(storyBoardName: "AddProduct")
+        let secondVC = SellerHubVc.instantiate(storyBoardName: "SellerHub")
         secondVC.tabBarItem = UITabBarItem(title: "Profile",
                                            image: UIImage(named: "ic_profile_unselected"),
                                            selectedImage: UIImage(named: "ic_profile_unselected"))
