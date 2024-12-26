@@ -38,6 +38,11 @@ class Router {
         currentVC.navigationController?.pushViewController(vc, animated: true)
     }
     
+    static func showSellerProfileVC(from currentVC: UIViewController) {
+        let vc = SellerProfileVC.instantiate(storyBoardName: "SellerHub")
+        currentVC.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     static func MoveToHome(from currentVC: UIViewController) {
         let vc = HomeVC.instantiate(storyBoardName: "Home")
         currentVC.navigationController?.pushViewController(vc, animated: true)

@@ -67,6 +67,8 @@
 	</array>
     <key>CFBundleIconName</key>
     <string>AppIcon</string>
+    <key>NSCameraUsageDescription</key>
+    <string>This app uses the camera to allow users to take and upload product images.</string>
 
 </dict>
 </plist>

@@ -130,6 +130,12 @@
 		8063BAC12D0F110100F4273F /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8063BAC02D0F110100F4273F /* Settings.storyboard */; };
 		8063BAC32D0F113B00F4273F /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8063BAC22D0F113B00F4273F /* SettingsVC.swift */; };
 		8063BAC52D1086A900F4273F /* PlaceholderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8063BAC42D1086A900F4273F /* PlaceholderVC.swift */; };
+		8064AAC42D1DC2DE0045BF93 /* ProductCollCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8064AAC32D1DC2DE0045BF93 /* ProductCollCell.xib */; };
+		8064AAC52D1DC2DE0045BF93 /* ProductCollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8064AAC22D1DC2DE0045BF93 /* ProductCollCell.swift */; };
+		8064AACC2D1DC62C0045BF93 /* ListingTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8064AACB2D1DC62C0045BF93 /* ListingTblCell.xib */; };
+		8064AACD2D1DC62C0045BF93 /* ListingTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8064AACA2D1DC62C0045BF93 /* ListingTblCell.swift */; };
+		8064AACF2D1DCA4E0045BF93 /* SellerProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8064AACE2D1DCA4E0045BF93 /* SellerProfileVC.swift */; };
+		8064AAD22D1DCE300045BF93 /* SellerProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8064AAD12D1DCE300045BF93 /* SellerProfileViewModel.swift */; };
 		806BF50A2CE27B92006011F3 /* ShippingAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806BF5092CE27B92006011F3 /* ShippingAddress.swift */; };
 		806DE3882CB618270038B6E5 /* Tabbar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 806DE3872CB618270038B6E5 /* Tabbar.storyboard */; };
 		806DE38A2CB61B260038B6E5 /* TabbarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806DE3892CB61B260038B6E5 /* TabbarVC.swift */; };
@@ -310,6 +316,12 @@
 		8063BAC02D0F110100F4273F /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		8063BAC22D0F113B00F4273F /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		8063BAC42D1086A900F4273F /* PlaceholderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderVC.swift; sourceTree = "<group>"; };
+		8064AAC22D1DC2DE0045BF93 /* ProductCollCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollCell.swift; sourceTree = "<group>"; };
+		8064AAC32D1DC2DE0045BF93 /* ProductCollCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCollCell.xib; sourceTree = "<group>"; };
+		8064AACA2D1DC62C0045BF93 /* ListingTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingTblCell.swift; sourceTree = "<group>"; };
+		8064AACB2D1DC62C0045BF93 /* ListingTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListingTblCell.xib; sourceTree = "<group>"; };
+		8064AACE2D1DCA4E0045BF93 /* SellerProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerProfileVC.swift; sourceTree = "<group>"; };
+		8064AAD12D1DCE300045BF93 /* SellerProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerProfileViewModel.swift; sourceTree = "<group>"; };
 		806BF5092CE27B92006011F3 /* ShippingAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingAddress.swift; sourceTree = "<group>"; };
 		806DE3872CB618270038B6E5 /* Tabbar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Tabbar.storyboard; path = Aam/Modules/Tabbar/Tabbar.storyboard; sourceTree = SOURCE_ROOT; };
 		806DE3892CB61B260038B6E5 /* TabbarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabbarVC.swift; path = Aam/Modules/Tabbar/TabbarVC.swift; sourceTree = SOURCE_ROOT; };
@@ -775,6 +787,57 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		8064AAC02D1DC20E0045BF93 /* SellerProfile */ = {
+			isa = PBXGroup;
+			children = (
+				8064AAD02D1DCE180045BF93 /* ViewModel */,
+				8064AAC12D1DC21B0045BF93 /* Cell */,
+				8064AACE2D1DCA4E0045BF93 /* SellerProfileVC.swift */,
+			);
+			path = SellerProfile;
+			sourceTree = "<group>";
+		};
+		8064AAC12D1DC21B0045BF93 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				8064AAC22D1DC2DE0045BF93 /* ProductCollCell.swift */,
+				8064AAC32D1DC2DE0045BF93 /* ProductCollCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		8064AAC62D1DC5F40045BF93 /* SoldItems */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SoldItems;
+			sourceTree = "<group>";
+		};
+		8064AAC72D1DC6010045BF93 /* Listings */ = {
+			isa = PBXGroup;
+			children = (
+				8064AAC82D1DC6070045BF93 /* Cell */,
+			);
+			path = Listings;
+			sourceTree = "<group>";
+		};
+		8064AAC82D1DC6070045BF93 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				8064AACA2D1DC62C0045BF93 /* ListingTblCell.swift */,
+				8064AACB2D1DC62C0045BF93 /* ListingTblCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		8064AAD02D1DCE180045BF93 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8064AAD12D1DCE300045BF93 /* SellerProfileViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		806BF5082CE27B87006011F3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -804,6 +867,9 @@
 		807440252D1C5AAE000D06CA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8064AAC72D1DC6010045BF93 /* Listings */,
+				8064AAC62D1DC5F40045BF93 /* SoldItems */,
+				8064AAC02D1DC20E0045BF93 /* SellerProfile */,
 				8074402C2D1C5B2D000D06CA /* Cell */,
 				807440282D1C5ADC000D06CA /* SellerHub.storyboard */,
 				8074402A2D1C5AEF000D06CA /* SellerHubVc.swift */,
@@ -1299,12 +1365,14 @@
 				8022089E2CD95CDE00F2225A /* AddressTblCell.xib in Resources */,
 				8013C7642C7514D0003AA5A3 /* ProductImageTblCell.xib in Resources */,
 				040A26DF2C7C419E00C32F01 /* Jost ExtraBold 800.ttf in Resources */,
+				8064AACC2D1DC62C0045BF93 /* ListingTblCell.xib in Resources */,
 				040A26E82C7C419E00C32F01 /* Jost Thin 250.ttf in Resources */,
 				04ED9D332C85E3AB00C2D961 /* AddPhotoTblCelll.xib in Resources */,
 				805498382D108F28001649D9 /* SettingLabelTblCell.xib in Resources */,
 				80E8C4032C5AC8470087F009 /* Onboarding.storyboard in Resources */,
 				040A26EC2C7C419E00C32F01 /* Almarai-ExtraBold.ttf in Resources */,
 				802208B02CD963B800F2225A /* VisaTblCell.xib in Resources */,
+				8064AAC42D1DC2DE0045BF93 /* ProductCollCell.xib in Resources */,
 				04ED9D622C872C0300C2D961 /* RenewalOptionsTblCell.xib in Resources */,
 				040A26D92C7C419E00C32F01 /* Jost Light Italic 300.ttf in Resources */,
 				040A26EE2C7C419E00C32F01 /* OFL.txt in Resources */,
@@ -1374,10 +1442,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				80E8C3B52C5AC3BD0087F009 /* ViewController.swift in Sources */,
+				8064AACF2D1DCA4E0045BF93 /* SellerProfileVC.swift in Sources */,
 				0414EA062C7C8D1E000201E0 /* ProductImageCellColl.swift in Sources */,
 				8013C76F2C751539003AA5A3 /* ProductSizeTblCell.swift in Sources */,
+				8064AACD2D1DC62C0045BF93 /* ListingTblCell.swift in Sources */,
 				8013C77B2C75158C003AA5A3 /* ProductRatingTblCell.swift in Sources */,
 				04ED9D5D2C872B4000C2D961 /* ExpandableTblCell.swift in Sources */,
+				8064AAD22D1DCE300045BF93 /* SellerProfileViewModel.swift in Sources */,
 				80D4F7642CE3CB4E00C93913 /* ShippingAddressViewModel.swift in Sources */,
 				8022089D2CD95CDE00F2225A /* AddressTblCell.swift in Sources */,
 				8021AFB72C5BDDAF00A66611 /* Constants.swift in Sources */,
@@ -1454,6 +1525,7 @@
 				8013C7672C7514FD003AA5A3 /* ProductPriceAndTitleTblCell.swift in Sources */,
 				04ED9D552C8728C500C2D961 /* AddListingTitleTblCell.swift in Sources */,
 				8021AF9A2C5BBD1C00A66611 /* Storyboard.swift in Sources */,
+				8064AAC52D1DC2DE0045BF93 /* ProductCollCell.swift in Sources */,
 				802208B92CDA7D1000F2225A /* SelectShippingAddressVC.swift in Sources */,
 				8013C76B2C75151B003AA5A3 /* ProductDescriptionTblCell.swift in Sources */,
 				8021AF9E2C5BBD8E00A66611 /* Router.swift in Sources */,
@@ -1620,7 +1692,7 @@
 				CODE_SIGN_ENTITLEMENTS = AAM/AAM.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = MV7MZN6F3M;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1664,7 +1736,7 @@
 				CODE_SIGN_ENTITLEMENTS = AAM/AAM.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = MV7MZN6F3M;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				FRAMEWORK_SEARCH_PATHS = (

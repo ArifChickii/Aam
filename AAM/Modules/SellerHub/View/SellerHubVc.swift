@@ -40,13 +40,13 @@ extension SellerHubVc: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         let sectionType = viewModel.sectionType(for: indexPath)
         
         switch sectionType {
         case .dashboard(let dashboardData):
             // Dequeue the dashboard cell
-
+            
             
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SellerHubDashboardTblCell.identifier, for: indexPath) as? SellerHubDashboardTblCell else {
                 return UITableViewCell()
@@ -57,7 +57,7 @@ extension SellerHubVc: UITableViewDataSource {
             
         case .item(let itemData):
             // Dequeue the items cell
-           
+            
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SellerHubItemsTblCell.identifier, for: indexPath) as? SellerHubItemsTblCell else {
                 return UITableViewCell()
             }
@@ -65,10 +65,31 @@ extension SellerHubVc: UITableViewDataSource {
             return cell
         }
     }
+    
+    
 }
 
 // MARK: - UITableViewDelegate
 extension SellerHubVc: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sectionType = viewModel.sectionType(for: indexPath)
+        
+        switch sectionType {
+        case .dashboard(_): break
+            // When user taps the dashboard row, navigate to Seller Profile Screen
+           
+            
+        case .item(let itemData):
+            // Handle item cell tap if needed
+            print("Item tapped at row: \(indexPath.row)")
+            if itemData.title.lowercased().elementsEqual("profile"){
+                Router.showSellerProfileVC(from: self)
+            }
+            
+        }
+    }
+        
     // Set the cell heights based on which row it is
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {

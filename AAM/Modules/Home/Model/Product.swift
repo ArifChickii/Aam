@@ -19,8 +19,7 @@ struct Product: Codable {
     let cutPrice: Double?
 }
 
-
-struct ProductInfo: Codable {
+struct ProductInfo: Codable, Hashable {
     var id: String?
     let images: [String]?
     let sizes: [String]?
@@ -32,6 +31,18 @@ struct ProductInfo: Codable {
     let price: String?
     let rating: String?
     let cutPrice: String?
+
+    // MARK: - Hashable Conformance
+
+    // Use 'id' for hashing and equality checks (or combine as many properties as needed)
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+    static func == (lhs: ProductInfo, rhs: ProductInfo) -> Bool {
+        // Two ProductInfo objects are the same if their 'id' is the same.
+        return lhs.id == rhs.id
+    }
 }
 
 
