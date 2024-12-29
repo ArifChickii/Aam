@@ -87,6 +87,8 @@ extension SellerHubVc: UITableViewDelegate {
                 Router.showSellerProfileVC(from: self)
             }else if itemData.title.lowercased().elementsEqual("view listings"){
                 Router.showSellerListingsVc(from: self)
+            }else if itemData.title.elementsEqual("Sold Items"){
+                Router.showSoldItemsVc(from: self)
             }
             
         }

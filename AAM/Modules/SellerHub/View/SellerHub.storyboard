@@ -274,10 +274,10 @@
             </objects>
             <point key="canvasLocation" x="721" y="-23"/>
         </scene>
-        <!--View Controller-->
+        <!--Sold Items Vc-->
         <scene sceneID="aW8-Sz-aeS">
             <objects>
-                <viewController id="Lbv-aO-fwj" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SoldItemsVc" id="Lbv-aO-fwj" customClass="SoldItemsVc" customModule="AAM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="37g-Rc-uI5">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -299,6 +299,9 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="ic_back" title="  "/>
+                                        <connections>
+                                            <action selector="backAction" destination="Lbv-aO-fwj" eventType="touchUpInside" id="m9w-n3-VwF"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -325,16 +328,7 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="stN-gb-sW3">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="I6b-mU-uRC">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="V5b-0K-jQl"/>
@@ -352,6 +346,9 @@
                             <constraint firstItem="V5b-0K-jQl" firstAttribute="bottom" secondItem="aZ3-JZ-gzt" secondAttribute="bottom" constant="20" id="zAa-4U-4eS"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="aZ3-JZ-gzt" id="EGJ-Ai-i4O"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="csS-cR-02b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

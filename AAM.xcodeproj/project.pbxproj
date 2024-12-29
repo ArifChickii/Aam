@@ -148,6 +148,8 @@
 		807440342D1C5D58000D06CA /* SellerHubItemsTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 807440322D1C5D58000D06CA /* SellerHubItemsTblCell.xib */; };
 		80764E7F2D2196CE00639508 /* SellerListingsVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80764E7E2D2196CE00639508 /* SellerListingsVc.swift */; };
 		80764E822D21992C00639508 /* SellerListingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80764E812D21992C00639508 /* SellerListingsViewModel.swift */; };
+		80764E842D21BD5500639508 /* SoldItemsVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80764E832D21BD5500639508 /* SoldItemsVc.swift */; };
+		80764E872D21BE8800639508 /* SoldItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80764E862D21BE8800639508 /* SoldItemViewModel.swift */; };
 		807905C02CDA8A5A00F8D5F3 /* AdditionalInfoTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807905BE2CDA8A5A00F8D5F3 /* AdditionalInfoTblCell.swift */; };
 		807905C12CDA8A5A00F8D5F3 /* AdditionalInfoTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 807905BF2CDA8A5A00F8D5F3 /* AdditionalInfoTblCell.xib */; };
 		807D8A862C75FC7B00E9AE04 /* ProductDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807D8A852C75FC7B00E9AE04 /* ProductDetailVC.swift */; };
@@ -336,6 +338,8 @@
 		807440322D1C5D58000D06CA /* SellerHubItemsTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SellerHubItemsTblCell.xib; sourceTree = "<group>"; };
 		80764E7E2D2196CE00639508 /* SellerListingsVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerListingsVc.swift; sourceTree = "<group>"; };
 		80764E812D21992C00639508 /* SellerListingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerListingsViewModel.swift; sourceTree = "<group>"; };
+		80764E832D21BD5500639508 /* SoldItemsVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoldItemsVc.swift; sourceTree = "<group>"; };
+		80764E862D21BE8800639508 /* SoldItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoldItemViewModel.swift; sourceTree = "<group>"; };
 		807905BE2CDA8A5A00F8D5F3 /* AdditionalInfoTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoTblCell.swift; sourceTree = "<group>"; };
 		807905BF2CDA8A5A00F8D5F3 /* AdditionalInfoTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdditionalInfoTblCell.xib; sourceTree = "<group>"; };
 		807D8A852C75FC7B00E9AE04 /* ProductDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailVC.swift; sourceTree = "<group>"; };
@@ -813,6 +817,8 @@
 		8064AAC62D1DC5F40045BF93 /* SoldItems */ = {
 			isa = PBXGroup;
 			children = (
+				80764E852D21BE6F00639508 /* ViewModel */,
+				80764E832D21BD5500639508 /* SoldItemsVc.swift */,
 			);
 			path = SoldItems;
 			sourceTree = "<group>";
@@ -906,6 +912,14 @@
 			isa = PBXGroup;
 			children = (
 				80764E812D21992C00639508 /* SellerListingsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		80764E852D21BE6F00639508 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				80764E862D21BE8800639508 /* SoldItemViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1501,6 +1515,7 @@
 				8054982D2D108C24001649D9 /* NotificationVc.swift in Sources */,
 				8021AFAF2C5BBFA400A66611 /* onBoardingPage3.swift in Sources */,
 				8013C75D2C74B26A003AA5A3 /* ProductTblCell.swift in Sources */,
+				80764E842D21BD5500639508 /* SoldItemsVc.swift in Sources */,
 				80CB06162D11E54B000054DE /* ProfileViewModel.swift in Sources */,
 				80D493532CE27002000BE84C /* ProductBagViewModel.swift in Sources */,
 				80FFAA892C64AE35007E55EE /* HomeVC.swift in Sources */,
@@ -1557,6 +1572,7 @@
 				8021AFAB2C5BBF6000A66611 /* onBoardingVC.swift in Sources */,
 				80D4F7612CE3CB2200C93913 /* ShippingAddressModel.swift in Sources */,
 				04C1835F2C91762600FDB170 /* AddProductViewModel.swift in Sources */,
+				80764E872D21BE8800639508 /* SoldItemViewModel.swift in Sources */,
 				805498422D109F72001649D9 /* ProfileFieldsTblCell.swift in Sources */,
 				8063BAC52D1086A900F4273F /* PlaceholderVC.swift in Sources */,
 				80B704272CD9377200A78989 /* ProductBagModel.swift in Sources */,

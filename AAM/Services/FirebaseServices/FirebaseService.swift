@@ -111,7 +111,8 @@ class FirebaseService {
                             description: data["description"] as? String ?? "", price: data["price"] as? String ?? "", // old hard-coded
                             rating: data["rating"] as? String ?? "",
                             cutPrice: data["cutPrice"] as? String ?? "0.0",
-                            createdAt: data["createdAt"] as? String ?? ""
+                            createdAt: data["createdAt"] as? String ?? "",
+                            status: data["status"] as? String ?? ""
                         )
                         
                         products.append(product)
