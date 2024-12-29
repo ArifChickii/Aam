@@ -93,7 +93,6 @@ class FirebaseService {
                 for document in querySnapshot!.documents {
                     let data = document.data()
                     
-                    // Parse the category dictionary safely
                     if let productCatDic = data["category"] as? [String: Any] {
                         let productCat = ProductCategory(
                             title: productCatDic["title"] as? String ?? "",
@@ -108,21 +107,20 @@ class FirebaseService {
                             fabrics: data["fabrics"] as? [String] ?? [],
                             category: productCat,
                             title: data["title"] as? String ?? "",
-                            description: data["description"] as? String ?? "",
+                            createdDate: "", description: data["description"] as? String ?? "", // old hard-coded
                             price: data["price"] as? String ?? "",
                             rating: data["rating"] as? String ?? "0.0",
                             cutPrice: data["cutPrice"] as? String ?? ""
                         )
                         
                         products.append(product)
-                    } else {
-                        print("Error parsing category for document ID: \(document.documentID)")
                     }
                 }
                 completion(products)
             }
         }
     }
+
 
     
     func fetchProduct(withId productId: String, completion: @escaping (ProductInfo?) -> Void) {
@@ -139,36 +137,33 @@ class FirebaseService {
                 return
             }
             
-            let data = document.data()
+            let data = document.data() ?? [:]
             
             // Parse the category dictionary safely
-            if let productCatDic = data?["category"] as? [String: Any] {
-                let productCat = ProductCategory(
-                    title: productCatDic["title"] as? String ?? "",
-                    subCategories: productCatDic["subCategories"] as? [String] ?? []
-                )
-                
-                let product = ProductInfo(
-                    id: document.documentID,
-                    images: data?["images"] as? [String] ?? [],
-                    sizes: data?["sizes"] as? [String] ?? [],
-                    colors: data?["colors"] as? [String] ?? [],
-                    fabrics: data?["fabrics"] as? [String] ?? [],
-                    category: productCat,
-                    title: data?["title"] as? String ?? "",
-                    description: data?["description"] as? String ?? "",
-                    price: data?["price"] as? String ?? "",
-                    rating: data?["rating"] as? String ?? "0.0",
-                    cutPrice: data?["cutPrice"] as? String ?? ""
-                )
-                
-                completion(product)
-            } else {
-                print("❌ Error parsing category for product ID: \(productId)")
-                completion(nil)
-            }
+            let productCatDic = data["category"] as? [String: Any]
+            let productCat = ProductCategory(
+                title: productCatDic?["title"] as? String ?? "",
+                subCategories: productCatDic?["subCategories"] as? [String] ?? []
+            )
+            
+            let product = ProductInfo(
+                id: document.documentID,
+                sellerId: data["sellerId"] as? String ?? "",       // <--- NEW
+                images: data["images"] as? [String] ?? [],
+                sizes: data["sizes"] as? [String] ?? [],
+                colors: data["colors"] as? [String] ?? [],
+                fabrics: data["fabrics"] as? [String] ?? [],
+                category: productCat,
+                title: data["title"] as? String ?? "",
+                createdDate: data["createdDate"] as? String ?? "", description: data["description"] as? String ?? "", price: data["price"] as? String ?? "",
+                rating: data["rating"] as? String ?? "0.0",
+                cutPrice: data["cutPrice"] as? String ?? ""
+            )
+            
+            completion(product)
         }
     }
+
     
     
     func uploadImage(image: UIImage,imageName: String, completion: @escaping (Result<String, Error>) -> Void) {
@@ -207,15 +202,20 @@ class FirebaseService {
     
     
     func saveProductInfo(product: ProductInfo, completion: @escaping (Result<String, Error>) -> Void) {
-        // Get a reference to the 'products' collection
+        // Reference to the 'Products' collection
         let productsRef = db.collection("Products")
         
         // Create a new document with an automatically generated ID
         let newProductRef = productsRef.document()
         
-        // Set the product's ID to the auto-generated one
+        // Set the product's ID to the auto-generated one (if not already set)
         var productWithID = product
         productWithID.id = newProductRef.documentID
+//        
+//         Optionally set a createdDate if you haven't already (e.g., store the current date as a string):
+         let dateFormatter = DateFormatter()
+         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+         productWithID.createdDate = dateFormatter.string(from: Date())
         
         do {
             // Convert the Product object to a dictionary
@@ -233,6 +233,7 @@ class FirebaseService {
             completion(.failure(error))  // Error during encoding
         }
     }
+
     
     
     

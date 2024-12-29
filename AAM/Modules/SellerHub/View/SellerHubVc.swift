@@ -85,6 +85,8 @@ extension SellerHubVc: UITableViewDelegate {
             print("Item tapped at row: \(indexPath.row)")
             if itemData.title.lowercased().elementsEqual("profile"){
                 Router.showSellerProfileVC(from: self)
+            }else if itemData.title.lowercased().elementsEqual("view listings"){
+                Router.showSellerListingsVc(from: self)
             }
             
         }

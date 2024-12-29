@@ -28,7 +28,7 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seller Hub" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="EHC-Ou-5Ya">
-                                        <rect key="frame" x="157.66666666666666" y="10.333333333333327" width="77.666666666666657" height="23.333333333333329"/>
+                                        <rect key="frame" x="159.33333333333334" y="12.666666666666673" width="74.666666666666657" height="18.666666666666671"/>
                                         <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="16"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -357,10 +357,10 @@
             </objects>
             <point key="canvasLocation" x="1369" y="-23"/>
         </scene>
-        <!--View Controller-->
+        <!--Seller Listings Vc-->
         <scene sceneID="GdB-Rv-gim">
             <objects>
-                <viewController id="lIX-8d-sRc" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SellerListingsVc" id="lIX-8d-sRc" customClass="SellerListingsVc" customModule="AAM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hnd-Qt-9zm">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -382,6 +382,9 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="ic_back" title="  "/>
+                                        <connections>
+                                            <action selector="backAction:" destination="lIX-8d-sRc" eventType="touchUpInside" id="1De-bq-euk"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -438,6 +441,12 @@
                             <constraint firstItem="s4Z-yo-0Yq" firstAttribute="bottom" secondItem="twT-K1-2we" secondAttribute="bottom" id="zwS-xH-cN4"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="lblAllItems" destination="YAQ-RK-uNf" id="ueA-wD-Fvy"/>
+                        <outlet property="lblDesc" destination="rua-Fw-xqu" id="X5A-fG-4o1"/>
+                        <outlet property="lblTitleListingFee" destination="739-vB-NIx" id="qug-Ww-7qH"/>
+                        <outlet property="tableView" destination="twT-K1-2we" id="f6z-AU-YpX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HcD-e6-rp3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

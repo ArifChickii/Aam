@@ -146,6 +146,8 @@
 		807440302D1C5B4A000D06CA /* SellerHubDashboardTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8074402E2D1C5B4A000D06CA /* SellerHubDashboardTblCell.xib */; };
 		807440332D1C5D58000D06CA /* SellerHubItemsTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807440312D1C5D58000D06CA /* SellerHubItemsTblCell.swift */; };
 		807440342D1C5D58000D06CA /* SellerHubItemsTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 807440322D1C5D58000D06CA /* SellerHubItemsTblCell.xib */; };
+		80764E7F2D2196CE00639508 /* SellerListingsVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80764E7E2D2196CE00639508 /* SellerListingsVc.swift */; };
+		80764E822D21992C00639508 /* SellerListingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80764E812D21992C00639508 /* SellerListingsViewModel.swift */; };
 		807905C02CDA8A5A00F8D5F3 /* AdditionalInfoTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807905BE2CDA8A5A00F8D5F3 /* AdditionalInfoTblCell.swift */; };
 		807905C12CDA8A5A00F8D5F3 /* AdditionalInfoTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 807905BF2CDA8A5A00F8D5F3 /* AdditionalInfoTblCell.xib */; };
 		807D8A862C75FC7B00E9AE04 /* ProductDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807D8A852C75FC7B00E9AE04 /* ProductDetailVC.swift */; };
@@ -332,6 +334,8 @@
 		8074402E2D1C5B4A000D06CA /* SellerHubDashboardTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SellerHubDashboardTblCell.xib; sourceTree = "<group>"; };
 		807440312D1C5D58000D06CA /* SellerHubItemsTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerHubItemsTblCell.swift; sourceTree = "<group>"; };
 		807440322D1C5D58000D06CA /* SellerHubItemsTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SellerHubItemsTblCell.xib; sourceTree = "<group>"; };
+		80764E7E2D2196CE00639508 /* SellerListingsVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerListingsVc.swift; sourceTree = "<group>"; };
+		80764E812D21992C00639508 /* SellerListingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerListingsViewModel.swift; sourceTree = "<group>"; };
 		807905BE2CDA8A5A00F8D5F3 /* AdditionalInfoTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoTblCell.swift; sourceTree = "<group>"; };
 		807905BF2CDA8A5A00F8D5F3 /* AdditionalInfoTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdditionalInfoTblCell.xib; sourceTree = "<group>"; };
 		807D8A852C75FC7B00E9AE04 /* ProductDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailVC.swift; sourceTree = "<group>"; };
@@ -816,7 +820,9 @@
 		8064AAC72D1DC6010045BF93 /* Listings */ = {
 			isa = PBXGroup;
 			children = (
+				80764E802D21991B00639508 /* ViewModel */,
 				8064AAC82D1DC6070045BF93 /* Cell */,
+				80764E7E2D2196CE00639508 /* SellerListingsVc.swift */,
 			);
 			path = Listings;
 			sourceTree = "<group>";
@@ -894,6 +900,14 @@
 				807440322D1C5D58000D06CA /* SellerHubItemsTblCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		80764E802D21991B00639508 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				80764E812D21992C00639508 /* SellerListingsViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		807D8A892C7B268600E9AE04 /* Services */ = {
@@ -1519,11 +1533,13 @@
 				80CB06192D148199000054DE /* Order.swift in Sources */,
 				0426D3E62C8822F2008AF976 /* UploadButtonTblCell.swift in Sources */,
 				802208BC2CDA7FCA00F2225A /* PaymentMethodVC.swift in Sources */,
+				80764E7F2D2196CE00639508 /* SellerListingsVc.swift in Sources */,
 				8021AFB12C5BC04500A66611 /* onBoardingViewModel.swift in Sources */,
 				808BAE122CD92CB700B4E568 /* ProductBagVC.swift in Sources */,
 				8013C7602C750235003AA5A3 /* HomeViewModel.swift in Sources */,
 				8013C7672C7514FD003AA5A3 /* ProductPriceAndTitleTblCell.swift in Sources */,
 				04ED9D552C8728C500C2D961 /* AddListingTitleTblCell.swift in Sources */,
+				80764E822D21992C00639508 /* SellerListingsViewModel.swift in Sources */,
 				8021AF9A2C5BBD1C00A66611 /* Storyboard.swift in Sources */,
 				8064AAC52D1DC2DE0045BF93 /* ProductCollCell.swift in Sources */,
 				802208B92CDA7D1000F2225A /* SelectShippingAddressVC.swift in Sources */,

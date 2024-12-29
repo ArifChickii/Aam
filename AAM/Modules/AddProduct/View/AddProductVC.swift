@@ -291,7 +291,9 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
             self.saveTitleAndDescriptionToModel()
             viewModel.uploadImagesToFirebase(images: self.viewModel.imageLists) { imgUrls in
                 print(imgUrls)
-                let newProduct = ProductInfo(id: UUID().uuidString, images: imgUrls, sizes: self.viewModel.selectedSize, colors: self.viewModel.selectedColor, fabrics: self.viewModel.selectedFabric, category: self.viewModel.selectedCategory, title: self.viewModel.selectedTitle, description: self.viewModel.selectedDesc, price: self.viewModel.selectedPriceValues?.price ?? "", rating: "", cutPrice: self.viewModel.selectedPriceValues?.cutPrice ?? "")
+                let newProduct = ProductInfo(id: UUID().uuidString,
+                                             sellerId: "",
+                                             images: imgUrls, sizes: self.viewModel.selectedSize, colors: self.viewModel.selectedColor, fabrics: self.viewModel.selectedFabric, category: self.viewModel.selectedCategory, title: self.viewModel.selectedTitle, createdDate: "", description: self.viewModel.selectedDesc, price: self.viewModel.selectedPriceValues?.price ?? "", rating: "", cutPrice: self.viewModel.selectedPriceValues?.cutPrice ?? "")
                 self.viewModel.addProductToFirebase(productObj: newProduct) { str in
                     LoaderManager.shared.hideLoader()
                     Router.dismiss(from: self)

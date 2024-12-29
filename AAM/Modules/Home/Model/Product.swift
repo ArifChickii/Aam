@@ -21,12 +21,14 @@ struct Product: Codable {
 
 struct ProductInfo: Codable, Hashable {
     var id: String?
+    var sellerId: String?
     let images: [String]?
     let sizes: [String]?
     let colors: [String]?
     let fabrics: [String]?
     let category: ProductCategory?
     let title: String?
+    var createdDate: String?
     let description: String?
     let price: String?
     let rating: String?
