@@ -135,5 +135,8 @@ extension SellerListingsVc: UITableViewDelegate {
         print("Tapped product: \(tappedProduct.title ?? "")")
         // e.g. Router.MoveToProductDetail(from: self, product: tappedProduct)
     }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 130
+    }
 }
 

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseFirestoreInternal
 struct Product: Codable {
     var id: String?
     let images: [String]?
@@ -22,30 +23,32 @@ struct Product: Codable {
 struct ProductInfo: Codable, Hashable {
     var id: String?
     var sellerId: String?
-    let images: [String]?
-    let sizes: [String]?
-    let colors: [String]?
-    let fabrics: [String]?
-    let category: ProductCategory?
-    let title: String?
-    var createdDate: String?
-    let description: String?
-    let price: String?
-    let rating: String?
-    let cutPrice: String?
+    var images: [String]?
+    var sizes: [String]?
+    var colors: [String]?
+    var fabrics: [String]?
+    var category: ProductCategory?
+    var title: String?
+    var description: String?
+    var price: String?
+    var rating: String?
+    var cutPrice: String?
+    
+    // Instead of a Timestamp, use a String
+    var createdAt: String? // e.g., "2024-12-29T20:15:00+0000"
 
-    // MARK: - Hashable Conformance
+    var status: String? // "active", "sold", etc.
 
-    // Use 'id' for hashing and equality checks (or combine as many properties as needed)
+    // Ensure you conform to Hashable as needed
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-
+    
     static func == (lhs: ProductInfo, rhs: ProductInfo) -> Bool {
-        // Two ProductInfo objects are the same if their 'id' is the same.
         return lhs.id == rhs.id
     }
 }
+
 
 
 struct ProductCategory: Codable{

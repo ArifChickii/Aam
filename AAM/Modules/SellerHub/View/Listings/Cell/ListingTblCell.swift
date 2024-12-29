@@ -47,7 +47,7 @@ class ListingTblCell: UITableViewCell {
         lblTitle.text = product.title
         
         // If createdDate is a string, parse it to a Date
-        if let dateStr = product.createdDate,
+        if let dateStr = product.createdAt,
            let actualDate = parseDateString(dateStr) {
             lblUPloadedDate.text = "Save on: \(formatDate(actualDate))"
         } else {

@@ -278,30 +278,45 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
     
     @objc func uploadButtonTapped(_ sender: UIButton) {
         self.view.endEditing(true)
-        if !self.validateAllFields(){
+        if !self.validateAllFields() {
             Helper.showAlertWithOnlyOk(title: "Alert", msg: "Please fill out all fields", vc: self)
-            
-        }else{
-            
-            
+        } else {
             let rowIndex = sender.tag
             print("Button tapped in row: \(rowIndex)")
             // Handle your button action here
             LoaderManager.shared.showLoader(on: self.view, message: "Uploading Product, please wait a few moments...")
             self.saveTitleAndDescriptionToModel()
-            viewModel.uploadImagesToFirebase(images: self.viewModel.imageLists) { imgUrls in
+            
+            // Ensure there are images to upload
+            guard !viewModel.imageLists.isEmpty else {
+                LoaderManager.shared.hideLoader()
+                Helper.showAlert(title: "Error", msg: "Please add at least one image.", vc: self)
+                return
+            }
+            
+            viewModel.uploadImagesToFirebase(images: self.viewModel.imageLists) { [weak self] imgUrls in
+                guard let self = self else { return }
                 print(imgUrls)
-                let newProduct = ProductInfo(id: UUID().uuidString,
-                                             sellerId: "",
-                                             images: imgUrls, sizes: self.viewModel.selectedSize, colors: self.viewModel.selectedColor, fabrics: self.viewModel.selectedFabric, category: self.viewModel.selectedCategory, title: self.viewModel.selectedTitle, createdDate: "", description: self.viewModel.selectedDesc, price: self.viewModel.selectedPriceValues?.price ?? "", rating: "", cutPrice: self.viewModel.selectedPriceValues?.cutPrice ?? "")
-                self.viewModel.addProductToFirebase(productObj: newProduct) { str in
-                    LoaderManager.shared.hideLoader()
-                    Router.dismiss(from: self)
-                }
                 
+                // Create ProductInfo with new properties
+                if let newProduct = self.viewModel.createProductInfo(with: imgUrls) {
+                    self.viewModel.addProductToFirebase(productObj: newProduct) { generatedID in
+                        LoaderManager.shared.hideLoader()
+                        if generatedID.contains("Failed") { // Simple error check; consider enhancing error handling
+                            Helper.showAlert(title: "Error", msg: generatedID, vc: self)
+                        } else {
+                            Helper.shared.showToast(message: "Product uploaded successfully!", vc: self)
+                            Router.dismiss(from: self)
+                        }
+                    }
+                } else {
+                    LoaderManager.shared.hideLoader()
+                    Helper.showAlert(title: "Error", msg: "Failed to create product information.", vc: self)
+                }
             }
         }
     }
+
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {

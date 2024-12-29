@@ -32,7 +32,10 @@ class SellerListingsViewModel {
         
         firebaseService.fetchProducts { [weak self] allProducts in
             // Filter the products by sellerId == current userId
+            print(allProducts.count)
+            
             let userProducts = allProducts.filter({ (product: ProductInfo) -> Bool in
+                print(product.sellerId)
                 return product.sellerId == userId
             })
             self?.products = userProducts

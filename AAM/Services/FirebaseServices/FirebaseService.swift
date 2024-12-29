@@ -101,16 +101,17 @@ class FirebaseService {
                         
                         let product = ProductInfo(
                             id: document.documentID,
+                            sellerId: data["sellerId"] as? String ?? "",
                             images: data["images"] as? [String] ?? [],
                             sizes: data["sizes"] as? [String] ?? [],
                             colors: data["colors"] as? [String] ?? [],
                             fabrics: data["fabrics"] as? [String] ?? [],
                             category: productCat,
                             title: data["title"] as? String ?? "",
-                            createdDate: "", description: data["description"] as? String ?? "", // old hard-coded
-                            price: data["price"] as? String ?? "",
-                            rating: data["rating"] as? String ?? "0.0",
-                            cutPrice: data["cutPrice"] as? String ?? ""
+                            description: data["description"] as? String ?? "", price: data["price"] as? String ?? "", // old hard-coded
+                            rating: data["rating"] as? String ?? "",
+                            cutPrice: data["cutPrice"] as? String ?? "0.0",
+                            createdAt: data["createdAt"] as? String ?? ""
                         )
                         
                         products.append(product)
@@ -137,32 +138,17 @@ class FirebaseService {
                 return
             }
             
-            let data = document.data() ?? [:]
-            
-            // Parse the category dictionary safely
-            let productCatDic = data["category"] as? [String: Any]
-            let productCat = ProductCategory(
-                title: productCatDic?["title"] as? String ?? "",
-                subCategories: productCatDic?["subCategories"] as? [String] ?? []
-            )
-            
-            let product = ProductInfo(
-                id: document.documentID,
-                sellerId: data["sellerId"] as? String ?? "",       // <--- NEW
-                images: data["images"] as? [String] ?? [],
-                sizes: data["sizes"] as? [String] ?? [],
-                colors: data["colors"] as? [String] ?? [],
-                fabrics: data["fabrics"] as? [String] ?? [],
-                category: productCat,
-                title: data["title"] as? String ?? "",
-                createdDate: data["createdDate"] as? String ?? "", description: data["description"] as? String ?? "", price: data["price"] as? String ?? "",
-                rating: data["rating"] as? String ?? "0.0",
-                cutPrice: data["cutPrice"] as? String ?? ""
-            )
-            
-            completion(product)
+            do {
+                // Decode the document into ProductInfo
+                let product = try document.data(as: ProductInfo.self)
+                completion(product)
+            } catch let decodingError {
+                print("❌ Error decoding product: \(decodingError.localizedDescription)")
+                completion(nil)
+            }
         }
     }
+
 
     
     
@@ -202,20 +188,29 @@ class FirebaseService {
     
     
     func saveProductInfo(product: ProductInfo, completion: @escaping (Result<String, Error>) -> Void) {
+        guard let currentUser = auth.currentUser else {
+            completion(.failure(NSError(domain: "FirebaseService", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not logged in"])))
+            return
+        }
+        
         // Reference to the 'Products' collection
         let productsRef = db.collection("Products")
         
         // Create a new document with an automatically generated ID
         let newProductRef = productsRef.document()
         
-        // Set the product's ID to the auto-generated one (if not already set)
+        // Set the product's ID to the auto-generated one
         var productWithID = product
         productWithID.id = newProductRef.documentID
-//        
-//         Optionally set a createdDate if you haven't already (e.g., store the current date as a string):
-         let dateFormatter = DateFormatter()
-         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-         productWithID.createdDate = dateFormatter.string(from: Date())
+        productWithID.sellerId = currentUser.uid // Set sellerId to current user
+        productWithID.status = "active" // Set initial status
+        
+        // Format the current date/time as a string
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ" // Or any format you like
+        let currentDateString = dateFormatter.string(from: Date())
+        
+        productWithID.createdAt = currentDateString  // Store the date as a string
         
         do {
             // Convert the Product object to a dictionary
@@ -233,6 +228,8 @@ class FirebaseService {
             completion(.failure(error))  // Error during encoding
         }
     }
+
+
 
     
     
@@ -828,6 +825,25 @@ extension FirebaseService {
                 completion(.success(userModel))
             } catch {
                 completion(.failure(error))
+            }
+        }
+    }
+}
+extension FirebaseService {
+    /// Updates the status of a product.
+    /// - Parameters:
+    ///   - productId: The ID of the product to update.
+    ///   - newStatus: The new status (e.g., "sold").
+    ///   - completion: Completion handler with a result.
+    func updateProductStatus(productId: String, newStatus: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        let productRef = db.collection("Products").document(productId)
+        productRef.updateData(["status": newStatus]) { error in
+            if let error = error {
+                print("❌ Failed to update product status: \(error.localizedDescription)")
+                completion(.failure(error))
+            } else {
+                print("✅ Product status updated to \(newStatus) for ID: \(productId)")
+                completion(.success(()))
             }
         }
     }
