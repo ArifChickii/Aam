@@ -217,18 +217,25 @@ class AuthenticationVC: UIViewController, Storyboarded {
             self.activityIndicator.stopAnimating()
             switch result {
             case .success():
-                Helper.shared.showToast(message: "move to home", vc: self)
+                // 1) After we've successfully saved user info, ensure Stripe customer ID
+                self.ensureStripeCustomerId()
+                
+                // 2) Continue with your usual flow
+                Helper.shared.showToast(message: "Moving to home...", vc: self)
                 LocalStorage.setUserisLogin()
                 Router.setHomeAsRootVC()
+
             case .failure(let error):
                 print("Failed to save user info: \(error.localizedDescription)")
-                // You can still proceed to home if desired
+                // Optionally still call `ensureStripeCustomerId()` or skip if user info is incomplete
+                // For now, let's skip if we can't even save user info
                 Helper.shared.showToast(message: "move to home", vc: self)
                 LocalStorage.setUserisLogin()
                 Router.setHomeAsRootVC()
             }
         }
     }
+
 }
 
 // MARK: - Apple Sign In Flow
@@ -423,5 +430,47 @@ extension AuthenticationVC: ASAuthorizationControllerPresentationContextProvidin
     @available(iOS 13.0, *)
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
         return self.view.window!
+    }
+}
+extension AuthenticationVC {
+    
+    /// Checks if the current Firebase user has a Stripe customer ID in Firestore.
+    /// If not, it creates one and stores it in Firestore.
+    func ensureStripeCustomerId() {
+        guard let currentUser = Auth.auth().currentUser else {
+            print("No authenticated user found.")
+            return
+        }
+        
+        let userRef = Firestore.firestore().collection("users").document(currentUser.uid)
+        userRef.getDocument { snapshot, error in
+            if let data = snapshot?.data(),
+               let stripeCustomerId = data["stripeCustomerId"] as? String,
+               !stripeCustomerId.isEmpty {
+                // Already have a Stripe customer ID
+                print("Stripe customer ID exists: \(stripeCustomerId)")
+            } else {
+                // Need to create a new Stripe customer
+                let email = currentUser.email ?? "no-email@example.com"
+                let name = currentUser.displayName ?? "Unknown"
+
+                let service = CustomerService()
+                service.createCustomer(email: email, name: name) { result in
+                    switch result {
+                    case .success(let newCustId):
+                        // Update Firestore with the new Stripe customer ID
+                        userRef.updateData(["stripeCustomerId": newCustId]) { err in
+                            if let err = err {
+                                print("Failed to update Firestore with customer ID: \(err.localizedDescription)")
+                            } else {
+                                print("Created and stored new Stripe customer: \(newCustId)")
+                            }
+                        }
+                    case .failure(let error):
+                        print("Failed to create customer: \(error)")
+                    }
+                }
+            }
+        }
     }
 }

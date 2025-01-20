@@ -176,5 +176,145 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "639DBAC5-B472-4533-B03B-E2A3FE5F2517"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AAM/Modules/Authentication/View/AuthenticationVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "460"
+            endingLineNumber = "460"
+            landmarkName = "ensureStripeCustomerId()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "639DBAC5-B472-4533-B03B-E2A3FE5F2517 - 6530650604cd929"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.String, Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRDocumentSnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in AAM.AuthenticationVC.ensureStripeCustomerId() -&gt; ()"
+                  moduleName = "AAM"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arif/Desktop/Documents/Aam/AAM/Modules/Authentication/View/AuthenticationVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "460"
+                  endingLineNumber = "460">
+               </Location>
+               <Location
+                  uuid = "639DBAC5-B472-4533-B03B-E2A3FE5F2517 - 6530650604cd929"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.String, Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRDocumentSnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in AAM.AuthenticationVC.ensureStripeCustomerId() -&gt; ()"
+                  moduleName = "AAM"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arif/Desktop/Documents/Aam/AAM/Modules/Authentication/View/AuthenticationVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "460"
+                  endingLineNumber = "460">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FB4DE66E-9836-415C-9B3C-F8F7F4089D75"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AAM/Modules/Authentication/View/AuthenticationVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "459"
+            endingLineNumber = "459"
+            landmarkName = "ensureStripeCustomerId()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FB4DE66E-9836-415C-9B3C-F8F7F4089D75 - 6530650604cd929"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.String, Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRDocumentSnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in AAM.AuthenticationVC.ensureStripeCustomerId() -&gt; ()"
+                  moduleName = "AAM"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arif/Desktop/Documents/Aam/AAM/Modules/Authentication/View/AuthenticationVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "460"
+                  endingLineNumber = "460">
+               </Location>
+               <Location
+                  uuid = "FB4DE66E-9836-415C-9B3C-F8F7F4089D75 - 6530650604cd929"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.String, Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRDocumentSnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in AAM.AuthenticationVC.ensureStripeCustomerId() -&gt; ()"
+                  moduleName = "AAM"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arif/Desktop/Documents/Aam/AAM/Modules/Authentication/View/AuthenticationVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "460"
+                  endingLineNumber = "460">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F51CFFF8-4575-4857-9879-0A1EFF1D5A0D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AAM/Modules/Authentication/View/AuthenticationVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "470"
+            endingLineNumber = "470"
+            landmarkName = "ensureStripeCustomerId()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FEF99568-3FB2-44BB-ADCC-440AC294B2CC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AAM/Modules/Authentication/View/AuthenticationVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "464"
+            endingLineNumber = "464"
+            landmarkName = "ensureStripeCustomerId()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C44014FA-6EE7-4C5C-9ED5-AF71CD918AB8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AAM/Modules/Authentication/View/AuthenticationVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "466"
+            endingLineNumber = "466"
+            landmarkName = "ensureStripeCustomerId()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
