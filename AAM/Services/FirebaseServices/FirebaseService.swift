@@ -11,6 +11,7 @@ import FirebaseFirestore
 import FirebaseAuth
 import FirebaseFunctions
 
+
 class FirebaseService {
     private var db = Firestore.firestore()
      var auth = Auth.auth()

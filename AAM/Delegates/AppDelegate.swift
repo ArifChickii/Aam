@@ -10,7 +10,7 @@ import CoreData
 import FirebaseCore
 import IQKeyboardManagerSwift
 import GoogleSignIn
-import Stripe
+import StripePayments
 
 
 @main

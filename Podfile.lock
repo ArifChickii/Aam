@@ -946,6 +946,7 @@ PODS:
     - abseil/meta/type_traits
     - abseil/xcprivacy
   - abseil/xcprivacy (1.20240116.2)
+  - Alamofire (5.10.2)
   - AppAuth (1.7.6):
     - AppAuth/Core (= 1.7.6)
     - AppAuth/ExternalUserAgent (= 1.7.6)
@@ -1258,8 +1259,28 @@ PODS:
   - SDWebImage (5.20.0):
     - SDWebImage/Core (= 5.20.0)
   - SDWebImage/Core (5.20.0)
+  - StripeApplePay (24.1.0):
+    - StripeCore (= 24.1.0)
+  - StripeCore (24.1.0)
+  - StripePayments (24.1.0):
+    - StripeCore (= 24.1.0)
+    - StripePayments/Stripe3DS2 (= 24.1.0)
+  - StripePayments/Stripe3DS2 (24.1.0):
+    - StripeCore (= 24.1.0)
+  - StripePaymentSheet (24.1.0):
+    - StripeApplePay (= 24.1.0)
+    - StripeCore (= 24.1.0)
+    - StripePayments (= 24.1.0)
+    - StripePaymentsUI (= 24.1.0)
+  - StripePaymentsUI (24.1.0):
+    - StripeCore (= 24.1.0)
+    - StripePayments (= 24.1.0)
+    - StripeUICore (= 24.1.0)
+  - StripeUICore (24.1.0):
+    - StripeCore (= 24.1.0)
 
 DEPENDENCIES:
+  - Alamofire
   - Branch
   - Firebase/Auth
   - Firebase/Core
@@ -1276,10 +1297,12 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - NVActivityIndicatorView
   - SDWebImage (~> 5.0)
+  - StripePaymentSheet
 
 SPEC REPOS:
   trunk:
     - abseil
+    - Alamofire
     - AppAuth
     - BoringSSL-GRPC
     - Branch
@@ -1322,9 +1345,16 @@ SPEC REPOS:
     - PromisesSwift
     - RecaptchaInterop
     - SDWebImage
+    - StripeApplePay
+    - StripeCore
+    - StripePayments
+    - StripePaymentSheet
+    - StripePaymentsUI
+    - StripeUICore
 
 SPEC CHECKSUMS:
   abseil: d121da9ef7e2ff4cab7666e76c5a3e0915ae08c3
+  Alamofire: 7193b3b92c74a07f85569e1a6c4f4237291e7496
   AppAuth: d4f13a8fe0baf391b2108511793e4b479691fb73
   BoringSSL-GRPC: 1e2348957acdbcad360b80a264a90799984b2ba6
   Branch: c1a7fa1811ef9203c01bc6c2588a229eb3ee1a84
@@ -1367,7 +1397,13 @@ SPEC CHECKSUMS:
   PromisesSwift: 9d77319bbe72ebf6d872900551f7eeba9bce2851
   RecaptchaInterop: 7d1a4a01a6b2cb1610a47ef3f85f0c411434cb21
   SDWebImage: 73c6079366fea25fa4bb9640d5fb58f0893facd8
+  StripeApplePay: e4fa6abea8a8ddbde9c8fafa96130a2ea09b57bb
+  StripeCore: 160aca8e55250349a11fde890e6d2b9e05f8d1b9
+  StripePayments: a73b1f2aaf25329e86a48e657d2113534aab766a
+  StripePaymentSheet: aad046a1c7da0e3707e9c08e7d84208950af6f32
+  StripePaymentsUI: b0549b8e460f9963d07f39a9aace4106f6bd66d4
+  StripeUICore: b53e458e9ecb5992a8e986174cfa55935bc44ff4
 
-PODFILE CHECKSUM: 24aa3b52686fb3e146cec894fc5ee3ae49ec2474
+PODFILE CHECKSUM: 0d3e557a287fda2d1f38de24e2b9d851d67aca85
 
 COCOAPODS: 1.16.2

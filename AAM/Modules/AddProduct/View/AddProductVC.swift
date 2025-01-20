@@ -8,6 +8,8 @@
 import UIKit
 import FittedSheets
 import IQKeyboardManagerSwift
+import FirebaseAuth
+import FirebaseFirestoreInternal
 
 
 
@@ -15,7 +17,7 @@ import IQKeyboardManagerSwift
 class AddProductVC: UIViewController, Storyboarded {
     
     
-    
+    private let merchantService = MerchantService()
     @IBOutlet weak var tblAddProduct: UITableView!
 
     
@@ -280,39 +282,93 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource{
         self.view.endEditing(true)
         if !self.validateAllFields() {
             Helper.showAlertWithOnlyOk(title: "Alert", msg: "Please fill out all fields", vc: self)
-        } else {
-            let rowIndex = sender.tag
-            print("Button tapped in row: \(rowIndex)")
-            // Handle your button action here
-            LoaderManager.shared.showLoader(on: self.view, message: "Uploading Product, please wait a few moments...")
-            self.saveTitleAndDescriptionToModel()
+            return
+        }
+        
+        LoaderManager.shared.showLoader(on: self.view, message: "Checking merchant status...")
+        
+        guard let currentUser = Auth.auth().currentUser else {
+            LoaderManager.shared.hideLoader()
+            Helper.showAlert(title: "Error", msg: "User not logged in.", vc: self)
+            return
+        }
+        
+        // STEP 1: Check if user has stripeMerchantId
+        let userRef = Firestore.firestore().collection("users").document(currentUser.uid)
+        userRef.getDocument { [weak self] snapshot, error in
+            guard let self = self else { return }
             
-            // Ensure there are images to upload
-            guard !viewModel.imageLists.isEmpty else {
+            if let error = error {
                 LoaderManager.shared.hideLoader()
-                Helper.showAlert(title: "Error", msg: "Please add at least one image.", vc: self)
+                Helper.showAlert(title: "Error", msg: "Failed to fetch user doc: \(error.localizedDescription)", vc: self)
                 return
             }
             
-            viewModel.uploadImagesToFirebase(images: self.viewModel.imageLists) { [weak self] imgUrls in
-                guard let self = self else { return }
-                print(imgUrls)
-                
-                // Create ProductInfo with new properties
-                if let newProduct = self.viewModel.createProductInfo(with: imgUrls) {
-                    self.viewModel.addProductToFirebase(productObj: newProduct) { generatedID in
-                        LoaderManager.shared.hideLoader()
-                        if generatedID.contains("Failed") { // Simple error check; consider enhancing error handling
-                            Helper.showAlert(title: "Error", msg: generatedID, vc: self)
-                        } else {
-                            Helper.shared.showToast(message: "Product uploaded successfully!", vc: self)
-                            Router.dismiss(from: self)
-                        }
-                    }
-                } else {
+            let data = snapshot?.data() ?? [:]
+            if let merchantId = data["stripeMerchantId"] as? String, !merchantId.isEmpty {
+                // User is already a merchant, proceed directly to upload product
+                self.uploadProductFlow()
+            } else {
+                // Need to create merchant account
+                guard let email = currentUser.email else {
                     LoaderManager.shared.hideLoader()
-                    Helper.showAlert(title: "Error", msg: "Failed to create product information.", vc: self)
+                    Helper.showAlert(title: "Error", msg: "No email found for current user.", vc: self)
+                    return
                 }
+                
+                LoaderManager.shared.showLoader(on: self.view, message: "Creating merchant account...")
+                
+                self.merchantService.addMerchant(email: email,
+                                                 country: "US",  // or fetch from user’s profile
+                                                 businessType: "individual",
+                                                 companyName: "MyStore") { result in
+                    switch result {
+                    case .success(let newMerchantId):
+                        // Store merchant ID in Firestore
+                        userRef.updateData(["stripeMerchantId": newMerchantId]) { err in
+                            LoaderManager.shared.hideLoader()
+                            if let err = err {
+                                Helper.showAlert(title: "Error", msg: "Failed to update Firestore with merchant ID: \(err.localizedDescription)", vc: self)
+                            } else {
+                                print("Onboarded user as merchant with ID: \(newMerchantId)")
+                                self.uploadProductFlow()
+                            }
+                        }
+                    case .failure(let error):
+                        LoaderManager.shared.hideLoader()
+                        Helper.showAlert(title: "Error", msg: "Failed to create merchant: \(error.localizedDescription)", vc: self)
+                    }
+                }
+            }
+        }
+    }
+
+    func uploadProductFlow() {
+        // This is basically what you already have after your validations,
+        // except we are sure the user is a merchant now.
+
+        LoaderManager.shared.showLoader(on: self.view, message: "Uploading Product, please wait...")
+
+        // 1. Upload images to Firebase
+        viewModel.uploadImagesToFirebase(images: viewModel.imageLists) { [weak self] imgUrls in
+            guard let self = self else { return }
+            print("Uploaded images: \(imgUrls)")
+
+            // 2. Create ProductInfo
+            if let newProduct = self.viewModel.createProductInfo(with: imgUrls) {
+                // 3. Save the product in Firestore
+                self.viewModel.addProductToFirebase(productObj: newProduct) { generatedID in
+                    LoaderManager.shared.hideLoader()
+                    if generatedID.contains("Failed") {
+                        Helper.showAlert(title: "Error", msg: generatedID, vc: self)
+                    } else {
+                        Helper.shared.showToast(message: "Product uploaded successfully!", vc: self)
+                        Router.dismiss(from: self)
+                    }
+                }
+            } else {
+                LoaderManager.shared.hideLoader()
+                Helper.showAlert(title: "Error", msg: "Failed to create product information.", vc: self)
             }
         }
     }

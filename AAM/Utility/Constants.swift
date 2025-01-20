@@ -10,7 +10,7 @@ import BottomSheet
 import UIKit
 class Constants{
     static let shared = Constants()
-    
+    var baseUrl = "https://damp-bastion-60176-520a249cc307.herokuapp.com/"
     var linkingAlertTitle = "Email Already in Use"
     var googleLinkingDesc = "There is already a Google account with this email address. Continue to login with Google."
     var appleLinkingDesc = "There is already an Apple account with this email address. Continue to login with Apple."
