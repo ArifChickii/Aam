@@ -45,9 +45,9 @@ class AddressTblCell: UITableViewCell {
     func configure(with address: ShippingAddress, isSelected: Bool) {
         lblShippingAddressTitle.text = address.address
         lblShippingUserName.text = address.fullName
-        lblShippingZipCode.text = "Zip Code: \(address.postalCode ?? "")"
+        lblShippingZipCode.text = "\(address.postalCode ?? "")"
         lblShippingCountry.text = "\(address.city ?? ""), \(address.country ?? "")"
-        lblShippingAddress.text = "Apartment/Unit No: \(address.flatOrBlockNo ?? "")"
+        lblShippingAddress.text = "\(address.flatOrBlockNo ?? "")"
         
         // Update radio button image
         let imageName = isSelected ? "ic_radio_selected" : "ic_radio_unselected"

@@ -151,7 +151,7 @@ class SellerProfileVC: UIViewController, Storyboarded {
         usernameLabel.text  = user.name
         aboutMeLabel.text   = "About me"
         userMailLabel.text  = user.email
-        locationLabel.text  = user.location
+        locationLabel.text  = user.country ?? ""
         
         // If you have a profile image URL in userModel
         if let profileImageURL = user.profileImage, let url = URL(string: profileImageURL) {

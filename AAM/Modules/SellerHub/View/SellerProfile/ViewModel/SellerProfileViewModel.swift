@@ -54,8 +54,22 @@ class SellerProfileViewModel {
     
     /// Fetch all products (you can customize this to fetch only the seller's products if needed)
     func fetchAllProducts() {
-        firebaseService.fetchProducts { [weak self] products in
-            self?.products = products
+        guard let userId = Auth.auth().currentUser?.uid else {
+            print("User not logged in")
+            return
         }
+        
+        firebaseService.fetchProducts { [weak self] allProducts in
+            // Filter the products by sellerId == current userId
+            print(allProducts.count)
+            
+            let userProducts = allProducts.filter({ (product: ProductInfo) -> Bool in
+                
+                return product.sellerId == userId
+            })
+            self?.products = userProducts
+        }
+        
+        
     }
 }

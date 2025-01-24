@@ -32,7 +32,6 @@ class SellerListingsVc: UIViewController, Storyboarded {
         setupUI()
         setupTableView()
         setupBindings()
-        
         showLoader()
         viewModel.fetchUserProducts()  // fetch all user’s products
     }
