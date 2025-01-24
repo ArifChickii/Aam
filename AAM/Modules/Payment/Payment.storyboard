@@ -86,23 +86,35 @@
                                     <action selector="proceedToCheckout" destination="Y6W-OH-hqX" eventType="touchUpInside" id="dlo-Mg-9It"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your bag is empty." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="uC5-Go-l2d">
+                                <rect key="frame" x="30" y="414.33333333333331" width="333" height="23.333333333333314"/>
+                                <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="16"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="uC5-Go-l2d" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="4Za-3c-QhA"/>
                             <constraint firstItem="RR1-N3-qZZ" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="BIh-c0-nZS"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="RR1-N3-qZZ" secondAttribute="trailing" id="Dse-2r-mKa"/>
                             <constraint firstItem="cnq-p7-Xo1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="KyO-lH-arF"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="cnq-p7-Xo1" secondAttribute="trailing" id="N9l-QX-LZU"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="uC5-Go-l2d" secondAttribute="trailing" constant="30" id="NCb-3T-0Yv"/>
                             <constraint firstItem="y3y-II-REH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="WAo-t3-aEf"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="cnq-p7-Xo1" secondAttribute="bottom" id="XCE-v1-KoF"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="y3y-II-REH" secondAttribute="bottom" constant="50" id="bhA-tP-uIP"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="y3y-II-REH" secondAttribute="trailing" constant="30" id="bjt-bB-2ef"/>
                             <constraint firstItem="cnq-p7-Xo1" firstAttribute="top" secondItem="RR1-N3-qZZ" secondAttribute="bottom" id="mTG-56-UGg"/>
                             <constraint firstItem="RR1-N3-qZZ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="nlN-KF-4Bi"/>
+                            <constraint firstItem="uC5-Go-l2d" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="xTn-iP-LIc"/>
+                            <constraint firstItem="uC5-Go-l2d" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="zQB-pF-qK1"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="actionButton" destination="y3y-II-REH" id="ukE-Eo-LNu"/>
+                        <outlet property="emptyBagLabel" destination="uC5-Go-l2d" id="AE3-Y2-Jk3"/>
                         <outlet property="productTblView" destination="cnq-p7-Xo1" id="geR-x5-28c"/>
                     </connections>
                 </viewController>
