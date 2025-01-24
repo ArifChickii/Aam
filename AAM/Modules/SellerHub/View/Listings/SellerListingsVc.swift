@@ -114,11 +114,13 @@ extension SellerListingsVc: UITableViewDataSource {
         cell.configure(with: product)
         
         // Handle edit button callback
+        
+        
         cell.onEditTapped = { [weak self] tappedProduct in
-            // e.g., navigate to an EditProductVC, or open a bottom sheet
             print("Edit tapped for product: \(tappedProduct.title ?? "")")
             // Example:
-            // Router.MoveToAddProduct(from: self, forEdit: tappedProduct)
+            // 1) We simply call the Router to move to AddProduct in edit mode:
+            Router.MoveToAddProduct(from: self, forEdit: tappedProduct)
         }
         
         return cell

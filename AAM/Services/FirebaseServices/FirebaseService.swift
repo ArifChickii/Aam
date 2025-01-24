@@ -41,6 +41,8 @@ class FirebaseService {
     }
     
     
+    
+    
     func ensureStripeCustomerId(completion: @escaping (Result<Void, Error>) -> Void) {
         guard let uid = auth.currentUser?.uid else {
             completion(.failure(NSError(domain: "FirebaseService", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not logged in"])))
@@ -393,7 +395,35 @@ class FirebaseService {
 
 extension FirebaseService {
 
-
+    /// Update an existing product in Firestore using the `product.id`
+    func updateProductInfo(product: ProductInfo, completion: @escaping (Result<Void, Error>) -> Void) {
+        guard let productId = product.id else {
+            completion(.failure(NSError(domain: "FirebaseService",
+                                        code: -1,
+                                        userInfo: [NSLocalizedDescriptionKey: "No product ID found for update"])))
+            return
+        }
+        
+        // We store the updated date/time. Or keep the old createdAt if you prefer.
+        // For example, let's just keep the old "createdAt".
+        
+        do {
+            // Convert the Product object to a dictionary
+            let productData = try Firestore.Encoder().encode(product)
+            
+            // Overwrite the existing document
+            db.collection("Products").document(productId).setData(productData) { error in
+                if let error = error {
+                    completion(.failure(error))
+                } else {
+                    completion(.success(()))
+                }
+            }
+        } catch let error {
+            completion(.failure(error))  // Error during encoding
+        }
+    }
+    
     // MARK: - Bag Products Methods
 
     /// Adds a product to the bag in Firebase.

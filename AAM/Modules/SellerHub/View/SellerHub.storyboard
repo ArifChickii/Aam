@@ -407,7 +407,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="twT-K1-2we">
-                                <rect key="frame" x="0.0" y="302.33333333333331" width="393" height="515.66666666666674"/>
+                                <rect key="frame" x="0.0" y="302.33333333333326" width="393" height="475.66666666666674"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Items" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="YAQ-RK-uNf">
@@ -435,7 +435,7 @@
                             <constraint firstItem="twT-K1-2we" firstAttribute="top" secondItem="YAQ-RK-uNf" secondAttribute="bottom" constant="12" id="l6G-Qp-92x"/>
                             <constraint firstItem="YAQ-RK-uNf" firstAttribute="top" secondItem="rua-Fw-xqu" secondAttribute="bottom" constant="20" id="m7i-2a-ihw"/>
                             <constraint firstItem="Vxf-VP-dKw" firstAttribute="top" secondItem="s4Z-yo-0Yq" secondAttribute="top" id="v0W-aS-ufH"/>
-                            <constraint firstItem="s4Z-yo-0Yq" firstAttribute="bottom" secondItem="twT-K1-2we" secondAttribute="bottom" id="zwS-xH-cN4"/>
+                            <constraint firstItem="s4Z-yo-0Yq" firstAttribute="bottom" secondItem="twT-K1-2we" secondAttribute="bottom" constant="40" id="zwS-xH-cN4"/>
                         </constraints>
                     </view>
                     <connections>

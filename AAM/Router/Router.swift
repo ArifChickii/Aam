@@ -90,6 +90,14 @@ class Router {
         let vc = AddProductVC.instantiate(storyBoardName: "AddProduct")
         currentVC.navigationController?.pushViewController(vc, animated: true)
     }
+    static func MoveToAddProduct(from currentVC: UIViewController?, forEdit product: ProductInfo) {
+        guard let currentVC = currentVC else { return }
+        let vc = AddProductVC.instantiate(storyBoardName: "AddProduct")
+        vc.editingProduct = product  // Pass the product to be edited
+        vc.modalPresentationStyle = .fullScreen
+        currentVC.present(vc, animated: true, completion: nil)
+       
+    }
     static func MoveToSelectShippingAddress(from currentVC: UIViewController) {
         let vc = SelectShippingAddressVC.instantiate(storyBoardName: "Payment")
         currentVC.navigationController?.pushViewController(vc, animated: true)
