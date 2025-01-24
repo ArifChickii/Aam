@@ -342,7 +342,7 @@ extension ProductDetailVC: UITableViewDelegate, UITableViewDataSource {
         case 5:
             return 100
         case 6:
-            return 60
+            return 100
         default:
             return 0
         }

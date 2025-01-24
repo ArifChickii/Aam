@@ -40,7 +40,7 @@ class TabbarVC: UITabBarController, UITabBarControllerDelegate, Storyboarded {
                                            selectedImage: UIImage(named: "ic_profile_unselected"))
         
         let thirdVC = ProductBagVC.instantiate(storyBoardName: "Payment")
-        thirdVC.tabBarItem = UITabBarItem(title: "Favorites",
+        thirdVC.tabBarItem = UITabBarItem(title: "Cart",
                                           image: UIImage(named: "ic_cart_unselected"), // Corrected image name
                                           selectedImage: UIImage(named: "ic_cart_selected"))
         

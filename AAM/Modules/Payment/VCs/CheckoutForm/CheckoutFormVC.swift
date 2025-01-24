@@ -78,7 +78,7 @@ class CheckoutFormVC: UIViewController, Storyboarded {
         // Collect data from viewModel
         let fullName = viewModel.getValueForTitle("Full Name") ?? ""
         let address = viewModel.getValueForTitle("Address") ?? ""
-        let flatOrBlockNo = viewModel.getValueForTitle("Flat/Block No") ?? ""
+        let flatOrBlockNo = viewModel.getValueForTitle("Apartment/Unit No") ?? ""
         let postalCode = viewModel.getValueForTitle("Postal / Zipcode") ?? ""
         let country = viewModel.getValueForTitle("Country") ?? ""
         let city = viewModel.getValueForTitle("City") ?? ""

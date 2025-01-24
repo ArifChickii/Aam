@@ -17,7 +17,7 @@ class ProductFormViewModel {
         formFields = [
             ProductFormModel(title: "Full Name", placeHolder: "Enter your full name", value: nil, isRequired: true),
             ProductFormModel(title: "Address", placeHolder: "Enter your address", value: nil, isRequired: true),
-            ProductFormModel(title: "Flat/Block No", placeHolder: "Enter flat/block number", value: nil, isRequired: true),
+            ProductFormModel(title: "Apartment/Unit No", placeHolder: "Enter apartment/unit number", value: nil, isRequired: true),
             ProductFormModel(title: "Postal / Zipcode", placeHolder: "Enter postal/zipcode", value: nil, isRequired: true),
             ProductFormModel(title: "Country", placeHolder: "Enter your country", value: nil, isRequired: true),
             ProductFormModel(title: "City", placeHolder: "Enter your city", value: nil, isRequired: true),
