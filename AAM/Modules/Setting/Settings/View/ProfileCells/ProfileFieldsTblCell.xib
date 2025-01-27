@@ -27,7 +27,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="u5A-Jy-8Yo">
-                        <rect key="frame" x="20" y="12" width="280" height="407"/>
+                        <rect key="frame" x="20" y="12" width="280" height="324"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1Dv-Cp-iJv">
                                 <rect key="frame" x="0.0" y="0.0" width="280" height="75"/>
@@ -103,8 +103,8 @@
                                     </view>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="SXk-sy-Sf5">
-                                <rect key="frame" x="0.0" y="166" width="280" height="75"/>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="SXk-sy-Sf5">
+                                <rect key="frame" x="0.0" y="162" width="280" height="75"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="EYh-b3-PcX">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="17"/>
@@ -141,7 +141,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oz3-O7-Rgz">
-                                <rect key="frame" x="0.0" y="249" width="280" height="75"/>
+                                <rect key="frame" x="0.0" y="166" width="280" height="75"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rle-Ls-4VD">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="17"/>
@@ -178,7 +178,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hcK-90-XSk">
-                                <rect key="frame" x="0.0" y="332" width="280" height="75"/>
+                                <rect key="frame" x="0.0" y="249" width="280" height="75"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bio" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tPj-Sd-Wzk">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="17"/>
