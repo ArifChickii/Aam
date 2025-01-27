@@ -298,6 +298,20 @@
                                             <action selector="saveAction" destination="UmA-F1-7JC" eventType="touchUpInside" id="cJe-1D-OQK"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rh4-9V-KPk">
+                                        <rect key="frame" x="10" y="32.666666666666671" width="70" height="34.333333333333329"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="kKi-wT-D3V"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Back">
+                                            <fontDescription key="titleFontDescription" name="Jost-Medium" family="Jost" pointSize="14"/>
+                                            <color key="baseForegroundColor" name="mainThemeColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="backAction" destination="UmA-F1-7JC" eventType="touchUpInside" id="xhA-fU-Kb7"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lKc-tM-FuG">
                                         <rect key="frame" x="20" y="15" width="44" height="44"/>
                                         <constraints>
@@ -316,7 +330,9 @@
                                     <constraint firstAttribute="trailing" secondItem="dp1-ay-a1J" secondAttribute="trailing" constant="10" id="MkY-XS-Vgb"/>
                                     <constraint firstItem="Ijb-NV-kTa" firstAttribute="centerX" secondItem="NNM-QG-Eaw" secondAttribute="centerX" id="Z2Q-Pq-x0H"/>
                                     <constraint firstAttribute="bottom" secondItem="Ijb-NV-kTa" secondAttribute="bottom" constant="12" id="qFz-U4-v6W"/>
+                                    <constraint firstItem="Rh4-9V-KPk" firstAttribute="leading" secondItem="NNM-QG-Eaw" secondAttribute="leading" constant="10" id="skH-eG-P9M"/>
                                     <constraint firstItem="lKc-tM-FuG" firstAttribute="leading" secondItem="NNM-QG-Eaw" secondAttribute="leading" constant="20" id="xla-ON-ula"/>
+                                    <constraint firstItem="Rh4-9V-KPk" firstAttribute="centerY" secondItem="Ijb-NV-kTa" secondAttribute="centerY" id="zVc-ka-M2g"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="subviews">
@@ -346,6 +362,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnBack" destination="Rh4-9V-KPk" id="MKK-AE-rUj"/>
                         <outlet property="btnSave" destination="dp1-ay-a1J" id="hEe-bT-UuF"/>
                         <outlet property="lblTitle" destination="Ijb-NV-kTa" id="mdK-8u-ibf"/>
                         <outlet property="tbl" destination="g6u-VE-HCx" id="3Mg-sK-NGG"/>

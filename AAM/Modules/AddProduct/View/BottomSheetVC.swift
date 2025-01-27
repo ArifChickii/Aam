@@ -11,6 +11,7 @@ class BottomSheetVC: UIViewController, Storyboarded {
     @IBOutlet weak var tbl: UITableView!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var btnSave: UIButton!
+    @IBOutlet weak var btnBack: UIButton!
     
     var bottomSheetType : Constants.CategoryType?
     var bottomSheetList = [DropDown]()                // For size/color/fabric subcats
@@ -55,8 +56,9 @@ class BottomSheetVC: UIViewController, Storyboarded {
     // MARK: - Setup Data
     private func setupData() {
         guard let categoryType = self.bottomSheetType else { return }
-        
+        self.btnBack.isHidden = true
         switch categoryType {
+            
         case .category:
             // Show main categories
             self.categoriesList = Constants.shared.categoriesList
@@ -69,6 +71,7 @@ class BottomSheetVC: UIViewController, Storyboarded {
             self.bottomSheetList   = self.selectedCategory?.subCategories ?? []
             self.lblTitle.text     = "\(self.selectedCategory?.title ?? "Select subcategory")"
             self.btnSave.isHidden  = true
+            self.btnBack.isHidden = false
             
         case .size:
             // Single-select
@@ -123,6 +126,10 @@ class BottomSheetVC: UIViewController, Storyboarded {
             onDataPass?(selectedItemStrings)
             self.dismiss(animated: true)
         }
+    }
+    
+    @IBAction func backAction(){
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
