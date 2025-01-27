@@ -81,7 +81,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource, CollectionViewCell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300
+        return 400
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
