@@ -154,8 +154,8 @@
             filePath = "AAM/Services/FirebaseServices/FirebaseService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "788"
-            endingLineNumber = "788"
+            startingLineNumber = "799"
+            endingLineNumber = "799"
             landmarkName = "setProductStatus(productId:newStatus:completion:)"
             landmarkType = "7">
          </BreakpointContent>

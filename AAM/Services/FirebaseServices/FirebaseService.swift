@@ -191,47 +191,58 @@ class FirebaseService {
     
     
     
-    func saveProductInfo(product: ProductInfo, completion: @escaping (Result<String, Error>) -> Void) {
+    func saveProductInfo(product: ProductInfo,
+                         completion: @escaping (Result<String, Error>) -> Void) {
         guard let currentUser = auth.currentUser else {
-            completion(.failure(NSError(domain: "FirebaseService", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not logged in"])))
+            completion(.failure(NSError(domain: "FirebaseService",
+                                        code: -1,
+                                        userInfo: [NSLocalizedDescriptionKey: "User not logged in"])))
             return
         }
         
-        // Reference to the 'Products' collection
         let productsRef = db.collection("Products")
-        
-        // Create a new document with an automatically generated ID
         let newProductRef = productsRef.document()
         
-        // Set the product's ID to the auto-generated one
         var productWithID = product
         productWithID.id = newProductRef.documentID
-        productWithID.sellerId = currentUser.uid // Set sellerId to current user
-        productWithID.status = "active" // Set initial status
+        productWithID.sellerId = currentUser.uid
+        productWithID.status = "active" // default status
         
-        // Format the current date/time as a string
+        // Set createdAt
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ" // Or any format you like
-        let currentDateString = dateFormatter.string(from: Date())
-        
-        productWithID.createdAt = currentDateString  // Store the date as a string
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        productWithID.createdAt = dateFormatter.string(from: Date())
         
         do {
-            // Convert the Product object to a dictionary
             let productData = try Firestore.Encoder().encode(productWithID)
             
-            // Save the product data
-            newProductRef.setData(productData) { error in
+            newProductRef.setData(productData) { [weak self] error in
+                guard let self = self else { return }
+                
                 if let error = error {
-                    completion(.failure(error))  // Return failure if there's an error
+                    completion(.failure(error))
                 } else {
-                    completion(.success(newProductRef.documentID))  // Return the generated document ID
+                    // ========== NEW CODE ========== //
+                    // After creating the product with status="active",
+                    // increment the user's activeCount by 1.
+                    self.incrementSellerStat(for: currentUser.uid,
+                                             field: "activeCount",
+                                             delta: 1) { incResult in
+                        switch incResult {
+                        case .success():
+                            completion(.success(newProductRef.documentID))
+                        case .failure(let statError):
+                            completion(.failure(statError))
+                        }
+                    }
+                    // ================================
                 }
             }
-        } catch let error {
-            completion(.failure(error))  // Error during encoding
+        } catch {
+            completion(.failure(error))
         }
     }
+
 
 
 
