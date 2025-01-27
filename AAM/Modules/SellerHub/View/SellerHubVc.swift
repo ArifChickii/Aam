@@ -8,99 +8,102 @@
 import UIKit
 
 class SellerHubVc: UIViewController, Storyboarded {
-    // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
-    // MARK: - Properties
+    
     private let viewModel = SellerHubViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupTableView()
         registerCells()
+        
+        // 1) Fetch the stats for current user
+        //    On completion => reload table so the updated stats show
+        viewModel.fetchSellerStats { [weak self] in
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
     }
     
-    // MARK: - Private Methods
     private func setupTableView() {
-
-        
         tableView.dataSource = self
         tableView.delegate   = self
-
     }
     
     private func registerCells() {
-        tableView.register(UINib(nibName: SellerHubDashboardTblCell.identifier, bundle: nil), forCellReuseIdentifier: SellerHubDashboardTblCell.identifier)
-        tableView.register(UINib(nibName: SellerHubItemsTblCell.identifier, bundle: nil), forCellReuseIdentifier: SellerHubItemsTblCell.identifier)
+        tableView.register(UINib(nibName: SellerHubDashboardTblCell.identifier, bundle: nil),
+                           forCellReuseIdentifier: SellerHubDashboardTblCell.identifier)
+        tableView.register(UINib(nibName: SellerHubItemsTblCell.identifier, bundle: nil),
+                           forCellReuseIdentifier: SellerHubItemsTblCell.identifier)
     }
 }
 
 // MARK: - UITableViewDataSource
 extension SellerHubVc: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRows()
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let sectionType = viewModel.sectionType(for: indexPath)
         
         switch sectionType {
         case .dashboard(let dashboardData):
-            // Dequeue the dashboard cell
-            
-            
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: SellerHubDashboardTblCell.identifier, for: indexPath) as? SellerHubDashboardTblCell else {
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: SellerHubDashboardTblCell.identifier,
+                for: indexPath
+            ) as? SellerHubDashboardTblCell else {
                 return UITableViewCell()
             }
-            
             cell.configure(with: dashboardData)
             return cell
             
         case .item(let itemData):
-            // Dequeue the items cell
-            
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: SellerHubItemsTblCell.identifier, for: indexPath) as? SellerHubItemsTblCell else {
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: SellerHubItemsTblCell.identifier,
+                for: indexPath
+            ) as? SellerHubItemsTblCell else {
                 return UITableViewCell()
             }
             cell.configure(with: itemData)
             return cell
         }
     }
-    
-    
 }
 
 // MARK: - UITableViewDelegate
 extension SellerHubVc: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView,
+                   didSelectRowAt indexPath: IndexPath) {
         let sectionType = viewModel.sectionType(for: indexPath)
-        
         switch sectionType {
-        case .dashboard(_): break
-            // When user taps the dashboard row, navigate to Seller Profile Screen
-           
-            
+        case .dashboard(_):
+            // e.g., show Seller Profile
+            break
         case .item(let itemData):
-            // Handle item cell tap if needed
-            print("Item tapped at row: \(indexPath.row)")
-            if itemData.title.lowercased().elementsEqual("profile"){
+            // handle row
+            if itemData.title.lowercased() == "profile" {
                 Router.showSellerProfileVC(from: self)
-            }else if itemData.title.lowercased().elementsEqual("view listings"){
+            } else if itemData.title.lowercased() == "view listings" {
                 Router.showSellerListingsVc(from: self)
-            }else if itemData.title.elementsEqual("Sold Items"){
+            } else if itemData.title == "Sold Items" {
                 Router.showSoldItemsVc(from: self)
             }
-            
         }
     }
-        
-    // Set the cell heights based on which row it is
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    
+    func tableView(_ tableView: UITableView,
+                   heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
             // Dashboard cell
             return 240
         } else {
-            // Other three items
+            // Other items
             return 100
         }
     }

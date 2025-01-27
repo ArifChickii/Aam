@@ -54,7 +54,7 @@ class ProductDetailViewModel {
                 completion(.failure(NSError(domain: "ProductDetailViewModel", code: -1, userInfo: [NSLocalizedDescriptionKey: "Product ID not found"])))
                 return
             }
-            productService.deleteProduct(withId: productId, completion: completion)
+            productService.deleteProduct(productId: productId, completion: completion)
         }
 }
 

@@ -570,6 +570,43 @@ extension FirebaseService {
                 }
             }
         }
+    
+    func fetchSellerStats(for sellerId: String,
+                          completion: @escaping (Result<[String: Any], Error>) -> Void) {
+        let statsRef = db.collection("sellerStats").document(sellerId)
+        statsRef.getDocument { docSnapshot, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            guard let snapshot = docSnapshot, snapshot.exists,
+                  let data = snapshot.data() else {
+                completion(.success([:])) // Return empty if doc doesn't exist yet
+                return
+            }
+            completion(.success(data))
+        }
+    }
+    
+    // Helper: increment a single field in the sellerStats doc
+    //         i.e. "activeCount", "soldCount", "unsoldCount"
+    // ---------------------------------------------------------------------
+    func incrementSellerStat(for sellerId: String,
+                             field: String,
+                             delta: Int,
+                             completion: @escaping (Result<Void, Error>) -> Void) {
+        let statsRef = db.collection("sellerStats").document(sellerId)
+        statsRef.updateData([
+            field: FieldValue.increment(Int64(delta))
+        ]) { error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
+        }
+    }
+                             
 }
 
 extension FirebaseService {
@@ -625,20 +662,141 @@ extension FirebaseService {
             }
         }
     }
-    func deleteProduct(withId productId: String, completion: @escaping (Result<Void, Error>) -> Void) {
-        // Reference to the 'Products' collection
+    // 2) Delete a product (in a transaction), decrementing the relevant
+    //    seller stat. If status is "active", decrement activeCount; if "sold",
+    //    decrement soldCount; else decrement unsoldCount.
+    // ---------------------------------------------------------------------
+    func deleteProduct(productId: String,
+                                     completion: @escaping (Result<Void, Error>) -> Void) {
+        
         let productRef = db.collection("Products").document(productId)
         
-        // Attempt to delete the document
-        productRef.delete { error in
-            if let error = error {
-                completion(.failure(error))  // Return failure if there's an error
-            } else {
-                completion(.success(()))  // Success, product deleted
+        db.runTransaction({ (transaction, errorPointer) -> Any? in
+            // 1) Read the product doc
+            guard let productSnapshot = try? transaction.getDocument(productRef),
+                  let data = productSnapshot.data(),
+                  let sellerId = data["sellerId"] as? String,
+                  let oldStatusRaw = data["status"] as? String else {
+                
+                errorPointer?.pointee = NSError(domain: "FirebaseService",
+                                                code: -1,
+                                                userInfo: [NSLocalizedDescriptionKey: "Product doc not found or missing fields"])
+                return nil
             }
-        }
+            
+            // Map old status to "active"/"sold"/"unsold"
+            let oldStatus = self.mapToRecognizedStatus(oldStatusRaw)
+            
+            // 2) Decrement the correct stat for old status
+            let statsRef = self.db.collection("sellerStats").document(sellerId)
+            
+            switch oldStatus {
+            case "active":
+                transaction.updateData(["activeCount": FieldValue.increment(Int64(-1))],
+                                       forDocument: statsRef)
+            case "sold":
+                transaction.updateData(["soldCount": FieldValue.increment(Int64(-1))],
+                                       forDocument: statsRef)
+            case "unsold":
+                transaction.updateData(["unsoldCount": FieldValue.increment(Int64(-1))],
+                                       forDocument: statsRef)
+            default:
+                break
+            }
+            
+            // 3) Delete the product document
+            transaction.deleteDocument(productRef)
+            
+            return nil
+        }, completion: { _, error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
+        })
     }
+    
+    // 3) Mark a product as sold — for OrderInfoVC's "Confirm" button, etc.
+    //    This just calls setProductStatus(..., newStatus: "sold").
+    // ---------------------------------------------------------------------
+    func markProductAsSold(productId: String,
+                           completion: @escaping (Result<Void, Error>) -> Void) {
+        // Re-use the existing setProductStatus approach:
+        setProductStatus(productId: productId, newStatus: "sold", completion: completion)
+    }
+    
+    // (Existing) setProductStatus for any arbitrary status
+     // e.g. "sold", "active", or anything else => "unsold"
+     // ---------------------------------------------------------------------
+     func setProductStatus(productId: String,
+                           newStatus: String,
+                           completion: @escaping (Result<Void, Error>) -> Void) {
 
+         let productRef = db.collection("Products").document(productId)
+
+         db.runTransaction({ (transaction, errorPointer) -> Any? in
+             guard let productSnapshot = try? transaction.getDocument(productRef),
+                   let oldData = productSnapshot.data(),
+                   let oldStatusRaw = oldData["status"] as? String,
+                   let sellerId = oldData["sellerId"] as? String else {
+                 
+                 errorPointer?.pointee = NSError(domain: "AppError",
+                                                 code: -1,
+                                                 userInfo: [NSLocalizedDescriptionKey: "Product not found or missing fields"])
+                 return nil
+             }
+             
+             let mappedOldStatus = self.mapToRecognizedStatus(oldStatusRaw)
+             let mappedNewStatus = self.mapToRecognizedStatus(newStatus)
+
+             if mappedOldStatus != mappedNewStatus {
+                 let statsRef = self.db.collection("sellerStats").document(sellerId)
+                 
+                 // Decrement old
+                 switch mappedOldStatus {
+                 case "active":
+                     transaction.updateData(["activeCount": FieldValue.increment(Int64(-1))],
+                                            forDocument: statsRef)
+                 case "sold":
+                     transaction.updateData(["soldCount": FieldValue.increment(Int64(-1))],
+                                            forDocument: statsRef)
+                 case "unsold":
+                     transaction.updateData(["unsoldCount": FieldValue.increment(Int64(-1))],
+                                            forDocument: statsRef)
+                 default:
+                     break
+                 }
+
+                 // Increment new
+                 switch mappedNewStatus {
+                 case "active":
+                     transaction.updateData(["activeCount": FieldValue.increment(Int64(1))],
+                                            forDocument: statsRef)
+                 case "sold":
+                     transaction.updateData(["soldCount": FieldValue.increment(Int64(1))],
+                                            forDocument: statsRef)
+                 case "unsold":
+                     transaction.updateData(["unsoldCount": FieldValue.increment(Int64(1))],
+                                            forDocument: statsRef)
+                 default:
+                     break
+                 }
+             }
+             
+             // Update product doc's "status" field
+             transaction.updateData(["status": newStatus], forDocument: productRef)
+             
+             return nil
+         }, completion: { _, error in
+             if let error = error {
+                 completion(.failure(error))
+             } else {
+                 completion(.success(()))
+             }
+         })
+     }
+     
 
 }
 extension FirebaseService {
@@ -876,6 +1034,70 @@ extension FirebaseService {
             } else {
                 print("✅ Product status updated to \(newStatus) for ID: \(productId)")
                 completion(.success(()))
+            }
+        }
+    }
+}
+extension FirebaseService {
+
+  
+
+    // Utility: map ANY status that is not "active" or "sold" => "unsold"
+    // ---------------------------------------------------------------------
+    private func mapToRecognizedStatus(_ status: String) -> String {
+        if status == "active" {
+            return "active"
+        } else if status == "sold" {
+            return "sold"
+        } else {
+            return "unsold"
+        }
+    }
+}
+
+extension FirebaseService {
+    
+    /// Creates or updates the sellerStats/{userId} doc for the current user.
+    /// All products that do not have `status == "sold"` are counted as "active".
+    func createOrUpdateSellerStatsForCurrentUser(completion: @escaping (Result<Void, Error>) -> Void) {
+        guard let currentUser = auth.currentUser else {
+            let err = NSError(domain: "FirebaseService",
+                              code: -1,
+                              userInfo: [NSLocalizedDescriptionKey: "User not logged in"])
+            completion(.failure(err))
+            return
+        }
+        
+        // Fetch all products
+        fetchProducts { [weak self] allProducts in
+            guard let self = self else { return }
+            
+            // Filter products by the current user's ID
+            let userProducts = allProducts.filter { $0.sellerId == currentUser.uid }
+            
+            // Count how many are sold vs. active
+            var soldCount = 0
+            for product in userProducts {
+                if product.status == "sold" {
+                    soldCount += 1
+                }
+            }
+            let activeCount = userProducts.count - soldCount
+            // If you want an "unsoldCount" you can also store that, or just store activeCount & soldCount.
+            
+            let statsData: [String: Any] = [
+                "activeCount": activeCount,
+                "soldCount":   soldCount
+            ]
+            
+            // Write to sellerStats/{userId}
+            let statsRef = self.db.collection("sellerStats").document(currentUser.uid)
+            statsRef.setData(statsData, merge: true) { error in
+                if let error = error {
+                    completion(.failure(error))
+                } else {
+                    completion(.success(()))
+                }
             }
         }
     }

@@ -14,28 +14,29 @@ import SDWebImage
 
 class AddProductViewModel {
     
+    // MARK: - Dependencies
     private let productService: FirebaseService
     
-    // Images that the user picks locally (for upload)
-    // If we are editing, we may also download old images to show in the UI
+    // MARK: - Data for Creating/Editing
+    /// Locally picked images (for upload)
     var imageLists: [UIImage] = []
     
-    // Multi-select fields
+    /// Multi-select fields
     var selectedSize    = [String]()
     var selectedFabric  = [String]()
     var selectedColor   = [String]()
     
-    // Category
+    /// Category
     var selectedCategory: ProductCategory?
     
-    // Price
+    /// Price
     var selectedPriceValues: PriceModelForPassingBack?
     
-    // Title / Description
+    /// Title & Description
     var selectedTitle = ""
     var selectedDesc  = ""
     
-    // Validation flags
+    // MARK: - Validation flags
     var isTitleFieldFilled       = true
     var isDescFieldFilled        = true
     var showRedBorderOnCategory  = false
@@ -45,17 +46,16 @@ class AddProductViewModel {
     var showRedBorderOnFabric    = false
     var showRedBorderOnPrice     = false
     
+    // MARK: - Init
     init(productService: FirebaseService = FirebaseService()) {
         self.productService = productService
     }
     
     // MARK: - Edit Mode Setup
-    
     /// Loads existing product data into the view model for editing.
     /// Also downloads the old images asynchronously (if any),
     /// then calls `completion()` on the main thread so the VC can reload.
     func setupEditMode(with product: ProductInfo, completion: @escaping () -> Void) {
-        
         // 1) Fill text fields
         self.selectedTitle = product.title ?? ""
         self.selectedDesc  = product.description ?? ""
@@ -101,15 +101,17 @@ class AddProductViewModel {
         }
     }
     
-    // MARK: - Uploading Images
+    // MARK: - Upload Images
     /// Uploads each provided `UIImage` to Firebase Storage, returning their public URLs.
-    func uploadImagesToFirebase(images: [UIImage], completion: @escaping ([String]) -> Void) {
+    func uploadImagesToFirebase(images: [UIImage],
+                                completion: @escaping ([String]) -> Void) {
         let dispatchGroup = DispatchGroup()
         var uploadedImages = [String]()
         
         for image in images {
             let uniqueImageName = UUID().uuidString
             dispatchGroup.enter()
+            
             productService.uploadImage(image: image, imageName: uniqueImageName) { result in
                 switch result {
                 case .success(let downloadURL):
@@ -128,8 +130,8 @@ class AddProductViewModel {
         }
     }
     
-    // MARK: - Create Product
-    /// Creates a new `ProductInfo` from the currently filled view-model fields.
+    // MARK: - Create Product Info
+    /// Assembles a new `ProductInfo` from the currently filled fields (in create mode).
     func createProductInfo(with imageURLs: [String]) -> ProductInfo? {
         guard let currentUser = Auth.auth().currentUser else {
             print("❌ User not logged in.")
@@ -150,29 +152,23 @@ class AddProductViewModel {
             rating: "0.0",
             cutPrice: selectedPriceValues?.cutPrice,
             createdAt: "",
-            status: "active"
+            status: "active" // default
         )
         
         return newProduct
     }
     
-    /// Saves the newly created product to Firestore
-    func addProductToFirebase(productObj: ProductInfo, completion: @escaping (String) -> Void) {
-        productService.saveProductInfo(product: productObj) { result in
-            switch result {
-            case .success(let generatedID):
-                print("Product saved successfully with ID: \(generatedID)")
-                completion(generatedID)
-            case .failure(let error):
-                print("Failed to save product: \(error.localizedDescription)")
-                completion("Failed to save product: \(error.localizedDescription)")
-            }
-        }
+    // MARK: - Save New Product (Creating)
+    /// Saves a newly created product to Firestore (status=active, increments activeCount).
+    func addProductToFirebase(productObj: ProductInfo,
+                              completion: @escaping (Result<String, Error>) -> Void) {
+        productService.saveProductInfo(product: productObj, completion: completion)
     }
     
     // MARK: - Update Existing Product
     /// Updates an existing product doc in Firestore
-    func updateProductInFirebase(productObj: ProductInfo, completion: @escaping (String) -> Void) {
+    func updateProductInFirebase(productObj: ProductInfo,
+                                 completion: @escaping (String) -> Void) {
         productService.updateProductInfo(product: productObj) { result in
             switch result {
             case .success():
