@@ -15,7 +15,6 @@ class ProductDetailVC: UIViewController, Storyboarded {
 
     @IBOutlet weak var productTblView: UITableView!
     
-        
     // Add loading state
     private var isLoading = false {
         didSet {
@@ -154,8 +153,8 @@ class ProductDetailVC: UIViewController, Storyboarded {
     
     private func showErrorAlert(message: String) {
         let alert = UIAlertController(title: "Error",
-                                    message: message,
-                                    preferredStyle: .alert)
+                                      message: message,
+                                      preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true)
     }
@@ -194,10 +193,16 @@ extension ProductDetailVC: UITableViewDelegate, UITableViewDataSource {
             cell.btnShare.removeTarget(nil, action: nil, for: .allEvents)
             cell.btnShare.tag = indexPath.row
             cell.btnShare.addTarget(self, action: #selector(shareBtnTapped(_:)), for: .touchUpInside)
+            
             // Configure delete button
             cell.btnDelete.removeTarget(nil, action: nil, for: .allEvents)
             cell.btnDelete.tag = indexPath.row
             cell.btnDelete.addTarget(self, action: #selector(deleteBtnTapped(_:)), for: .touchUpInside)
+            
+            // NEW: Hide or show the delete button based on whether this user is the seller
+            cell.btnDelete.isHidden = !viewModel.isCurrentUserSeller
+            
+            // Configure cell data
             cell.configure(obj: viewModel.product)
             return cell
             
@@ -219,7 +224,6 @@ extension ProductDetailVC: UITableViewDelegate, UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ProductAddToBagTblCell.identifier, for: indexPath) as? ProductAddToBagTblCell else {
                 return UITableViewCell()
             }
-            
             cell.btnAddToBag.removeTarget(nil, action: nil, for: .allEvents)
             cell.btnAddToBag.tag = indexPath.row
             cell.btnAddToBag.addTarget(self, action: #selector(addToBagBtnTapped(_:)), for: .touchUpInside)
@@ -350,6 +354,6 @@ extension ProductDetailVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
     }
 }
+
