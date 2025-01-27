@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -81,11 +81,23 @@
                                             <constraint firstAttribute="height" constant="24" id="PPe-6h-O0r"/>
                                         </constraints>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTJ-zm-mXl">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="      "/>
+                                        <connections>
+                                            <action selector="likeButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="SZB-Qr-244"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="fW1-mB-scF" firstAttribute="top" secondItem="gEs-N8-Ib0" secondAttribute="top" constant="20" id="8zB-PD-Ary"/>
+                                    <constraint firstAttribute="bottom" secondItem="TTJ-zm-mXl" secondAttribute="bottom" id="9qc-DE-cWa"/>
                                     <constraint firstAttribute="width" constant="50" id="KEt-uz-WqW"/>
+                                    <constraint firstItem="TTJ-zm-mXl" firstAttribute="leading" secondItem="gEs-N8-Ib0" secondAttribute="leading" id="OKw-NK-Mxy"/>
+                                    <constraint firstAttribute="trailing" secondItem="TTJ-zm-mXl" secondAttribute="trailing" id="RM7-zg-Zr7"/>
+                                    <constraint firstItem="TTJ-zm-mXl" firstAttribute="top" secondItem="gEs-N8-Ib0" secondAttribute="top" id="SIG-wE-xFd"/>
                                     <constraint firstAttribute="trailing" secondItem="fW1-mB-scF" secondAttribute="trailing" constant="20" id="bIj-pm-ujE"/>
                                     <constraint firstAttribute="height" constant="50" id="c1K-eF-sLJ"/>
                                 </constraints>
@@ -160,7 +172,9 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="btnLike" destination="TTJ-zm-mXl" id="5Lg-jq-RHe"/>
                 <outlet property="collImages" destination="BrJ-zY-Mni" id="DH7-PS-iqJ"/>
+                <outlet property="imgLike" destination="fW1-mB-scF" id="2at-tx-WCD"/>
                 <outlet property="lblCutPrice" destination="R6g-pK-HmX" id="ujP-Bp-eOc"/>
                 <outlet property="lblPrice" destination="gQp-Ak-2AR" id="Hl3-fx-RAd"/>
                 <outlet property="lblTitle" destination="LaO-aA-QD2" id="8dp-23-byk"/>
@@ -170,7 +184,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="ic_like" width="20" height="20"/>
+        <image name="ic_like" width="50" height="50"/>
         <namedColor name="greyLabel_color">
             <color red="0.45500001311302185" green="0.45500001311302185" blue="0.45500001311302185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

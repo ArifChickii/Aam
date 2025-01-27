@@ -1113,3 +1113,95 @@ extension FirebaseService {
         }
     }
 }
+extension FirebaseService {
+    
+    /// Adds (or overwrites) the given product to the current user's "favorites" sub-collection.
+    func addProductToFavorites(product: ProductInfo,
+                               completion: @escaping (Result<Void, Error>) -> Void) {
+        
+        guard let user = auth.currentUser else {
+            let err = NSError(domain: "FirebaseService",
+                              code: -1,
+                              userInfo: [NSLocalizedDescriptionKey: "User not logged in"])
+            completion(.failure(err))
+            return
+        }
+        
+        let favoritesRef = db.collection("users")
+            .document(user.uid)
+            .collection("favorites")
+            .document(product.id ?? UUID().uuidString)
+        
+        do {
+            let productData = try Firestore.Encoder().encode(product)
+            favoritesRef.setData(productData, merge: true) { error in
+                if let error = error {
+                    completion(.failure(error))
+                } else {
+                    completion(.success(()))
+                }
+            }
+        } catch let encodeError {
+            completion(.failure(encodeError))
+        }
+    }
+    
+    /// Removes a product doc from the current user's "favorites" sub-collection, given its ID.
+    func removeProductFromFavorites(productId: String,
+                                    completion: @escaping (Result<Void, Error>) -> Void) {
+        
+        guard let user = auth.currentUser else {
+            let err = NSError(domain: "FirebaseService",
+                              code: -1,
+                              userInfo: [NSLocalizedDescriptionKey: "User not logged in"])
+            completion(.failure(err))
+            return
+        }
+        
+        let favoriteDocRef = db.collection("users")
+            .document(user.uid)
+            .collection("favorites")
+            .document(productId)
+        
+        favoriteDocRef.delete { error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
+        }
+    }
+    
+    /// Fetches all favorite doc IDs for the current user from "users/{uid}/favorites".
+    /// Returns an array of doc IDs so you can quickly check which products are favorited.
+    func fetchFavoriteProductIDs(completion: @escaping (Result<[String], Error>) -> Void) {
+        
+        guard let user = auth.currentUser else {
+            let err = NSError(domain: "FirebaseService",
+                              code: -1,
+                              userInfo: [NSLocalizedDescriptionKey: "User not logged in"])
+            completion(.failure(err))
+            return
+        }
+        
+        let favoritesCollection = db.collection("users")
+            .document(user.uid)
+            .collection("favorites")
+        
+        favoritesCollection.getDocuments { snapshot, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let snapshot = snapshot else {
+                completion(.success([]))
+                return
+            }
+            
+            let docIDs = snapshot.documents.map { $0.documentID }
+            completion(.success(docIDs))
+        }
+    }
+}
+

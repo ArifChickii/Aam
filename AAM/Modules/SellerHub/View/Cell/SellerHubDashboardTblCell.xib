@@ -46,16 +46,16 @@
                                         <rect key="frame" x="0.0" y="83" width="240" height="52.666666666666657"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="VPg-AY-vGF">
-                                                <rect key="frame" x="0.0" y="0.0" width="80" height="52.666666666666664"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="120" height="52.666666666666664"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Active" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="16w-61-9K2">
-                                                        <rect key="frame" x="20.333333333333332" y="0.0" width="39.333333333333343" height="20.333333333333332"/>
+                                                        <rect key="frame" x="40.333333333333329" y="0.0" width="39.333333333333329" height="20.333333333333332"/>
                                                         <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="14"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="uh7-zO-DZS">
-                                                        <rect key="frame" x="35.333333333333329" y="32.333333333333343" width="9.3333333333333357" height="20.333333333333329"/>
+                                                        <rect key="frame" x="55.333333333333329" y="32.333333333333343" width="9.3333333333333286" height="20.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="14"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -63,33 +63,33 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Pby-oy-xKT">
-                                                <rect key="frame" x="80" y="0.0" width="80" height="52.666666666666664"/>
+                                                <rect key="frame" x="120" y="0.0" width="120" height="52.666666666666664"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sold" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wak-Y1-vDz">
-                                                        <rect key="frame" x="25.666666666666657" y="0.0" width="28.666666666666671" height="20.333333333333332"/>
+                                                        <rect key="frame" x="45.666666666666657" y="0.0" width="28.666666666666671" height="20.333333333333332"/>
                                                         <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="14"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="s5Q-ax-5w3">
-                                                        <rect key="frame" x="35.333333333333343" y="32.333333333333343" width="9.3333333333333357" height="20.333333333333329"/>
+                                                        <rect key="frame" x="55.333333333333343" y="32.333333333333343" width="9.3333333333333286" height="20.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="14"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="7lm-cI-8iQ">
-                                                <rect key="frame" x="160" y="0.0" width="80" height="52.666666666666664"/>
+                                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="7lm-cI-8iQ">
+                                                <rect key="frame" x="240" y="0.0" width="0.0" height="52.666666666666664"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unsold" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3Nc-EF-Obz">
-                                                        <rect key="frame" x="0.0" y="0.0" width="80" height="20.333333333333332"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="20.333333333333332"/>
                                                         <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="14"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="daL-9I-fjP">
-                                                        <rect key="frame" x="0.0" y="32.333333333333343" width="80" height="20.333333333333329"/>
+                                                        <rect key="frame" x="0.0" y="32.333333333333343" width="0.0" height="20.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="14"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
