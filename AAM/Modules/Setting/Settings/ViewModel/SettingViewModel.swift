@@ -11,7 +11,7 @@ class SettingsViewModel {
     
     // MARK: - Properties
     
-    private let settingsTitles: [String] = ["Profile", "Shipping", "Notification", "Logout"]
+    private let settingsTitles: [String] = ["Profile","Favourites", "Shipping", "Notification", "Logout"]
     
     // MARK: - Methods
     

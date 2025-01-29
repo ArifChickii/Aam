@@ -176,6 +176,70 @@
             </objects>
             <point key="canvasLocation" x="735" y="-23"/>
         </scene>
+        <!--FavouritesVC-->
+        <scene sceneID="8Ti-h2-UKk">
+            <objects>
+                <viewController storyboardIdentifier="FavouritesVC" id="wKc-qJ-oOt" customClass="FavouritesVC" customModule="AAM" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qbA-gx-Ew2">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pyv-gt-1v5">
+                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favourites" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7Om-fc-qPA">
+                                        <rect key="frame" x="159.66666666666666" y="10.333333333333327" width="73.666666666666657" height="23.333333333333329"/>
+                                        <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="16"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gIu-af-m6k">
+                                        <rect key="frame" x="20" y="0.0" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="MFQ-QP-tnD"/>
+                                            <constraint firstAttribute="width" constant="44" id="UA3-L2-zYb"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="ic_back" title="  "/>
+                                        <connections>
+                                            <action selector="backBtnAction" destination="wKc-qJ-oOt" eventType="touchUpInside" id="eL2-ab-nqD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="7Om-fc-qPA" firstAttribute="centerX" secondItem="pyv-gt-1v5" secondAttribute="centerX" id="DE3-eP-JJV"/>
+                                    <constraint firstAttribute="height" constant="44" id="HAQ-Rm-sTy"/>
+                                    <constraint firstItem="gIu-af-m6k" firstAttribute="centerY" secondItem="pyv-gt-1v5" secondAttribute="centerY" id="aNb-yk-WSY"/>
+                                    <constraint firstItem="7Om-fc-qPA" firstAttribute="centerY" secondItem="pyv-gt-1v5" secondAttribute="centerY" id="pIu-dO-6UY"/>
+                                    <constraint firstItem="gIu-af-m6k" firstAttribute="leading" secondItem="pyv-gt-1v5" secondAttribute="leading" constant="20" id="sGX-ZY-D4d"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="YXh-W0-qfp">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="gp8-H7-n0f"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pyv-gt-1v5" firstAttribute="leading" secondItem="qbA-gx-Ew2" secondAttribute="leading" id="55f-FW-0gQ"/>
+                            <constraint firstItem="YXh-W0-qfp" firstAttribute="top" secondItem="pyv-gt-1v5" secondAttribute="bottom" id="ITa-e3-znK"/>
+                            <constraint firstItem="pyv-gt-1v5" firstAttribute="top" secondItem="gp8-H7-n0f" secondAttribute="top" id="MPU-XB-6uQ"/>
+                            <constraint firstItem="gp8-H7-n0f" firstAttribute="trailing" secondItem="pyv-gt-1v5" secondAttribute="trailing" id="Oek-gF-Tw3"/>
+                            <constraint firstItem="YXh-W0-qfp" firstAttribute="leading" secondItem="gp8-H7-n0f" secondAttribute="leading" id="W3C-bJ-GPi"/>
+                            <constraint firstItem="gp8-H7-n0f" firstAttribute="trailing" secondItem="YXh-W0-qfp" secondAttribute="trailing" id="cOx-Rt-djk"/>
+                            <constraint firstItem="gp8-H7-n0f" firstAttribute="bottom" secondItem="YXh-W0-qfp" secondAttribute="bottom" id="dPE-ow-0Ss"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="YXh-W0-qfp" id="POK-Oo-ANK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yLK-gg-VvI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-633" y="-23"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ic_back" width="24" height="24.666666030883789"/>

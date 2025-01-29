@@ -1203,5 +1203,56 @@ extension FirebaseService {
             completion(.success(docIDs))
         }
     }
+    
+    
 }
 
+extension FirebaseService {
+    
+    /// Fetches all favorite products for the current user
+    /// from `users/{uid}/favorites` collection.
+    func fetchFavoriteProducts(completion: @escaping (Result<[ProductInfo], Error>) -> Void) {
+        guard let currentUser = auth.currentUser else {
+            let error = NSError(domain: "FirebaseService",
+                                code: -1,
+                                userInfo: [NSLocalizedDescriptionKey: "User not logged in"])
+            completion(.failure(error))
+            return
+        }
+        
+        let favoritesCollection = db.collection("users")
+            .document(currentUser.uid)
+            .collection("favorites")
+        
+        favoritesCollection.getDocuments { snapshot, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let snapshot = snapshot else {
+                let noDataError = NSError(domain: "FirebaseService",
+                                          code: -2,
+                                          userInfo: [NSLocalizedDescriptionKey: "No favorite products found"])
+                completion(.failure(noDataError))
+                return
+            }
+            
+            var favorites: [ProductInfo] = []
+            
+            for document in snapshot.documents {
+                do {
+                    // Decode doc data into ProductInfo
+                    let favProduct = try document.data(as: ProductInfo.self)
+                    favorites.append(favProduct)
+                } catch let decodeError {
+                    completion(.failure(decodeError))
+                    return
+                }
+            }
+            
+            // Return array of favorites
+            completion(.success(favorites))
+        }
+    }
+}

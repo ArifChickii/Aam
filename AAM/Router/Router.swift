@@ -111,6 +111,11 @@ class Router {
         currentVC.navigationController?.pushViewController(vc, animated: true)
     }
     
+    static func MoveToFavoriteProductVc(from currentVC: UIViewController) {
+        let vc = FavouritesVC.instantiate(storyBoardName: "Settings")
+        currentVC.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     static func MoveToNotificationVC(from currentVC: UIViewController) {
         let vc = NotificationVc.instantiate(storyBoardName: "Notification")
         currentVC.navigationController?.pushViewController(vc, animated: true)

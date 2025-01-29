@@ -109,7 +109,9 @@ extension SettingsVC: UITableViewDelegate, UITableViewDataSource {
             Router.showProfileVC(from: self)
         case "Shipping":
             Router.MoveToSelectShippingAddress(from: self)
+        case "Favourites":
             
+            Router.MoveToFavoriteProductVc(from: self)
         case "Notification":
             Router.MoveToNotificationVC(from: self)
             
