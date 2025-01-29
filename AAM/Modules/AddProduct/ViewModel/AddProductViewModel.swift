@@ -151,8 +151,9 @@ class AddProductViewModel {
             price: selectedPriceValues?.price,
             rating: "0.0",
             cutPrice: selectedPriceValues?.cutPrice,
+            owner_infor: nil, 
             createdAt: "",
-            status: "active" // default
+            status: "active"
         )
         
         return newProduct

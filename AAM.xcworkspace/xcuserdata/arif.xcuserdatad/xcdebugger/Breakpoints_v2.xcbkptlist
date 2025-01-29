@@ -154,9 +154,25 @@
             filePath = "AAM/Services/FirebaseServices/FirebaseService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "799"
-            endingLineNumber = "799"
+            startingLineNumber = "823"
+            endingLineNumber = "823"
             landmarkName = "setProductStatus(productId:newStatus:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "224DDCAD-D5F6-4216-8E13-85F5CB6560EA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AAM/Services/FirebaseServices/FirebaseService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "247"
+            endingLineNumber = "247"
+            landmarkName = "saveProductInfo(product:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

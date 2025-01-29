@@ -166,8 +166,9 @@ extension ProductDetailVC: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard viewModel != nil else { return 0 }
-        return 7
+        guard let viewModel = viewModel else { return 0 }
+            
+            return viewModel.product.owner_infor == nil ? 6 : 7
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -239,10 +240,14 @@ extension ProductDetailVC: UITableViewDelegate, UITableViewDataSource {
             return cell
             
         case 6:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: ProductRatingTblCell.identifier, for: indexPath) as? ProductRatingTblCell else {
+            // The new "owner info" row, using ProductRatingTblCell
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: ProductRatingTblCell.identifier,
+                for: indexPath
+            ) as? ProductRatingTblCell else {
                 return UITableViewCell()
             }
-            cell.configure(obj: viewModel.product)
+            cell.configureOwnerInfo(product: viewModel.product)
             return cell
             
         default:

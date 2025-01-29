@@ -96,35 +96,59 @@ class FirebaseService {
                 for document in querySnapshot!.documents {
                     let data = document.data()
                     
+                    // 1) Parse category dictionary
+                    var productCat: ProductCategory? = nil
                     if let productCatDic = data["category"] as? [String: Any] {
-                        let productCat = ProductCategory(
+                        productCat = ProductCategory(
                             title: productCatDic["title"] as? String ?? "",
                             subCategories: productCatDic["subCategories"] as? [String] ?? []
                         )
-                        
-                        let product = ProductInfo(
-                            id: document.documentID,
-                            sellerId: data["sellerId"] as? String ?? "",
-                            images: data["images"] as? [String] ?? [],
-                            sizes: data["sizes"] as? [String] ?? [],
-                            colors: data["colors"] as? [String] ?? [],
-                            fabrics: data["fabrics"] as? [String] ?? [],
-                            category: productCat,
-                            title: data["title"] as? String ?? "",
-                            description: data["description"] as? String ?? "", price: data["price"] as? String ?? "", // old hard-coded
-                            rating: data["rating"] as? String ?? "",
-                            cutPrice: data["cutPrice"] as? String ?? "0.0",
-                            createdAt: data["createdAt"] as? String ?? "",
-                            status: data["status"] as? String ?? ""
-                        )
-                        
-                        products.append(product)
                     }
+                    
+                    // 2) Parse owner_infor dictionary if present
+                    var ownerInfo: OwnerInfo? = nil
+                    if let ownerDic = data["owner_infor"] as? [String: Any] {
+                        let userId = ownerDic["userId"] as? String ?? ""
+                        let userName = ownerDic["userName"] as? String ?? ""
+                        let profileImageUrl = ownerDic["profileImageUrl"] as? String ?? ""
+                        
+                        // Only create an OwnerInfo if there's a userId or userName
+                        if !userId.isEmpty || !userName.isEmpty {
+                            ownerInfo = OwnerInfo(
+                                userId: userId,
+                                userName: userName,
+                                profileImageUrl: profileImageUrl
+                            )
+                        }
+                    }
+                    
+                    // 3) Construct ProductInfo
+                    let product = ProductInfo(
+                        id: document.documentID,
+                        sellerId: data["sellerId"] as? String ?? "",
+                        images: data["images"] as? [String] ?? [],
+                        sizes: data["sizes"] as? [String] ?? [],
+                        colors: data["colors"] as? [String] ?? [],
+                        fabrics: data["fabrics"] as? [String] ?? [],
+                        category: productCat,
+                        title: data["title"] as? String ?? "",
+                        description: data["description"] as? String ?? "",
+                        price: data["price"] as? String ?? "",
+                        rating: data["rating"] as? String ?? "",
+                        cutPrice: data["cutPrice"] as? String ?? "0.0",
+                        owner_infor: ownerInfo,
+                        createdAt: data["createdAt"] as? String ?? "",
+                        status: data["status"] as? String ?? ""
+                          // NEW
+                    )
+                    
+                    products.append(product)
                 }
                 completion(products)
             }
         }
     }
+
 
 
     

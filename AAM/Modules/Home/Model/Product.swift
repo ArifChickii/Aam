@@ -33,7 +33,7 @@ struct ProductInfo: Codable, Hashable {
     var price: String?
     var rating: String?
     var cutPrice: String?
-    
+    var owner_infor: OwnerInfo?
     // Instead of a Timestamp, use a String
     var createdAt: String? // e.g., "2024-12-29T20:15:00+0000"
 
@@ -63,3 +63,8 @@ struct ProductCategoryForDataRecieving {
 
 
 
+struct OwnerInfo: Codable {
+    let userId: String?
+    let userName: String?
+    let profileImageUrl: String?
+}

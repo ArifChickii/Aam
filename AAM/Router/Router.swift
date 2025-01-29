@@ -180,7 +180,7 @@ class Router {
             },
             dismissCompletion: {
                 // handle bottom sheet dismissal completion
-                print("bottom sheet dismisses by arif")
+                print("bottom sheet dismisses ")
                 
             }
         )
@@ -210,7 +210,7 @@ class Router {
             },
             dismissCompletion: {
                 // handle bottom sheet dismissal completion
-                print("bottom sheet dismisses by arif")
+                print("bottom sheet dismisses")
                 
             }
         )

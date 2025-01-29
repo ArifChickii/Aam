@@ -42,7 +42,6 @@ class AddProductVC: UIViewController, Storyboarded {
         
         // If we have a product to edit, load it now:
         if let productToEdit = editingProduct {
-            // Provide a completion handler so we can reload UI after images finish downloading
             viewModel.setupEditMode(with: productToEdit) { [weak self] in
                 guard let self = self else { return }
                 DispatchQueue.main.async {
@@ -286,37 +285,73 @@ class AddProductVC: UIViewController, Storyboarded {
         LoaderManager.shared.showLoader(on: view,
                                         message: "Uploading Product, please wait...")
         
-        // 1. Upload images
+        // 1) Upload images
         viewModel.uploadImagesToFirebase(images: viewModel.imageLists) { [weak self] imgUrls in
             guard let self = self else { return }
             
             print("Uploaded images: \(imgUrls)")
             
-            // 2. Build ProductInfo
-            if let newProduct = self.viewModel.createProductInfo(with: imgUrls) {
-                
-                // 3. Save product in Firestore
-                self.viewModel.addProductToFirebase(productObj: newProduct) { result in
-                    LoaderManager.shared.hideLoader()
-                    
-                    switch result {
-                    case .success(_):
-                        // For success, just show toast & dismiss
-                        Helper.shared.showToast(message: "Product uploaded successfully!",
-                                                vc: self)
-                        Router.dismiss(from: self)
-                        
-                    case .failure(let error):
-                        Helper.showAlert(title: "Error",
-                                         msg: error.localizedDescription,
-                                         vc: self)
-                    }
-                }
-            } else {
+            // 2) Before creating the product, fetch user info to fill owner_infor
+            self.fetchUserDetailsAndCreateProduct(imageURLs: imgUrls)
+        }
+    }
+    
+    // ========== NEW: Fetch user doc, fill owner_infor, then create product ==========
+    private func fetchUserDetailsAndCreateProduct(imageURLs: [String]) {
+        
+        guard let currentUser = Auth.auth().currentUser else {
+            LoaderManager.shared.hideLoader()
+            Helper.showAlert(title: "Error", msg: "User not logged in.", vc: self)
+            return
+        }
+        
+        let userDocRef = Firestore.firestore().collection("users").document(currentUser.uid)
+        userDocRef.getDocument { [weak self] docSnapshot, error in
+            guard let self = self else { return }
+            
+            if let error = error {
                 LoaderManager.shared.hideLoader()
-                Helper.showAlert(title: "Error",
-                                 msg: "Failed to create product information.",
-                                 vc: self)
+                Helper.showAlert(title: "Error", msg: "Failed to fetch user doc: \(error.localizedDescription)", vc: self)
+                return
+            }
+            
+            // fallback info
+            var userName = "Unknown"
+            var profileUrl = ""
+            
+            if let data = docSnapshot?.data() {
+                if let name = data["name"] as? String, !name.isEmpty {
+                    userName = name
+                }
+                if let image = data["profileImage"] as? String, !image.isEmpty {
+                    profileUrl = image
+                }
+            }
+            
+            // 3) Build ProductInfo with images
+            guard var newProduct = self.viewModel.createProductInfo(with: imageURLs) else {
+                LoaderManager.shared.hideLoader()
+                Helper.showAlert(title: "Error", msg: "Failed to create product object.", vc: self)
+                return
+            }
+            
+            // 4) Fill the owner_infor
+            let owner = OwnerInfo(userId: currentUser.uid,
+                                  userName: userName,
+                                  profileImageUrl: profileUrl)
+            newProduct.owner_infor = owner
+            
+            // 5) Save product in Firestore
+            self.viewModel.addProductToFirebase(productObj: newProduct) { result in
+                LoaderManager.shared.hideLoader()
+                
+                switch result {
+                case .success(_):
+                    Helper.shared.showToast(message: "Product uploaded successfully!", vc: self)
+                    Router.dismiss(from: self)
+                case .failure(let error):
+                    Helper.showAlert(title: "Error", msg: error.localizedDescription, vc: self)
+                }
             }
         }
     }
@@ -334,11 +369,9 @@ class AddProductVC: UIViewController, Storyboarded {
             return
         }
         
-        // If user did not pick new images, keep old images
         if viewModel.imageLists.isEmpty {
             doUpdateProductFlow(withImageURLs: editingProduct.images ?? [])
         } else {
-            // Re-upload the newly selected images
             viewModel.uploadImagesToFirebase(images: viewModel.imageLists) { [weak self] imgUrls in
                 guard let self = self else { return }
                 self.doUpdateProductFlow(withImageURLs: imgUrls)
@@ -347,12 +380,9 @@ class AddProductVC: UIViewController, Storyboarded {
     }
     
     private func doUpdateProductFlow(withImageURLs imageURLs: [String]) {
-        LoaderManager.shared.showLoader(on: view,
-                                        message: "Finalizing update...")
-        
         guard var editingProduct = editingProduct else { return }
         
-        // Overwrite fields from the UI
+        // Overwrite fields
         editingProduct.title       = viewModel.selectedTitle
         editingProduct.description = viewModel.selectedDesc
         editingProduct.images      = imageURLs
@@ -363,18 +393,17 @@ class AddProductVC: UIViewController, Storyboarded {
         editingProduct.price       = viewModel.selectedPriceValues?.price
         editingProduct.cutPrice    = viewModel.selectedPriceValues?.cutPrice
         
-        // Send updated data to Firebase
+        // Optionally re-fetch user doc if you want to update the owner's profile info?
+        // Typically, you'd keep the old `owner_infor`. We'll just keep it as is.
+        
         viewModel.updateProductInFirebase(productObj: editingProduct) { [weak self] resultMessage in
             guard let self = self else { return }
             LoaderManager.shared.hideLoader()
             
             if resultMessage.contains("Failed") {
-                Helper.showAlert(title: "Error",
-                                 msg: resultMessage,
-                                 vc: self)
+                Helper.showAlert(title: "Error", msg: resultMessage, vc: self)
             } else {
-                Helper.shared.showToast(message: "Product updated successfully!",
-                                        vc: self)
+                Helper.shared.showToast(message: "Product updated successfully!", vc: self)
                 Router.dismiss(from: self)
             }
         }
@@ -408,11 +437,9 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource {
                 if self.viewModel.imageLists.count < 7 {
                     self.openImagePicker(for: indexPath.row)
                 } else {
-                    Helper.showAlert(
-                        title: "Alert",
-                        msg: StringConstants.maxImagesReached,
-                        vc: self
-                    )
+                    Helper.showAlert(title: "Alert",
+                                     msg: StringConstants.maxImagesReached,
+                                     vc: self)
                 }
             }
             return cell
@@ -563,7 +590,7 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource {
             // Category
             viewModel.showRedBorderOnCategory = false
             Router.showBottomSheet(from: self, bottomeSheetType: .category) { _ in
-                // Category data is handled by NotificationCenter callback
+                // handled by NotificationCenter
             }
             
         case 4:

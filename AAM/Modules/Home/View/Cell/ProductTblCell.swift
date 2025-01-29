@@ -65,8 +65,8 @@ class ProductTblCell: UITableViewCell {
     /// Configures the cell with product info AND whether it’s favorited.
     func configure(obj: ProductInfo, isFavorite: Bool) {
         lblTitle.text     = obj.title
-        lblPrice.text     = obj.price ?? "0.0"
-        lblCutPrice.text  = obj.cutPrice ?? "0.0"
+        lblPrice.text     = "$\(obj.price ?? "0.0")"
+        lblCutPrice.text  = "$\(obj.cutPrice ?? "0.0")"
         
         imagesList = obj.images ?? []
         pageController.numberOfPages = imagesList.count
