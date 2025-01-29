@@ -16,7 +16,10 @@ struct ShippingAddress: Codable {
     var postalCode: String?
     var country: String?
     var city: String?
-    var state: String?             // Added 'state' property
+    
+    /// RENAMED: 'state' -> 'provinceOrTerritory'
+    var provinceOrTerritory: String?
+    
     var makeDefaultAddress: Bool
     var sameBillingAddress: Bool
     var isSelected: Bool?          // Used for UI selection state, not stored in Firestore
@@ -28,10 +31,12 @@ struct ShippingAddress: Codable {
          postalCode: String?,
          country: String?,
          city: String?,
-         state: String?,            // Included 'state' in initializer
+         /// Renamed here:
+         provinceOrTerritory: String?,
          makeDefaultAddress: Bool,
          sameBillingAddress: Bool,
          isSelected: Bool = false) {
+        
         self.id = id
         self.fullName = fullName
         self.address = address
@@ -39,7 +44,7 @@ struct ShippingAddress: Codable {
         self.postalCode = postalCode
         self.country = country
         self.city = city
-        self.state = state
+        self.provinceOrTerritory = provinceOrTerritory
         self.makeDefaultAddress = makeDefaultAddress
         self.sameBillingAddress = sameBillingAddress
         self.isSelected = isSelected
@@ -59,8 +64,9 @@ extension ShippingAddress {
         if let city = self.city, !city.isEmpty {
             components.append(city)
         }
-        if let state = self.state, !state.isEmpty {
-            components.append(state)
+        /// Insert 'provinceOrTerritory' in the final address text
+        if let provinceOrTerritory = self.provinceOrTerritory, !provinceOrTerritory.isEmpty {
+            components.append(provinceOrTerritory)
         }
         if let postalCode = self.postalCode, !postalCode.isEmpty {
             components.append(postalCode)
@@ -71,3 +77,4 @@ extension ShippingAddress {
         return components.joined(separator: ", ")
     }
 }
+

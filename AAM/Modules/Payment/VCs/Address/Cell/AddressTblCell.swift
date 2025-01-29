@@ -47,7 +47,7 @@ class AddressTblCell: UITableViewCell {
         lblShippingUserName.text = address.fullName
         lblShippingZipCode.text = "\(address.postalCode ?? "")"
         lblShippingCountry.text = "\(address.city ?? ""), \(address.country ?? "")"
-        lblShippingAddress.text = "\(address.flatOrBlockNo ?? "")"
+        lblShippingAddress.text = "\(address.provinceOrTerritory ?? "") \(address.country ?? "")"
         
         // Update radio button image
         let imageName = isSelected ? "ic_radio_selected" : "ic_radio_unselected"

@@ -1,3 +1,4 @@
+
 //
 //  CheckoutFormVC.swift
 //  AAM
@@ -82,6 +83,10 @@ class CheckoutFormVC: UIViewController, Storyboarded {
         let postalCode = viewModel.getValueForTitle("Postal / Zipcode") ?? ""
         let country = viewModel.getValueForTitle("Country") ?? ""
         let city = viewModel.getValueForTitle("City") ?? ""
+        
+        // NEW LINE: read "Province/Territory" from the form
+        let provinceOrTerritory = viewModel.getValueForTitle("Province/Territory") ?? ""
+        
         let makeDefaultAddress = viewModel.getBoolValueForTitle("Make this my default address")
         let sameBillingAddress = viewModel.getBoolValueForTitle("Same billing address")
 
@@ -93,7 +98,7 @@ class CheckoutFormVC: UIViewController, Storyboarded {
             postalCode: postalCode,
             country: country,
             city: city,
-            state: "",
+            provinceOrTerritory: provinceOrTerritory,
             makeDefaultAddress: makeDefaultAddress,
             sameBillingAddress: sameBillingAddress
         )
@@ -183,4 +188,3 @@ extension CheckoutFormVC: UITableViewDelegate, UITableViewDataSource, FormTblCel
         return UITableView.automaticDimension
     }
 }
-

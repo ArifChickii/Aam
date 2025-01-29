@@ -11,18 +11,57 @@ class ProductFormViewModel {
     var makeDefaultAddress = "Make this my default address"
     var saveBillingAddress = "Same billing address"
     
+    // The list of all form fields in the checkout screen:
     var formFields: [ProductFormModel] = []
     
     init() {
         formFields = [
-            ProductFormModel(title: "Full Name", placeHolder: "Enter your full name", value: nil, isRequired: true),
-            ProductFormModel(title: "Address", placeHolder: "Enter your address", value: nil, isRequired: true),
-            ProductFormModel(title: "Apartment/Unit No", placeHolder: "Enter apartment/unit number", value: nil, isRequired: true),
-            ProductFormModel(title: "Postal / Zipcode", placeHolder: "Enter postal/zipcode", value: nil, isRequired: true),
-            ProductFormModel(title: "Country", placeHolder: "Enter your country", value: nil, isRequired: true),
-            ProductFormModel(title: "City", placeHolder: "Enter your city", value: nil, isRequired: true),
-            ProductFormModel(title: "Make this my default address", placeHolder: "", value: "false", isRequired: false),
-            ProductFormModel(title: "Same billing address", placeHolder: "", value: "false", isRequired: false)
+            ProductFormModel(title: "Full Name",
+                             placeHolder: "Enter your full name",
+                             value: nil,
+                             isRequired: true),
+            
+            ProductFormModel(title: "Address",
+                             placeHolder: "Enter your address",
+                             value: nil,
+                             isRequired: true),
+            
+            // CHANGE #2: "Apartment/Unit No" is now OPTIONAL
+            ProductFormModel(title: "Apartment/Unit No",
+                             placeHolder: "Enter apartment/unit number",
+                             value: nil,
+                             isRequired: false),
+            
+            ProductFormModel(title: "Postal / Zipcode",
+                             placeHolder: "Enter postal/zipcode",
+                             value: nil,
+                             isRequired: true),
+            
+            ProductFormModel(title: "Country",
+                             placeHolder: "Enter your country",
+                             value: nil,
+                             isRequired: true),
+            
+            ProductFormModel(title: "City",
+                             placeHolder: "Enter your city",
+                             value: nil,
+                             isRequired: true),
+            
+            // NEW FIELD: Province/Territory
+            ProductFormModel(title: "Province/Territory",
+                             placeHolder: "Enter province or territory",
+                             value: nil,
+                             isRequired: true),
+            
+            ProductFormModel(title: makeDefaultAddress,
+                             placeHolder: "",
+                             value: "false",
+                             isRequired: false),
+            
+            ProductFormModel(title: saveBillingAddress,
+                             placeHolder: "",
+                             value: "false",
+                             isRequired: false)
         ]
     }
     
@@ -34,7 +73,7 @@ class ProductFormViewModel {
                 formFields[index].value = address.fullName
             case "Address":
                 formFields[index].value = address.address
-            case "Flat/Block No":
+            case "Apartment/Unit No":
                 formFields[index].value = address.flatOrBlockNo
             case "Postal / Zipcode":
                 formFields[index].value = address.postalCode
@@ -42,6 +81,8 @@ class ProductFormViewModel {
                 formFields[index].value = address.country
             case "City":
                 formFields[index].value = address.city
+            case "Province/Territory":
+                formFields[index].value = address.provinceOrTerritory
             case "Make this my default address":
                 formFields[index].value = address.makeDefaultAddress ? "true" : "false"
             case "Same billing address":

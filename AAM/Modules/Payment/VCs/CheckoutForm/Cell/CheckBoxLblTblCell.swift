@@ -2,12 +2,9 @@
 //  CheckBoxLblTblCell.swift
 //  AAM
 //
-//  Created by Arif on 04/11/2024.
-//
 
 import UIKit
 
-/// Delegate protocol to handle checkbox value changes.
 protocol CheckBoxLblTblCellDelegate: AnyObject {
     func checkBoxLblTblCell(_ cell: CheckBoxLblTblCell, didChangeValue isChecked: Bool)
 }
@@ -22,21 +19,19 @@ class CheckBoxLblTblCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(checkBoxTapped))
         imgCheckBox.isUserInteractionEnabled = true
         imgCheckBox.addGestureRecognizer(tapGesture)
     }
-
-    /// Configures the cell with title and checked state.
+    
     func configure(isChecked: Bool, title: String) {
         self.isChecked = isChecked
-        self.lblTitle.text = title
-        self.updateCheckBoxImage()
+        lblTitle.text  = title
+        updateCheckBoxImage()
     }
     
     private func updateCheckBoxImage() {
-        self.imgCheckBox.image = isChecked ? UIImage(named: "checked") : UIImage(named: "uncheck")
+        imgCheckBox.image = isChecked ? UIImage(named: "checked") : UIImage(named: "uncheck")
     }
     
     @objc private func checkBoxTapped() {
