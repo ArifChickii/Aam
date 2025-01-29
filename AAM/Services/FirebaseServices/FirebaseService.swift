@@ -249,16 +249,20 @@ class FirebaseService {
                     // ========== NEW CODE ========== //
                     // After creating the product with status="active",
                     // increment the user's activeCount by 1.
-                    self.incrementSellerStat(for: currentUser.uid,
-                                             field: "activeCount",
-                                             delta: 1) { incResult in
-                        switch incResult {
+                    incrementSellerStat(for: currentUser.uid,
+                                        field: "activeCount",
+                                        delta: 1) { result in
+                        
+                        
+                        switch result {
                         case .success():
                             completion(.success(newProductRef.documentID))
                         case .failure(let statError):
                             completion(.failure(statError))
                         }
+                        
                     }
+
                     // ================================
                 }
             }
@@ -631,16 +635,41 @@ extension FirebaseService {
                              delta: Int,
                              completion: @escaping (Result<Void, Error>) -> Void) {
         let statsRef = db.collection("sellerStats").document(sellerId)
-        statsRef.updateData([
-            field: FieldValue.increment(Int64(delta))
-        ]) { error in
+        
+        // 1) Check if doc exists
+        statsRef.getDocument { (docSnapshot, error) in
             if let error = error {
                 completion(.failure(error))
+                return
+            }
+            
+            if let docSnapshot = docSnapshot, docSnapshot.exists {
+                // 2) If doc ALREADY exists, just update (increment) the field
+                statsRef.updateData([
+                    field: FieldValue.increment(Int64(delta))
+                ]) { updateError in
+                    if let updateError = updateError {
+                        completion(.failure(updateError))
+                    } else {
+                        completion(.success(()))
+                    }
+                }
             } else {
-                completion(.success(()))
+                // 3) If doc does NOT exist, create it
+                //    We set the field = delta, so it starts at +delta
+                statsRef.setData([
+                    field: delta
+                ]) { setError in
+                    if let setError = setError {
+                        completion(.failure(setError))
+                    } else {
+                        completion(.success(()))
+                    }
+                }
             }
         }
     }
+
                              
 }
 

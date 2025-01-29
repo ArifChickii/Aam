@@ -5,71 +5,87 @@
 //  Created by Arif on 26/12/2024.
 //
 
-
 import Foundation
 import UIKit
 import FirebaseAuth
 
-/// ViewModel responsible for fetching seller profile info and products
 class SellerProfileViewModel {
     
     private let firebaseService = FirebaseService()
     
-    // Store user info
-    var sellerInfo: UserModel? {
-        didSet {
-            // Once the seller's data is set, notify the VC to update UI
-            self.onSellerInfoFetched?(sellerInfo)
-        }
-    }
+    /// The userId we want to display. If nil => use current logged-in user.
+    let userId: String?
     
-    // Store products
-    var products: [ProductInfo] = [] {
-        didSet {
-            // Once products are fetched, notify the VC to update the collection view
-            self.onProductsFetched?()
-        }
-    }
-    
-    // Callbacks to notify the VC when data is fetched
+    // MARK: - Observables / Callbacks
     var onSellerInfoFetched: ((UserModel?) -> Void)?
     var onProductsFetched: (() -> Void)?
     
-    /// Fetch the current user's info (assuming the seller is the logged-in user)
+    // MARK: - Data
+    var sellerInfo: UserModel? {
+        didSet {
+            onSellerInfoFetched?(sellerInfo)
+        }
+    }
+    
+    var products: [ProductInfo] = [] {
+        didSet {
+            onProductsFetched?()
+        }
+    }
+    
+    // MARK: - Init
+    init(userId: String?) {
+        self.userId = userId
+    }
+    
+    // MARK: - Fetch Seller Info
     func fetchSellerInfo() {
-        guard let uid = Auth.auth().currentUser?.uid else {
-            print("User not logged in")
-            return
+        // If userId is nil => show current user
+        if let explicitUserId = userId {
+            getUserInfo(for: explicitUserId)
+        } else {
+            guard let currentUid = Auth.auth().currentUser?.uid else {
+                print("No current user logged in, userId is also nil.")
+                return
+            }
+            getUserInfo(for: currentUid)
+        }
+    }
+    
+    // MARK: - Fetch Seller Products
+    func fetchAllProducts() {
+        let finalUserId: String
+        if let id = userId {
+            finalUserId = id
+        } else {
+            guard let currentUid = Auth.auth().currentUser?.uid else {
+                print("No current user & userId nil.")
+                return
+            }
+            finalUserId = currentUid
         }
         
+        // Fetch all products & filter by sellerId
+        firebaseService.fetchProducts { [weak self] allProducts in
+            guard let self = self else { return }
+            let userProducts = allProducts.filter { product in
+                product.sellerId == finalUserId
+            }
+            self.products = userProducts
+        }
+    }
+    
+    // MARK: - Helper: actually fetch user doc
+    private func getUserInfo(for uid: String) {
         firebaseService.fetchUserInformation(uid: uid) { [weak self] result in
             switch result {
             case .success(let userModel):
                 self?.sellerInfo = userModel
             case .failure(let error):
-                print("Error fetching seller info: \(error.localizedDescription)")
+                print("Error fetching user info: \(error.localizedDescription)")
+                self?.sellerInfo = nil
             }
         }
     }
-    
-    /// Fetch all products (you can customize this to fetch only the seller's products if needed)
-    func fetchAllProducts() {
-        guard let userId = Auth.auth().currentUser?.uid else {
-            print("User not logged in")
-            return
-        }
-        
-        firebaseService.fetchProducts { [weak self] allProducts in
-            // Filter the products by sellerId == current userId
-            print(allProducts.count)
-            
-            let userProducts = allProducts.filter({ (product: ProductInfo) -> Bool in
-                
-                return product.sellerId == userId
-            })
-            self?.products = userProducts
-        }
-        
-        
-    }
 }
+

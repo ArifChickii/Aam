@@ -53,52 +53,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "FB4DE66E-9836-415C-9B3C-F8F7F4089D75"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AAM/Modules/Authentication/View/AuthenticationVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "459"
-            endingLineNumber = "459"
-            landmarkName = "ensureStripeCustomerId()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "FB4DE66E-9836-415C-9B3C-F8F7F4089D75 - 6530650604cd929"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Swift.String, Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRDocumentSnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in AAM.AuthenticationVC.ensureStripeCustomerId() -&gt; ()"
-                  moduleName = "AAM"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/arif/Desktop/Documents/Aam/AAM/Modules/Authentication/View/AuthenticationVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "460"
-                  endingLineNumber = "460">
-               </Location>
-               <Location
-                  uuid = "FB4DE66E-9836-415C-9B3C-F8F7F4089D75 - 6530650604cd929"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Swift.String, Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRDocumentSnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in AAM.AuthenticationVC.ensureStripeCustomerId() -&gt; ()"
-                  moduleName = "AAM"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/arif/Desktop/Documents/Aam/AAM/Modules/Authentication/View/AuthenticationVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "460"
-                  endingLineNumber = "460">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "F51CFFF8-4575-4857-9879-0A1EFF1D5A0D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -154,25 +108,9 @@
             filePath = "AAM/Services/FirebaseServices/FirebaseService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "823"
-            endingLineNumber = "823"
+            startingLineNumber = "852"
+            endingLineNumber = "852"
             landmarkName = "setProductStatus(productId:newStatus:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "224DDCAD-D5F6-4216-8E13-85F5CB6560EA"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AAM/Services/FirebaseServices/FirebaseService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "247"
-            endingLineNumber = "247"
-            landmarkName = "saveProductInfo(product:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

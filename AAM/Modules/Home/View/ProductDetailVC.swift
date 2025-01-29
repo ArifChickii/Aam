@@ -357,8 +357,21 @@ extension ProductDetailVC: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView,
+                   didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        // If user taps the row containing the "owner info"
+        if indexPath.row == 6 {
+            guard let ownerId = productDetailObj?.owner_infor?.userId,
+                  !ownerId.isEmpty else {
+                print("No seller/owner ID found")
+                return
+            }
+            
+            
+            Router.showSellerProfileVC(from: self, forUserId: ownerId)
+        }
     }
 }
 

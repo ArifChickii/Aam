@@ -88,7 +88,7 @@ extension SellerHubVc: UITableViewDelegate {
         case .item(let itemData):
             // handle row
             if itemData.title.lowercased() == "profile" {
-                Router.showSellerProfileVC(from: self)
+                Router.showSellerProfileVC(from: self, forUserId: nil)
             } else if itemData.title.lowercased() == "view listings" {
                 Router.showSellerListingsVc(from: self)
             } else if itemData.title == "Sold Items" {
