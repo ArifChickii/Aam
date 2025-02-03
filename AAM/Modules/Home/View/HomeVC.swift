@@ -10,9 +10,11 @@ import UIKit
 class HomeVC: UIViewController, Storyboarded {
     
     @IBOutlet weak var productTblView: UITableView!
+    @IBOutlet weak var lblSearchBy: UILabel!
     private let viewModel = HomeViewModel()
     private let productViewModel = ProductsViewModel()
     @IBOutlet weak var searchTextField: UITextField!
+    
     
     // A reference to your FirebaseService
     private let firebaseService = FirebaseService()
@@ -20,6 +22,10 @@ class HomeVC: UIViewController, Storyboarded {
     // Store the IDs of favorite products locally for quick checks
     private var favoriteProductIDs = Set<String>()
     
+    // MARK: - New Property
+    // Toggles whether we are searching by Category Title (true) or Product Title (false)
+    private var searchingByCategory: Bool = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,7 +50,7 @@ class HomeVC: UIViewController, Storyboarded {
     
     /// Fetch the user's current favorite product IDs from Firestore
     private func fetchFavoriteIDs() {
-//        LoaderManager.shared.showLoader(on: self.view, message: "Loading favorites...")
+        // LoaderManager.shared.showLoader(on: self.view, message: "Loading favorites...")
         
         firebaseService.fetchFavoriteProductIDs { [weak self] result in
             guard let self = self else { return }
@@ -68,12 +74,28 @@ class HomeVC: UIViewController, Storyboarded {
     }
     
     private func registerCells() {
-        productTblView.register(UINib(nibName: ProductTblCell.identifier, bundle: nil),
-                                forCellReuseIdentifier: ProductTblCell.identifier)
+        productTblView.register(
+            UINib(nibName: ProductTblCell.identifier, bundle: nil),
+            forCellReuseIdentifier: ProductTblCell.identifier
+        )
     }
 
     @IBAction func backAction(){
         Router.pop(from: self)
+    }
+    
+    // MARK: - New IBAction for toggling search mode
+    @IBAction func toggleSearchMode(_ sender: UIButton) {
+        searchingByCategory.toggle()
+        
+        // Optionally: update the button title or UI to indicate the current mode
+        let currentMode = searchingByCategory ? "Category" : "Title"
+        lblSearchBy.text = "Search by: \(currentMode)"
+        // Clear existing text and reload data so we start fresh
+        searchTextField.text = ""
+        productViewModel.isFiltering = false
+        productViewModel.filterProducts(by: "", searchingByCategory: searchingByCategory)
+        productTblView.reloadData()
     }
 }
 
@@ -101,7 +123,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource,
         let isCurrentlyFavorite = favoriteProductIDs.contains(productId)
         
         // Show loader
-//        LoaderManager.shared.showLoader(on: self.view, message: isCurrentlyFavorite ? "Removing from favorites..." : "Adding to favorites...")
+        // LoaderManager.shared.showLoader(on: self.view, message: isCurrentlyFavorite ? "Removing from favorites..." : "Adding to favorites...")
         
         if isCurrentlyFavorite {
             // Remove from favorites
@@ -195,7 +217,9 @@ extension HomeVC: UITextFieldDelegate {
         let searchText  = currentText.replacingCharacters(in: range, with: string)
         
         productViewModel.isFiltering = !searchText.isEmpty
-        productViewModel.filterProducts(by: searchText)
+        
+        // Pass the new parameter `searchingByCategory` to the filter function
+        productViewModel.filterProducts(by: searchText, searchingByCategory: searchingByCategory)
         
         productTblView.reloadData()
         return true
@@ -203,7 +227,8 @@ extension HomeVC: UITextFieldDelegate {
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         productViewModel.isFiltering = false
-        productViewModel.filterProducts(by: "")
+        // Also pass `searchingByCategory` here
+        productViewModel.filterProducts(by: "", searchingByCategory: searchingByCategory)
         productTblView.reloadData()
         return true
     }
