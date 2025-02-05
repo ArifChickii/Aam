@@ -24,6 +24,14 @@ class ProductsViewModel {
         }
     }
     
+    // MARK: - Remove My Own Products
+    /// Filters out any product owned by the user with the given userId.
+    func removeMyOwnProducts(withUserId userId: String) {
+        products = products.filter { $0.owner_infor?.userId != userId }
+        filteredProducts = filteredProducts.filter { $0.owner_infor?.userId != userId }
+    }
+    
+    // MARK: - Category/Color/Size/Fabric Fetching
     func fetchCategories(completion: (() -> Void)? = nil) {
         productService.fetchCategories { categories in
             print(categories)
@@ -63,15 +71,16 @@ class ProductsViewModel {
         }
     }
     
+    // MARK: - Table View Helpers
     func numberOfProducts() -> Int {
-        return isFiltering ? filteredProducts.count : self.products.count
+        return isFiltering ? filteredProducts.count : products.count
     }
 
     func product(at index: Int) -> ProductInfo {
         return isFiltering ? filteredProducts[index] : products[index]
     }
     
-    // MARK: - Updated filter function
+    // MARK: - Filtering by Title or Category
     func filterProducts(by searchText: String, searchingByCategory: Bool) {
         if searchText.isEmpty {
             filteredProducts = products

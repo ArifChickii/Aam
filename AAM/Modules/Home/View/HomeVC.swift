@@ -1,10 +1,3 @@
-//
-//  HomeVC.swift
-//  AAM
-//
-//  Created by Arif ww on 08/08/2024.
-//
-
 import UIKit
 
 class HomeVC: UIViewController, Storyboarded {
@@ -15,14 +8,12 @@ class HomeVC: UIViewController, Storyboarded {
     private let productViewModel = ProductsViewModel()
     @IBOutlet weak var searchTextField: UITextField!
     
-    
     // A reference to your FirebaseService
     private let firebaseService = FirebaseService()
     
     // Store the IDs of favorite products locally for quick checks
     private var favoriteProductIDs = Set<String>()
     
-    // MARK: - New Property
     // Toggles whether we are searching by Category Title (true) or Product Title (false)
     private var searchingByCategory: Bool = false
 
@@ -36,14 +27,25 @@ class HomeVC: UIViewController, Storyboarded {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // 1) Fetch all products
+        // 1) Fetch all products from Firestore
         productViewModel.fetchProducts { [weak self] in
             guard let self = self else { return }
+            
+            // 2) Figure out who the current user is
+            if let userId = self.firebaseService.auth.currentUser?.uid {
+                // 3) Remove my own products
+                self.productViewModel.removeMyOwnProducts(withUserId: userId)
+            } else {
+                // If there's no logged-in user, do nothing special
+                print("No user currently logged in. Showing all products.")
+            }
+            
+            // 4) Reload table to see only other user’s products
             DispatchQueue.main.async {
                 self.productTblView.reloadData()
             }
             
-            // 2) Now fetch favorite IDs for the current user
+            // 5) Now fetch favorite IDs for the current user
             self.fetchFavoriteIDs()
         }
     }
@@ -84,17 +86,19 @@ class HomeVC: UIViewController, Storyboarded {
         Router.pop(from: self)
     }
     
-    // MARK: - New IBAction for toggling search mode
+    // MARK: - Toggle Search Mode
     @IBAction func toggleSearchMode(_ sender: UIButton) {
         searchingByCategory.toggle()
         
-        // Optionally: update the button title or UI to indicate the current mode
+        // Optionally update the button title or UI to indicate the current mode
         let currentMode = searchingByCategory ? "Category" : "Title"
+        
         lblSearchBy.text = "Search by: \(currentMode)"
         // Clear existing text and reload data so we start fresh
         searchTextField.text = ""
         productViewModel.isFiltering = false
-        productViewModel.filterProducts(by: "", searchingByCategory: searchingByCategory)
+        productViewModel.filterProducts(by: "",
+                                        searchingByCategory: searchingByCategory)
         productTblView.reloadData()
     }
 }
@@ -122,7 +126,6 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource,
         // Check if it's already in favorites
         let isCurrentlyFavorite = favoriteProductIDs.contains(productId)
         
-        // Show loader
         // LoaderManager.shared.showLoader(on: self.view, message: isCurrentlyFavorite ? "Removing from favorites..." : "Adding to favorites...")
         
         if isCurrentlyFavorite {
@@ -218,8 +221,9 @@ extension HomeVC: UITextFieldDelegate {
         
         productViewModel.isFiltering = !searchText.isEmpty
         
-        // Pass the new parameter `searchingByCategory` to the filter function
-        productViewModel.filterProducts(by: searchText, searchingByCategory: searchingByCategory)
+        // Pass the toggled parameter `searchingByCategory` to the filter function
+        productViewModel.filterProducts(by: searchText,
+                                        searchingByCategory: searchingByCategory)
         
         productTblView.reloadData()
         return true
@@ -227,8 +231,8 @@ extension HomeVC: UITextFieldDelegate {
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         productViewModel.isFiltering = false
-        // Also pass `searchingByCategory` here
-        productViewModel.filterProducts(by: "", searchingByCategory: searchingByCategory)
+        productViewModel.filterProducts(by: "",
+                                        searchingByCategory: searchingByCategory)
         productTblView.reloadData()
         return true
     }

@@ -41,16 +41,14 @@ class Router {
  
     static func showSellerProfileVC(from currentVC: UIViewController, forUserId userId: String?) {
         let vc = SellerProfileVC.instantiate(storyBoardName: "SellerHub")
-        
         // Create a view model and assign the userId we want to show
         let viewModel = SellerProfileViewModel(userId: userId)
-        
         // Pass the view model to the VC
         vc.viewModel = viewModel
-        
         // Navigate
         currentVC.navigationController?.pushViewController(vc, animated: true)
     }
+    
     
     static func showSellerListingsVc(from currentVC: UIViewController) {
         let vc = SellerListingsVc.instantiate(storyBoardName: "SellerHub")

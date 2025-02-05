@@ -393,9 +393,6 @@ class AddProductVC: UIViewController, Storyboarded {
         editingProduct.price       = viewModel.selectedPriceValues?.price
         editingProduct.cutPrice    = viewModel.selectedPriceValues?.cutPrice
         
-        // Optionally re-fetch user doc if you want to update the owner's profile info?
-        // Typically, you'd keep the old `owner_infor`. We'll just keep it as is.
-        
         viewModel.updateProductInFirebase(productObj: editingProduct) { [weak self] resultMessage in
             guard let self = self else { return }
             LoaderManager.shared.hideLoader()
@@ -656,13 +653,61 @@ extension AddProductVC: UITableViewDelegate, UITableViewDataSource {
 // MARK: - UIImagePickerControllerDelegate & UINavigationControllerDelegate
 extension AddProductVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    // MARK: Updated function to present an Action Sheet
     func openImagePicker(for rowIndex: Int) {
-        let imagePickerController        = UIImagePickerController()
-        imagePickerController.delegate   = self
-        imagePickerController.sourceType = .photoLibrary
-        present(imagePickerController, animated: true)
+        let alert = UIAlertController(title: "Select Image", message: nil, preferredStyle: .actionSheet)
+        
+        // 1. Capture Photo (Camera)
+        let cameraAction = UIAlertAction(title: "Capture Photo", style: .default) { _ in
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                let imagePickerController = UIImagePickerController()
+                imagePickerController.delegate = self
+                imagePickerController.sourceType = .camera
+                imagePickerController.cameraCaptureMode = .photo
+                self.present(imagePickerController, animated: true, completion: nil)
+            } else {
+                // If no camera available, show alert
+                let noCameraAlert = UIAlertController(
+                    title: "Camera not available",
+                    message: "This device has no camera.",
+                    preferredStyle: .alert
+                )
+                noCameraAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(noCameraAlert, animated: true, completion: nil)
+            }
+        }
+        
+        // 2. Open Gallery
+        let galleryAction = UIAlertAction(title: "Open Gallery", style: .default) { _ in
+            let imagePickerController = UIImagePickerController()
+            imagePickerController.delegate   = self
+            imagePickerController.sourceType = .photoLibrary
+            self.present(imagePickerController, animated: true)
+        }
+        
+        // 3. Cancel
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(cameraAction)
+        alert.addAction(galleryAction)
+        alert.addAction(cancelAction)
+        
+        // For iPad support (avoid crash with .actionSheet on iPad):
+        if let popoverController = alert.popoverPresentationController {
+            popoverController.sourceView = self.view
+            popoverController.sourceRect = CGRect(
+                x: self.view.bounds.midX,
+                y: self.view.bounds.midY,
+                width: 0,
+                height: 0
+            )
+            popoverController.permittedArrowDirections = []
+        }
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
+    // Handle picked image
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let selectedImage = info[.originalImage] as? UIImage {
@@ -675,6 +720,7 @@ extension AddProductVC: UIImagePickerControllerDelegate, UINavigationControllerD
         picker.dismiss(animated: true)
     }
     
+    // Handle cancel
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true)
     }
