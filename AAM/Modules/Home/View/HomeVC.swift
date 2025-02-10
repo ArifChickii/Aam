@@ -101,6 +101,14 @@ class HomeVC: UIViewController, Storyboarded {
                                         searchingByCategory: searchingByCategory)
         productTblView.reloadData()
     }
+    
+    @IBAction func bellIconTapped(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Notification", bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "NotificationListVc") as? NotificationListVc {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+
 }
 
 // MARK: - UITableView
@@ -117,6 +125,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource,
     }
     
     // ========== 2) For the like button tapping ==========
+    
     func didTapLikeButton(in cell: ProductTblCell) {
         guard let indexPath = productTblView.indexPath(for: cell) else { return }
         let tappedProduct = productViewModel.product(at: indexPath.row)
@@ -126,14 +135,18 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource,
         // Check if it's already in favorites
         let isCurrentlyFavorite = favoriteProductIDs.contains(productId)
         
-        // LoaderManager.shared.showLoader(on: self.view, message: isCurrentlyFavorite ? "Removing from favorites..." : "Adding to favorites...")
+        // We’ll use these after success
+        guard let sellerId = tappedProduct.sellerId, !sellerId.isEmpty else {
+            print("Product has no seller ID, cannot notify.")
+            return
+        }
+        let productTitle = tappedProduct.title ?? ""
         
         if isCurrentlyFavorite {
-            // Remove from favorites
+            // ========== 1) Remove from favorites ==========
             firebaseService.removeProductFromFavorites(productId: productId) { [weak self] result in
                 guard let self = self else { return }
-                LoaderManager.shared.hideLoader()
-                
+                // LoaderManager.shared.hideLoader() if used
                 switch result {
                 case .success():
                     // Update local set
@@ -142,16 +155,29 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource,
                     cell.setLikeIcon(isFavorite: false)
                     print("Removed product \(tappedProduct.title ?? "") from favorites.")
                     
+                    // ========== 2) Notify the seller about "unliked" ==========
+                    self.firebaseService.notifySellerAboutLikeChange(
+                        sellerId: sellerId,
+                        productTitle: productTitle,
+                        action: "unliked"
+                    ) { notifyResult in
+                        switch notifyResult {
+                        case .success():
+                            print("Push & Notification doc for 'unlike' done.")
+                        case .failure(let e):
+                            print("Error sending push for 'unlike': \(e.localizedDescription)")
+                        }
+                    }
+                    
                 case .failure(let error):
                     print("Failed to remove from favorites: \(error.localizedDescription)")
                 }
             }
         } else {
-            // Add to favorites
+            // ========== 1) Add to favorites ==========
             firebaseService.addProductToFavorites(product: tappedProduct) { [weak self] result in
                 guard let self = self else { return }
-                LoaderManager.shared.hideLoader()
-                
+                // LoaderManager.shared.hideLoader() if used
                 switch result {
                 case .success():
                     // Update local set
@@ -160,12 +186,27 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource,
                     cell.setLikeIcon(isFavorite: true)
                     print("Added product \(tappedProduct.title ?? "") to favorites.")
                     
+                    // ========== 2) Notify the seller about "liked" ==========
+                    self.firebaseService.notifySellerAboutLikeChange(
+                        sellerId: sellerId,
+                        productTitle: productTitle,
+                        action: "liked"
+                    ) { notifyResult in
+                        switch notifyResult {
+                        case .success():
+                            print("Push & Notification doc for 'like' done.")
+                        case .failure(let e):
+                            print("Error sending push for 'like': \(e.localizedDescription)")
+                        }
+                    }
+                    
                 case .failure(let error):
                     print("Failed to add to favorites: \(error.localizedDescription)")
                 }
             }
         }
     }
+
     
     // ========== 3) TableView DataSource ==========
     func tableView(_ tableView: UITableView,

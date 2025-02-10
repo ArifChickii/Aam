@@ -106,13 +106,25 @@
                                                     <constraint firstAttribute="height" constant="20" id="s44-cj-FCE"/>
                                                 </constraints>
                                             </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Znn-y7-CP1">
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="    "/>
+                                                <connections>
+                                                    <action selector="bellIconTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="mB9-bb-ZEa"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" name="bell_bg_color"/>
                                         <constraints>
+                                            <constraint firstItem="Znn-y7-CP1" firstAttribute="leading" secondItem="y2i-yl-LT0" secondAttribute="leading" id="5tO-Mz-U3Q"/>
                                             <constraint firstAttribute="width" constant="50" id="8RV-Tm-gZZ"/>
                                             <constraint firstAttribute="height" constant="50" id="L3b-ne-4zy"/>
                                             <constraint firstItem="aq2-pQ-ZnR" firstAttribute="centerX" secondItem="y2i-yl-LT0" secondAttribute="centerX" id="UYg-Zb-gHs"/>
+                                            <constraint firstAttribute="trailing" secondItem="Znn-y7-CP1" secondAttribute="trailing" id="YBg-N9-X6T"/>
+                                            <constraint firstAttribute="bottom" secondItem="Znn-y7-CP1" secondAttribute="bottom" id="a2s-c1-lV8"/>
                                             <constraint firstItem="aq2-pQ-ZnR" firstAttribute="centerY" secondItem="y2i-yl-LT0" secondAttribute="centerY" id="wPf-Fq-rGm"/>
+                                            <constraint firstItem="Znn-y7-CP1" firstAttribute="top" secondItem="y2i-yl-LT0" secondAttribute="top" id="xvx-BW-Jhq"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

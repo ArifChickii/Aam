@@ -90,6 +90,70 @@
             </objects>
             <point key="canvasLocation" x="47" y="-17"/>
         </scene>
+        <!--Notification List Vc-->
+        <scene sceneID="BlC-pi-272">
+            <objects>
+                <viewController storyboardIdentifier="NotificationListVc" id="cBp-Kb-Z9n" customClass="NotificationListVc" customModule="AAM" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SJ0-PB-H0h">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8mH-Hk-OSd">
+                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notification" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3qc-8v-kyt">
+                                        <rect key="frame" x="154.66666666666666" y="10.333333333333327" width="84" height="23.333333333333329"/>
+                                        <fontDescription key="fontDescription" name="Jost-SemiBold" family="Jost" pointSize="16"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jfr-gw-jdK">
+                                        <rect key="frame" x="20" y="0.0" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="7Ok-dV-gky"/>
+                                            <constraint firstAttribute="width" constant="44" id="U1c-Yg-IMZ"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="ic_back" title="  "/>
+                                        <connections>
+                                            <action selector="backBtnAction" destination="cBp-Kb-Z9n" eventType="touchUpInside" id="KCw-7U-rfc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="3qc-8v-kyt" firstAttribute="centerY" secondItem="8mH-Hk-OSd" secondAttribute="centerY" id="0IJ-nb-fFD"/>
+                                    <constraint firstItem="jfr-gw-jdK" firstAttribute="centerY" secondItem="8mH-Hk-OSd" secondAttribute="centerY" id="8Jg-nN-OwI"/>
+                                    <constraint firstAttribute="height" constant="44" id="qxX-ys-QiU"/>
+                                    <constraint firstItem="3qc-8v-kyt" firstAttribute="centerX" secondItem="8mH-Hk-OSd" secondAttribute="centerX" id="xjm-jB-qHm"/>
+                                    <constraint firstItem="jfr-gw-jdK" firstAttribute="leading" secondItem="8mH-Hk-OSd" secondAttribute="leading" constant="20" id="xqq-ER-TzX"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vrw-MJ-0Fu">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="k46-9L-b60"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="8mH-Hk-OSd" firstAttribute="top" secondItem="k46-9L-b60" secondAttribute="top" id="8MC-EE-jZK"/>
+                            <constraint firstItem="vrw-MJ-0Fu" firstAttribute="top" secondItem="8mH-Hk-OSd" secondAttribute="bottom" id="MVL-vu-X9a"/>
+                            <constraint firstAttribute="trailing" secondItem="8mH-Hk-OSd" secondAttribute="trailing" id="X1v-py-ivr"/>
+                            <constraint firstItem="vrw-MJ-0Fu" firstAttribute="leading" secondItem="k46-9L-b60" secondAttribute="leading" id="cbF-Ki-aSh"/>
+                            <constraint firstItem="k46-9L-b60" firstAttribute="bottom" secondItem="vrw-MJ-0Fu" secondAttribute="bottom" id="eYl-Ah-O68"/>
+                            <constraint firstItem="k46-9L-b60" firstAttribute="trailing" secondItem="vrw-MJ-0Fu" secondAttribute="trailing" id="f6j-Yj-LAP"/>
+                            <constraint firstItem="8mH-Hk-OSd" firstAttribute="leading" secondItem="k46-9L-b60" secondAttribute="leading" id="qtY-zT-Nwr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="vrw-MJ-0Fu" id="tZH-g9-L2S"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yJe-Lm-hpU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="708" y="-18"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ic_back" width="24" height="24.666666030883789"/>
