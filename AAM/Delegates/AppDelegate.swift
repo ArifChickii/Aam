@@ -11,10 +11,10 @@ import FirebaseCore
 import IQKeyboardManagerSwift
 import GoogleSignIn
 import StripePayments
-
+import FirebaseMessaging
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUserNotificationCenterDelegate {
 
     // MARK: - UIApplicationDelegate Methods
 
@@ -22,6 +22,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Configure Firebase
         FirebaseApp.configure()
+        
+        // Ask for Notification Permission
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
+            if granted {
+                DispatchQueue.main.async {
+                    application.registerForRemoteNotifications()
+                }
+            }
+        }
+        
+        // Set UNUserNotificationCenter delegate to self
+        UNUserNotificationCenter.current().delegate = self
+        
+        // Set Messaging delegate to self
+        Messaging.messaging().delegate = self
         
         // Configure IQKeyboardManager
         IQKeyboardManager.shared.enable = true
@@ -57,6 +72,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Other URL handling if necessary
         return false
     }
+    
+    // MARK: - APNs Token Registration
+    func application(_ application: UIApplication,
+                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        // Pass device token to Messaging
+        Messaging.messaging().apnsToken = deviceToken
+    }
+    
+    // MARK: - FCM Token Refresh
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        guard let fcmToken = fcmToken else { return }
+        print("FCM Registration Token: \(fcmToken)")
+        
+        // Store it in Firestore
+        let service = FirebaseService()
+        service.updateUserFCMToken(fcmToken) { result in
+            switch result {
+            case .success():
+                print("✅ FCM token updated in Firestore")
+            case .failure(let err):
+                print("❌ Failed to update FCM token: \(err.localizedDescription)")
+            }
+        }
+    }
+
+    
+    // MARK: - Handle Notification when App is in Foreground
+    // This method is called when a notification arrives while the app is in foreground
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        // Show the notification alert (banner), and play a sound
+        completionHandler([.alert, .sound])
+    }
+    
+    // MARK: - Respond to User Tapping on Notification
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        // Process the user’s action when tapping the notification
+        completionHandler()
+    }
+    
 
     // MARK: - UISceneSession Lifecycle
 

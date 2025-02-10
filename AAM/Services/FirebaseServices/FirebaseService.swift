@@ -1334,3 +1334,178 @@ extension FirebaseService {
         }
     }
 }
+// saving fcm token to firebase
+extension FirebaseService{
+    func updateUserFCMToken(_ fcmToken: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            completion(.failure(NSError(domain: "FirebaseService", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not logged in"])))
+            return
+        }
+        let userRef = db.collection("users").document(uid)
+        userRef.updateData(["fcmToken": fcmToken]) { error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
+        }
+    }
+
+}
+
+import UIKit
+
+extension FirebaseService {
+    
+    // WARNING: Insecure to keep in code. This is for demo only!
+    private var fcmServerKey: String {
+        return "YOUR_SERVER_KEY"
+    }
+    
+    /// Send a push notification directly via FCM REST API.
+    /// Not recommended for production apps (server key exposure).
+    func sendPushNotification(to fcmToken: String,
+                              title: String,
+                              body: String,
+                              completion: @escaping (Result<Void, Error>) -> Void) {
+        
+        // 1) Prepare URL
+        guard let url = URL(string: "https://fcm.googleapis.com/fcm/send") else {
+            let err = NSError(domain: "FirebaseService",
+                              code: -1,
+                              userInfo: [NSLocalizedDescriptionKey: "Invalid FCM URL"])
+            return completion(.failure(err))
+        }
+        
+        // 2) Construct HTTP body
+        let notificationPayload: [String: Any] = [
+            "to": fcmToken,
+            "notification": [
+                "title": title,
+                "body": body,
+                "sound": "default"
+            ],
+            // Optional custom data
+            "data": [
+                "click_action": "FLUTTER_NOTIFICATION_CLICK",
+                "screen": "notification_screen"
+            ]
+        ]
+        
+        // 3) Create request
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        // Must have "key=<serverKey>" in Authorization
+        request.setValue("key=\(fcmServerKey)", forHTTPHeaderField: "Authorization")
+        
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: notificationPayload,
+                                                          options: .prettyPrinted)
+        } catch {
+            return completion(.failure(error))
+        }
+        
+        // 4) Send request
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                return completion(.failure(error))
+            }
+            
+            // Optionally parse `data` or `response` here to confirm success
+            completion(.success(()))
+        }
+        task.resume()
+    }
+}
+extension FirebaseService {
+
+    /// Creates a notification doc for the seller, and sends a push to their FCM token.
+    /// - Parameters:
+    ///   - sellerId: The user ID of the seller whose product was liked/unliked.
+    ///   - productTitle: Title of the product in question.
+    ///   - action: "liked" or "unliked"
+    func notifySellerAboutLikeChange(sellerId: String,
+                                     productTitle: String,
+                                     action: String,
+                                     completion: @escaping (Result<Void, Error>) -> Void)
+    {
+        guard let currentUser = auth.currentUser else {
+            let err = NSError(domain: "FirebaseService",
+                              code: -1,
+                              userInfo: [NSLocalizedDescriptionKey: "No logged-in user"])
+            return completion(.failure(err))
+        }
+        
+        // We'll fetch the current user's name from Firestore or use displayName if you prefer
+        fetchUserInformation(uid: currentUser.uid) { [weak self] result in
+            guard let self = self else { return }
+            
+            let currentUserName: String
+            switch result {
+            case .success(let userInfo):
+                currentUserName = userInfo.name ?? "Someone"
+            case .failure:
+                // Fallback if we can't fetch
+                currentUserName = currentUser.displayName ?? "Someone"
+            }
+            
+            // Next, fetch the SELLER's doc to get their fcmToken
+            self.db.collection("users").document(sellerId).getDocument { sellerDoc, error in
+                if let error = error {
+                    return completion(.failure(error))
+                }
+                guard let sellerData = sellerDoc?.data() else {
+                    let err = NSError(domain: "FirebaseService",
+                                      code: -1,
+                                      userInfo: [NSLocalizedDescriptionKey: "Seller doc not found"])
+                    return completion(.failure(err))
+                }
+                
+                let fcmToken = sellerData["fcmToken"] as? String ?? ""
+                
+                // 1) Build the notification text
+                let messageBody = "\(currentUserName) has \(action) your product \"\(productTitle)\"."
+                let notifTitle  = "Product \(action.capitalized)"
+                
+                // 2) Create a new doc in the seller's notifications sub-collection
+                let notifId = UUID().uuidString
+                let notifRef = self.db.collection("users")
+                                      .document(sellerId)
+                                      .collection("notifications")
+                                      .document(notifId)
+                
+                let payload: [String: Any] = [
+                    "id": notifId,
+                    "title": notifTitle,
+                    "body": messageBody,
+                    "timestamp": FieldValue.serverTimestamp(),
+                    "read": false
+                ]
+                
+                notifRef.setData(payload) { err in
+                    if let err = err {
+                        return completion(.failure(err))
+                    }
+                    
+                    // 3) Then send the push if the seller has a token
+                    if !fcmToken.isEmpty {
+                        self.sendPushNotification(to: fcmToken,
+                                                  title: notifTitle,
+                                                  body: messageBody) { pushResult in
+                            switch pushResult {
+                            case .success():
+                                completion(.success(()))
+                            case .failure(let error):
+                                completion(.failure(error))
+                            }
+                        }
+                    } else {
+                        // Seller has no token
+                        completion(.success(()))
+                    }
+                }
+            }
+        }
+    }
+}
