@@ -731,46 +731,67 @@ extension FirebaseService {
     //    decrement soldCount; else decrement unsoldCount.
     // ---------------------------------------------------------------------
     func deleteProduct(productId: String,
-                                     completion: @escaping (Result<Void, Error>) -> Void) {
-        
+                       completion: @escaping (Result<Void, Error>) -> Void) {
+
         let productRef = db.collection("Products").document(productId)
-        
+
         db.runTransaction({ (transaction, errorPointer) -> Any? in
             // 1) Read the product doc
             guard let productSnapshot = try? transaction.getDocument(productRef),
+                  productSnapshot.exists,
                   let data = productSnapshot.data(),
                   let sellerId = data["sellerId"] as? String,
                   let oldStatusRaw = data["status"] as? String else {
-                
-                errorPointer?.pointee = NSError(domain: "FirebaseService",
-                                                code: -1,
-                                                userInfo: [NSLocalizedDescriptionKey: "Product doc not found or missing fields"])
+
+                errorPointer?.pointee = NSError(
+                    domain: "FirebaseService",
+                    code: -1,
+                    userInfo: [NSLocalizedDescriptionKey:
+                               "Product doc not found or missing fields"]
+                )
                 return nil
             }
-            
-            // Map old status to "active"/"sold"/"unsold"
+
+            // Map the old status to "active"/"sold"/"unsold"
             let oldStatus = self.mapToRecognizedStatus(oldStatusRaw)
-            
-            // 2) Decrement the correct stat for old status
+
+            // 2) Read existing sellerStats doc (or treat as empty if it doesn’t exist)
             let statsRef = self.db.collection("sellerStats").document(sellerId)
-            
+            var statsData = [String: Any]()  // default empty if doc missing
+
+            do {
+                let statsSnapshot = try transaction.getDocument(statsRef)
+                if statsSnapshot.exists {
+                    statsData = statsSnapshot.data() ?? [:]
+                }
+            } catch {
+                // If doc doesn't exist or can’t be read, just leave statsData empty
+            }
+
+            // Provide 0 defaults if missing
+            let oldActive  = statsData["activeCount"]  as? Int ?? 0
+            let oldSold    = statsData["soldCount"]    as? Int ?? 0
+            let oldUnsold  = statsData["unsoldCount"]  as? Int ?? 0
+
+            // 3) Decrement the correct count, ensuring we do NOT go below 0
             switch oldStatus {
             case "active":
-                transaction.updateData(["activeCount": FieldValue.increment(Int64(-1))],
-                                       forDocument: statsRef)
+                statsData["activeCount"] = max(0, oldActive - 1)
             case "sold":
-                transaction.updateData(["soldCount": FieldValue.increment(Int64(-1))],
-                                       forDocument: statsRef)
+                statsData["soldCount"]   = max(0, oldSold - 1)
             case "unsold":
-                transaction.updateData(["unsoldCount": FieldValue.increment(Int64(-1))],
-                                       forDocument: statsRef)
+                statsData["unsoldCount"] = max(0, oldUnsold - 1)
             default:
+                // If it's some unrecognized status, do nothing special
                 break
             }
-            
-            // 3) Delete the product document
+
+            // 4) Write back the updated stats (using merge so we don't overwrite other fields)
+            transaction.setData(statsData, forDocument: statsRef, merge: true)
+
+            // 5) Finally, delete the product doc
             transaction.deleteDocument(productRef)
-            
+
             return nil
         }, completion: { _, error in
             if let error = error {
@@ -780,6 +801,10 @@ extension FirebaseService {
             }
         })
     }
+
+                       
+
+
     
     // 3) Mark a product as sold — for OrderInfoVC's "Confirm" button, etc.
     //    This just calls setProductStatus(..., newStatus: "sold").

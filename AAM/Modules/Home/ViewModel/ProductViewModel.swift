@@ -85,17 +85,22 @@ class ProductsViewModel {
         if searchText.isEmpty {
             filteredProducts = products
         } else {
+            let lowercasedSearch = searchText.lowercased()
+            
             if searchingByCategory {
-                // Filter by Category Title
-                filteredProducts = products.filter {
-                    ($0.category?.title ?? "").lowercased()
-                        .contains(searchText.lowercased())
+                // Filter by **Subcategories** within the product's category
+                filteredProducts = products.filter { product in
+                    let subCats = product.category?.subCategories ?? []
+                    
+                    // Convert subcategories to lowercase for matching
+                    return subCats.contains { subCat in
+                        subCat.lowercased().contains(lowercasedSearch)
+                    }
                 }
             } else {
                 // Filter by Product Title
                 filteredProducts = products.filter {
-                    ($0.title ?? "").lowercased()
-                        .contains(searchText.lowercased())
+                    ($0.title ?? "").lowercased().contains(lowercasedSearch)
                 }
             }
         }
