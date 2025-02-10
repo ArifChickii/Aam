@@ -81,6 +81,7 @@
 		80197EA82D5A62E900DB1EAE /* NotificationListVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80197EA72D5A62E900DB1EAE /* NotificationListVc.swift */; };
 		80197EAB2D5A65FD00DB1EAE /* NotificationTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80197EAA2D5A65FC00DB1EAE /* NotificationTblCell.xib */; };
 		80197EAC2D5A65FD00DB1EAE /* NotificationTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80197EA92D5A65FC00DB1EAE /* NotificationTblCell.swift */; };
+		80197EAE2D5A6AA000DB1EAE /* ReadMe.md in Resources */ = {isa = PBXBuildFile; fileRef = 80197EAD2D5A6AA000DB1EAE /* ReadMe.md */; };
 		8021AF9A2C5BBD1C00A66611 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8021AF972C5BBD1C00A66611 /* Storyboard.swift */; };
 		8021AF9E2C5BBD8E00A66611 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8021AF9D2C5BBD8E00A66611 /* Router.swift */; };
 		8021AFA32C5BBDBA00A66611 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8021AFA02C5BBDBA00A66611 /* UIView.swift */; };
@@ -281,6 +282,7 @@
 		80197EA72D5A62E900DB1EAE /* NotificationListVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationListVc.swift; sourceTree = "<group>"; };
 		80197EA92D5A65FC00DB1EAE /* NotificationTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTblCell.swift; sourceTree = "<group>"; };
 		80197EAA2D5A65FC00DB1EAE /* NotificationTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationTblCell.xib; sourceTree = "<group>"; };
+		80197EAD2D5A6AA000DB1EAE /* ReadMe.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ReadMe.md; sourceTree = "<group>"; };
 		8021AF972C5BBD1C00A66611 /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		8021AF9D2C5BBD8E00A66611 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		8021AFA02C5BBDBA00A66611 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -1186,6 +1188,7 @@
 				80E8C3BC2C5AC3BD0087F009 /* Assets.xcassets */,
 				80E8C3C12C5AC3BD0087F009 /* Info.plist */,
 				80E8C3B92C5AC3BD0087F009 /* AAM.xcdatamodeld */,
+				80197EAD2D5A6AA000DB1EAE /* ReadMe.md */,
 			);
 			path = AAM;
 			sourceTree = "<group>";
@@ -1400,6 +1403,7 @@
 				0426D3E32C882265008AF976 /* SaveToDraftTblCell.xib in Resources */,
 				040A26DC2C7C419E00C32F01 /* Jost Light 300.ttf in Resources */,
 				040A26E62C7C419E00C32F01 /* Jost ExtraLight 250.ttf in Resources */,
+				80197EAE2D5A6AA000DB1EAE /* ReadMe.md in Resources */,
 				040A26E02C7C419E00C32F01 /* Jost SemiBold Italic 600.ttf in Resources */,
 				8013C7782C751576003AA5A3 /* ProductCategoryTblCell.xib in Resources */,
 				0426D3E92C882395008AF976 /* AddProduct.storyboard in Resources */,
